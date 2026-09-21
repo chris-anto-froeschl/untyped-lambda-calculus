@@ -1,0 +1,59 @@
+# Governance model for cslib
+
+Cslib is governed by two main bodies:
+- A [steering committee](#steering-committee), responsible for securing financial support and guiding the overall vision of the project.
+- A [maintainer team](#maintainers), responsible for curating, expanding, and maintaining the code repository and its technical direction.
+
+The project also has a [reviewer team](#reviewers), consisting of trusted contributors who support the maintainer team by providing regular technical review and guidance.
+
+These groups work together to define the project's roadmap and foster a welcoming and productive environment.
+New members may be invited based on project needs and individual merit (e.g., contributions, review activity).
+
+
+## Steering committee
+
+- Clark Barrett (@barrettcw), Stanford University and Amazon.
+- Swarat Chaudhuri (@swaratchaudhuri), Google DeepMind and UT Austin.
+- Jim Grundy, Amazon.
+- Pushmeet Kohli, Google DeepMind.
+- Fabrizio Montesi (@fmontesi), University of Southern Denmark and Danish Institute for Advanced Study.
+- Leonardo de Moura (@leodemoura), Lean FRO and Amazon.
+
+## Maintainers
+
+The maintainer team is responsible for fostering the growth of the project, maintaining the quality of the codebase, establishing technical standards, and ensuring coherence across contributions. They form the technical decision-making authority for determining what code is included in CSLib.
+
+Maintainers also act as technical architects within their areas of responsibility. They are expected to guide the long-term development of those areas, promote reuse and coherence with the rest of CSLib, and help ensure that local design decisions contribute to a consistent overall architecture.
+
+### Lead maintainer
+
+The Lead Maintainer is CSLib's chief architect, coordinates the maintainer team's overall work, oversees the project's repositories, ensures the overall architectural coherence of the library, and guides its long-term technical direction.
+
+- Fabrizio Montesi (@fmontesi), FORM, University of Southern Denmark and Danish Institute for Advanced Study.
+
+### Technical leads
+
+Technical leads guide long-term developments that may span multiple areas of the codebase, offering specialised expertise.
+
+- Alexandre Rademaker (@arademaker), Renaissance Philanthropy and Getulio Vargas Foundation.
+- Sorrachai Yingchareonthawornchai (@sorrachai), ETH Zurich.
+
+### Area maintainers
+
+Area maintainers are trusted contributors who take ownership of specific areas of the codebase, supporting their growth both as subject-matter experts and reviewers.
+
+- Chris Henson (@chenson2018), Drexel University. Areas: Lambda calculus, metaprogramming.
+- Kim Morrison (@kim-em), Lean FRO. Areas: Continuous Integration and Deployment (CI/CD) with upstream (Lean, mathlib).
+- Alexandre Rademaker (@arademaker), Renaissance Philanthropy and Getulio Vargas Foundation. Areas: logic.
+- Sorrachai Yingchareonthawornchai (@sorrachai), ETH Zurich. Areas: algorithms and data structures.
+
+## Reviewers
+
+Reviewers are trusted contributors who provide regular reviewing and technical guidance to PRs to CSLib.
+
+- Ching-Tsun Chou (@ctchou).
+- Christian Reitwiessner (@crei).
+- Samuel Schlesinger (@SamuelSchlesinger).
+- Thomas Waring (@thomaskwaring).
+- Eric Wieser (@eric-wieser), Google DeepMind.
+- Xueying Qin (@XYUnknown), FORM, University of Southern Denmark.
