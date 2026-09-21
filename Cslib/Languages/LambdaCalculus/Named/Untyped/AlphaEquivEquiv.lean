@@ -334,8 +334,8 @@ theorem alphaEquivR_iff_alphaEquivRFresh (m n : Term Var) :
     AlphaEquivR m n ↔ AlphaEquivRFresh m n :=
   (alphaEquiv_iff_alphaEquivR m n).symm.trans (alphaEquiv_iff_alphaEquivRFresh m n)
 
-theorem alphaEquivR_iff_alphaEquivRFresh_direct (m n : Term Var) :
-    AlphaEquivR m n ↔ AlphaEquivRFresh m n := sorry
+--theorem alphaEquivR_iff_alphaEquivRFresh_direct (m n : Term Var) :
+--    AlphaEquivR m n ↔ AlphaEquivRFresh m n := sorry
 
 end LambdaCalculus.Named.Untyped.Term
 
