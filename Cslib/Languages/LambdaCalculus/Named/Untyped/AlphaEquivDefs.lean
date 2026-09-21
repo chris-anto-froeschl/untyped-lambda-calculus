@@ -57,7 +57,28 @@ variable {Var : Type u} [DecidableEq Var] [HasFresh Var]
 
 namespace LambdaCalculus.Named.Untyped.Term
 
+blueprint_comment /-- \section{Some definitions of $\alpha$-equivalence}
+
+The five relations below, together with the two variants of \cref{prop:4-3}, are the
+definitions of Section 3 of [Crole2012], stated using the permutation action and the
+capture-avoiding substitution of Section 2. -/
+
+@[blueprint "def:agreement-set"
+  (title := "Agreement set")
+  (statement := /-- For permutations $\pi, \pi'$ of the set of atoms $\mathbb{A}$, the
+    \emph{agreement set} is
+    \[ AS(\pi, \pi') \;\overset{\text{def}}{=}\;
+       \{\, a \in \mathbb{A} \mid \pi(a) = \pi'(a) \,\}. \]
+    ([Crole2012], Section 2.) -/)]
 def agreementSet (f g : Var → Var) : Set Var := { x | f x = g x }
+
+@[blueprint "def:disagreement-set"
+  (title := "Disagreement set")
+  (statement := /-- For permutations $\pi, \pi'$ of the set of atoms $\mathbb{A}$, the
+    \emph{disagreement set} is
+    \[ DS(\pi, \pi') \;\overset{\text{def}}{=}\;
+       \{\, a \in \mathbb{A} \mid \pi(a) \neq \pi'(a) \,\}. \]
+    ([Crole2012], Section 2.) -/)]
 def disagreementSet (f g : Var → Var) : Set Var := { x | f x ≠ g x }
 
 /-- The action `π · E` of a permutation on a term, as used in [Crole2012].
@@ -65,6 +86,14 @@ def disagreementSet (f g : Var → Var) : Set Var := { x | f x ≠ g x }
 Since some lemmas in section 6 are proven for general permutations, we have to introduce
 this notion here aswell and derive the special case using `swap` accordingly.
 -/
+@[blueprint "def:permutation-action"
+  (title := "Permutation action on expressions")
+  (statement := /-- The action $\pi \cdot E$ of a (finitely supported) permutation $\pi$ of atoms
+    on an expression $E$ is defined by recursion on $E$:
+    \[ \pi \cdot a \;\overset{\text{def}}{=}\; \pi(a), \qquad
+       \pi \cdot P(E_1, E_2) \;\overset{\text{def}}{=}\; P(\pi \cdot E_1, \pi \cdot E_2), \qquad
+       \pi \cdot B([a]E) \;\overset{\text{def}}{=}\; B([\pi \cdot a]\,\pi \cdot E). \]
+    ([Crole2012], Section 2.) -/)]
 def permute (m : Term Var) (π : Equiv.Perm Var) : Term Var :=
   match m with
   | var x => var (π x)
@@ -77,6 +106,13 @@ of `x` and `y`. Corresponds to `(x y) · E` in [Crole2012] (Section 2).
 `swap` is is one special case of a permutation: the transposition that exchanges exactly two atoms
 a and b and fixes everything else.
 -/
+@[blueprint "def:swap"
+  (title := "Atom swapping")
+  (statement := /-- For atoms $x, y$, the transposition $(x\,y)$ is the permutation exchanging $x$
+    and $y$ and fixing every other atom; its action $(x\,y) \cdot E$ on an expression $E$ is the
+    special case of \cref{def:permutation-action} in which $\pi$ is a transposition, so that
+    $(x\,y) \cdot E$ is $E$ with all occurrences of $x$ and $y$ swapped.
+    ([Crole2012], Section 2; [Gabbay2002], Section 2.) -/)]
 def swap (m : Term Var) (x y : Var) : Term Var := m.permute (Equiv.swap x y)
 
 /-- **Definition 3.2** [Crole2012]: `∼p#` - α-equivalence via permutation with freshness
@@ -86,6 +122,19 @@ The rule `pi#` uses the freshness condition `z # a, b, E, E'`
 (i.e., `z ∉ fv(E) ∪ fv(E') ∪ {a, b}`) instead of the non-occurrence condition
 `z ∉ vars(E) ∪ vars(E') ∪ {a, b}` used in Definition 3.1 (`AlphaEquiv`).
 -/
+@[blueprint "def:alpha-p-fresh"
+  (title := "Definition 3.2: the relation $\\sim_{p\\#}$")
+  (statement := /-- The binary relation $\sim_{p\#}$ on the set of expressions is inductively
+    defined by
+    \[ \frac{}{a \sim_{p\#} a}\ \textit{atom} \qquad
+       \frac{E_1 \sim_{p\#} E_1' \quad E_2 \sim_{p\#} E_2'}
+            {P(E_1,E_2) \sim_{p\#} P(E_1',E_2')}\ \textit{pcg} \qquad
+       \frac{(z\,a) \cdot E \sim_{p\#} (z\,b) \cdot E'}
+            {B([a]E) \sim_{p\#} B([b]E')}\ \pi\#
+       \quad [\, z \mathrel{\#} a, b, E, E' \,] \]
+    where the side condition $z \mathrel{\#} a, b, E, E'$ means that $z$ differs from $a$ and $b$
+    and has no free occurrence in $E$ or $E'$.
+    ([Crole2012], Definition 3.2.) -/)]
 inductive AlphaEquivPFresh : Term Var → Term Var → Prop where
   | var {x : Var} : AlphaEquivPFresh (var x) (var x)
   | abs {y x1 x2 : Var} {m1 m2 : Term Var} :
@@ -103,6 +152,14 @@ This definition is analogous to the definition of α-equivalence for λ-expressi
 [Gabbay1999a] (Theorem 2.1, page 216). The notation `∼¹p` arises from three variants `∼ⁱp`
 of `∼p` considered in Proposition 4.3 of [Crole2012].
 -/
+@[blueprint "def:alpha-p1"
+  (title := "Definition 3.3: the relation $\\sim^1_p$")
+  (statement := /-- The binary relation $\sim^1_p$ on expressions is defined by the rules of
+    \cref{def:alpha-p}, but with the rule $\pi$ replaced by
+    \[ \frac{(z\,a) \cdot E \sim^1_p (z\,b) \cdot E'}
+            {B([a]E) \sim^1_p B([b]E')}\ \pi_1 \quad [\, z \not\vartriangleright E, E' \,] \]
+    that is, the witness $z$ is only required not to occur in the two bodies.
+    ([Crole2012], Definition 3.3.) -/)]
 inductive AlphaEquivP1 : Term Var → Term Var → Prop where
   | var {x : Var} : AlphaEquivP1 (var x) (var x)
   | abs {y x1 x2 m1 m2} :
@@ -115,6 +172,14 @@ inductive AlphaEquivP1 : Term Var → Term Var → Prop where
 
 /-- The relation `∼²p` from Proposition 4.3:
 the `pi2` witness need only differ from the two binding variables. -/
+@[blueprint "def:alpha-p2"
+  (title := "The relation $\\sim^2_p$ of Proposition 4.3")
+  (statement := /-- The binary relation $\sim^2_p$ on expressions is defined by the rules of
+    \cref{def:alpha-p}, but with the rule $\pi$ replaced by
+    \[ \frac{(z\,a) \cdot E \sim^2_p (z\,b) \cdot E'}
+            {B([a]E) \sim^2_p B([b]E')}\ \pi_2 \quad [\, z \not\vartriangleright a, b \,] \]
+    that is, the witness $z$ need only differ from the two binding atoms.
+    ([Crole2012], Proposition 4.3.) -/)]
 inductive AlphaEquivP2 : Term Var → Term Var → Prop where
   | var {x : Var} : AlphaEquivP2 (var x) (var x)
   | abs {z x1 x2 : Var} {m1 m2 : Term Var} :
@@ -126,6 +191,14 @@ inductive AlphaEquivP2 : Term Var → Term Var → Prop where
     AlphaEquivP2 (app m1 m2) (app n1 n2)
 
 /-- The relation `∼³p` from Proposition 4.3: the `pi3` rule has no side condition. -/
+@[blueprint "def:alpha-p3"
+  (title := "The relation $\\sim^3_p$ of Proposition 4.3")
+  (statement := /-- The binary relation $\sim^3_p$ on expressions is defined by the rules of
+    \cref{def:alpha-p}, but with the rule $\pi$ replaced by
+    \[ \frac{(z\,a) \cdot E \sim^3_p (z\,b) \cdot E'}
+            {B([a]E) \sim^3_p B([b]E')}\ \pi_3 \]
+    which carries no side condition at all.
+    ([Crole2012], Proposition 4.3.) -/)]
 inductive AlphaEquivP3 : Term Var → Term Var → Prop where
   | var {x : Var} : AlphaEquivP3 (var x) (var x)
   | abs {z x1 x2 : Var} {m1 m2 : Term Var} :
@@ -142,6 +215,21 @@ This definition is analogous to the definition of α-equivalence for λ-expressi
 found in the literature. One of the first formal presentations is in [Church1941] and the same,
 though rather less formal approach is taken by [Barendregt1985] (Definition 2.1.11).
 -/
+@[blueprint "def:alpha-r"
+  (title := "Definition 3.4: the relation $\\sim_r$")
+  (statement := /-- The binary relation $\sim_r$ on expressions is inductively defined by
+    \[ \frac{}{E \sim_r E}\ \textit{ref} \qquad
+       \frac{E_1 \sim_r E_2}{E_2 \sim_r E_1}\ \textit{sym} \qquad
+       \frac{E_1 \sim_r E_2 \quad E_2 \sim_r E_3}{E_1 \sim_r E_3}\ \textit{trs} \]
+    \[ \frac{E_1 \sim_r E_1' \quad E_2 \sim_r E_2'}
+            {P(E_1,E_2) \sim_r P(E_1',E_2')}\ \textit{pcg} \qquad
+       \frac{E \sim_r E'}{B([a]E) \sim_r B([a]E')}\ \textit{bcg} \]
+    \[ \frac{}{B([a]E) \sim_r B([a']E\{a'/a\})}\ \alpha
+       \quad [\, a' \not\vartriangleright a, E \,] \]
+    where $E\{a'/a\}$ is capture-avoiding substitution and the side condition
+    $a' \not\vartriangleright a, E$ says that $a'$ differs from $a$ and does not occur at all
+    in $E$.
+    ([Crole2012], Definition 3.4.) -/)]
 inductive AlphaEquivR : Term Var → Term Var → Prop where
   | refl {m : Term Var} : AlphaEquivR m m
   | symm {m1 m2 : Term Var} : AlphaEquivR m1 m2 → AlphaEquivR m2 m1
@@ -165,6 +253,15 @@ Same as `∼r` (Definition 3.4), but the renaming axiom uses a freshness side co
 This is analogous to the definition of α-equivalence for λ-expressions one finds in
 [Hindley1988] (Section 1B, page 9).
 -/
+@[blueprint "def:alpha-r-fresh"
+  (title := "Definition 3.5: the relation $\\sim_{r\\#}$")
+  (statement := /-- The binary relation $\sim_{r\#}$ on expressions is defined by the rules of
+    \cref{def:alpha-r}, but with the rule $\alpha$ replaced by
+    \[ \frac{}{B([a]E) \sim_{r\#} B([a']E\{a'/a\})}\ \alpha\#
+       \quad [\, a' \mathrel{\#} a, E \,] \]
+    whose side condition only requires $a'$ to differ from $a$ and to have no \emph{free} occurrence
+    in $E$.
+    ([Crole2012], Definition 3.5.) -/)]
 inductive AlphaEquivRFresh : Term Var → Term Var → Prop where
   | refl {m : Term Var} : AlphaEquivRFresh m m
   | symm {m1 m2 : Term Var} :

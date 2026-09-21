@@ -6,6 +6,7 @@ Authors: Fabrizio Montesi, Haoxuan Yin
 
 module
 
+public import Architect
 public import Cslib.Foundations.Data.HasFresh
 public import Cslib.Foundations.Syntax.HasAlphaEquiv
 public import Cslib.Foundations.Syntax.HasSubstitution
