@@ -43,10 +43,20 @@ variable {Var : Type u} [DecidableEq Var] [HasFresh Var]
 
 namespace LambdaCalculus.Named.Untyped.Term
 
+blueprint_comment /-- \section{The equality of the definitions}
+
+The five relations of Section 3 of [Crole2012] are all the same relation, each capturing
+$\alpha$-equivalence for expressions. -/
+
 omit [HasFresh Var] in
 /-- Non-occurrence obviously implies freshness, and the `swap` operation coincides with
 `rename` when the target variable does not occur in the term.
 -/
+@[blueprint "lem:4-1-easy"
+  (latexEnv := "lemma")
+  (title := "$\\sim_p$ is contained in $\\sim_{p\\#}$")
+  (statement := /-- For all expressions $E, E'$ we have $E \sim_p E' \implies E \sim_{p\#} E'$.
+    This is the trivial half of Theorem 4.1 of [Crole2012]: non-occurrence implies freshness. -/)]
 lemma alphaEquiv_of_alphaEquivPFresh {m n : Term Var} : AlphaEquiv m n → AlphaEquivPFresh m n := by
   intro h
   induction h with
@@ -60,6 +70,15 @@ lemma alphaEquiv_of_alphaEquivPFresh {m n : Term Var} : AlphaEquiv m n → Alpha
     apply AlphaEquivPFresh.abs h1 h2
   | app h1 h2 ih1 ih2 => exact AlphaEquivPFresh.app ih1 ih2
 
+/-- The converse half of Theorem 4.1 [Crole2012]. -/
+@[blueprint "lem:4-1-hard"
+  (latexEnv := "lemma")
+  (title := "$\\sim_{p\\#}$ is contained in $\\sim_p$")
+  (statement := /-- For all expressions $E, E'$ we have $E \sim_{p\#} E' \implies E \sim_p E'$.
+    Equivalently, $\sim_p$ is closed under the rules for $\sim_{p\#}$; the only interesting case
+    is the rule $\pi\#$, which is handled by picking a fully non-occurring witness and appealing
+    to \cref{lem:6-1} and \cref{lem:6-2-2}.
+    ([Crole2012], Theorem 4.1.) -/)]
 lemma alphaEquivPFresh_of_alphaEquiv {m n : Term Var} : AlphaEquivPFresh m n → AlphaEquiv m n := by
   intro h
   induction h with
@@ -99,10 +118,24 @@ lemma alphaEquivPFresh_of_alphaEquiv {m n : Term Var} : AlphaEquivPFresh m n →
   | app _ _ ih1 ih2 => exact AlphaEquiv.app ih1 ih2
 
 /-! ## Theorem 4.1 [Crole2012] -/
+
+/-- **Theorem 4.1** [Crole2012]: `∼p` and `∼p#` are the same relation. -/
+@[blueprint "thm:4-1"
+  (title := "Theorem 4.1: $\\sim_p$ equals $\\sim_{p\\#}$")
+  (statement := /-- The relation $\sim_p$ of $\alpha$-equivalence according to
+    \cref{def:alpha-p} is identical to the relation $\sim_{p\#}$ of \cref{def:alpha-p-fresh}.
+    ([Crole2012], Theorem 4.1.) -/)]
 theorem alphaEquiv_iff_alphaEquivPFresh (m n : Term Var) : AlphaEquiv m n ↔ AlphaEquivPFresh m n :=
   ⟨alphaEquiv_of_alphaEquivPFresh, alphaEquivPFresh_of_alphaEquiv⟩
 
 omit [HasFresh Var] in
+/-- The trivial half of Theorem 4.2 [Crole2012]. -/
+@[blueprint "lem:4-2-easy"
+  (latexEnv := "lemma")
+  (title := "$\\sim_p$ is contained in $\\sim^1_p$")
+  (statement := /-- For all expressions $E, E'$ we have $E \sim_p E' \implies E \sim^1_p E'$,
+    since the side condition of $\pi$ is stronger than that of $\pi_1$.
+    ([Crole2012], Theorem 4.2.) -/)]
 lemma alphaEquivP1_of_alphaEquiv {m n : Term Var} : AlphaEquiv m n → AlphaEquivP1 m n := by
   intro h
   induction h with
@@ -110,6 +143,14 @@ lemma alphaEquivP1_of_alphaEquiv {m n : Term Var} : AlphaEquiv m n → AlphaEqui
   | abs hy _h ih => exact AlphaEquivP1.abs (by aesop) ih
   | app _ _ ih1 ih2 => exact AlphaEquivP1.app ih1 ih2
 
+/-- The case `u = a` of the rule `pi1` in the proof of Theorem 4.2 [Crole2012]. -/
+@[blueprint "lem:4-2-wlog"
+  (latexEnv := "lemma")
+  (title := "The degenerate case of the rule $\\pi_1$")
+  (statement := /-- For atoms $a, b$ and expressions $E, E'$ with $a \not\vartriangleright E'$,
+    \[ E \sim_p (a\,b) \cdot E' \implies B([a]E) \sim_p B([b]E'). \]
+    This is the case $u = a$ in the proof of Theorem 4.2 of [Crole2012], which is settled using
+    \cref{lem:6-1} and \cref{lem:6-2-1}. -/)]
 lemma alphaEquiv_abs_of_rename_self {m1 m2 : Term Var} {x1 x2 : Var}
   (hx1m2 : x1 ∉ m2.vars)
   (ih : m1 =α (m2.rename x2 x1)) :
@@ -127,6 +168,15 @@ lemma alphaEquiv_abs_of_rename_self {m1 m2 : Term Var} {x1 x2 : Var}
     rw [swap_comm, swap_eq_rename_of_not_mem_vars (by aesop)] at h61
     apply AlphaEquiv.abs (y := z) (by aesop) h61
 
+/-- The converse half of Theorem 4.2 [Crole2012]. -/
+@[blueprint "lem:4-2-hard"
+  (latexEnv := "lemma")
+  (title := "$\\sim^1_p$ is contained in $\\sim_p$")
+  (statement := /-- For all expressions $E, E'$ we have $E \sim^1_p E' \implies E \sim_p E'$.
+    Equivalently, $\sim_p$ is closed under the rules for $\sim^1_p$: if the witness $u$ of the
+    rule $\pi_1$ differs from both binding atoms one appeals directly to $\pi$, and otherwise
+    one may assume without loss of generality that $u = a$ and use \cref{lem:4-2-wlog}.
+    ([Crole2012], Theorem 4.2.) -/)]
 lemma alphaEquiv_of_alphaEquivP1 {m n : Term Var} : AlphaEquivP1 m n → AlphaEquiv m n := by
   intro h
   induction h with
@@ -148,12 +198,36 @@ lemma alphaEquiv_of_alphaEquivP1 {m n : Term Var} : AlphaEquivP1 m n → AlphaEq
   | app _ _ ih1 ih2 => exact AlphaEquiv.app ih1 ih2
 
 /-! ## Theorem 4.2 [Crole2012] -/
+
+/-- **Theorem 4.2** [Crole2012]: `∼p` and `∼¹p` are the same relation. -/
+@[blueprint "thm:4-2"
+  (title := "Theorem 4.2: $\\sim_p$ equals $\\sim^1_p$")
+  (statement := /-- The relation $\sim_p$ of $\alpha$-equivalence according to
+    \cref{def:alpha-p} is identical to the relation $\sim^1_p$ of \cref{def:alpha-p1}.
+    ([Crole2012], Theorem 4.2.) -/)]
 theorem alphaEquiv_iff_alphaEquivP1 (m n : Term Var) : AlphaEquiv m n ↔ AlphaEquivP1 m n :=
   ⟨alphaEquivP1_of_alphaEquiv, alphaEquiv_of_alphaEquivP1⟩
 
 /-- **Proposition 4.3** [Crole2012].  Of the four variants in the paper's table, the first
 relation is `AlphaEquiv` itself and the second coincides with it by Theorem 4.2, whereas
 `∼²p` and `∼³p` do not coincide with α-equivalence. -/
+@[blueprint "prop:4-3"
+  (latexEnv := "proposition")
+  (title := "Proposition 4.3: variants of the side condition of $\\pi$")
+  (statement := /-- Consider the variants $\sim^i_p$ of \cref{def:alpha-p} obtained by altering
+    the side condition of the rule $\pi$:
+    \[ \begin{array}{llll}
+         \text{rule} & \text{relation} & \text{condition} & = \sim_p \\
+         \pi   & \sim_p   & z \not\vartriangleright a, b, E, E' & \text{yes} \\
+         \pi_1 & \sim^1_p & z \not\vartriangleright E, E'       & \text{yes} \\
+         \pi_2 & \sim^2_p & z \not\vartriangleright a, b        & \text{no}  \\
+         \pi_3 & \sim^3_p & \text{none}                         & \text{no}
+       \end{array} \]
+    The last column states for which $i$ the relation $\sim^i_p$ is equal to $\sim_p$: the first
+    two rows hold by \cref{thm:4-2}, while for $a \neq b$ the pairs
+    $B([a]P(a,z)) , B([b]P(b,a))$ and $B([a]P(b,a)) , B([b]P(a,b))$ are respectively related by
+    $\sim^2_p$ and by $\sim^3_p$ but are not $\alpha$-equivalent, having different free atoms.
+    ([Crole2012], Proposition 4.3.) -/)]
 theorem alphaEquiv_variants :
   (∀ m n : Term Var, AlphaEquiv m n ↔ AlphaEquiv m n) ∧
   (∀ m n : Term Var, AlphaEquivP1 m n ↔ AlphaEquiv m n) ∧
@@ -207,6 +281,16 @@ theorem alphaEquiv_variants :
         rw [h'.same_fv] at b_h
         simp [fv, hab, Ne.symm hab] at b_h
 
+/-- One half of Theorem 4.4 [Crole2012]: `∼p` is closed under the rules for `∼r`. -/
+@[blueprint "lem:4-4-r-to-p"
+  (latexEnv := "lemma")
+  (title := "$\\sim_r$ is contained in $\\sim_p$")
+  (statement := /-- For all expressions $E, E'$ we have $E \sim_r E' \implies E \sim_p E'$.
+    Equivalently, $\sim_p$ is closed under the rules for $\sim_r$: the rules \emph{ref},
+    \emph{sym}, \emph{trs} and \emph{bcg} are \cref{lem:alpha-p-refl},
+    \cref{lem:alpha-p-symm}, \cref{lem:alpha-p-trans} and \cref{lem:alpha-p-bcg}, \emph{pcg} is
+    immediate, and the rule $\alpha$ is the instance \cref{lem:6-5-one} of Lemma 6.5.
+    ([Crole2012], Theorem 4.4.) -/)]
 lemma alphaEquiv_of_alphaEquivR {m n : Term Var} : AlphaEquivR m n → AlphaEquiv m n := by
   intro h
   induction h with
@@ -229,6 +313,16 @@ lemma alphaEquiv_of_alphaEquivR {m n : Term Var} : AlphaEquivR m n → AlphaEqui
     exact alphaEquiv_swap_subst_var
       (by simp_all) (by simp_all) hxx' (by simp_all [vars_either_fv_or_bv])
 
+/-- One half of Theorem 4.4 [Crole2012]: `∼r` is closed under the rules for `∼p`. -/
+@[blueprint "lem:4-4-p-to-r"
+  (latexEnv := "lemma")
+  (title := "$\\sim_p$ is contained in $\\sim_r$")
+  (statement := /-- For all expressions $E, E'$ we have $E \sim_p E' \implies E \sim_r E'$.
+    Equivalently, $\sim_r$ is closed under the rules for $\sim_p$; for the rule $\pi$ one
+    appeals to \cref{lem:6-3} twice, to relate $(z\,a) \cdot E$ with $E\{z/a\}$ and
+    $(z\,b) \cdot E'$ with $E'\{z/b\}$, and then uses \emph{bcg}, two instances of $\alpha$,
+    \emph{sym} and \emph{trs}.
+    ([Crole2012], Theorem 4.4.) -/)]
 lemma alphaEquivR_of_alphaEquiv {m n : Term Var} : AlphaEquiv m n → AlphaEquivR m n := by
   intro h
   induction h with
@@ -258,12 +352,28 @@ lemma alphaEquivR_of_alphaEquiv {m n : Term Var} : AlphaEquiv m n → AlphaEquiv
     exact hbbzsubst
 
 /-! ## Theorem 4.4 [Crole2012] -/
+
+/-- **Theorem 4.4** [Crole2012]: `∼p` and `∼r` are the same relation. -/
+@[blueprint "thm:4-4"
+  (title := "Theorem 4.4: $\\sim_p$ equals $\\sim_r$")
+  (statement := /-- The relation $\sim_p$ of $\alpha$-equivalence according to
+    \cref{def:alpha-p} is identical to the relation $\sim_r$ of \cref{def:alpha-r}.
+    ([Crole2012], Theorem 4.4.) -/)]
 theorem alphaEquiv_iff_alphaEquivR (m n : Term Var) :
     AlphaEquiv m n ↔ AlphaEquivR m n := by
   exact ⟨alphaEquivR_of_alphaEquiv, alphaEquiv_of_alphaEquivR⟩
 
 /-- The cases are literally those of `alphaEquiv_of_alphaEquivR`, except that the rule
 `α` is replaced by `α#`. -/
+@[blueprint "lem:4-5-rfresh-to-p"
+  (latexEnv := "lemma")
+  (title := "$\\sim_{r\\#}$ is contained in $\\sim_p$")
+  (statement := /-- For all expressions $E, E'$ we have
+    $E \sim_{r\#} E' \implies E \sim_p E'$. The cases are exactly those of
+    \cref{lem:4-4-r-to-p}, with the rule $\alpha$ replaced by $\alpha\#$; the latter is where
+    the strengthening \cref{lem:6-5} of the paper's inductive argument is needed, here in the
+    form \cref{lem:6-5-one}.
+    ([Crole2012], Theorem 4.5.) -/)]
 lemma alphaEquiv_of_alphaEquivRFresh {m n : Term Var} :
     AlphaEquivRFresh m n → AlphaEquiv m n := by
   intro h
@@ -291,6 +401,15 @@ lemma alphaEquiv_of_alphaEquivRFresh {m n : Term Var} :
 /-- The steps are exactly those of the corresponding half of Theorem 4.4
 (`alphaEquivR_of_alphaEquiv`), with Lemma 6.4 used in place of Lemma 6.3, and with the two
 instances of `α` replaced by `α#`, which is legitimate because `z ̸▹ E, E'` implies `z # E, E'`. -/
+@[blueprint "lem:4-5-p-to-rfresh"
+  (latexEnv := "lemma")
+  (title := "$\\sim_p$ is contained in $\\sim_{r\\#}$")
+  (statement := /-- For all expressions $E, E'$ we have
+    $E \sim_p E' \implies E \sim_{r\#} E'$. The steps are exactly those of
+    \cref{lem:4-4-p-to-r}, with \cref{lem:6-4} used in place of \cref{lem:6-3} and the two
+    instances of $\alpha$ replaced by $\alpha\#$, which is legitimate because
+    $z \not\vartriangleright E, E'$ implies $z \mathrel{\#} E, E'$.
+    ([Crole2012], Theorem 4.5.) -/)]
 lemma alphaEquivRFresh_of_alphaEquiv {m n : Term Var} :
     AlphaEquiv m n → AlphaEquivRFresh m n := by
   intro h
@@ -321,6 +440,13 @@ lemma alphaEquivRFresh_of_alphaEquiv {m n : Term Var} :
     exact hbbzsubst
 
 /-! ## Theorem 4.5 [Crole2012] -/
+
+/-- **Theorem 4.5** [Crole2012]: `∼p` and `∼r#` are the same relation. -/
+@[blueprint "thm:4-5"
+  (title := "Theorem 4.5: $\\sim_p$ equals $\\sim_{r\\#}$")
+  (statement := /-- The relation $\sim_p$ of $\alpha$-equivalence according to
+    \cref{def:alpha-p} is identical to the relation $\sim_{r\#}$ of \cref{def:alpha-r-fresh}.
+    ([Crole2012], Theorem 4.5.) -/)]
 theorem alphaEquiv_iff_alphaEquivRFresh (m n : Term Var) :
     AlphaEquiv m n ↔ AlphaEquivRFresh m n :=
   ⟨alphaEquivRFresh_of_alphaEquiv, alphaEquiv_of_alphaEquivRFresh⟩
@@ -330,12 +456,15 @@ theorem alphaEquiv_iff_alphaEquivRFresh (m n : Term Var) :
 As the paper notes, this follows from Theorems 4.4 and 4.5. The paper's alternative direct
 proof, which uses only traditional renaming techniques, is given separately below as
 `alphaEquivR_iff_alphaEquivRFresh_direct`. -/
+@[blueprint "thm:4-6"
+  (title := "Theorem 4.6: $\\sim_r$ equals $\\sim_{r\\#}$")
+  (statement := /-- The relation $\sim_r$ of $\alpha$-equivalence according to
+    \cref{def:alpha-r} is identical to the relation $\sim_{r\#}$ of \cref{def:alpha-r-fresh}.
+    ([Crole2012], Theorem 4.6.) -/)
+  (proof := /-- Immediate from \cref{thm:4-4} and \cref{thm:4-5}. -/)]
 theorem alphaEquivR_iff_alphaEquivRFresh (m n : Term Var) :
     AlphaEquivR m n ↔ AlphaEquivRFresh m n :=
   (alphaEquiv_iff_alphaEquivR m n).symm.trans (alphaEquiv_iff_alphaEquivRFresh m n)
-
---theorem alphaEquivR_iff_alphaEquivRFresh_direct (m n : Term Var) :
---    AlphaEquivR m n ↔ AlphaEquivRFresh m n := sorry
 
 end LambdaCalculus.Named.Untyped.Term
 

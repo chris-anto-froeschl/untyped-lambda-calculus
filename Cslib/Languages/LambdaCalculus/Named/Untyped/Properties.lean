@@ -378,6 +378,12 @@ theorem AlphaEquiv.symm {m n : Term Var} : m =α n → n =α m := by
   | @app m1 n1 m2 n2 hwm1 hwn1 hwm2 hwn2 => apply AlphaEquiv.app hwm2 hwn2
 
 /-- Lemma 6.1 [Crole2012]: Swap (transposition) preserves α-equivalence. -/
+@[blueprint "lem:6-1"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.1: transpositions preserve $\\sim_p$")
+  (statement := /-- For any atoms $u$ and $v$ and expressions $E$ and $E'$ we have
+    \[ E \sim_p E' \implies (u\,v) \cdot E \sim_p (u\,v) \cdot E'. \]
+    ([Crole2012], Lemma 6.1.) -/)]
 lemma AlphaEquiv.swap_preserve {m m' : Term Var} {u v : Var} :
   m =α m' → (m.swap u v) =α (m'.swap u v) := by
     intro h1
@@ -900,6 +906,15 @@ theorem subst.abs_fresh {m r : Term Var} {x y z : Var} :
   grind [subst.abs_fresh_helper]
 
 /-- Substituting α-equivalent terms produces α-equivalent terms. -/
+@[blueprint "lem:6-7"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.7: substitution preserves $\\alpha$-equivalence")
+  (statement := /-- For any expressions $E, E', R, R'$ and any atom $a$,
+    \[ E \sim_p E' \text{ and } R \sim_p R' \implies E\{R/a\} \sim_p E'\{R'/a\}. \]
+    This is Lemma 6.7 of [Crole2012], which is stated there for $\sim_r$ and for the renaming
+    $E\{a/b\}$; by Theorem 4.4 the two statements agree, and the version formalised here allows
+    an arbitrary expression to be substituted, and its two sides to differ up to
+    $\alpha$-equivalence. -/)]
 theorem subst.preserve_AlphaEquiv {m m' r r' : Term Var} {x : Var} :
     m =α m' → r =α r' → (m[x := r]) =α (m'[x := r']) := by
   refine (WellFounded.induction sizeOfWFRel.wf m

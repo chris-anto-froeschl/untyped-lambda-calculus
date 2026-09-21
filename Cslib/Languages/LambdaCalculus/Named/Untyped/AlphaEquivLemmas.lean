@@ -6,6 +6,7 @@ Authors: Chris Anto Fröschl
 
 module
 
+public import Architect
 public import Cslib.Languages.LambdaCalculus.Named.Untyped.Properties
 
 /-! # The lemmas of Section 6.1 of [Crole2012]
@@ -27,8 +28,19 @@ variable {Var : Type u} [DecidableEq Var] [HasFresh Var]
 
 namespace LambdaCalculus.Named.Untyped.Term
 
+blueprint_comment /-- \section{Lemmas on expressions}
+
+The lemmas of Section 6.1 of [Crole2012], which support the proofs of the equalities of
+Section 4. -/
+
 omit [HasFresh Var] in
 /-- Lemma 6.2 part 1 [Crole2012]: Permutations on agreement set result in same term. -/
+@[blueprint "lem:6-2-1"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.2(1): permutations agreeing on occurring atoms")
+  (statement := /-- For any expression $E$ and permutations $\pi, \pi'$,
+    \[ \mathrm{occ}(E) \subseteq AS(\pi, \pi') \implies \pi \cdot E = \pi' \cdot E. \]
+    ([Crole2012], Lemma 6.2 part 1.) -/)]
 lemma permute_eq_of_vars_subset_agreementSet (m : Term Var) (π π' : Equiv.Perm Var)
   (h : (m.vars : Set Var) ⊆ agreementSet π π') :
   m.permute π = m.permute π' := by
@@ -46,6 +58,14 @@ lemma permute_eq_of_vars_subset_agreementSet (m : Term Var) (π π' : Equiv.Perm
 omit [HasFresh Var] in
 /-- Lemma 6.2 part 1 [Crole2012] (specialized): Swaps on non occuring variables result in same
 term -/
+@[blueprint "lem:6-2-1-swap"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.2(1) for transpositions")
+  (statement := /-- For any expression $E$ and atoms $a, u, z$ with
+    $u \not\vartriangleright E$ and $z \not\vartriangleright E$,
+    \[ (z\,u) \cdot (u\,a) \cdot E = (z\,a) \cdot E. \]
+    This is the instance of \cref{lem:6-2-1} used in [Crole2012] in the proofs of Theorems 4.2
+    and 4.4. -/)]
 lemma swap_comp_eq_of_not_mem_vars {m : Term Var} {a u z : Var}
   (hu : u ∉ m.vars) (hz : z ∉ m.vars) :
   (m.swap u a).swap z u = m.swap z a := by
@@ -54,12 +74,18 @@ lemma swap_comp_eq_of_not_mem_vars {m : Term Var} {a u z : Var}
     let π' := Equiv.swap z a
     have h : (m.vars : Set Var) ⊆ agreementSet π π' := by
       intro x hx
-      simp only [agreementSet, Set.mem_setOf_eq, π, π', Equiv.Perm.coe_mul, Function.comp_apply]
+      simp only [agreementSet, Set.mem_ofPred_eq, π, π', Equiv.Perm.coe_mul, Function.comp_apply]
       grind
     rw [permute_permute m (Equiv.swap u a) (Equiv.swap z u)]
     exact permute_eq_of_vars_subset_agreementSet m π π' h
 
 /-- Lemma 6.2 part 2 [Crole2012]: Same as 6.1 but wrt free variables and alpha equivalence. -/
+@[blueprint "lem:6-2-2"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.2(2): permutations agreeing on free atoms")
+  (statement := /-- For any expression $E$ and permutations $\pi, \pi'$,
+    \[ \mathrm{free}(E) \subseteq AS(\pi, \pi') \implies \pi \cdot E \sim_p \pi' \cdot E. \]
+    ([Crole2012], Lemma 6.2 part 2.) -/)]
 lemma permute_alphaEquiv_of_fv_subset_agreementSet (m : Term Var) (π π' : Equiv.Perm Var)
   (h : (m.fv : Set Var) ⊆ agreementSet π π') :
   (m.permute π) =α (m.permute π') := by
@@ -97,7 +123,7 @@ lemma permute_alphaEquiv_of_fv_subset_agreementSet (m : Term Var) (π π' : Equi
         := by
           apply ih
           intro x hx
-          simp only [agreementSet, Set.mem_setOf_eq, Equiv.trans_apply]
+          simp only [agreementSet, Set.mem_ofPred_eq, Equiv.trans_apply]
           by_cases hxa : x = a
           · simp_all
           · have hagree : π x = π' x := h (by simp [fv, hx, hxa])
@@ -119,6 +145,13 @@ lemma permute_alphaEquiv_of_fv_subset_agreementSet (m : Term Var) (π π' : Equi
       apply AlphaEquiv.abs (y := z) (by simp_all [z]) hbody
 
 /-- Lemma 6.2 part 2 [Crole2012] (specialized). -/
+@[blueprint "lem:6-2-2-swap"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.2(2) for transpositions")
+  (statement := /-- For any expression $E$ and atoms $a, u, z$ with
+    $u \mathrel{\#} E$ and $z \mathrel{\#} E$,
+    \[ (z\,u) \cdot (u\,a) \cdot E \sim_p (z\,a) \cdot E. \]
+    This is the instance of \cref{lem:6-2-2} used in [Crole2012] in the proof of Theorem 4.1. -/)]
 lemma swap_comp_alphaEquiv_of_not_mem_fv {m : Term Var} {a u z : Var}
   (hu : u ∉ m.fv) (hz : z ∉ m.fv) :
   ((m.swap u a).swap z u) =α (m.swap z a) := by
@@ -127,7 +160,7 @@ lemma swap_comp_alphaEquiv_of_not_mem_fv {m : Term Var} {a u z : Var}
     have h : (m.fv : Set Var) ⊆ agreementSet π π' := by
       intro x hx
       unfold agreementSet
-      rw [Set.mem_setOf_eq]
+      rw [Set.mem_ofPred_eq]
       grind
     have h' := permute_alphaEquiv_of_fv_subset_agreementSet m π π' h
     rw [← permute_trans, permute_swap, permute_swap, permute_swap] at h'
@@ -137,6 +170,14 @@ lemma swap_comp_alphaEquiv_of_not_mem_fv {m : Term Var} {a u z : Var}
 substitution of that variable.
 
 This is the `rename`-form of the paper's Lemma 6.3. -/
+@[blueprint "lem:6-3-rename"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.3, in naive-renaming form")
+  (statement := /-- For any atoms $a, z$ and any expression $E$ with
+    $z \not\vartriangleright E$,
+    \[ E[a \mapsto z] \sim_r E\{z/a\} \]
+    where $E[a \mapsto z]$ is the naive renaming of \cref{def:rename}. This is the form in which
+    the induction of Lemma 6.3 of [Crole2012] is carried out here. -/)]
 lemma alphaEquivR_rename_subst_var {m : Term Var} {x z : Var} (hz : z ∉ m.vars) :
     AlphaEquivR (m.rename x z) (m.subst x (var z)) := by
   induction m with
@@ -164,6 +205,12 @@ lemma alphaEquivR_rename_subst_var {m : Term Var} {x z : Var} (hz : z ∉ m.vars
       exact ih (by grind [vars])
 
 /-- Lemma 6.3 [Crole2012]: `z ̸▹ E ⟹ (z a) · E ∼r E{z/a}`. -/
+@[blueprint "lem:6-3"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.3: swapping versus substitution, for $\\sim_r$")
+  (statement := /-- For any atoms $a$ and $z$ and any expression $E$,
+    \[ z \not\vartriangleright E \implies (z\,a) \cdot E \sim_r E\{z/a\}. \]
+    ([Crole2012], Lemma 6.3.) -/)]
 lemma alphaEquivR_swap_subst_var {m : Term Var} {a z : Var} (hz : z ∉ m.vars) :
     AlphaEquivR (m.swap z a) (m.subst a (var z)) := by
   rw [swap_comm, swap_eq_rename_of_not_mem_vars hz]
@@ -171,6 +218,13 @@ lemma alphaEquivR_swap_subst_var {m : Term Var} {a z : Var} (hz : z ∉ m.vars) 
 
 /-- The `rename`-form of the paper's Lemma 6.4: the induction of
 `alphaEquivR_rename_subst_var` with every use of the rule `α` replaced by `α#`. -/
+@[blueprint "lem:6-4-rename"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.4, in naive-renaming form")
+  (statement := /-- For any atoms $a, z$ and any expression $E$ with
+    $z \not\vartriangleright E$,
+    \[ E[a \mapsto z] \sim_{r\#} E\{z/a\}. \]
+    This is \cref{lem:6-3-rename} with every use of the rule $\alpha$ replaced by $\alpha\#$. -/)]
 lemma alphaEquivRFresh_rename_subst_var {m : Term Var} {x z : Var}
     (hz : z ∉ m.vars) :
     AlphaEquivRFresh (m.rename x z) (m.subst x (var z)) := by
@@ -200,6 +254,12 @@ lemma alphaEquivRFresh_rename_subst_var {m : Term Var} {x z : Var}
       exact ih (by grind [vars])
 
 /-- Lemma 6.4 [Crole2012]: `z ̸▹ E ⟹ (z a) · E ∼r# E{z/a}`. -/
+@[blueprint "lem:6-4"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.4: swapping versus substitution, for $\\sim_{r\\#}$")
+  (statement := /-- For any atoms $a$ and $z$ and any expression $E$,
+    \[ z \not\vartriangleright E \implies (z\,a) \cdot E \sim_{r\#} E\{z/a\}. \]
+    ([Crole2012], Lemma 6.4.) -/)]
 lemma alphaEquivRFresh_swap_subst_var {m : Term Var} {a z : Var} (hz : z ∉ m.vars) :
     AlphaEquivRFresh (m.swap z a) (m.subst a (var z)) := by
   rw [swap_comm, swap_eq_rename_of_not_mem_vars hz]
@@ -207,6 +267,15 @@ lemma alphaEquivRFresh_swap_subst_var {m : Term Var} {a z : Var} (hz : z ∉ m.v
 
 /-- Lemma 6.6 [Crole2012]: We can always re-name bound atoms so that a particular atom does not
 occur. -/
+@[blueprint "lem:6-6"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.6: avoiding an atom, for $\\sim_r$")
+  (statement := /-- For all expressions $E$ and atoms $a$,
+    \[ a \mathrel{\#} E \implies (\exists \hat{E})\,
+       (a \not\vartriangleright \hat{E} \wedge \hat{E} \sim_r E). \]
+    Informally, bound atoms can always be renamed so that a particular atom does not occur; this
+    may be regarded as a form of Barendregt's variable convention.
+    ([Crole2012], Lemma 6.6.) -/)]
 lemma alphaEquivR_avoid_var {m : Term Var} {a : Var} (ha : a ∉ m.fv) :
     ∃ m', a ∉ m'.vars ∧ AlphaEquivR m' m := by
   induction m with
@@ -240,6 +309,14 @@ lemma alphaEquivR_avoid_var {m : Term Var} {a : Var} (ha : a ∉ m.fv) :
 /-- Lemma 6.6 [Crole2012] for `∼p`. The proof is almost a exact copy `alphaEquivR_avoid_var`
 This is not derivable from Theorem 4.4 since its argument depends on it
 - resulting in a cycle if done so. -/
+@[blueprint "lem:6-6-p"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.6 for $\\sim_p$")
+  (statement := /-- For all expressions $E$ and atoms $a$,
+    \[ a \mathrel{\#} E \implies (\exists \hat{E})\,
+       (a \not\vartriangleright \hat{E} \wedge \hat{E} \sim_p E). \]
+    This is \cref{lem:6-6} with $\sim_r$ replaced by $\sim_p$. It cannot be obtained from
+    \cref{lem:6-6} through Theorem 4.4, because the proof of that theorem uses this statement. -/)]
 lemma alphaEquiv_avoid_var {m : Term Var} {a : Var} (ha : a ∉ m.fv) :
     ∃ m', a ∉ m'.vars ∧ m' =α m := by
   induction m with
@@ -269,6 +346,13 @@ lemma alphaEquiv_avoid_var {m : Term Var} {a : Var} (ha : a ∉ m.fv) :
 
 Same induction as `alphaEquivR_rename_subst_var`, with the rule `α` replaced
 by `AlphaEquiv.abs_rename`. -/
+@[blueprint "lem:6-3-p"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.3 for $\\sim_p$, in naive-renaming form")
+  (statement := /-- For any atoms $a, a'$ and any expression $E$ with
+    $a' \not\vartriangleright E$,
+    \[ E[a \mapsto a'] \sim_p E\{a'/a\}. \]
+    This is \cref{lem:6-3-rename} with $\sim_r$ replaced by $\sim_p$. -/)]
 lemma rename_alphaEquiv_subst_var {m : Term Var} {x x' : Var} (hx' : x' ∉ m.vars) :
     (m.rename x x') =α (m.subst x (var x')) := by
   induction m with
@@ -291,6 +375,14 @@ lemma rename_alphaEquiv_subst_var {m : Term Var} {x x' : Var} (hx' : x' ∉ m.va
 
 /-- First half of Lemma 6.5: substituting an atom which is merely *fresh* for `m` is,
 up to `∼p`, the same as transposing it with the substituted atom. -/
+@[blueprint "lem:6-5-subst-swap"
+  (latexEnv := "lemma")
+  (title := "Substituting a fresh atom is a transposition")
+  (statement := /-- For any expression $E$ and atoms $a, a'$ with $a' \mathrel{\#} E$,
+    \[ E\{a'/a\} \sim_p (a\,a') \cdot E. \]
+    This is the first of the two ingredients of \cref{lem:6-5}: note that $a'$ is only required
+    to be fresh for $E$, bound occurrences being renamed away first using
+    \cref{lem:6-6-p}. -/)]
 lemma subst_var_alphaEquiv_swap {m : Term Var} {a a' : Var} (ha' : a' ∉ m.fv) :
     (m[a := var a']) =α (m.swap a a') := by
   -- Use Lemma 6.6
@@ -307,6 +399,14 @@ lemma subst_var_alphaEquiv_swap {m : Term Var} {a a' : Var} (ha' : a' ∉ m.fv) 
 
 for `m`, then the transpositions `(z a)` and `(z a')(a a')` agree on `free(E)` — both send `a`
 to `z` and fix every other free atom — so by Lemma 6.2(2) they act alike up to `∼p`. -/
+@[blueprint "lem:6-5-swap-swap"
+  (latexEnv := "lemma")
+  (title := "Splitting a transposition through a fresh atom")
+  (statement := /-- For any expression $E$ and atoms $z, a, a'$ with $z \mathrel{\#} E$ and
+    $a' \mathrel{\#} E$,
+    \[ (z\,a) \cdot E \sim_p (z\,a') \cdot (a\,a') \cdot E. \]
+    This is the second ingredient of \cref{lem:6-5}: the two permutations agree on
+    $\mathrm{free}(E)$, so \cref{lem:6-2-2} applies. -/)]
 lemma swap_alphaEquiv_swap_swap {m : Term Var} {z a a' : Var}
     (hz : z ∉ m.fv) (ha' : a' ∉ m.fv) :
     (m.swap z a) =α ((m.swap a a').swap z a') := by
@@ -320,6 +420,12 @@ lemma swap_alphaEquiv_swap_swap {m : Term Var} {z a a' : Var}
 
 /-- `swapChain [(z₁, a₁, a'₁), ..., (zₙ, aₙ, a'ₙ)] E` is `(z₁ a₁) · ... · (zₙ aₙ) · E`;
 the head of the list carries the outermost swap. -/
+@[blueprint "def:swap-chain"
+  (title := "Chain of transpositions")
+  (statement := /-- Given a finite list of triples of atoms $(z_1, a_1, a_1'), \dots,
+    (z_n, a_n, a_n')$ and an expression $E$, the expression
+    \[ (z_1\,a_1) \cdot \ldots \cdot (z_n\,a_n) \cdot E \]
+    which is the left-hand side of \cref{lem:6-5}. -/)]
 def swapChain : List (Var × Var × Var) → Term Var → Term Var
   | [], m => m
   | (z, a, _) :: L, m => (swapChain L m).swap z a
@@ -327,11 +433,23 @@ def swapChain : List (Var × Var × Var) → Term Var → Term Var
 /-- `substSwapChain [(z₁, a₁, a'₁), ..., (zₙ, aₙ, a'ₙ)] E` is
 `(z₁ a'₁) · ... · (zₙ a'ₙ) · E{a'₁/a₁} ... {a'ₙ/aₙ}`:
 the head of the list carries the outermost swap and the innermost substitution. -/
+@[blueprint "def:subst-swap-chain"
+  (title := "Chain of transpositions after a chain of substitutions")
+  (statement := /-- Given a finite list of triples of atoms $(z_1, a_1, a_1'), \dots,
+    (z_n, a_n, a_n')$ and an expression $E$, the expression
+    \[ (z_1\,a_1') \cdot \ldots \cdot (z_n\,a_n') \cdot
+       E\{a_1'/a_1\} \ldots \{a_n'/a_n\} \]
+    which is the right-hand side of \cref{lem:6-5}. -/)]
 def substSwapChain : List (Var × Var × Var) → Term Var → Term Var
   | [], m => m
   | (z, a, a') :: L, m => (substSwapChain L (m.subst a (var a'))).swap z a'
 
 /-- The atoms mentioned by a list of triples. -/
+@[blueprint "def:chain-atoms"
+  (title := "Atoms of a chain")
+  (statement := /-- The list of all atoms $z_i, a_i, a_i'$ mentioned by a list of triples
+    $(z_1, a_1, a_1'), \dots, (z_n, a_n, a_n')$. Its being repetition-free is the
+    pairwise-disjointness hypothesis of \cref{lem:6-5}. -/)]
 def chainAtoms (L : List (Var × Var × Var)) : List Var :=
   L.flatMap fun t => [t.1, t.2.1, t.2.2]
 
@@ -399,6 +517,17 @@ which is exactly what `subst_var_alphaEquiv_swap` does internally.
 
 The paper needs `zᵢ ̸▹ E` because it argues with the substitution itself, where a
 bound `zᵢ` would be captured. -/
+@[blueprint "lem:6-5"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.5: chains of transpositions versus chains of substitutions")
+  (statement := /-- Let the atoms $z_i, a_i, a_i'$ be pairwise disjoint across all $i$. Then for
+    every expression $E$ with $z_i \mathrel{\#} E$ and $a_i' \mathrel{\#} E$ for all $i$,
+    \[ (z_1\,a_1) \cdot \ldots \cdot (z_n\,a_n) \cdot E \sim_p
+       (z_1\,a_1') \cdot \ldots \cdot (z_n\,a_n') \cdot
+       E\{a_1'/a_1\} \ldots \{a_n'/a_n\}. \]
+    ([Crole2012], Lemma 6.5.) The hypotheses $z_i \not\vartriangleright E$ of the paper are
+    weakened here to $z_i \mathrel{\#} E$, which suffices because both ingredients of the proof
+    are invariant under $\sim_p$ and mention only free atoms. -/)]
 theorem alphaEquiv_swapChain (L : List (Var × Var × Var)) (m : Term Var)
     -- zᵢ ≠ aᵢ and zᵢ ≠ aᵢ'
     (hnd : (chainAtoms L).Nodup)
@@ -473,6 +602,14 @@ theorem alphaEquiv_swapChain (L : List (Var × Var × Var)) (m : Term Var)
 /-- The one-variable case of Lemma 6.5 [Crole2012] (`n = 1` of `alphaEquiv_swapChain`).
 
 This is the step which the paper carries out inside the proof of Theorem 4.4 for the rule `α`. -/
+@[blueprint "lem:6-5-one"
+  (latexEnv := "lemma")
+  (title := "Lemma 6.5 for a single triple of atoms")
+  (statement := /-- For any expression $E$ and atoms $z, a, a'$ with
+    $z \not\vartriangleright E$, $z \neq a$, $a \neq a'$ and $a' \mathrel{\#} E$,
+    \[ (z\,a) \cdot E \sim_p (z\,a') \cdot E\{a'/a\}. \]
+    This is the case $n = 1$ of \cref{lem:6-5}, which is the step carried out in [Crole2012]
+    inside the proof of Theorem 4.4 for the rule $\alpha$. -/)]
 lemma alphaEquiv_swap_subst_var {m : Term Var} {z a a' : Var}
     (hz : z ∉ m.vars) (hza : z ≠ a) (haa' : a ≠ a') (ha' : a' ∉ m.fv) :
     (m.swap z a) =α ((m[a := var a']).swap z a') := by
