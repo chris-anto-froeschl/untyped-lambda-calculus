@@ -197,6 +197,7 @@ public import Cslib.Languages.LambdaCalculus.Named.Untyped.AlphaEquivDefs
 public import Cslib.Languages.LambdaCalculus.Named.Untyped.AlphaEquivEquiv
 public import Cslib.Languages.LambdaCalculus.Named.Untyped.AlphaEquivLemmas
 public import Cslib.Languages.LambdaCalculus.Named.Untyped.Basic
+public import Cslib.Languages.LambdaCalculus.Named.Untyped.Properties
 public import Cslib.Languages.LambdaCalculus.Named.Untyped.SwapProperties
 public import Cslib.Languages.Mech.Choreography.Basic
 public import Cslib.Languages.Mech.LocalComputation
