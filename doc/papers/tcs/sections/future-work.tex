@@ -1,0 +1,44 @@
+\section{Future work}
+\label{sec:future-work}
+
+TODO sketch general net of equivalences in Proof pearls aswell (image)
+
+The two results of this paper are intended as the first pieces of a
+larger, ongoing effort within CSLib to build a formalized foundation
+for research on untyped lambda calculus. We outline the planned
+directions below.
+
+\subsection{Further equivalence results}
+\label{subsec:further-equivalences}
+
+Crole-style results, showing several natural but superficially
+different definitions of the same notion to coincide, are not unique
+to alpha equivalence. We plan analogous formalizations for SK
+combinator calculus and other binding representations (locally
+nameless terms, nominal terms), each intended to slot into CSLib
+alongside the results of this paper and to be connected to them by
+explicit isomorphisms in the style of Section~\ref{sec:de-bruijn}.
+
+\subsection{A formalized Barendregt}
+\label{subsec:formalized-barendregt}
+
+Barendregt's \emph{The Lambda Calculus: Its Syntax and
+Semantics}~\cite{barendregt1985a} remains the standard reference
+for the untyped lambda calculus, and a substantial fraction of its
+content --- confluence, standardization, the theory of reduction,
+combinatory completeness, and the associated notions of models ---
+has never been formalized in a single, coherent development. We see
+CSLib's binding infrastructure as a natural basis for such an effort,
+which we tentatively refer to as a "formalized Barendregt". Beyond
+its intrinsic value as a reusable library, a sufficiently complete
+formalized Barendregt would put open or only recently resolved
+conjectures discussed in Barendregt's later survey work within reach
+of machine-checked treatment.
+
+\subsection{Maintenance and reuse}
+\label{subsec:maintenance}
+
+Throughout, the intent is for this work to be maintained as part of
+CSLib rather than as a standalone, one-off development: subject to
+code review, kept up to date with CSLib and Mathlib, and structured
+so that later projects can depend on it directly.

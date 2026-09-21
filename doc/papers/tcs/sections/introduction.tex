@@ -1,0 +1,50 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Variable binding is the recurring technical obstacle in any
+formalization touching the lambda calculus: essentially every
+representation choice (named terms modulo alpha equivalence,
+de Bruijn indices, locally nameless terms, higher-order abstract
+syntax, nominal sets, \ldots) trades one set of proof obligations for
+another, and results proved for one representation rarely transfer
+automatically to the others. This has led to a large but fragmented
+body of formalization work, often redone from scratch for each new
+proof assistant or each new project, with little of it packaged as a
+reusable library.
+
+CSLib is an effort to build such a reusable, foundational library for
+computer science results in the Lean~4 theorem prover, in the spirit
+of Mathlib for mathematics~\cite{demoura2026a}. This paper reports on
+two contributions to CSLib's treatment of the untyped lambda calculus:
+
+\begin{enumerate}
+  \item a machine-checked formalization of Crole's result that five
+    common literature definitions of alpha equivalence on named lambda terms
+    are equivalent~\cite{crole2012a}, which to our knowledge
+    had not previously been formalized in a proof assistant; and
+  \item an isomorphism, following Norrish's proof
+    pearl~\cite{norrish2007a}, between the quotient of named
+    terms by a chosen alpha equivalence and a de Bruijn
+    representation, connecting the named and nameless ends of
+    CSLib's binding infrastructure.
+\end{enumerate}
+
+We present both results as part of a longer-term plan: to grow CSLib
+into an idiomatic, well-reviewed, and maintained foundation that
+other researchers can build on directly, rather than reformalizing
+lambda calculus basics for each new project. Section~\ref{sec:future-work}
+sketches this plan in more detail, including further equivalences in
+the style of Crole's for SK combinator calculus and other binding
+representations, and a longer-term goal of formalizing a substantial
+part of Barendregt's reference treatment of the untyped lambda
+calculus~\cite{barendregt1985a}.
+
+\paragraph{Outline.}
+Section~\ref{sec:cslib} introduces CSLib and its current named
+representation of the untyped lambda calculus.
+Section~\ref{sec:alpha-equivalences} presents the formalization of
+Crole's alpha-equivalence equalities.
+Section~\ref{sec:de-bruijn} presents the isomorphism with the de
+Bruijn representation. Section~\ref{sec:related-work} discusses
+related formalization efforts, Section~\ref{sec:future-work} lays
+out planned extensions, and Section~\ref{sec:conclusion} concludes.

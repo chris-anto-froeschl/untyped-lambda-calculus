@@ -1,0 +1,34 @@
+\section{Formalizing Crole's alpha-equivalence equalities}
+\label{sec:alpha-equivalences}
+
+Crole~\cite{crole2012a} gives five definitions of alpha
+equivalence on named lambda terms, arising from different intuitions
+about what it means to rename bound variables (via explicit
+substitution, via swapping, via simultaneous renaming of bound
+variable occurrences, \ldots), and proves that all five coincide.
+The proof is unremarkable to state on paper, but formalizing it
+exposes a number of routine-but-fiddly inductive arguments about
+substitution and renaming under binders that are easy to state
+informally and easy to get subtly wrong when made fully precise ---
+which is precisely the kind of result CSLib aims to package once and
+for all.
+
+\subsection{The five definitions}
+\label{subsec:five-definitions}
+
+\subsection{Equivalence of the five definitions}
+\label{subsec:equivalence-theorem}
+
+TODO theorems + proof links + sketch
+
+\begin{theorem}[Crole~\cite{crole2012a}, formalized]
+\label{thm:crole-equivalence}
+The five relations of Section~\ref{subsec:five-definitions} coincide
+as relations on $\Lam$.
+\end{theorem}
+
+\subsection{Formalization notes}
+\label{subsec:formalization-notes}
+
+TODO extra work due to the paper handing to the literature
+

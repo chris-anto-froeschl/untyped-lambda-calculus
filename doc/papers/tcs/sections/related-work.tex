@@ -1,0 +1,27 @@
+\section{Related work}
+\label{sec:related-work}
+
+Formalizing variable binding has a long history across proof
+assistants, and several general-purpose approaches exist alongside
+the direct, elementary style used in CSLib. Nominal
+techniques~\cite{pitts2013a}, as implemented in Nominal
+Isabelle~\cite{urban2005a}, provide binder-generic reasoning
+principles via permutations and freshness, at the cost of adopting a
+dedicated meta-theory. Locally nameless
+representations~\cite{aydemir2008a} aim to make binder-heavy formalizations more
+tractable or more automatically generated from a specification,
+respectively. Higher-order abstract syntax sidesteps binder
+representation issues by delegating them to the proof assistant's
+own binding mechanism, again at the cost of restricting which proof
+techniques remain available (e.g.\ induction principles).
+
+CSLib's current approach is deliberately more elementary: named terms
+and de Bruijn terms are both represented directly as first-order
+inductive types, with the relationships between representations
+(such as the isomorphism of Section~\ref{sec:de-bruijn}) proved
+explicitly rather than assumed via a shared meta-level binding
+mechanism. This trades some proof automation for representations
+that are simple to state, and results that transfer cleanly between
+representations by construction, which fits CSLib's goal of a
+reusable foundation rather than a self-contained framework.
+

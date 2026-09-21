@@ -1,0 +1,87 @@
+\documentclass[a4paper,fleqn]{cas-sc}
+%% Swap to cas-dc for the double-column layout: \documentclass[a4paper,fleqn]{cas-dc}
+\usepackage[numbers]{natbib}
+
+\input{preamble}
+
+\begin{document}
+
+\shorttitle{A Formalized Foundation for Research in Untyped Lambda Calculus}
+\shortauthors{Chris Anto Fröschl et al.}
+
+\title[mode=title]{A Formalized Foundation for Research in Untyped Lambda Calculus}
+
+\author[1]{Chris Anto Fröschl}[orcid=0009-0006-3562-5395]
+\cormark[1]
+\ead{chris.froeschl@hm.edu}
+
+\author[1]{Prof. Matthias Güdemann}[orcid=0000-0002-1002-6023]
+\cormark[1]
+\ead{matthias.guedemann@hm.edu}
+
+\affiliation[1]{
+    organization={Munich University of Applied Sciences, Department of Computer Science and Mathematics},
+    addressline={Lothstraße 34},
+    city={Munich},
+    postcode={D-80335},
+    state={Bavaria},
+    country={Germany}
+}
+
+\cortext[1]{Corresponding author}
+
+\begin{abstract}
+TODO Intro CSLib, Crole 5 equivs, dB ~= QAEQUIV and what it builds on
+Derived results from it, "Formalized Barendregt"
+Perhaps even benchmark like lambda n ways?
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end{abstract}
+
+\begin{highlights}
+\item First machine-checked formalization of Crole's five equivalent
+  definitions of alpha equivalence.
+\item An isomorphism, formalized in Lean~4, between a de Bruijn
+  representation and the quotient of named terms by alpha
+  equivalence, following Norrish's proof pearl.
+\item A roadmap toward a formalized foundation for untyped lambda
+  calculus research, including further binding representations and
+  a "formalized Barendregt".
+\end{highlights}
+
+\begin{keywords}
+$\alpha$-equivalence \sep
+Atom \sep
+$\lambda$-expression \sep
+Permutation action \sep
+Renaming \sep
+Variable binding \sep
+de Bruijn indices \sep
+formal verification \sep
+proof assistant \sep
+Lean \sep
+\MSC[2020]{03B70 \sep 68V15 \sep 68V20}
+\end{keywords}
+
+\maketitle
+
+\input{sections/introduction}
+\input{sections/cslib}
+\input{sections/alpha-equivalences}
+\input{sections/de-bruijn}
+\input{sections/related-work}
+\input{sections/future-work}
+\input{sections/conclusion}
+
+\section*{Data availability}
+The Lean~4 formalization discussed in this paper is developed as
+part of CSLib and is publicly available at
+\url{https://github.com/leanprover/cslib}.
+
+TODO consider with zenodo
+
+\bibliographystyle{cas-model2-names}
+\bibliography{refs}
+
+\end{document}

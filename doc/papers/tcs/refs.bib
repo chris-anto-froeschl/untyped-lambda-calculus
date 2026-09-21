@@ -1,0 +1,90 @@
+@article{crole2012a,
+  title={Alpha equivalence equalities},
+  journal={Theoretical Computer Science},
+  volume={433},
+  pages={1-19},
+  year={2012},
+  issn={0304-3975},
+  doi={10.1016/j.tcs.2012.01.030},
+  url={https://www.sciencedirect.com/science/article/pii/S0304397512000667},
+  author={Roy L. Crole},
+  keywords={-equivalence, Atom, Context, -expression, Permutation action, Renaming, Variable binding},
+  abstract={Programming languages and logics, which are pervasive in Computer Science, have syntax which involves variable binding constructors. As such, reasoning about such languages in general, and formal reasoning in particular (such as within a theorem prover), requires frameworks within which the syntax may be properly represented. One key requirement is a correct representation of α-equivalence. The current literature provides a number of different definitions of the notion of α-equivalence. The formal definitions may be nameless as in the approach of de Bruijn, or have explicit names, as in the approaches that use either a renaming/substitution axiom, or instead use a notion of variable swapping. The first contribution of this paper is to draw together five definitions of α-equivalence relations and to prove formally and in detail, but using mathematics, that the relations are all equal. There are two key reasons for doing this: Firstly, the literature has many examples of proofs of results involving α-equivalence which contain technical errors. Such examples concern both the application of α-equivalence, and the meta-theory of α-equivalence itself. Secondly, the literature does not currently contain detailed presentations of such results. The point of giving the detail is partly to avoid falling into common error-traps, but mainly to provide clear mathematical machinery that will be useful to those working in the area. This includes systems of inductive rules and proofs by induction, and clear accounts of the key lemmas that support the main proofs. The second contribution is to provide two definitions of α-equivalence relations over (program) contexts, namely expressions with a single meta-variable (or “hole”). One of the definitions is already in the literature, and the other is new. We prove some basic properties of α-equivalence on contexts, and show that the two definitions give rise to the same relation.}
+}
+
+@InProceedings{norrish2007a,
+  author={Norrish, Michael and Vestergaard, Ren{\'e}},
+  editor={Schneider, Klaus and Brandt, Jens},
+  title={Proof Pearl: De Bruijn Terms Really Do Work},
+  booktitle={Theorem Proving in Higher Order Logics},
+  year={2007},
+  publisher={Springer Berlin Heidelberg},
+  address={Berlin, Heidelberg},
+  pages={207--222},
+  abstract={Placing our result in a web of related mechanised results, we give a direct proof that the de Bruijn $\lambda$-calculus ({\`a} la Huet, Nipkow and Shankar) is isomorphic to an $\alpha$-quotiented $\lambda$-calculus. In order to establish the link, we introduce an ``index-carrying'' abstraction mechanism over de Bruijn terms, and consider it alongside a simplified substitution mechanism. Relating the new notions to those of the $\alpha$-quotiented and the proper de Bruijn formalisms draws on techniques from the theory of nominal sets.},
+  isbn={978-3-540-74591-4}
+}
+
+@book{barendregt1985a,
+  author={Hendrik Pieter Barendregt},
+  title={The lambda calculus - its syntax and semantics},
+  series={Studies in logic and the foundations of mathematics},
+  volume={103},
+  publisher={North-Holland},
+  year={1985},
+  isbn={978-0-444-86748-3},
+  timestamp={Fri, 28 Jun 2019 12:45:52 +0200},
+  biburl={https://dblp.org/rec/books/daglib/0067558.bib},
+  bibsource={dblp computer science bibliography, https://dblp.org}
+}
+
+@Book{pitts2013a,
+  author={A. M. Pitts},
+  title={Nominal Sets: Names and Symmetry in Computer Science},
+  publisher={Cambridge University Press},
+  year=2013,
+  volume=57,
+  series={Cambridge Tracts in Theoretical Computer Science},
+  isbn={9781107017788}
+}
+
+@InProceedings{urban2005a,
+  author={Urban, Christian and Tasson, Christine},
+  editor={Nieuwenhuis, Robert},
+  title={Nominal Techniques in Isabelle/HOL},
+  booktitle={Automated Deduction -- CADE-20},
+  year={2005},
+  publisher={Springer Berlin Heidelberg},
+  address={Berlin, Heidelberg},
+  pages={38--53},
+  abstract={In this paper we define an inductive set that is bijective with the $\alpha$-equated lambda-terms. Unlike de-Bruijn indices, however, our inductive definition includes names and reasoning about this definition is very similar to informal reasoning on paper. For this we provide a structural induction principle that requires to prove the lambda-case for fresh binders only. The main technical novelty of this work is that it is compatible with the axiom-of-choice (unlike earlier nominal logic work by Pitts et al); thus we were able to implement all results in Isabelle/HOL and use them to formalise the standard proofs for Church-Rosser and strong-normalisation.},
+  isbn={978-3-540-31864-4}
+}
+
+@inproceedings{aydemir2008a,
+  author={Aydemir, Brian and Chargu\'{e}raud, Arthur and Pierce, Benjamin C. and Pollack, Randy and Weirich, Stephanie},
+  title={Engineering formal metatheory},
+  year={2008},
+  isbn={9781595936899},
+  publisher={Association for Computing Machinery},
+  address={New York, NY, USA},
+  url={https://doi.org/10.1145/1328438.1328443},
+  doi={10.1145/1328438.1328443},
+  abstract={Machine-checked proofs of properties of programming languages have become acritical need, both for increased confidence in large and complex designsand as a foundation for technologies such as proof-carrying code. However, constructing these proofs remains a black art, involving many choices in the formulation of definitions and theorems that make a huge cumulative difference in the difficulty of carrying out large formal developments. There presentation and manipulation of terms with variable binding is a key issue.We propose a novel style for formalizing metatheory, combining locally nameless representation of terms and cofinite quantification of free variable names in inductivedefinitions of relations on terms (typing, reduction, ...). The key technical insight is that our use of cofinite quantification obviates the need for reasoning about equivariance (the fact that free names can be renamed in derivations); in particular, the structural induction principles of relations defined using cofinite quantification are strong enough for metatheoretic reasoning, and need not be explicitly strengthened. Strong inversion principles follow (automatically, in Coq) from the induction principles. Although many of the underlying ingredients of our technique have been used before, their combination here yields a significant improvement over other methodologies using first-order representations, leading to developments that are faithful to informal practice, yet require noexternal tool support and little infrastructure within the proof assistant.We have carried out several large developments in this style using the Coq proof assistant and have made them publicly available. Our developments include type soundness for System F sub; and core ML (with references, exceptions, datatypes, recursion, and patterns) and subject reduction for the Calculus of Constructions. Not only do these developments demonstrate the comprehensiveness of our approach; they have also been optimized for clarity and robustness, making them good templates for future extension.},
+  booktitle={Proceedings of the 35th Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages},
+  pages={3–15},
+  numpages={13},
+  keywords={binding, coq, locally nameless},
+  location={San Francisco, California, USA},
+  series={POPL '08}
+}
+
+@misc{demoura2026a,
+  title={CSLib: The Lean Computer Science Library}, 
+  author={Clark Barrett and Swarat Chaudhuri and Fabrizio Montesi and Jim Grundy and Pushmeet Kohli and Leonardo de Moura and Alexandre Rademaker and Sorrachai Yingchareonthawornchai},
+  year={2026},
+  eprint={2602.04846},
+  archivePrefix={arXiv},
+  primaryClass={cs.LO},
+  url={https://arxiv.org/abs/2602.04846}, 
+}
