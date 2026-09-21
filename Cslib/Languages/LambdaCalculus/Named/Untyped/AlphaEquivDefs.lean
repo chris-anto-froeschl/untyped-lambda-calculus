@@ -57,12 +57,13 @@ variable {Var : Type u} [DecidableEq Var] [HasFresh Var]
 
 namespace LambdaCalculus.Named.Untyped.Term
 
-blueprint_comment /-- \section{Some definitions of $\alpha$-equivalence}
+/- \section{Some definitions of $\alpha$-equivalence}
 
 The five relations below, together with the two variants of \cref{prop:4-3}, are the
 definitions of Section 3 of [Crole2012], stated using the permutation action and the
 capture-avoiding substitution of Section 2. -/
 
+/-- Agreement set of 2 permutations -/
 @[blueprint "def:agreement-set"
   (title := "Agreement set")
   (statement := /-- For permutations $\pi, \pi'$ of the set of atoms $\mathbb{A}$, the
@@ -72,6 +73,7 @@ capture-avoiding substitution of Section 2. -/
     ([Crole2012], Section 2.) -/)]
 def agreementSet (f g : Var → Var) : Set Var := { x | f x = g x }
 
+/-- Disagreement set of 2 permutations -/
 @[blueprint "def:disagreement-set"
   (title := "Disagreement set")
   (statement := /-- For permutations $\pi, \pi'$ of the set of atoms $\mathbb{A}$, the
