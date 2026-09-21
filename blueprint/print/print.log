@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2025/dev/Debian) (preloaded format=xelatex 2026.6.26)  21 SEP 2026 14:22
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2025/dev/Debian) (preloaded format=xelatex 2026.6.26)  21 SEP 2026 14:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -319,6 +319,21 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip61
 )
+(/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `amsthm' support loaded on input line 3026.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math.sty
 Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
 
@@ -376,26 +391,26 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 (/home/chr95877/src/untyped-lambda-calculus/blueprint/print/print.aux)
 \openout1 = `print.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -460,28 +475,27 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: xetex.def on input line 149.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 30.
+Package hyperref Info: Link coloring ON on input line 31.
+
+(/home/chr95877/src/untyped-lambda-calculus/blueprint/print/print.out)
+(/home/chr95877/src/untyped-lambda-calculus/blueprint/print/print.out)
 \@outlinefile=\write3
 \openout3 = `print.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 30.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 30.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 30.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 30.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 30.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 30.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 30.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 31.
 
 Package fontspec Info: 
 (fontspec)             Font family 'latinmodern-math.otf(0)' created for font
@@ -520,15 +534,15 @@ latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
 "
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 30.
+(Font)              `operators' in the math version `normal' on input line 31.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 30.
+ line 31.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 30.
+(Font)              `operators' in the math version `bold' on input line 31.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 30.
+t line 31.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 1.0001.
@@ -581,15 +595,15 @@ t;+ssty=1;"
 uage=dflt;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 30.
+(Font)              `symbols' in the math version `normal' on input line 31.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 30.
+t line 31.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 30.
+(Font)              `symbols' in the math version `bold' on input line 31.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 30.
+t line 31.
 
 Package fontspec Info: 
 (fontspec)             latinmodern-math scale = 0.9999.
@@ -626,4 +640,748 @@ latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
-(fontspec)     
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9999]"[latinmodern-math.otf]/OT:script=math;l
+anguage=dflt;"<6-8.5>s*[0.9999]"[latinmodern-math.otf]/OT:script=math;language=
+dflt;+ssty=0;"<-6>s*[0.9999]"[latinmodern-math.otf]/OT:script=math;language=dfl
+t;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999]"[latinmodern-math.otf]/OT:script=math;lang
+uage=dflt;"
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 3
+1.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
+t line 31.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 31.
+
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
+t line 31.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.00128pt on input line 33.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00085pt on input line 33.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00064pt on input line 33.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 33.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 33.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 33.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+[1
+
+] (./content.tex
+(/home/chr95877/src/untyped-lambda-calculus/blueprint/print/../../.lake/build/b
+lueprint/library/Cslib.tex
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Lint/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Tactic/GrindAttrs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Init.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Relation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/HasTau.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Notation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Syntax/Context.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CCS/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CCS/Semantics.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Domain.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Simulation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/TraceEq.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Bisimulation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Algorithms/CCS/VendingMachine.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Control/Monad/IsMonadHom.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Algorithms/Lean/TimeM.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Algorithms/Lean/Sort/Merge.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Algorithms/Lean/MergeSort/MergeSort.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Algorithms/Lean/Sort/Insertion.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/Acceptors/Acceptor.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/Language.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/Nat/Segment.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/OmegaSequence/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/OmegaSequence/Init.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/OmegaSequence/Flatten.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/OmegaSequence/Topology.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/OmegaLanguage.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/Acceptors/OmegaAcceptor.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/OmegaSequence/InfOcc.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/FLTS/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/DA/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/DA/Buchi.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/Congruences/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/DA/Congr.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/FLTS/Prod.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/DA/Prod.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/List/IsChainFromTo.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Execution.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/OmegaExecution.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/FLTS/FLTSToLTS.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/DA/ToNA.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/EpsilonNA/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/LanguageHom.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/MapHom.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/EpsilonNA/ToNA.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/EpsilonNA/ToSingleAccept.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/BuchiEquiv.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Hist.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Prod.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/OmegaSequence/Temporal.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/BuchiInter.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Total.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Total.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Concat.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/Transducers/Transducer.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/EpsilonTransducer.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Loop.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Preimage.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Reverse.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Reverse.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/FLTS/LTSToFLTS.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/ToDA.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/TwoWayNA/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/TwoWayNA/OfNA.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/TwoWayNA/ComplToNA.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/RegularLanguage.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Pair.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Automata/NA/Sum.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Signature.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Homomorphism.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Wire.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Program.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Boolean/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Synthesis.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Boolean/Synthesis.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Boolean/LupanovConstruction.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/Nat/Asymptotics.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Circuit/Boolean/Lupanov.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Distributed/FLP/Algorithm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Distributed/FLP/CanReachVia.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Distributed/FLP/Consensus.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Distributed/FLP/FairScheduler.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Distributed/FLP/PseudoConsensus.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Distributed/FLP/OnePseudoConsensus.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Distributed/FLP/Impossibility.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Distributed/FLP/ZeroConsensus.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Combinatorics/InfiniteGraphRamsey.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/Set/Saturation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/Congruences/BuchiCongruence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/MyhillNerode.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/Congruences/MyhillCongruence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/ExampleEventuallyZero.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/OmegaRegularLanguage.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/SafetyLiveness.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Languages/SyntacticMonoid.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/RelatesInSteps.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/Configuration.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/Deterministic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/Combinators/AlmostConstant.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/TapeLemmas.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/ConfigBound.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/Nondeterministic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/DeterministicToNondeterministic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/Plumbing/TransformsTapes.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/MultiTape/Plumbing/Sequential.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/StackTape.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/BiTape.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/SingleTape/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/SingleTape/Deterministic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/Machines/Turing/SingleTape/NonDeterministic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/URM/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/URM/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Termination.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Confluence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/URM/Execution.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/URM/Computable.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/URM/StraightLine.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Computability/URM/StandardForm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/Commitment/Scheme.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Probability/StatisticalDistance.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/Commitment/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/Commitment/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/PerfectSecrecy/Encryption.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Probability/PMF.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/PerfectSecrecy/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/PerfectSecrecy/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/PerfectSecrecy/OneTimePad.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/SecretSharing/Scheme.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/SecretSharing/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/SecretSharing/Shamir/Polynomial.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Crypto/Protocols/SecretSharing/Shamir.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Control/Monad/Free.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Control/Monad/Free/Effects.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Control/Monad/Free/Fold.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Control/Monad/IsMonadHom/List.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/DecidableEqZero.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/FinFun/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/FinFun/Update.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/HasFresh.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Data/PFunctor/Free.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Logic/InferenceSystem.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Syntax/Congruence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Logic/LogicalEquivalence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Logic/Operators.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Attr.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Restriction.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Euclidean.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Relation/Preserves.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Divergence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Termination.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/ExampleTermination.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/LTSCat/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Semantics/LTS/Union.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Syntax/HasAlphaEquiv.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Syntax/HasSubstitution.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Foundations/Syntax/HasWellFormed.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CCS/BehaviouralTheory.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CombinatoryLogic/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CombinatoryLogic/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CombinatoryLogic/Confluence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CombinatoryLogic/Recursion.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CombinatoryLogic/Evaluation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/CombinatoryLogic/List.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Context.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Fsub/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Fsub/Opening.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Fsub/Reduction.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Fsub/WellFormed.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Fsub/Subtype.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Fsub/Typing.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Fsub/Safety.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/LcAt.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/Properties.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Stlc/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/Congruence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/FullBeta.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Stlc/Safety.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/MultiSubst.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/MultiApp.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/StrongNorm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Stlc/StrongNorm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/CallByName.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/BetaAt.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/FullBetaConfluence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/FullEta.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/FullEtaConfluence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/FullBetaEta.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/FullBetaEtaConfluence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/StandardReduction.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/LocallyNameless/Untyped/LeftmostReduction.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Properties.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/SwapProperties.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/Mech/Choreography/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/Mech/LocalComputation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/StatefulProcesses/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/StatefulProcesses/Network.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/HML/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/HML/LogicalEquivalence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/LinearLogic/CLL/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/LinearLogic/CLL/CutElimination.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/LinearLogic/CLL/EtaExpansion.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/LinearLogic/CLL/MLL.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/LinearLogic/CLL/PhaseSemantics/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Modal/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Modal/Cube.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Modal/LogicalEquivalence.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Modal/Denotation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Modal/Lean/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Modal/Lean/SMul.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Propositional/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Propositional/NaturalDeduction/Basic.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Propositional/NaturalDeduction/Theory.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+MachineLearning/PACLearning/Defs.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+MachineLearning/PACLearning/VCDimension.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+MachineLearning/PACLearning/VersionSpace.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+MachineLearning/PACLearning/VersionSpaceLattice.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib.
+tex))
+Chapter 1.
+
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:agreement-s
+et.tex
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00107pt on input line 6.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 6.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 6.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 6.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 6.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 6.
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:disagreemen
+t-set.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:permutation
+-action.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:swap.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p-fre
+sh.tex
+Overfull \hbox (8.65927pt too wide) detected at line 14
+[] [] [] [] [] [][] [] [] [] [][] [][] [][] [][] []
+ []
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p1.te
+x
+
+LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 7.
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p2.te
+x
+
+LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
+
+
+
+[1
+
+])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p3.te
+x
+
+LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-r.tex
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-r-fre
+sh.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:6-1.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:6-7.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-1.tex
+
+
+[2])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-1-swa
+p.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-2.tex
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-2-swa
+p.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3-renam
+e.tex
+
+LaTeX Warning: Reference `def:rename' on page 1 undefined on input line 10.
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-4-renam
+e.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-4.tex
+
+[3])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-6.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-6-p.tex
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3-p.tex
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5-subst
+-swap.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5-swap-
+swap.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:swap-chai
+n.tex
+Overfull \hbox (33.39565pt too wide) in paragraph at lines 2--9
+[]\TU/lmr/bx/n/10 Definition 26 \TU/lmr/m/n/10 (Chain of transpositions)\TU/lmr
+/bx/n/10 . [][][][]  \TU/lmr/m/n/10 Given a finite list of triples of atoms $[]
+[][][] [][][] [][][][] [] [] [][][][] [][][] [][][]$
+ []
+
+
+
+[4])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:subst-swa
+p-chain.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:chain-ato
+ms.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5-one.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-1-easy.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-1-hard.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-1.tex
+
+LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
+
+
+
+[5])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-easy.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-wlog.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-hard.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-2.tex
+
+LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/prop:4-3.tex
+
+LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 7.
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-4-r-to-p
+.tex
+
+LaTeX Warning: Reference `lem:alpha-p-refl' on page 1 undefined on input line 9
+.
+
+
+LaTeX Warning: Reference `lem:alpha-p-symm' on page 1 undefined on input line 1
+0.
+
+
+LaTeX Warning: Reference `lem:alpha-p-trans' on page 1 undefined on input line 
+10.
+
+
+LaTeX Warning: Reference `lem:alpha-p-bcg' on page 1 undefined on input line 10
+.
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-4-p-to-r
+.tex
+
+[6])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-4.tex
+
+LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-5-rfresh
+-to-p.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-5-p-to-r
+fresh.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-5.tex
+
+LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-6.tex))
+
+[7] (/home/chr95877/src/untyped-lambda-calculus/blueprint/print/print.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `print.out' has not changed.
+(rerunfilecheck)             Checksum: 67C5CCDAA3C8AB455C6BB386E46FA8EC;575.
+ ) 
+Here is how much of TeX's memory you used:
+ 20440 strings out of 475852
+ 563905 string characters out of 5775423
+ 932182 words of memory out of 5000000
+ 42332 multiletter control sequences out of 15000+600000
+ 564224 words of font info for 87 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 90i,8n,107p,464b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on /home/chr95877/src/untyped-lambda-calculus/blueprint/print/pr
+int.pdf (8 pages).
