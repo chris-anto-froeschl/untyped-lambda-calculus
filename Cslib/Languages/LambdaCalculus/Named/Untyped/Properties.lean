@@ -370,6 +370,11 @@ lemma alphaEquiv_swap_preserve_abs_a_eq_b_eq_u {E E' : Term Var} {u v : Var}
       exact ih
 
 /-- Symmetry of α-equivalence. -/
+@[blueprint "lem:alpha-p-symm"
+  (latexEnv := "lemma")
+  (title := "$\\sim_p$ is symmetric")
+  (statement := /-- For all expressions $E, E'$ we have $E \sim_p E' \implies E' \sim_p E$.
+    ([Crole2012], proof of Theorem 4.4, case \emph{sym}.) -/)]
 theorem AlphaEquiv.symm {m n : Term Var} : m =α n → n =α m := by
   intro h
   induction h with
@@ -496,6 +501,11 @@ lemma AlphaEquiv.swap_preserve {m m' : Term Var} {u v : Var} :
 variable [HasFresh Var]
 
 /-- Reflexivity of α-equivalence. -/
+@[blueprint "lem:alpha-p-refl"
+  (latexEnv := "lemma")
+  (title := "$\\sim_p$ is reflexive")
+  (statement := /-- For every expression $E$ we have $E \sim_p E$.
+    ([Crole2012], proof of Theorem 4.4, case \emph{ref}.) -/)]
 theorem AlphaEquiv.refl (m : Term Var) : m =α m := by
   induction m with
   | var x => apply AlphaEquiv.var
@@ -533,6 +543,12 @@ theorem AlphaEquiv.rename_preserve (m n : Term Var) (x y : Var) :
   | @app m1 n1 m2 n2 hm hn =>
     apply AlphaEquiv.app <;> apply ih <;> grind [vars]
 
+@[blueprint "lem:alpha-p-bcg"
+  (latexEnv := "lemma")
+  (title := "$\\sim_p$ is closed under the rule bcg")
+  (statement := /-- For all expressions $E, E'$ and every atom $a$ we have
+    $E \sim_p E' \implies B([a]E) \sim_p B([a]E')$.
+    ([Crole2012], proof of Theorem 4.4, case \emph{bcg}.) -/)]
 lemma AlphaEquiv.abs_congr {m m' : Term Var} {x : Var} :
   m =α m' → (Term.abs x m) =α (Term.abs x m') := by
     intro h
@@ -569,6 +585,12 @@ theorem AlphaEquiv.abs_elim {m1 m2 : Term Var} {x1 x2 y : Var} :
       grind [rename_concat, rename_vars]
 
 /-- Transitivity of α-equivalence. -/
+@[blueprint "lem:alpha-p-trans"
+  (latexEnv := "lemma")
+  (title := "$\\sim_p$ is transitive")
+  (statement := /-- For all expressions $E, E', E''$ we have
+    $E \sim_p E' \sim_p E'' \implies E \sim_p E''$.
+    ([Crole2012], proof of Theorem 4.4, case \emph{trs}.) -/)]
 theorem AlphaEquiv.trans {m n p : Term Var} :
     m =α n → n =α p → m =α p := by
   refine (WellFounded.induction sizeOfWFRel.wf m

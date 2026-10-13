@@ -64,6 +64,12 @@ def vars : Term Var → Finset Var
 
 /-- Variable renaming, applying to both free and bound variables.
     `m.rename x y` changes all occurrences of `x` into `y` in `m`. -/
+@[blueprint "def:rename"
+  (title := "Naive renaming")
+  (statement := /-- For an expression $E$ and atoms $a, z$, the expression $E[a \mapsto z]$ is
+    $E$ with every occurrence of $a$, whether free, bound or binding, replaced by $z$. This is
+    not an operation of [Crole2012]. If $z$ does not occur in $E$, it coincides with the swap
+    $(z\,a) \cdot E$ of \cref{def:swap}. -/)]
 def rename (m : Term Var) (x y : Var) : Term Var :=
   match m with
   | var z => var (if z = x then y else z)
@@ -82,6 +88,21 @@ non-occurrence side condition.
 This definition is analogous to the definition of α-equivalence for λ-expressions in
 [Gabbay2002] (Section 2, page 3). The `abs` rule uses the `rename` operation, which
 coincides with `swap` when the witness variable `y` does not occur in the term. -/
+@[blueprint "def:alpha-p"
+  (title := "Definition 3.1: the relation $\\sim_p$")
+  (statement := /-- The binary relation $\sim_p$ on the set of expressions is inductively
+    defined by
+    \[ \frac{}{a \sim_p a}\ \textit{atom} \qquad
+       \frac{E_1 \sim_p E_1' \quad E_2 \sim_p E_2'}
+            {P(E_1,E_2) \sim_p P(E_1',E_2')}\ \textit{pcg} \qquad
+       \frac{(z\,a) \cdot E \sim_p (z\,b) \cdot E'}
+            {B([a]E) \sim_p B([b]E')}\ \pi
+       \quad [\, z \not\vartriangleright a, b, E, E' \,] \]
+    where the side condition $z \not\vartriangleright a, b, E, E'$ means that $z$ differs from
+    $a$ and $b$ and does not occur in $E$ or $E'$. The formalization states the premise of
+    $\pi$ with the renaming of \cref{def:rename}, which agrees with the swap under this side
+    condition.
+    ([Crole2012], Definition 3.1.) -/)]
 inductive AlphaEquiv : Term Var → Term Var → Prop where
   | var {x} : AlphaEquiv (var x) (var x)
   | abs {y x1 x2 m1 m2} : y ∉ m1.vars ∪ m2.vars ∪ {x1, x2} →
