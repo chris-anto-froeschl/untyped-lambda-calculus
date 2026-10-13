@@ -53,6 +53,14 @@ namespace Term
 
 /-- **Lemma 13** (HOL `sub_nsub`): for `n ≤ i`,
 `sub u i t = nsub u n (sub (dV n) (i+1) (lift t n))`.  Proved by structural induction on `t`. -/
+@[blueprint "lem:nv-13"
+  (latexEnv := "lemma")
+  (title := "Lemma 13")
+  (statement := /-- If $n \le i$ then
+    \[ \mathsf{sub}\,u\,i\,t =
+       \mathsf{nsub}\,u\,n\,(\mathsf{sub}\,(\mathsf{dV}\,n)\,(i+1)\,(\mathsf{lift}\,t\,n)). \]
+    ([Norrish2007a], Lemma 13.) -/)
+  (proof := /-- By structural induction on $t$. -/)]
 theorem dsub_eq_nsub (u : Term) (i n : ℕ) (t : Term) (h : n ≤ i) :
     dsub u i t = nsub u n (dsub (var n) (i + 1) (lift t n)) := by
   induction t generalizing u i n with
@@ -112,6 +120,12 @@ theorem liftingPermInvFun_inv (lim n : ℕ) (a : Atom) :
   split_ifs <;> simp_all <;> omega
 
 /-- The lifting permutation as an element of `FinPerm`. -/
+@[blueprint "def:nv-lifting-pm"
+  (title := "The lifting permutation")
+  (statement := /-- For a lower bound $\ell$ and an upper bound $m$, the permutation
+    $\mathit{lift\text{-}pm}(\ell, m)$ maps $\hat{\imath}$ to $\widehat{i+1}$ if
+    $\ell \le i \le m$, maps $\widehat{m+1}$ back to $\hat{\ell}$, and fixes all other atoms.
+    ([Norrish2007a], before Lemma 14.) -/)]
 def liftingPerm (lim n : ℕ) : FinPerm :=
   ⟨⟨liftingPermFun lim n, liftingPermInvFun lim n,
       fun a => liftingPermInvFun_inv lim n a, fun a => liftingPermFun_inv lim n a⟩,
@@ -146,6 +160,14 @@ theorem incPerm_zero_liftingPerm (m n : ℕ) :
 
 /-- **Lemma 14** (Lifting is a permutation, HOL `lifts_are_specific_dpms`): if `n` is at least
 as large as the largest free index in `t`, then `lift t m = (lifting_pm (m, n)) · t`. -/
+@[blueprint "lem:nv-14"
+  (latexEnv := "lemma")
+  (title := "Lemma 14: lifting is a permutation")
+  (statement := /-- If $n$ is at least as large as the largest free index in $t$, then
+    \[ \mathsf{lift}\,t\,m = \mathit{lift\text{-}pm}(m, n) \cdot t. \]
+    ([Norrish2007a], Lemma 14.) -/)
+  (proof := /-- By structural induction on $t$. The $\mathsf{dABS}$ case needs
+    $\mathit{inc}_0(\mathit{lift\text{-}pm}(m, n)) = \mathit{lift\text{-}pm}(m+1, n+1)$. -/)]
 theorem lift_eq_dpm (t : Term) (n : ℕ) (h : ∀ i ∈ dFV t, i ≤ n) (m : ℕ) :
     lift t m = (liftingPerm m n) • t := by
   induction t generalizing m n with
@@ -207,6 +229,15 @@ what turns the `dLAM`-body of `dABS t = dLAM i t₀` into a permutation of `t₀
 Note that the freshness hypothesis is on the index `i` being substituted *in*, not on the index
 `j` being substituted *for*: substituting `dV i` for `j` in a term in which `i` does not occur
 free is exactly the transposition `[i ↔ j]`. -/
+@[blueprint "lem:nv-sub-fresh-perm"
+  (latexEnv := "lemma")
+  (title := "Substitution of a fresh index is a permutation")
+  (statement := /-- If $i \notin \mathsf{dFV}(t)$ then
+    $\mathsf{sub}\,(\mathsf{dV}\,i)\,j\,t = (\hat{\imath}\;\hat{\jmath}) \cdot t$.
+    ([Norrish2007a], Section 4.3, "The Nominal Aha!": a substitution of a fresh variable into
+    a term is a permutation.) -/)
+  (proof := /-- By structural induction on $t$, using that $\mathit{inc}_0$ of the transposition
+    $(\hat{\imath}\;\hat{\jmath})$ is the transposition of the atoms numbered $i+1$ and $j+1$. -/)]
 theorem dsub_var_eq_dpm {t : Term} {i j : ℕ} (h : i ∉ dFV t) :
     dsub (var i) j t = (FinPerm.swap (Atom.ofNat i) (Atom.ofNat j)) • t := by
   induction t generalizing i j with
@@ -343,6 +374,16 @@ theorem swap_lift_eq_aux {i j : ℕ} {t u : Term} (hij : i ≠ j)
 /-- `dLAM` is injective up to a transposition of the two abstracted indices (HOL `dLAM_11`,
 the analogue of `LAM_eq_thm` for `Λα`).  This is the fact that makes `dB'` behave exactly like
 the α-quotiented syntax. -/
+@[blueprint "lem:nv-dlam-inj"
+  (latexEnv := "lemma")
+  (title := "$\\mathsf{dLAM}$ is injective up to a transposition")
+  (statement := /-- $\mathsf{dLAM}\,i\,t = \mathsf{dLAM}\,j\,u$ if and only if either $i = j$ and
+    $t = u$, or
+    $i \neq j$, $i \notin \mathsf{dFV}(u)$ and $t = (\hat{\imath}\;\hat{\jmath}) \cdot u$.
+    (Not stated in [Norrish2007a]. It replaces the appeal to the recursion principle for
+    $\Lambda_\alpha$ in the proof of Theorem 11.) -/)
+  (proof := /-- Both sides are rewritten with \cref{lem:nv-sub-fresh-perm}. The claim then
+    follows from \cref{lem:nv-supp}, \cref{lem:nv-9} and the injectivity of $\mathsf{lift}$. -/)]
 theorem dLAM_eq_dLAM_iff {i j : ℕ} {t u : Term} :
     dLAM i t = dLAM j u ↔
       (i = j ∧ t = u) ∨
@@ -372,6 +413,18 @@ theorem dLAM_eq_dLAM_iff {i j : ℕ} {t u : Term} :
 `dABS`-congruence rule and the `dLAM`-congruence rule for `R` are equivalent
 (HOL `dABS_rules_are_dLAM_compatible`).  The generality of the statement is what makes it
 reusable for η-reduction in Section 4.4. -/
+@[blueprint "thm:nv-15"
+  (title := "Theorem 15: abstraction congruences correspond")
+  (statement := /-- Let $R$ be an equivariant relation on de Bruijn terms, that is
+    $R\,(\pi \cdot t)\,(\pi \cdot u) \iff R\,t\,u$ for all $\pi$. Then
+    \[ \bigl(\forall t\,u.\; R\,t\,u \Rightarrow
+              R\,(\mathsf{dABS}\,t)\,(\mathsf{dABS}\,u)\bigr)
+       \iff
+       \bigl(\forall i\,t\,u.\; R\,t\,u \Rightarrow
+              R\,(\mathsf{dLAM}\,i\,t)\,(\mathsf{dLAM}\,i\,u)\bigr). \]
+    ([Norrish2007a], Theorem 15.) -/)
+  (proof := /-- Immediate from \cref{lem:nv-14}, \cref{lem:nv-sub-fresh-perm} and \cref{lem:nv-6}.
+    -/)]
 theorem dABS_rules_are_dLAM_compatible (R : Term → Term → Prop)
     (hR : ∀ (π : FinPerm) (t u : Term), R (π • t) (π • u) ↔ R t u) :
     (∀ t u, R t u → R (abs t) (abs u)) ↔ (∀ i t u, R t u → R (dLAM i t) (dLAM i u)) := by

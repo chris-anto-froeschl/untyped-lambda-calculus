@@ -166,6 +166,13 @@ terms purely by transport along the isomorphism `f` of **Theorem 20**.
 
 This is the paper's thesis in a single line: a confluence proof carried out on de Bruijn terms
 is a confluence proof for the named, α-quotiented calculus. -/
+@[blueprint "cor:nv-church-rosser"
+  (latexEnv := "corollary")
+  (title := "Church--Rosser for $\\lambda^N_\\alpha$")
+  (statement := /-- The relation $\to_\beta$ on $\Lambda_\alpha$ is confluent.
+    (Not a numbered result of [Norrish2007a]; it illustrates the use of Theorem 20.) -/)
+  (proof := /-- Confluence of $\to_d$ on de Bruijn terms is transported along the isomorphism of
+    \cref{thm:nv-20}. -/)]
 theorem churchRosser_betaAlpha : Confluent (BetaAlpha (Var := Atom)) :=
   Equiv.confluent_of_equiv dbEquiv (fun _ _ => betaAlpha_iff_beta) churchRosser_beta
 
@@ -281,6 +288,14 @@ the one a λ-calculus text would quote; it is recorded here as the first such co
 
 /-- β-normal forms in `λNα` are unique — the standard corollary of `churchRosser_betaAlpha`,
 and hence, transitively, of the de Bruijn Church–Rosser theorem. -/
+@[blueprint "cor:nv-normal-form-unique"
+  (latexEnv := "corollary")
+  (title := "Uniqueness of $\\beta$-normal forms in $\\Lambda_\\alpha$")
+  (statement := /-- If $M$ reduces in several steps to $N_1$ and to $N_2$, and both are
+    $\beta$-normal, then
+    $N_1 = N_2$.
+    (Not a result of [Norrish2007a].) -/)
+  (proof := /-- From \cref{cor:nv-church-rosser}. -/)]
 theorem TermAlpha.normal_form_unique {M N₁ N₂ : TermAlpha Atom}
     (h₁ : ReflTransGen BetaAlpha M N₁) (h₂ : ReflTransGen BetaAlpha M N₂)
     (hn₁ : Normal BetaAlpha N₁) (hn₂ : Normal BetaAlpha N₂) : N₁ = N₂ := by

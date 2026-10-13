@@ -125,6 +125,15 @@ private theorem termInductionBySizeOf {Var : Type*}
 
 /-- The map `f` of equation (5), defined on the raw syntax.  Since `Λvar` *is* a free algebra,
 this is an ordinary structural recursion; the equations (5) hold definitionally. -/
+@[blueprint "def:nv-f-raw"
+  (title := "The map $f$ on raw terms")
+  (statement := /-- On raw named terms over atoms, the equations (5) of [Norrish2007a] define a
+    function into
+    de Bruijn terms by structural recursion:
+    \[ f(v) = \mathsf{dV}\,\hat{v} \qquad
+       f(M\,N) = \mathsf{dAPP}\,(f\,M)\,(f\,N) \qquad
+       f(\lambda v.\,M) = \mathsf{dLAM}\,\hat{v}\,(f\,M) \]
+    with $\mathsf{dLAM}$ as in \cref{def:nv-5}. -/)]
 def fromTerm : Lam → Term
   | .var x => .var x.val
   | .app m n => .app (fromTerm m) (fromTerm n)
@@ -226,6 +235,16 @@ theorem dLAM_rename_eq (m : Lam) (y z : Atom) (hz : z ∉ m.vars) :
 
 /-- The map `f` respects α-equivalence, hence factors through `Λα`.  This is where the nominal
 results of the previous file (in particular `Term.dpm_dLAM` and `Term.dFV_dLAM`) are used. -/
+@[blueprint "lem:nv-f-respects-alpha"
+  (latexEnv := "lemma")
+  (title := "$f$ respects $\\alpha$-equivalence")
+  (statement := /-- If two raw terms $M$ and $N$ are $\alpha$-equivalent then $f(M) = f(N)$, for
+    $f$ as in
+    \cref{def:nv-f-raw}.
+    (Takes the place of the recursion principle for $\Lambda_\alpha$ used in [Norrish2007a],
+    Theorem 11.) -/)
+  (proof := /-- By rule induction, using \cref{thm:nv-10-dlam}, \cref{lem:nv-dfv-dlam} and
+    \cref{lem:nv-supp}. -/)]
 theorem fromTerm_respects_alpha {m n : Lam} (h : m =α n) : fromTerm m = fromTerm n := by
   induction h with
   | var => rfl
@@ -276,6 +295,14 @@ theorem fromTerm_injective {m n : Lam} (h : fromTerm m = fromTerm n) : m =α n :
               (Named.Untyped.Term.abs_swap_alphaEquiv hxn).symm
 
 /-- `f M = f N ↔ M =α N` (HOL `fromTerm_11`). -/
+@[blueprint "lem:nv-f-injective"
+  (latexEnv := "lemma")
+  (title := "$f$ is injective up to $\\alpha$-equivalence")
+  (statement := /-- For raw terms $M$ and $N$: $f(M) = f(N)$ if and only if $M$ and $N$ are
+    $\alpha$-equivalent.
+    ([Norrish2007a], Theorem 11, injectivity.) -/)
+  (proof := /-- One direction is \cref{lem:nv-f-respects-alpha}. The other is a structural induction
+    whose abstraction case is \cref{lem:nv-dlam-inj}. -/)]
 theorem fromTerm_alphaEquiv_iff {m n : Lam} : fromTerm m = fromTerm n ↔ m =α n :=
   ⟨fromTerm_injective, fromTerm_respects_alpha⟩
 
@@ -320,6 +347,14 @@ theorem fromTerm_dsub (m n : Lam) (x : Atom) :
 Bruijn term onto which a value in `Λα` maps.  The `dABS` case is **Lemma 6**
 (`Term.dABS_renamed`): every `dABS`-term is a `dLAM`-term, and `dLAM` adds exactly one node,
 so the induction on `Term.dbsize` goes through. -/
+@[blueprint "lem:nv-f-surjective"
+  (latexEnv := "lemma")
+  (title := "$f$ is surjective")
+  (statement := /-- Every de Bruijn term is $f(M)$ for some raw term $M$.
+    ([Norrish2007a], Theorem 11, surjectivity.) -/)
+  (proof := /-- By complete induction on the size of the de Bruijn term, using \cref{lem:nv-6} in
+    the
+    $\mathsf{dABS}$ case. -/)]
 theorem fromTerm_surjective (t : Term) : ∃ m : Lam, fromTerm m = t := by
   suffices h : ∀ k : ℕ, ∀ t : Term, Term.dbsize t ≤ k → ∃ m : Lam, fromTerm m = t by
     exact h (Term.dbsize t) t le_rfl
@@ -403,6 +438,15 @@ theorem fromTerm_eq_dLAM {m : Lam} {i : ℕ} {d : Term} (h : fromTerm m = Term.d
             FinPerm.swap_comm (Atom.ofNat i) y, FinPerm.swap_swap, one_smul]
 
 /-- The map `f : Λα → dB` of equation (5). -/
+@[blueprint "def:nv-f"
+  (title := "The map $f \\colon \\Lambda_\\alpha \\to \\mathsf{dB}$")
+  (statement := /-- By \cref{lem:nv-f-respects-alpha} the function of \cref{def:nv-f-raw} induces a
+    function
+    $f \colon \Lambda_\alpha \to \mathsf{dB}$. It satisfies the equations
+    \[ f(\mathsf{VAR}\,v) = \mathsf{dV}\,\hat{v} \qquad
+       f(\mathsf{APP}\,M\,N) = \mathsf{dAPP}\,(f\,M)\,(f\,N) \qquad
+       f(\mathsf{LAM}\,v\,M) = \mathsf{dLAM}\,\hat{v}\,(f\,M) \]
+    ([Norrish2007a], equation (5).) -/)]
 def toDB : TermAlpha Atom → Term :=
   Quotient.lift fromTerm (fun _ _ h => fromTerm_respects_alpha h)
 
@@ -423,6 +467,13 @@ def toDB : TermAlpha Atom → Term :=
 
 /-- **Theorem 11** (`dB` is in bijection with `Λα`): there exists a bijective `f : Λα → dB`
 with defining equations as in (5). -/
+@[blueprint "thm:nv-11"
+  (latexEnv := "theorem")
+  (title := "Theorem 11: $\\mathsf{dB}$ is in bijection with $\\Lambda_\\alpha$")
+  (statement := /-- The function $f \colon \Lambda_\alpha \to \mathsf{dB}$ of \cref{def:nv-f} is a
+    bijection.
+    ([Norrish2007a], Theorem 11.) -/)
+  (proof := /-- From \cref{lem:nv-f-injective} and \cref{lem:nv-f-surjective}. -/)]
 noncomputable def dbEquiv : TermAlpha Atom ≃ Term where
   toFun := toDB
   invFun t := ⟦(fromTerm_surjective t).choose⟧α
@@ -442,7 +493,15 @@ theorem toDB_injective {M N : TermAlpha Atom} (h : toDB M = toDB N) : M = N := b
     | _ n => exact TermAlpha.mk_eq_mk.mpr (fromTerm_alphaEquiv_iff.mp h)
 
 /-- The quotient-level form of `fromTerm_dsub`. -/
-@[simp] theorem toDB_subst (M N : TermAlpha Atom) (x : Atom) :
+@[blueprint "lem:nv-12-subst"
+  (latexEnv := "lemma")
+  (title := "$f$ and substitution")
+  (statement := /-- $f(M[v := N]) = \mathsf{sub}\,(f\,N)\,\hat{v}\,(f\,M)$ for all $M, N \in
+    \Lambda_\alpha$.
+    ([Norrish2007a], proof of Theorem 12.) -/)
+  (proof := /-- By induction on the size of a representative of $M$, renaming the bound atom of an
+    abstraction to a sufficiently fresh one and using \cref{lem:nv-sub-dlam}. -/), simp]
+theorem toDB_subst (M N : TermAlpha Atom) (x : Atom) :
     toDB (TermAlpha.subst M x N) = Term.dsub (toDB N) x.val (toDB M) := by
   induction M using TermAlpha.ind with
   | _ m =>
@@ -512,6 +571,11 @@ theorem betaAlpha_of_dbeta' : ∀ {t u : Term}, DBeta' t u →
 
 /-- **Theorem 12**: `M →β N ⇔ f M →d' f N`.  Two rule inductions, both relying on
 `fromTerm_dsub`. -/
+@[blueprint "thm:nv-12"
+  (title := "Theorem 12")
+  (statement := /-- $M \to_\beta N \iff f(M) \to_{d'} f(N)$ for all $M, N \in \Lambda_\alpha$.
+    ([Norrish2007a], Theorem 12.) -/)
+  (proof := /-- Two rule inductions, both relying on \cref{lem:nv-12-subst}. -/)]
 theorem betaAlpha_iff_dbeta' {M N : TermAlpha Atom} :
     BetaAlpha M N ↔ DBeta' (toDB M) (toDB N) :=
   ⟨dbeta'_of_betaAlpha, fun h => betaAlpha_of_dbeta' h M N rfl rfl⟩

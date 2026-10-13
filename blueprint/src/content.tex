@@ -9,3 +9,80 @@
 \inputleanmodule{Cslib.Languages.LambdaCalculus.Named.Untyped.AlphaEquivLemmas}
 \inputleanmodule{Cslib.Languages.LambdaCalculus.Named.Untyped.AlphaEquivEquiv}
 
+\chapter{De Bruijn terms really do work}
+
+This chapter follows M.~Norrish and R.~Vestergaard, \emph{Proof Pearl: de Bruijn Terms Really Do
+Work} (TPHOLs 2007). Results are numbered as in that paper.
+
+\section{Named abstraction (Section 2.1)}
+
+\inputleannode{def:nv-lambda-alpha}
+\inputleannode{def:nv-lambda-alpha-subst}
+\inputleannode{def:nv-beta-alpha}
+
+\section{De Bruijn's anonymous abstraction (Section 2.2)}
+
+\inputleannode{def:nv-db}
+\inputleannode{def:nv-lift}
+\inputleannode{def:nv-nsub}
+\inputleannode{def:nv-1}
+
+\section{An intermediate formalism (Section 4.1)}
+
+\inputleannode{def:nv-4}
+\inputleannode{def:nv-dfv}
+\inputleannode{def:nv-5}
+\inputleannode{lem:nv-6-aux}
+\inputleannode{lem:nv-6}
+\inputleannode{def:nv-7}
+
+\section{Nominal reasoning with indices (Section 4.2)}
+
+\inputleannode{def:nv-8-inc}
+\inputleannode{def:nv-8}
+\inputleannode{lem:nv-supp}
+\inputleannode{lem:nv-9}
+\inputleannode{thm:nv-10-sub}
+\inputleannode{thm:nv-10-dlam}
+\inputleannode{thm:nv-10}
+\inputleannode{lem:nv-dfv-dlam}
+\inputleannode{lem:nv-sub-dlam}
+\inputleannode{def:nv-f-raw}
+\inputleannode{lem:nv-f-respects-alpha}
+\inputleannode{def:nv-f}
+\inputleannode{lem:nv-f-injective}
+\inputleannode{lem:nv-f-surjective}
+\inputleannode{thm:nv-11}
+\inputleannode{lem:nv-12-subst}
+\inputleannode{thm:nv-12}
+
+\section{The homomorphism between dB and dB' (Section 4.3)}
+
+\inputleannode{lem:nv-13}
+\inputleannode{def:nv-lifting-pm}
+\inputleannode{lem:nv-14}
+\inputleannode{lem:nv-sub-fresh-perm}
+\inputleannode{lem:nv-dlam-inj}
+\inputleannode{thm:nv-15}
+\inputleannode{lem:nv-16}
+\inputleannode{lem:nv-17}
+\inputleannode{lem:nv-beta-equivariant}
+\inputleannode{lem:nv-18}
+\inputleannode{thm:nv-19}
+\inputleannode{thm:nv-20-hom}
+\inputleannode{thm:nv-20}
+
+\section{Eta-reduction (Section 4.4)}
+
+\inputleannode{def:nv-eta-alpha}
+\inputleannode{def:nv-neta}
+\inputleannode{def:nv-eta}
+\inputleannode{lem:nv-nsub-lift}
+\inputleannode{lem:nv-lift-nsub}
+\inputleannode{thm:nv-eta-coincide}
+\inputleannode{thm:nv-eta-iso}
+
+\section{Using the isomorphism}
+
+\inputleannode{cor:nv-church-rosser}
+\inputleannode{cor:nv-normal-form-unique}

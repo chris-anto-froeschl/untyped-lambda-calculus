@@ -70,6 +70,15 @@ def Term.alphaSetoid (Var : Type u) [DecidableEq Var] [HasFresh Var] : Setoid (T
   iseqv := ⟨Term.AlphaEquiv.refl, Term.AlphaEquiv.symm, Term.AlphaEquiv.trans⟩
 
 /-- `Λα`: the α-quotient of the raw syntax `Λvar` (paper, Section 2.1). -/
+@[blueprint "def:nv-lambda-alpha"
+  (title := "The type $\\Lambda_\\alpha$")
+  (statement := /-- $\Lambda_\alpha$ is the quotient of the raw syntax $\Lambda^{\mathrm{var}}$ of
+    named
+    $\lambda$-terms by $\alpha$-equivalence. We write $\mathsf{VAR}\,v$, $\mathsf{APP}\,M\,N$ and
+    $\mathsf{LAM}\,v\,M$ for the operations on $\Lambda_\alpha$ induced by the three constructors
+    of $\Lambda^{\mathrm{var}}$. The operation $\mathsf{LAM}$ is not injective, so
+    $\Lambda_\alpha$ is not a free algebra.
+    ([Norrish2007a], Section 2.1.) -/)]
 def TermAlpha (Var : Type u) [DecidableEq Var] [HasFresh Var] : Type u :=
   Quotient (Term.alphaSetoid Var)
 
@@ -96,6 +105,13 @@ def abs (x : Var) : TermAlpha Var → TermAlpha Var :=
 
 /-- Capture-avoiding substitution on `Λα` (Table 1: for `λNα`, substitution has type
 `Λα × V × Λα → Λα`).  Well defined by `Term.subst.preserve_AlphaEquiv`. -/
+@[blueprint "def:nv-lambda-alpha-subst"
+  (title := "Substitution on $\\Lambda_\\alpha$")
+  (statement := /-- Substitution $M[v := N]$ on $\Lambda_\alpha$ is induced by capture-avoiding
+    substitution
+    on raw terms, which respects $\alpha$-equivalence in both term arguments. It has type
+    $\Lambda_\alpha \times V \times \Lambda_\alpha \to \Lambda_\alpha$.
+    ([Norrish2007a], Table 1, row $\lambda^N_\alpha$.) -/)]
 def subst (M : TermAlpha Var) (x : Var) (N : TermAlpha Var) : TermAlpha Var :=
   Quotient.map₂ (fun m n => m[x := n])
     (fun _ _ h₁ _ _ h₂ => Term.subst.preserve_AlphaEquiv h₁ h₂) M N
@@ -115,6 +131,18 @@ end TermAlpha
 
 /-- β-reduction of `λNα` (paper, Table 1): defined directly on the α-quotiented type, with the
 contraction rule using the quotient-level substitution. -/
+@[blueprint "def:nv-beta-alpha"
+  (title := "$\\beta$-reduction of $\\lambda^N_\\alpha$")
+  (statement := /-- The relation $\to_\beta$ on $\Lambda_\alpha$ is the least relation satisfying
+    \begin{gather*}
+      \frac{}{\mathsf{APP}\,(\mathsf{LAM}\,v\,M)\,N \to_\beta M[v := N]} \qquad
+      \frac{M \to_\beta N}{\mathsf{APP}\,M\,Z \to_\beta \mathsf{APP}\,N\,Z} \\[1ex]
+      \frac{M \to_\beta N}{\mathsf{APP}\,Z\,M \to_\beta \mathsf{APP}\,Z\,N} \qquad
+      \frac{M \to_\beta N}{\mathsf{LAM}\,v\,M \to_\beta \mathsf{LAM}\,v\,N}
+    \end{gather*}
+    It is defined on the quotient $\Lambda_\alpha$ of \cref{def:nv-lambda-alpha} itself, using
+    the substitution of \cref{def:nv-lambda-alpha-subst}.
+    ([Norrish2007a], Table 1, row $\lambda^N_\alpha$.) -/)]
 inductive BetaAlpha : TermAlpha Var → TermAlpha Var → Prop where
   /-- Contraction of a β-redex. -/
   | red (x : Var) (M N : TermAlpha Var) :
@@ -132,6 +160,14 @@ inductive BetaAlpha : TermAlpha Var → TermAlpha Var → Prop where
 @[inherit_doc] scoped infix:39 " →βα " => BetaAlpha
 
 /-- η-reduction of `λNα`, used in Section 4.4 of the paper. -/
+@[blueprint "def:nv-eta-alpha"
+  (title := "$\\eta$-reduction on $\\Lambda_\\alpha$")
+  (statement := /-- The relation $\to_\eta$ on $\Lambda_\alpha$ is the least relation closed under
+    the three
+    congruence rules of \cref{def:nv-beta-alpha} and the contraction rule
+    \[ \frac{v \notin \mathrm{FV}(M)}
+            {\mathsf{LAM}\,v\,(\mathsf{APP}\,M\,(\mathsf{VAR}\,v)) \to_\eta M} \]
+    ([Norrish2007a], Section 4.4.) -/)]
 inductive EtaAlpha : TermAlpha Var → TermAlpha Var → Prop where
   /-- Contraction of an η-redex `LAM x (APP M (VAR x))` with `x` not free in `M`. -/
   | red (x : Var) (m : Term Var) : x ∉ m.fv →

@@ -52,6 +52,14 @@ namespace Term
 /-- **Lemma 16** (`→d ⊆ →d'`).  A rule induction over the definition of `→d`: the redex case is
 handled by **Lemma 13**, the `dAPP` congruence cases are immediate, and the `dABS` congruence
 case follows from **Lemma 14** and **Theorem 10** via **Theorem 15**. -/
+@[blueprint "lem:nv-16"
+  (latexEnv := "lemma")
+  (title := "Lemma 16: $\\to_d \\subseteq \\to_{d'}$")
+  (statement := /-- $t \to_d u \implies t \to_{d'} u$.
+    ([Norrish2007a], Lemma 16.) -/)
+  (proof := /-- A rule induction. The redex case is \cref{lem:nv-13}, and the $\mathsf{dABS}$
+    congruence case is \cref{thm:nv-15} applied to $\to_{d'}$, which is equivariant by
+    \cref{thm:nv-10}. -/)]
 theorem dbeta'_of_beta {t u : Term} (h : Beta t u) : DBeta' t u := by
   induction h with
   | red t' s => exact dbeta'_dABS_redex t' s
@@ -66,6 +74,13 @@ theorem dbeta'_of_beta {t u : Term} (h : Beta t u) : DBeta' t u := by
 /-- **Lemma 17** (HOL `dpm_nsub`): `π · (nsub t i u) = nsub (π · t) i (inc i (π) · u)`.
 By structural induction on `u`; the `dV` case requires a number of splits on the ordering
 possibilities between the index of the variable and `i`, and the `dABS` case uses **Lemma 9**. -/
+@[blueprint "lem:nv-17"
+  (latexEnv := "lemma")
+  (title := "Lemma 17")
+  (statement := /-- $\pi \cdot (\mathsf{nsub}\,t\,i\,u) =
+       \mathsf{nsub}\,(\pi \cdot t)\,i\,(\mathit{inc}_i(\pi) \cdot u)$.
+    ([Norrish2007a], Lemma 17.) -/)
+  (proof := /-- By structural induction on $u$. The $\mathsf{dABS}$ case uses \cref{lem:nv-9}. -/)]
 theorem dpm_nsub (π : FinPerm) (t : Term) (i : ℕ) (u : Term) :
     π • (nsub t i u) = nsub (π • t) i ((incPerm i π) • u) := by
   induction u generalizing π t i with
@@ -115,6 +130,12 @@ theorem Beta.dpm {t u : Term} (h : Beta t u) (π : FinPerm) : Beta (π • t) (�
   | abs _ ih => simp only [dpm_abs]; exact Beta.abs (ih _)
 
 /-- Equivariance of `→d` in if-and-only-if form, as required by **Theorem 15**. -/
+@[blueprint "lem:nv-beta-equivariant"
+  (latexEnv := "lemma")
+  (title := "$\\to_d$ is equivariant")
+  (statement := /-- $\pi \cdot t \to_d \pi \cdot u \iff t \to_d u$.
+    ([Norrish2007a], after Lemma 17.) -/)
+  (proof := /-- By rule induction, using \cref{lem:nv-17}. -/)]
 theorem Beta.equivariant (π : FinPerm) (t u : Term) : Beta (π • t) (π • u) ↔ Beta t u := by
   refine ⟨fun h => ?_, fun h => Beta.dpm h π⟩
   have h2 := Beta.dpm h π⁻¹
@@ -125,6 +146,14 @@ theorem Beta.equivariant (π : FinPerm) (t u : Term) : Beta (π • t) (π • u
 /-- **Lemma 18** (`→d' ⊆ →d`).  The redex case is `beta_dLAM_redex`, the application
 congruences are immediate, and the abstraction congruence follows from **Theorem 15** applied to
 the equivariant relation `→d`. -/
+@[blueprint "lem:nv-18"
+  (latexEnv := "lemma")
+  (title := "Lemma 18: $\\to_{d'} \\subseteq \\to_d$")
+  (statement := /-- $t \to_{d'} u \implies t \to_d u$.
+    ([Norrish2007a], Lemma 18.) -/)
+  (proof := /-- A rule induction. The redex case is \cref{lem:nv-13}, and the $\mathsf{dLAM}$
+    congruence case is \cref{thm:nv-15} applied to $\to_d$, which is equivariant by
+    \cref{lem:nv-beta-equivariant}. -/)]
 theorem beta_of_dbeta' {t u : Term} (h : DBeta' t u) : Beta t u := by
   induction h with
   | red i t u => exact beta_dLAM_redex i t u
@@ -135,6 +164,11 @@ theorem beta_of_dbeta' {t u : Term} (h : DBeta' t u) : Beta t u := by
         (fun _ _ h => Beta.abs h) i _ _ ih
 
 /-- **Theorem 19** (Relations `→d` and `→d'` Coincide). -/
+@[blueprint "thm:nv-19"
+  (title := "Theorem 19: the relations $\\to_d$ and $\\to_{d'}$ coincide")
+  (statement := /-- $t \to_{d'} u \iff t \to_d u$.
+    ([Norrish2007a], Theorem 19.) -/)
+  (proof := /-- Combining \cref{lem:nv-16} and \cref{lem:nv-18}. -/)]
 theorem dbeta'_iff_beta {t u : Term} : DBeta' t u ↔ Beta t u :=
   ⟨beta_of_dbeta', dbeta'_of_beta⟩
 
@@ -150,6 +184,12 @@ open Cslib.LambdaCalculus.Named.Untyped (TermAlpha BetaAlpha)
 
 /-- **Theorem 20**, homomorphism part: `M →β N ⇔ f M →d f N`.  Immediate from **Theorem 12** and
 **Theorem 19**. -/
+@[blueprint "thm:nv-20-hom"
+  (latexEnv := "lemma")
+  (title := "Theorem 20, homomorphism property")
+  (statement := /-- $M \to_\beta N \iff f(M) \to_d f(N)$ for all $M, N \in \Lambda_\alpha$.
+    ([Norrish2007a], Theorem 20.) -/)
+  (proof := /-- From \cref{thm:nv-12} and \cref{thm:nv-19}. -/)]
 theorem betaAlpha_iff_beta {M N : TermAlpha Atom} :
     BetaAlpha M N ↔ Beta (toDB M) (toDB N) := by
   rw [betaAlpha_iff_dbeta', Term.dbeta'_iff_beta]
@@ -159,6 +199,16 @@ relations `→d` and `→β`, are isomorphic, as witnessed by the bijective `f`.
 
 This is the statement of isomorphism from equation (3) of the paper: a bijection that is
 homomorphic for the two reduction relations. -/
+@[blueprint "thm:nv-20"
+  (title := "Theorem 20: isomorphism")
+  (statement := /-- The types $\mathsf{dB}$ and $\Lambda_\alpha$, with their respective reduction
+    relations
+    $\to_d$ and $\to_\beta$, are isomorphic: there is a bijection
+    $f \colon \Lambda_\alpha \to \mathsf{dB}$ with
+    \[ M \to_\beta N \iff f(M) \to_d f(N). \]
+    ([Norrish2007a], Theorem 20.) -/)
+  (proof := /-- The bijection is that of \cref{thm:nv-11}; it is a homomorphism by
+    \cref{thm:nv-20-hom}. -/)]
 theorem isomorphism :
     ∃ f : TermAlpha Atom ≃ Term, ∀ M N, BetaAlpha M N ↔ Beta (f M) (f N) :=
   ⟨dbEquiv, fun _ _ => betaAlpha_iff_beta⟩

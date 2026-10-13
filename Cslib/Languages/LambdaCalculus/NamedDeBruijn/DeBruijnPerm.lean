@@ -116,6 +116,18 @@ theorem incFun_inv_incFun (g : ℕ) (π : FinPerm) (a : Atom) :
 
 /-- **Definition 8** (increment of a permutation), for an arbitrary guard `g`.  `incPerm 0` is
 the paper's `inc`, and `incPerm n` is the paper's `inc n` used in **Lemma 9**. -/
+@[blueprint "def:nv-8-inc"
+  (title := "Definition 8: incrementing a permutation")
+  (statement := /-- Write $\hat{\imath}$ for the atom with number $i$ and $\hat{a}$ for the number
+    of the
+    atom $a$. For $g \in \mathbb{N}$ let $\mathrm{ginc}_g$ be the map on atoms that fixes $a$ if
+    $\hat{a} < g$ and sends it to the atom with number $\hat{a} + 1$ otherwise. For a finitely
+    supported permutation $\pi$ of atoms, $\mathit{inc}_g(\pi)$ is the permutation that fixes
+    $\hat{g}$ and satisfies
+    \[ \mathit{inc}_g(\pi)\,(\mathrm{ginc}_g\,a) = \mathrm{ginc}_g\,(\pi\,a) \]
+    for all atoms $a$. The paper's $\mathit{inc}$ is $\mathit{inc}_0$.
+    ([Norrish2007a], Definition 8 and the remark before Lemma 9. The paper defines
+    $\mathit{inc}$ on permutations represented as lists of pairs.) -/)]
 def incPerm (g : ℕ) (π : FinPerm) : FinPerm :=
   ⟨⟨incFun g π, incFun g π⁻¹, incFun_inv_incFun g π, incFun_incFun_inv g π⟩,
     (π.suppWitness.image (gincAtom g)) ∪ {⟨g⟩}, by
@@ -176,6 +188,15 @@ theorem incPerm_zero_incPerm (n : ℕ) (π : FinPerm) :
 /-- **Definition 8** (Permutation for `dB`).  When a permutation passes through an abstraction
 the free variables it acts on sit at different index positions, so the permutation has to be
 incremented. -/
+@[blueprint "def:nv-8"
+  (title := "Definition 8: permutation for $\\mathsf{dB}$")
+  (statement := /-- The action $\pi \cdot t$ of a finitely supported permutation $\pi$ of atoms on a
+    de Bruijn term $t$ is
+    \[ \pi \cdot (\mathsf{dV}\,i) = \mathsf{dV}\,\widehat{\pi(\hat{\imath})} \qquad
+       \pi \cdot (\mathsf{dAPP}\,t\,u) = \mathsf{dAPP}\,(\pi \cdot t)\,(\pi \cdot u) \qquad
+       \pi \cdot (\mathsf{dABS}\,t) = \mathsf{dABS}\,(\mathit{inc}_0(\pi) \cdot t) \]
+    with $\mathit{inc}_0$ as in \cref{def:nv-8-inc}.
+    ([Norrish2007a], Definition 8.) -/)]
 def dpm (π : FinPerm) : Term → Term
   | var i => var (π (Atom.ofNat i)).val
   | app t u => app (dpm π t) (dpm π u)
@@ -240,6 +261,15 @@ theorem mem_dFV_dpm (π : FinPerm) (t : Term) (i : ℕ) :
 
 /-- The support of a de Bruijn term is its set of free indices, converted into atoms via the
 hat-isomorphism (paper, Section 4.2; HOL `dpm_supp`). -/
+@[blueprint "lem:nv-supp"
+  (latexEnv := "lemma")
+  (title := "The free indices support a term")
+  (statement := /-- If a permutation $\pi$ fixes $\hat{\imath}$ for every $i \in \mathsf{dFV}(t)$,
+    then
+    $\pi \cdot t = t$.
+    ([Norrish2007a], Section 4.2: the support of a de Bruijn term is its set of free indices
+    converted into atoms.) -/)
+  (proof := /-- By structural induction on $t$. -/)]
 theorem supports_dFV (t : Term) : Supports ((dFV t).image Atom.ofNat) t := by
   intro π hπ
   induction t generalizing π with
@@ -293,6 +323,14 @@ instance : NomSet Term where
 /-! ### Lemma 9 and Theorem 10 -/
 
 /-- **Lemma 9** (Permutations and `lift`): `lift (π · t) n = (inc n π) · (lift t n)`. -/
+@[blueprint "lem:nv-9"
+  (latexEnv := "lemma")
+  (title := "Lemma 9: permutations and $\\mathsf{lift}$")
+  (statement := /-- $\mathsf{lift}\,(\pi \cdot t)\,n = \mathit{inc}_n(\pi) \cdot
+    (\mathsf{lift}\,t\,n)$.
+    ([Norrish2007a], Lemma 9.) -/)
+  (proof := /-- By induction on $t$. The $\mathsf{dABS}$ case needs
+    $\mathit{inc}_0(\mathit{inc}_n\,\pi) = \mathit{inc}_{n+1}(\mathit{inc}_0\,\pi)$. -/)]
 theorem lift_dpm (π : FinPerm) (t : Term) (n : ℕ) :
     lift (π • t) n = (incPerm n π) • (lift t n) := by
   induction t generalizing π n with
@@ -307,6 +345,13 @@ theorem lift_dpm (π : FinPerm) (t : Term) (n : ℕ) :
 
 /-- **Theorem 10**, substitution part: `sub` has empty support,
 `π · (sub t j u) = sub (π · t) (π(ĵ)) (π · u)` (HOL `dpm_sub`). -/
+@[blueprint "thm:nv-10-sub"
+  (latexEnv := "lemma")
+  (title := "Theorem 10, first part: $\\mathsf{sub}$ has empty support")
+  (statement := /-- $\pi \cdot (\mathsf{sub}\,t\,j\,u) =
+       \mathsf{sub}\,(\pi \cdot t)\,\widehat{\pi(\hat{\jmath})}\,(\pi \cdot u)$.
+    ([Norrish2007a], Theorem 10.) -/)
+  (proof := /-- By structural induction on $u$, using \cref{lem:nv-9}. -/)]
 theorem dpm_dsub (π : FinPerm) (t : Term) (j : ℕ) (u : Term) :
     π • (dsub t j u) = dsub (π • t) (π (Atom.ofNat j)).val (π • u) := by
   induction u generalizing π t j with
@@ -326,6 +371,13 @@ theorem dpm_dsub (π : FinPerm) (t : Term) (j : ℕ) (u : Term) :
 
 /-- **Theorem 10**, abstraction part: `dLAM` has empty support,
 `π · (dLAM i t) = dLAM (π(î)) (π · t)` (HOL `dpm_dLAM`). -/
+@[blueprint "thm:nv-10-dlam"
+  (latexEnv := "lemma")
+  (title := "Theorem 10, second part: $\\mathsf{dLAM}$ has empty support")
+  (statement := /-- $\pi \cdot (\mathsf{dLAM}\,i\,t) =
+       \mathsf{dLAM}\,\widehat{\pi(\hat{\imath})}\,(\pi \cdot t)$.
+    ([Norrish2007a], Theorem 10.) -/)
+  (proof := /-- Immediate from \cref{thm:nv-10-sub} and \cref{lem:nv-9}. -/)]
 theorem dpm_dLAM (π : FinPerm) (i : ℕ) (t : Term) :
     π • (dLAM i t) = dLAM (π (Atom.ofNat i)).val (π • t) := by
   simp only [dLAM, dpm_abs, dpm_dsub, dpm_var, ← lift_dpm]
@@ -345,6 +397,13 @@ theorem DBeta'.dpm {t u : Term} (h : t →d' u) (π : FinPerm) : (π • t) →d
 
 /-- **Theorem 10**, equivariance of `→d'`: `π · t →d' π · u ⇔ t →d' u`.  The backward direction
 follows from the forward one because all permutations have inverses. -/
+@[blueprint "thm:nv-10"
+  (title := "Theorem 10: $\\to_{d'}$ is equivariant")
+  (statement := /-- $\pi \cdot t \to_{d'} \pi \cdot u \iff t \to_{d'} u$.
+    ([Norrish2007a], Theorem 10.) -/)
+  (proof := /-- The implication from right to left is a rule induction using \cref{thm:nv-10-sub}
+    and
+    \cref{thm:nv-10-dlam}. The converse follows because every permutation has an inverse. -/)]
 theorem DBeta'.equivariant {t u : Term} (π : FinPerm) : (π • t) →d' (π • u) ↔ t →d' u := by
   refine ⟨fun h => ?_, fun h => h.dpm π⟩
   have h2 := h.dpm π⁻¹
