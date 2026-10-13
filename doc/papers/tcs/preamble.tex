@@ -56,8 +56,20 @@
 \newcommand{\tobeta}{\to_{\beta}}
 \newcommand{\tobetastar}{\twoheadrightarrow_{\beta}}
 
-%% Pinned sources for the Lean links. Re-pin both to leanprover/cslib once the PRs are merged.
-\newcommand{\CroleSrc}{https://github.com/chris-anto-froeschl/cslib/blob/d1883216c714d69b88282de195ab9e9250b23a05/Cslib/Languages/LambdaCalculus}
-\newcommand{\DBSrc}{https://github.com/chris-anto-froeschl/cslib/blob/abc97b619a0295f2a9bf1debd5fac7597af1aae9/Cslib/Languages/LambdaCalculus}
+%% Sources for the Lean links. Every \lean{...} link is built from the macros below.
+%% To point the paper at upstream, set \LeanRepo to https://github.com/leanprover/cslib and the
+%% three revisions to the merged commit (a branch name such as main also works).
+\newcommand{\LeanRepo}{https://github.com/chris-anto-froeschl/cslib}
+\newcommand{\LeanPath}{Cslib/Languages/LambdaCalculus}
+%% Section 3 (Crole): branch alpha-equivalence-equalities-rest.
+\newcommand{\CroleRev}{d1883216c714d69b88282de195ab9e9250b23a05}
+%% Section 4 (de Bruijn): branch debruijn-alpha-quotient.
+\newcommand{\DBRev}{9261a02a2945fc4022c7654b297b3ef63e31e61d}
+%% Section 4, results beyond Norrish and Vestergaard (Transfer.lean): branch
+%% bruijn-iff-alpha-quotient. Not yet on the branch of \DBRev.
+\newcommand{\TransferRev}{abc97b619a0295f2a9bf1debd5fac7597af1aae9}
+\newcommand{\CroleSrc}{\LeanRepo/blob/\CroleRev/\LeanPath}
+\newcommand{\DBSrc}{\LeanRepo/blob/\DBRev/\LeanPath}
+\newcommand{\TransferSrc}{\LeanRepo/blob/\TransferRev/\LeanPath}
 
 \input{leanlink}
