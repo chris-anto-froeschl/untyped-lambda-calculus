@@ -3,7 +3,7 @@
 
 %% Statements and links were checked on 2026-10-13 against the branch debruijn-alpha-quotient at
 %% the commit in \DBRev (builds, no sorry; Theorem 20 depends only on propext, Classical.choice
-%% and Quot.sound). TODO(Chris): re-pin \DBRev and \TransferRev once the code is upstream.
+%% and Quot.sound). TODO(Chris): re-pin \DBRev once the code is upstream.
 
 De Bruijn indices remove the need for alpha equivalence altogether by
 replacing bound variable names with numerals counting binder depth.
@@ -355,7 +355,7 @@ named side.
 
 \begin{corollary}[Church--Rosser for $\LamA$]
 \label{cor:church-rosser}
-\lean{\TransferSrc/NamedDeBruijn/Transfer.lean\#L168}
+\lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L169}
 The relation $\tobeta$ on $\LamA$ is confluent: if $M \tobetastar N_1$
 and $M \tobetastar N_2$ then there is $P$ with $N_1 \tobetastar P$ and
 $N_2 \tobetastar P$.
@@ -363,15 +363,13 @@ $N_2 \tobetastar P$.
 
 \begin{corollary}
 \label{cor:normal-form-unique}
-\lean{\TransferSrc/NamedDeBruijn/Transfer.lean\#L283}
+\lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L284}
 If $M \tobetastar N_1$ and $M \tobetastar N_2$ and both $N_1$ and
 $N_2$ are $\beta$-normal, then $N_1 = N_2$.
 \end{corollary}
 
-%% TODO(Chris): Transfer.lean (both corollaries above) is only on the old branch
-%% bruijn-iff-alpha-quotient (\TransferRev) and has not been moved to the cleaned-up branch.
-%% The old branch also derives BVC-style induction for the quotient from the de Bruijn side
-%% (TermAlpha.bvc_induction, NamedDeBruijn/Transfer.lean#L214). Worth a statement?
+%% TODO(Chris): the same file also derives BVC-style induction for the quotient from the
+%% de Bruijn side (TermAlpha.bvc_induction, NamedDeBruijn/Transfer.lean#L215). Worth a statement?
 
 \subsection{Formalization notes}
 \label{subsec:db-formalization-notes}
