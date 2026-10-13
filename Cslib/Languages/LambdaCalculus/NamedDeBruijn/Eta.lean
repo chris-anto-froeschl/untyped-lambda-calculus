@@ -50,6 +50,16 @@ open Cslib.Logic.Nominal
 
 /-- Nipkow's η-reduction `→ne` (paper, Section 4.4).  In the redex rule the choice of `u` is
 immaterial, see `Term.nsub_indep_of_not_mem_dFV`. -/
+@[blueprint "def:nv-neta"
+  (title := "Nipkow's $\\eta$-reduction $\\to_{ne}$")
+  (statement := /-- The relation $\to_{ne}$ on de Bruijn terms is the least relation closed under
+    the
+    congruence rules for $\mathsf{dAPP}$ and $\mathsf{dABS}$ and the redex rule
+    \[ \frac{0 \notin \mathsf{dFV}(t)}
+            {\mathsf{dABS}\,(\mathsf{dAPP}\,t\,(\mathsf{dV}\,0)) \to_{ne}
+             \mathsf{nsub}\,u\,0\,t} \]
+    in which the choice of $u$ is immaterial.
+    ([Norrish2007a], Section 4.4.) -/)]
 inductive NEta : Term → Term → Prop where
   /-- Contraction of an η-redex, decrementing the free indices of `t`. -/
   | red {t : Term} (u : Term) : 0 ∉ t.dFV → NEta (Term.abs (Term.app t (Term.var 0)))
@@ -63,6 +73,13 @@ inductive NEta : Term → Term → Prop where
 
 /-- The "traditional style" η-reduction `→e` on de Bruijn terms, using `dLAM` (paper,
 Section 4.4). -/
+@[blueprint "def:nv-eta"
+  (title := "The $\\eta$-reduction $\\to_e$")
+  (statement := /-- The relation $\to_e$ on de Bruijn terms is the least relation closed under the
+    congruence rules for $\mathsf{dAPP}$ and $\mathsf{dLAM}$ and the contraction rule
+    \[ \frac{i \notin \mathsf{dFV}(t)}
+            {\mathsf{dLAM}\,i\,(\mathsf{dAPP}\,t\,(\mathsf{dV}\,i)) \to_e t} \]
+    ([Norrish2007a], Section 4.4.) -/)]
 inductive DEta : Term → Term → Prop where
   /-- Contraction of an η-redex `dLAM i (dAPP t (dV i))` with `i` not free in `t`. -/
   | red {t : Term} (i : ℕ) : i ∉ t.dFV → DEta (Term.dLAM i (Term.app t (Term.var i))) t
@@ -76,7 +93,13 @@ inductive DEta : Term → Term → Prop where
 namespace Term
 
 /-- HOL `nsub_lift`, one of the lemmas stated by Nipkow: `nsub u n (lift t n) = t`. -/
-@[simp] theorem nsub_lift (t u : Term) (n : ℕ) : nsub u n (lift t n) = t := by
+@[blueprint "lem:nv-nsub-lift"
+  (latexEnv := "lemma")
+  (title := "$\\mathsf{nsub}$ after $\\mathsf{lift}$")
+  (statement := /-- $\mathsf{nsub}\,u\,n\,(\mathsf{lift}\,t\,n) = t$.
+    ([Norrish2007a], Section 4.4, a lemma of Nipkow.) -/)
+  (proof := /-- By structural induction on $t$. -/), simp]
+theorem nsub_lift (t u : Term) (n : ℕ) : nsub u n (lift t n) = t := by
   induction t generalizing u n with
   | var i =>
       simp only [lift_var]; split_ifs <;> simp only [nsub_var] <;> split_ifs <;>
@@ -86,6 +109,13 @@ namespace Term
 
 /-- The similar result stated and proved in the paper: `n ∉ dFV t → lift (nsub u n t) n = t`
 (HOL `lift_nsub`). -/
+@[blueprint "lem:nv-lift-nsub"
+  (latexEnv := "lemma")
+  (title := "$\\mathsf{lift}$ after $\\mathsf{nsub}$")
+  (statement := /-- If $n \notin \mathsf{dFV}(t)$ then $\mathsf{lift}\,(\mathsf{nsub}\,u\,n\,t)\,n
+    = t$.
+    ([Norrish2007a], Section 4.4.) -/)
+  (proof := /-- By structural induction on $t$. -/)]
 theorem lift_nsub {t : Term} {n : ℕ} (u : Term) (h : n ∉ dFV t) : lift (nsub u n t) n = t := by
   induction t generalizing u n with
   | var m =>
@@ -228,6 +258,14 @@ theorem deta_of_neta {t u : Term} (h : NEta t u) : DEta t u := by
         (fun i _ _ h => DEta.lam i h) _ _ ih
 
 /-- The η-analogue of **Theorem 19** (HOL `neta_eq_eta`): `→e` and `→ne` coincide. -/
+@[blueprint "thm:nv-eta-coincide"
+  (title := "The relations $\\to_e$ and $\\to_{ne}$ coincide")
+  (statement := /-- $t \to_e u \iff t \to_{ne} u$.
+    ([Norrish2007a], Section 4.4.) -/)
+  (proof := /-- The redex rules correspond by \cref{lem:nv-nsub-lift} and \cref{lem:nv-lift-nsub};
+    the
+    abstraction congruences correspond by \cref{thm:nv-15}, since both relations are
+    equivariant. -/)]
 theorem deta_iff_neta {t u : Term} : DEta t u ↔ NEta t u :=
   ⟨neta_of_deta, deta_of_neta⟩
 
@@ -299,6 +337,14 @@ theorem etaAlpha_iff_deta {M N : TermAlpha Atom} :
 
 /-- The η-analogue of **Theorem 20**: the bijection `f` is a homomorphism for η-reduction as
 well, so `dB` with Nipkow's `→ne` is isomorphic to `λNα` with η-reduction. -/
+@[blueprint "thm:nv-eta-iso"
+  (title := "$\\eta$-reduction corresponds along $f$")
+  (statement := /-- $M \to_\eta N \iff f(M) \to_{ne} f(N)$ for all $M, N \in \Lambda_\alpha$, with
+    $\to_\eta$ as in \cref{def:nv-eta-alpha}.
+    ([Norrish2007a], Section 4.4.) -/)
+  (proof := /-- The relation $\to_\eta$ corresponds to $\to_e$ along $f$ as in \cref{thm:nv-12};
+    then
+    apply \cref{thm:nv-eta-coincide}. -/)]
 theorem etaAlpha_iff_neta {M N : TermAlpha Atom} :
     EtaAlpha M N ↔ NEta (toDB M) (toDB N) := by
   rw [etaAlpha_iff_deta, Term.deta_iff_neta]
