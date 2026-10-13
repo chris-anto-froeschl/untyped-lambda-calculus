@@ -51,14 +51,14 @@ their Lean sources.
 \end{abstract}
 
 \begin{highlights}
-\item First machine-checked formalization of Crole's five equivalent
-  definitions of alpha equivalence.
+\item A machine-checked formalization of Crole's theorem that five
+  definitions of alpha equivalence coincide.
 \item An isomorphism, formalized in Lean~4, between a de Bruijn
   representation and the quotient of named terms by alpha
   equivalence, following Norrish and Vestergaard's proof pearl.
 \item A roadmap toward a formalized foundation for untyped lambda
   calculus research, including further binding representations and
-  a "formalized Barendregt".
+  a \emph{formalized Barendregt}.
 \end{highlights}
 
 \begin{keywords}
@@ -86,11 +86,12 @@ Lean \sep
 \input{sections/conclusion}
 
 \section*{Data availability}
-The Lean~4 formalization discussed in this paper is developed as
-part of CSLib and is publicly available at
-\url{https://github.com/leanprover/cslib}.
-
-TODO consider with zenodo
+The Lean~4 formalization discussed in this paper is developed for
+CSLib (\url{https://github.com/leanprover/cslib}). The parts that are
+not yet merged there are available at \url{\LeanRepo}, at the
+revisions that the links in this paper point to.
+%% TODO(Chris): update once the code is upstream; consider archiving a snapshot on Zenodo and
+%% stating the Lean and Mathlib versions here.
 
 \bibliographystyle{cas-model2-names}
 \bibliography{refs}
