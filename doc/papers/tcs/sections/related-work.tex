@@ -24,3 +24,17 @@ that are simple to state, and results that transfer cleanly between
 representations by construction, which fits CSLib's goal of a
 reusable foundation rather than a self-contained framework.
 
+Mechanized treatments of alpha equivalence as a subject in its own
+right are fewer. The isomorphism of Section~\ref{sec:de-bruijn} was
+first mechanized by Norrish and Vestergaard in
+HOL4~\cite{norrish2007a}. Crole mentions an Isabelle/HOL development
+of the results of~\cite{crole2012a} as work in
+progress~\cite[Section~7]{crole2012a}; we could find no published
+account of it. Apinis and Ahman~\cite{apinis2025a} define alpha
+equivalence of untyped lambda terms as an inductive relation in the
+Rocq Prover and show that it conforms to the specification given in
+the literature. Their subject is one definition and its adequacy,
+whereas Theorem~\ref{thm:crole-equivalence} compares the definitions
+that the literature itself uses.
+%% TODO(Chris): the description of Apinis and Ahman is taken from their abstract
+%% (arXiv:2507.10181, checked 2026-10-13); read the paper before relying on the last sentence.

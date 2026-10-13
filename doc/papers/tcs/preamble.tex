@@ -58,18 +58,15 @@
 
 %% Sources for the Lean links. Every \lean{...} link is built from the macros below.
 %% To point the paper at upstream, set \LeanRepo to https://github.com/leanprover/cslib and the
-%% three revisions to the merged commit (a branch name such as main also works).
+%% two revisions to the merged commit (a branch name such as main also works).
 \newcommand{\LeanRepo}{https://github.com/chris-anto-froeschl/cslib}
 \newcommand{\LeanPath}{Cslib/Languages/LambdaCalculus}
 %% Section 3 (Crole): branch alpha-equivalence-equalities-rest.
 \newcommand{\CroleRev}{d1883216c714d69b88282de195ab9e9250b23a05}
-%% Section 4 (de Bruijn): branch debruijn-alpha-quotient.
-\newcommand{\DBRev}{9261a02a2945fc4022c7654b297b3ef63e31e61d}
-%% Section 4, results beyond Norrish and Vestergaard (Transfer.lean): branch
-%% bruijn-iff-alpha-quotient. Not yet on the branch of \DBRev.
-\newcommand{\TransferRev}{abc97b619a0295f2a9bf1debd5fac7597af1aae9}
+%% Section 4 (de Bruijn): the branch debruijn-alpha-quotient. A branch name follows the branch
+%% as it moves; replace it by a commit before submission.
+\newcommand{\DBRev}{debruijn-alpha-quotient}
 \newcommand{\CroleSrc}{\LeanRepo/blob/\CroleRev/\LeanPath}
 \newcommand{\DBSrc}{\LeanRepo/blob/\DBRev/\LeanPath}
-\newcommand{\TransferSrc}{\LeanRepo/blob/\TransferRev/\LeanPath}
 
 \input{leanlink}
