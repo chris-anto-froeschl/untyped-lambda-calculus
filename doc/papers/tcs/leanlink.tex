@@ -1,0 +1,9 @@
+% Usage: \lean{https://github.com/leanprover/cslib/blob/<sha>/<path>.lean\#L<line>}
+% typesets a small raised Lean logo that links to the declaration, attached to the preceding word.
+% Put the official logo at figures/lean-logo.pdf; without it a plain turnstile is used.
+\usepackage{graphicx}
+\newcommand{\leanicon}{%
+  \IfFileExists{figures/lean-logo.pdf}%
+    {\includegraphics[height=0.85ex]{figures/lean-logo.pdf}}%
+    {\ensuremath{\scriptstyle\vdash}}}
+\newcommand{\lean}[1]{\ifhmode\unskip\fi\kern0.15em\href{#1}{\raisebox{0.9ex}{\leanicon}}}

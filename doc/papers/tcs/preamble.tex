@@ -2,6 +2,8 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{orcidlink}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,shapes.geometric}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -13,6 +15,49 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
-\newcommand{\Lam}{\mathrm{Lam}}
-\newcommand{\LamDB}{\mathrm{Lam}_{\mathrm{db}}}
+%% Named terms (notation of Crole, with lambda-syntax)
+\newcommand{\Atoms}{\mathbb{A}}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\LamA}{\Lambda_{\alpha}}
+\newcommand{\LamDB}{\mathrm{dB}}
 \newcommand{\alphaeq}{=_{\alpha}}
+\newcommand{\cls}[1]{[#1]_{\alpha}}
+\newcommand{\lam}[2]{\lambda #1.\,#2}
+\newcommand{\occ}{\mathrm{occ}}
+\newcommand{\free}{\mathrm{free}}
+\newcommand{\nocc}{\mathrel{\ntriangleright}}
+\newcommand{\fresh}{\mathrel{\#}}
+\newcommand{\sw}[2]{(#1\;#2)}
+\newcommand{\act}{\cdot}
+\newcommand{\AS}{\mathrm{AS}}
+\newcommand{\subst}[3]{#1[#2 \mathrel{{:}{=}} #3]}
+\newcommand{\ren}[3]{#1\langle #2 \mapsto #3\rangle}
+\newcommand{\freshatom}{\mathrm{fresh}}
+
+%% The five alpha-equivalences of Crole, and the variants of Proposition 4.3
+\newcommand{\simp}{\sim_{\mathrm{p}}}
+\newcommand{\simpf}{\sim_{\mathrm{p}\#}}
+\newcommand{\simpi}[1]{\sim^{#1}_{\mathrm{p}}}
+\newcommand{\simr}{\sim_{\mathrm{r}}}
+\newcommand{\simrf}{\sim_{\mathrm{r}\#}}
+\newcommand{\infrule}[3]{\dfrac{#2}{#3}\;\textsc{#1}}
+
+%% de Bruijn terms (notation of Norrish and Vestergaard)
+\newcommand{\dV}{\mathsf{dV}}
+\newcommand{\dAPP}{\mathsf{dAPP}}
+\newcommand{\dABS}{\mathsf{dABS}}
+\newcommand{\dLAM}{\mathsf{dLAM}}
+\newcommand{\lift}{\mathsf{lift}}
+\newcommand{\nsub}{\mathsf{nsub}}
+\newcommand{\dbsub}{\mathsf{sub}}
+\newcommand{\inc}{\mathsf{inc}}
+\newcommand{\tod}{\to_{\mathrm{d}}}
+\newcommand{\todp}{\to_{\mathrm{d}'}}
+\newcommand{\tobeta}{\to_{\beta}}
+\newcommand{\tobetastar}{\twoheadrightarrow_{\beta}}
+
+%% Pinned sources for the Lean links. Re-pin both to leanprover/cslib once the PRs are merged.
+\newcommand{\CroleSrc}{https://github.com/chris-anto-froeschl/cslib/blob/d1883216c714d69b88282de195ab9e9250b23a05/Cslib/Languages/LambdaCalculus}
+\newcommand{\DBSrc}{https://github.com/chris-anto-froeschl/cslib/blob/abc97b619a0295f2a9bf1debd5fac7597af1aae9/Cslib/Languages/LambdaCalculus}
+
+\input{leanlink}
