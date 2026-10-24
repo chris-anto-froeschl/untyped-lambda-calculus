@@ -1,10 +1,4 @@
-\begin{thebibliography}{1}
-
-\bibitem{barendregt1985a}
-Hendrik~Pieter Barendregt.
-\newblock {\em The lambda calculus - its syntax and semantics}, volume 103 of
-  {\em Studies in logic and the foundations of mathematics}.
-\newblock North-Holland, 1985.
+\begin{thebibliography}{10}
 
 \bibitem{crole2012a}
 Roy~L. Crole.
@@ -29,6 +23,21 @@ Murdoch~J. Gabbay.
   in abstract syntax.
 \newblock {\em Bulletin of Symbolic Logic}, 17(2):161--229, 2011.
 
+\bibitem{gabbay2008a}
+Murdoch~J. Gabbay and Aad Mathijssen.
+\newblock Capture-avoiding substitution as a nominal algebra.
+\newblock {\em Formal Aspects of Computing}, 20(4--5):451--479, 2008.
+
+\bibitem{gabbay2002a}
+Murdoch~J. Gabbay and Andrew~M. Pitts.
+\newblock A new approach to abstract syntax with variable binding.
+\newblock {\em Formal Aspects of Computing}, 13(3--5):341--363, 2002.
+
+\bibitem{hindley2008a}
+J.~Roger Hindley and Jonathan~P. Seldin.
+\newblock {\em Lambda-Calculus and Combinators: An Introduction}.
+\newblock Cambridge University Press, 2 edition, 2008.
+
 \bibitem{nipkow2001a}
 Tobias Nipkow.
 \newblock More {Church-Rosser} proofs (in {Isabelle/HOL}).
@@ -40,6 +49,11 @@ Michael Norrish and Ren{\'e} Vestergaard.
 \newblock In Klaus Schneider and Jens Brandt, editors, {\em Theorem Proving in
   Higher Order Logics}, pages 207--222, Berlin, Heidelberg, 2007. Springer
   Berlin Heidelberg.
+
+\bibitem{urban2004a}
+Christian Urban, Andrew~M. Pitts, and Murdoch~J. Gabbay.
+\newblock Nominal unification.
+\newblock {\em Theoretical Computer Science}, 323:473--497, 2004.
 
 \bibitem{cslib475}
 Zayn Wang and Maksym Radziwill.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.6.26)  24 OCT 2026 11:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.6.26)  24 OCT 2026 19:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -946,12 +946,12 @@ Package hyperref Info: Link coloring ON on input line 7.
 \verbatim@out=\write5
 \openout5 = `main.abs'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -961,29 +961,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [0
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (117.0831pt too wide) detected at line 78
+Overfull \hbox (117.0831pt too wide) detected at line 79
 []
  []
 
 (./main.abs)
 
-Package hyperref Warning: Ignoring empty anchor on input line 78.
+Package hyperref Warning: Ignoring empty anchor on input line 79.
 
 
-Package hyperref Warning: Ignoring empty anchor on input line 78.
+Package hyperref Warning: Ignoring empty anchor on input line 79.
 
-<thumbnails/cas-email.jpeg, id=109, 225.84375pt x 225.84375pt>
+<thumbnails/cas-email.jpeg, id=112, 225.84375pt x 225.84375pt>
 File: thumbnails/cas-email.jpeg Graphic file (type jpg)
 <use thumbnails/cas-email.jpeg>
-Package pdftex.def Info: thumbnails/cas-email.jpeg  used on input line 78.
+Package pdftex.def Info: thumbnails/cas-email.jpeg  used on input line 79.
 (pdftex.def)             Requested size: 7.99838pt x 8.0pt.
 
-Package hyperref Warning: Ignoring empty anchor on input line 78.
+Package hyperref Warning: Ignoring empty anchor on input line 79.
 
 (./sections/introduction.tex
 
 [1 <./thumbnails/cas-email.jpeg>]
-<figures/lean-logo.pdf, id=159, 503.99994pt x 186.99962pt>
+<figures/lean-logo.pdf, id=162, 503.99994pt x 186.99962pt>
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 59.
@@ -1017,20 +1017,20 @@ File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 91.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+
+
+[2 <./figures/lean-logo.pdf>]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 100.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-
-
-[2 <./figures/lean-logo.pdf>]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 108.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 139.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 143.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 ) (./sections/alpha-equivalences.tex
 File: figures/lean-logo.pdf Graphic file (type pdf)
@@ -1049,13 +1049,13 @@ File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 42.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+
+
+[3]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 62.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-
-
-[3]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 80.
@@ -1112,87 +1112,81 @@ Package pdftex.def Info: figures/lean-logo.pdf  used on input line 111.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 122.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 135.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 131.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 144.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 134.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 147.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 151.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 172.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 154.
-(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-File: figures/lean-logo.pdf Graphic file (type pdf)
-<use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 161.
-(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-File: figures/lean-logo.pdf Graphic file (type pdf)
-<use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 174.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 175.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 182.
-(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-File: figures/lean-logo.pdf Graphic file (type pdf)
-<use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 184.
-(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-File: figures/lean-logo.pdf Graphic file (type pdf)
-<use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 197.
-(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-File: figures/lean-logo.pdf Graphic file (type pdf)
-<use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 212.
-(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-File: figures/lean-logo.pdf Graphic file (type pdf)
-<use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 214.
-(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-File: figures/lean-logo.pdf Graphic file (type pdf)
-<use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 216.
-(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-File: figures/lean-logo.pdf Graphic file (type pdf)
-<use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 218.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 
 
 [4]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 281.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 195.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 302.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 218.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 304.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 220.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
-Package pdftex.def Info: figures/lean-logo.pdf  used on input line 306.
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 242.
+(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+File: figures/lean-logo.pdf Graphic file (type pdf)
+<use figures/lean-logo.pdf>
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 244.
+(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+File: figures/lean-logo.pdf Graphic file (type pdf)
+<use figures/lean-logo.pdf>
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 246.
+(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+File: figures/lean-logo.pdf Graphic file (type pdf)
+<use figures/lean-logo.pdf>
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 248.
+(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+File: figures/lean-logo.pdf Graphic file (type pdf)
+<use figures/lean-logo.pdf>
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 311.
+(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+File: figures/lean-logo.pdf Graphic file (type pdf)
+<use figures/lean-logo.pdf>
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 313.
+(pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+File: figures/lean-logo.pdf Graphic file (type pdf)
+<use figures/lean-logo.pdf>
+Package pdftex.def Info: figures/lean-logo.pdf  used on input line 315.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 307.
+(Font)              using `T1/cmr/m/scsl' instead on input line 316.
 
 
 
 [5]) (./sections/de-bruijn.tex
+
+[6]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 38.
@@ -1209,9 +1203,6 @@ File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 68.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-
-
-[6]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 86.
@@ -1236,6 +1227,9 @@ File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 142.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
+
+
+[7]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 153.
@@ -1272,9 +1266,6 @@ File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 213.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-
-
-[7]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 223.
@@ -1351,6 +1342,9 @@ File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
+
+
+[8]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 275.
@@ -1383,9 +1377,6 @@ File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 331.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-
-
-[8]
 File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 338.
@@ -1414,13 +1405,15 @@ File: figures/lean-logo.pdf Graphic file (type pdf)
 <use figures/lean-logo.pdf>
 Package pdftex.def Info: figures/lean-logo.pdf  used on input line 394.
 (pdftex.def)             Requested size: 9.8591pt x 3.65884pt.
-) (./sections/related-work.tex) (./sections/future-work.tex
 
-[9]) (./sections/conclusion.tex
 
-[10]) (./main.bbl)
+[9]) (./sections/related-work.tex) (./sections/future-work.tex
 
-[11] (./main.aux)
+[10]) (./sections/conclusion.tex) (./main.bbl
+
+[11])
+
+[12] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1431,35 +1424,35 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BED7DD852CE1AD4A75FAD24A8256D413;3741.
+(rerunfilecheck)             Checksum: 66500CA2AC9329AB22491043E4150492;3845.
  ) 
 Here is how much of TeX's memory you used:
- 25624 strings out of 475178
- 474795 string characters out of 5766539
- 874386 words of memory out of 5000000
- 48027 multiletter control sequences out of 15000+600000
+ 25638 strings out of 475178
+ 475003 string characters out of 5766539
+ 874560 words of memory out of 5000000
+ 48035 multiletter control sequences out of 15000+600000
  591397 words of font info for 115 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  104i,17n,104p,541b,914s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.
-600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0
-900.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/e
-csc1000.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecrm0600.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknap
-pen/ec/eccc1000.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecrm0700.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfo
+600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsc1
+000.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/e
+csx0900.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/
+ec/eccc1000.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknap
+pen/ec/ecrm0600.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecti1000.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfo
 ur/jknappen/ec/ecbx1000.600pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/
 ljfour/jknappen/ec/ecbx1095.600pk> </home/chr95877/.texlive2025/texmf-var/fonts
-/pk/ljfour/jknappen/ec/ecti0900.600pk> </home/chr95877/.texlive2025/texmf-var/f
-onts/pk/ljfour/jknappen/ec/ecss0900.600pk> </home/chr95877/.texlive2025/texmf-v
-ar/fonts/pk/ljfour/jknappen/ec/eccc0800.600pk> </home/chr95877/.texlive2025/tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk> </home/chr95877/.texlive2025
-/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0600.600pk> </home/chr95877/.texlive
-2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/chr95877/.tex
-live2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0800.600pk> </home/chr95877/
-.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/chr95
-877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </home/c
-hr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </ho
+/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/chr95877/.texlive2025/texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecti0900.600pk> </home/chr95877/.texlive2025/texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk> </home/chr95877/.texlive2025/tex
+mf-var/fonts/pk/ljfour/jknappen/ec/eccc0800.600pk> </home/chr95877/.texlive2025
+/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0800.600pk> </home/chr95877/.texlive
+2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0600.600pk> </home/chr95877/.tex
+live2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/chr95877/
+.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0800.600pk> </home/chr95
+877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/c
+hr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk> </ho
 me/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> 
 </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600
 pk> </home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200
@@ -1482,10 +1475,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (12 pages, 421998 bytes).
+Output written on main.pdf (13 pages, 433532 bytes).
 PDF statistics:
- 1299 PDF objects out of 1440 (max. 8388607)
- 623 compressed objects within 7 object streams
- 93 named destinations out of 1000 (max. 500000)
- 207 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1366 PDF objects out of 1440 (max. 8388607)
+ 679 compressed objects within 7 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 215 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,44 +4,44 @@ The top-level auxiliary file: slides.aux
 The style file: plain.bst
 Database file #1: ../papers/tcs/refs.bib
 Database file #2: colloquium.bib
-You've used 9 entries,
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            554 strings with 5384 characters,
-and the built_in function-call counts, 2477 in all, are:
-= -- 251
-> -- 83
-< -- 2
-+ -- 34
-- -- 24
-* -- 132
-:= -- 406
-add.period$ -- 31
-call.type$ -- 9
-change.case$ -- 38
+            572 strings with 5725 characters,
+and the built_in function-call counts, 3530 in all, are:
+= -- 362
+> -- 133
+< -- 1
++ -- 53
+- -- 40
+* -- 211
+:= -- 585
+add.period$ -- 40
+call.type$ -- 12
+change.case$ -- 56
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 97
-empty$ -- 227
-format.name$ -- 24
-if$ -- 538
+cite$ -- 12
+duplicate$ -- 129
+empty$ -- 306
+format.name$ -- 40
+if$ -- 752
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 6
-newline$ -- 51
-num.names$ -- 18
-pop$ -- 55
+int.to.str$ -- 12
+missing$ -- 9
+newline$ -- 66
+num.names$ -- 24
+pop$ -- 66
 preamble$ -- 1
-purify$ -- 30
+purify$ -- 44
 quote$ -- 0
-skip$ -- 73
+skip$ -- 96
 stack$ -- 0
-substring$ -- 134
-swap$ -- 20
-text.length$ -- 2
+substring$ -- 224
+swap$ -- 21
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 34
+type$ -- 46
 warning$ -- 0
-while$ -- 25
-width$ -- 10
-write$ -- 104
+while$ -- 37
+width$ -- 14
+write$ -- 137

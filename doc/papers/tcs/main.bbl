@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{16}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -31,12 +31,12 @@
 \newblock \URLprefix \url{https://doi.org/10.1145/1328438.1328443},
   \DOIprefix\doi{10.1145/1328438.1328443}.
 %Type = Book
-\bibitem[{Barendregt(1985)}]{barendregt1985a}
-\bibinfo{author}{Barendregt, H.P.}, \bibinfo{year}{1985}.
+\bibitem[{Barendregt(1984)}]{barendregt1985a}
+\bibinfo{author}{Barendregt, H.P.}, \bibinfo{year}{1984}.
 \newblock \bibinfo{title}{The lambda calculus - its syntax and semantics}.
   volume \bibinfo{volume}{103} of \textit{\bibinfo{series}{Studies in logic and
   the foundations of mathematics}}.
-\newblock \bibinfo{publisher}{North-Holland}.
+\newblock \bibinfo{edition}{Revised} ed., \bibinfo{publisher}{North-Holland}.
 %Type = Misc
 \bibitem[{Barrett et~al.(2026)Barrett, Chaudhuri, Montesi, Grundy, Kohli,
   de~Moura, Rademaker and Yingchareonthawornchai}]{demoura2026a}
@@ -57,12 +57,6 @@
 \newblock \URLprefix
   \url{https://www.sciencedirect.com/science/article/pii/S0304397512000667},
   \DOIprefix\doi{10.1016/j.tcs.2012.01.030}.
-%Type = Book
-\bibitem[{Curry and Feys(1958)}]{curry1958a}
-\bibinfo{author}{Curry, H.B.}, \bibinfo{author}{Feys, R.},
-  \bibinfo{year}{1958}.
-\newblock \bibinfo{title}{Combinatory Logic}. volume~\bibinfo{volume}{I}.
-\newblock \bibinfo{publisher}{North-Holland}, \bibinfo{address}{Amsterdam}.
 %Type = Article
 \bibitem[{Gabbay(2011)}]{gabbay2011a}
 \bibinfo{author}{Gabbay, M.J.}, \bibinfo{year}{2011}.
@@ -70,6 +64,13 @@
   semantics of variables in abstract syntax}.
 \newblock \bibinfo{journal}{Bulletin of Symbolic Logic} \bibinfo{volume}{17},
   \bibinfo{pages}{161--229}.
+%Type = Article
+\bibitem[{Gabbay and Mathijssen(2008)}]{gabbay2008a}
+\bibinfo{author}{Gabbay, M.J.}, \bibinfo{author}{Mathijssen, A.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Capture-avoiding substitution as a nominal algebra}.
+\newblock \bibinfo{journal}{Formal Aspects of Computing} \bibinfo{volume}{20},
+  \bibinfo{pages}{451--479}.
 %Type = Article
 \bibitem[{Gabbay and Pitts(2002)}]{gabbay2002a}
 \bibinfo{author}{Gabbay, M.J.}, \bibinfo{author}{Pitts, A.M.},
@@ -86,6 +87,15 @@
 \newblock \bibinfo{title}{Lambda-Calculus and Combinators: An Introduction}.
 \newblock \bibinfo{edition}{2} ed., \bibinfo{publisher}{Cambridge University
   Press}.
+%Type = Inproceedings
+\bibitem[{Homeier(2001)}]{homeier2001a}
+\bibinfo{author}{Homeier, P.V.}, \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{A proof of the {Church-Rosser} theorem for the lambda
+  calculus in higher order logic}, in: \bibinfo{editor}{Boulton, R.J.},
+  \bibinfo{editor}{Jackson, P.B.} (Eds.), \bibinfo{booktitle}{TPHOLs 2001:
+  Supplemental Proceedings}, \bibinfo{publisher}{Division of Informatics,
+  University of Edinburgh}. pp. \bibinfo{pages}{207--222}.
+\newblock \bibinfo{note}{Informatics Research Report EDI-INF-RR-0046}.
 %Type = Article
 \bibitem[{Nipkow(2001)}]{nipkow2001a}
 \bibinfo{author}{Nipkow, T.}, \bibinfo{year}{2001}.
@@ -114,6 +124,13 @@
   Science}. volume~\bibinfo{volume}{57} of \textit{\bibinfo{series}{Cambridge
   Tracts in Theoretical Computer Science}}.
 \newblock \bibinfo{publisher}{Cambridge University Press}.
+%Type = Article
+\bibitem[{Urban et~al.(2004)Urban, Pitts and Gabbay}]{urban2004a}
+\bibinfo{author}{Urban, C.}, \bibinfo{author}{Pitts, A.M.},
+  \bibinfo{author}{Gabbay, M.J.}, \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Nominal unification}.
+\newblock \bibinfo{journal}{Theoretical Computer Science}
+  \bibinfo{volume}{323}, \bibinfo{pages}{473--497}.
 %Type = Inproceedings
 \bibitem[{Urban and Tasson(2005)}]{urban2005a}
 \bibinfo{author}{Urban, C.}, \bibinfo{author}{Tasson, C.},

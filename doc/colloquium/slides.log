@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.6.26)  24 OCT 2026 11:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.6.26)  24 OCT 2026 19:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -932,14 +932,14 @@ Dictionary: translator-theorem-dictionary, Language: English
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 100
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 100
+.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -948,26 +948,26 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [2
 
 ]
-<../papers/tcs/figures/lean-logo.pdf, id=42, 503.99994pt x 186.99962pt>
+<../papers/tcs/figures/lean-logo.pdf, id=44, 503.99994pt x 186.99962pt>
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 127.
+e 129.
 (pdftex.def)             Requested size: 10.17441pt x 3.7778pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 127.
+e 129.
 (pdftex.def)             Requested size: 10.17441pt x 3.7778pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 127.
+e 129.
 (pdftex.def)             Requested size: 10.17441pt x 3.7778pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 127.
+e 129.
 (pdftex.def)             Requested size: 10.17441pt x 3.7778pt.
 
 
@@ -976,32 +976,32 @@ e 127.
  <../papers/tcs/figures/lean-logo.pdf>]
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10.95> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 156.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 158.
 
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 156.
+e 158.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 156.
+e 158.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 156.
+e 158.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 156.
+e 158.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 156.
+e 158.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
@@ -1011,27 +1011,27 @@ e 156.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 183.
+e 185.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 183.
+e 185.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 183.
+e 185.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 183.
+e 185.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 183.
+e 185.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
@@ -1041,7 +1041,7 @@ e 183.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 198.
+e 200.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
@@ -1051,17 +1051,17 @@ e 198.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 224.
+e 226.
 (pdftex.def)             Requested size: 12.21236pt x 4.53334pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 224.
+e 226.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 224.
+e 226.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
@@ -1071,17 +1071,17 @@ e 224.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 248.
+e 250.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 248.
+e 250.
 (pdftex.def)             Requested size: 10.17441pt x 3.7778pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available
-(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 248.
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 250.
 
 
 
@@ -1091,17 +1091,17 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 274.
+e 275.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 274.
+e 275.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 274.
+e 275.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
@@ -1112,21 +1112,21 @@ e 274.
 [10
 
 ]
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 309.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 309.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-
 
 [11
 
 ]
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 335.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 335.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+
 
 [12
 
@@ -1135,65 +1135,54 @@ e 309.
 [13
 
 ]
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 407.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 407.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-
 
 [14
 
 ]
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 438.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 438.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+
 
 [15
 
 ]
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 461.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 461.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 461.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 461.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-
 
 [16
 
 ]
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 492.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 492.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 492.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 492.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+
 
 [17
 
 ]
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 509.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 509.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-
 
 [18
 
@@ -1201,32 +1190,12 @@ e 509.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 538.
+e 540.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 538.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 538.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 538.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 538.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 538.
+e 540.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
@@ -1236,17 +1205,32 @@ e 538.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 560.
-(pdftex.def)             Requested size: 12.21236pt x 4.53334pt.
+e 569.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 560.
-(pdftex.def)             Requested size: 12.21236pt x 4.53334pt.
+e 569.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 560.
+e 569.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 569.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 569.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 569.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
@@ -1256,8 +1240,18 @@ e 560.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 582.
+e 591.
 (pdftex.def)             Requested size: 12.21236pt x 4.53334pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 591.
+(pdftex.def)             Requested size: 12.21236pt x 4.53334pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 591.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
 [21
@@ -1266,18 +1260,8 @@ e 582.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 607.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 607.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
-File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
-<use ../papers/tcs/figures/lean-logo.pdf>
-Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 607.
-(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+e 613.
+(pdftex.def)             Requested size: 12.21236pt x 4.53334pt.
 
 
 [22
@@ -1286,43 +1270,68 @@ e 607.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 629.
+e 638.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 629.
+e 638.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 629.
+e 638.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
 [23
 
 ]
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 660.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 660.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
+<use ../papers/tcs/figures/lean-logo.pdf>
+Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
+e 660.
+(pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
+
 
 [24
+
+]
+
+[25
 
 ]
 File: ../papers/tcs/figures/lean-logo.pdf Graphic file (type pdf)
 <use ../papers/tcs/figures/lean-logo.pdf>
 Package pdftex.def Info: ../papers/tcs/figures/lean-logo.pdf  used on input lin
-e 663.
+e 698.
 (pdftex.def)             Requested size: 11.1434pt x 4.13667pt.
 
 
-[25
+[26
 
 ] (./slides.bbl)
 
-[26
+[27
 
 ]
 
-[27
+[28
+
+
+]
+
+[29
 
 
 ]
@@ -1344,40 +1353,43 @@ Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25747 strings out of 475178
- 510672 string characters out of 5766539
- 888549 words of memory out of 5000000
- 48183 multiletter control sequences out of 15000+600000
- 575844 words of font info for 99 fonts, out of 8000000 for 9000
+ 25766 strings out of 475178
+ 510920 string characters out of 5766539
+ 891307 words of memory out of 5000000
+ 48194 multiletter control sequences out of 15000+600000
+ 576011 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  101i,15n,107p,421b,855s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-s8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
-bols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
-ols/msbm10.pfb>
-Output written on slides.pdf (27 pages, 286225 bytes).
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on slides.pdf (29 pages, 325943 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 288 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 325 compressed objects within 4 object streams
+ 71 named destinations out of 1000 (max. 500000)
  48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

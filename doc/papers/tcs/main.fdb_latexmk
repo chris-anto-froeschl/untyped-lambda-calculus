@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1792841967.19555 "main.aux" "main.bbl" "main" 1792841968.10399 0
+["bibtex main"] 1792871097.21072 "main.aux" "main.bbl" "main" 1792871098.10956 0
   "./cas-model2-names.bst" 1789997376.4626 31800 50c9da7327ed431cce3c915c6982e987 ""
-  "./refs.bib" 1791926997.11871 9704 0e4fe19794214e5c1522888cf3d8303b ""
-  "main.aux" 1792841967.89496 12117 2b26f042925e7263d20b3d2f1ad53d0c "pdflatex"
+  "./refs.bib" 1792860279.16869 10606 466b803157bb06cc1dab888e37c50e4b ""
+  "main.aux" 1792871097.90231 13183 5ff749960cbeae4e066d8122b0ff41d6 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1792841967.21802 "main.tex" "main.pdf" "main" 1792841968.10415 0
+["pdflatex"] 1792871097.23253 "main.tex" "main.pdf" "main" 1792871098.10976 0
   "/etc/texmf/web2c/texmf.cnf" 1782464169.12939 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk" 1791925571.9143 25396 82da5f79243cd32b90b410f8a081a3cd ""
   "/home/chr95877/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk" 1791925572.3063 28952 b3d24d174d75d3583896905113876069 ""
@@ -261,18 +261,18 @@
   "cas-sc.cls" 1789997376.4626 4409 f271eb20a758fc9ea5551304eb312def ""
   "figures/lean-logo.pdf" 1791918245.11067 1255 34f7cbacf65f5c967932636c24fa2633 ""
   "leanlink.tex" 1791918245.11067 550 b38421c846225fa50d11d9cde6af42c0 ""
-  "main.abs" 1792841967.65096 1104 9e6352a08c39600d02877dfee72f0666 "pdflatex"
-  "main.aux" 1792841967.89496 12117 2b26f042925e7263d20b3d2f1ad53d0c "pdflatex"
-  "main.bbl" 1792841967.20695 6195 d3a3852d59bfb9d79d3dd2f7b694bcdd "bibtex main"
-  "main.out" 1792841967.89496 3741 bed7dd852ce1ad4a75fad24a8256d413 "pdflatex"
-  "main.tex" 1792828846.1888 3492 7340fcfe1a50e06ffbe606e8719d0705 ""
+  "main.abs" 1792871097.64631 1104 9e6352a08c39600d02877dfee72f0666 "pdflatex"
+  "main.aux" 1792871097.90231 13183 5ff749960cbeae4e066d8122b0ff41d6 "pdflatex"
+  "main.bbl" 1792871097.2223 7186 8e665f6c15b4d1eb35a2369563c4a8f5 "bibtex main"
+  "main.out" 1792871097.90231 3845 66500ca2ac9329ab22491043e4150492 "pdflatex"
+  "main.tex" 1792859607.73877 3725 97d78128897b482eba92b035f1303158 ""
   "preamble.tex" 1791926997.11871 2815 e885ee50b8027cd7687554b0b9d5e70e ""
-  "sections/alpha-equivalences.tex" 1792841958.34688 15441 2be743a145373ed77cd5bc2b5b2a66c0 ""
-  "sections/conclusion.tex" 1791926428.34978 726 6b021559988b44f790b38371ebdc785f ""
-  "sections/cslib.tex" 1792841966.15894 6019 8736c8b5ed3bcb2005a4b8f1705b7efc ""
+  "sections/alpha-equivalences.tex" 1792870666.43877 17488 839c340393bc642fc171858aec3f61fa ""
+  "sections/conclusion.tex" 1792871096.20629 782 53f2baf0688471c25defc156bc43ef5c ""
+  "sections/cslib.tex" 1792860279.16869 6298 2e02cfb85bef2f5dcd1b7c67827c1050 ""
   "sections/de-bruijn.tex" 1792828846.1888 16699 e3b83a2252d977b6005b6229d58a0e23 ""
-  "sections/future-work.tex" 1792828846.1928 4438 4f74ad3fca0d26d303b20a9b1650ba50 ""
-  "sections/introduction.tex" 1791926087.74681 3522 b752c09860deaba920bdeb0f6ddb4d90 ""
+  "sections/future-work.tex" 1792871096.20629 6536 32c1cdbb21531648186c5ca738513aa8 ""
+  "sections/introduction.tex" 1792859607.73877 3864 b2d11ca54a93bba0d7590d31a546f9b7 ""
   "sections/related-work.tex" 1792828846.1888 2269 3d56fa2c8d8625239ae584b9ec379acc ""
   "thumbnails/cas-email.jpeg" 1789997376.4666 8764 ae276cc9956197082d008c18ae4cbb28 ""
   (generated)

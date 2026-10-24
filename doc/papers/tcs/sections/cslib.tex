@@ -127,12 +127,16 @@ atoms, so that the free $b$ is captured; $\sw{a}{b} \act M =
 for a fresh atom $c$, since substitution replaces only the free
 occurrence of $b$ and renames the binder to avoid capturing $a$.
 
-Definition~\ref{def:subst} is substitution in the style of Curry, which renames a binder
-only when it has to and is defined on all
-terms~\cite[Definition~C.1]{barendregt1985a}. The formulation with a
-function choosing the new atom, and the proof that it is well defined
-by induction on the size of the term,
-are~\cite[Definition~5.13 and Lemma~5.14]{gabbay2011a}. Renaming and substitution, a notion of alpha
+Definition~\ref{def:subst} is, case for case,
+Gabbay's~\cite[Definition~5.13]{gabbay2011a}: a function chooses the
+new atom fresh for $a$, $b$ and the atoms of $M$ and $N$, and the proof
+that the definition is well founded is his induction on the size of
+the term, which renaming preserves~\cite[Lemma~5.14]{gabbay2011a}.
+Gabbay renames the binder with a substitution $M[b \mapsto c]$, which
+coincides with $\ren{M}{b}{c}$ since $c$ is fresh. Like Curry's
+substitution~\cite[Definition~C.1]{barendregt1985a}, it is defined on
+all terms, but it renames $b$ whenever $b$ is free in $N$, whereas
+Curry keeps $b$ also when $a$ is not free in $M$. Renaming and substitution, a notion of alpha
 equivalence (Definition~\ref{def:simp} below) and its basic theory,
 including the substitution
 lemma~\cite[2.1.16]{barendregt1985a}

@@ -4,7 +4,6 @@
 Norrish and Vestergaard place their isomorphism in a web of
 directly proved relationships between ten formalizations of the
 lambda calculus, reproduced in Figure~\ref{fig:equivalence-net}.
-%% TODO: say which nodes and edges CSLib has now, and which ones are planned.
 
 \begin{figure}
 \centering
@@ -57,6 +56,46 @@ larger, ongoing effort within CSLib to build a formalized foundation
 for research on untyped lambda calculus. We outline the planned
 directions below.
 
+\subsection{The network of Figure~\ref{fig:equivalence-net}}
+\label{subsec:network}
+
+With Section~\ref{sec:de-bruijn}, CSLib contains the nodes
+$\LamDB$, $\LamDB'$ and $\lambda^{N}_{\alpha}$ of
+Figure~\ref{fig:equivalence-net} and the two dashed edges between
+them. The alpha equivalence by which $\LamA$ is formed is $\simp$,
+the same relation by which the HOL4 development underlying
+\cite{norrish2007a} quotients its raw terms.\footnote{Rule
+\texttt{aeq\_lam} in \texttt{examples/lambda/basics/generic\_termsScript.sml}
+of the HOL4 sources.}
+%% TODO: checked on HOL4 develop (commit ea4969d, 2026-10-24); Norrish's 2006 paper itself
+%% (N&V ref. [12]) was not consulted.
+By Theorem~\ref{thm:crole-equivalence}, $\LamA$ is equally the
+quotient by $\simr$ and by $\simrf$, the relations of
+Barendregt~\cite[Definition~2.1.11]{barendregt1985a} and of
+Hindley and Seldin~\cite[Definition~1.17]{hindley2008a}. Since
+substitution on $\LamA$ is lifted from raw terms
+(Definition~\ref{def:lam-alpha}), the construction is also that of
+$\lambda^{Ho}_{\alpha}$, which Norrish and Vestergaard describe as a
+quotient of Curry's raw calculus $\lambda^{C}$ with substitution lifted
+to the quotient~\cite[Section~2]{norrish2007a}; the raw terms of
+Section~\ref{subsec:named-terms}, with the substitution of
+Definition~\ref{def:subst}, are such a calculus. Homeier's alpha
+equivalence, however, is a contextual relation defined without
+swapping or substitution~\cite[Definitions~9 and~10]{homeier2001a},
+so this edge, too, requires identifying it with one of the five.
+%% TODO: the alpha equivalences of lambda^C (Hindley's thesis, N&V ref. [7]) and of
+%% lambda^V (Vestergaard's thesis, N&V ref. [17]) were not checked against the five relations.
+
+Theorem~\ref{thm:crole-equivalence} thus reduces each remaining
+$\alpha$-quotient edge of the figure to identifying the alpha
+equivalence of a raw calculus with one of the five relations, and
+the remaining isomorphisms to further representations: Gordon's
+two-sorted de Bruijn terms $\mathrm{dB}_2$ and Vestergaard's raw
+calculus $\lambda^{V}$, whose isomorphism with $\lambda^{C}$ is
+mechanized in Coq~\cite[Section~2.3]{norrish2007a}. We plan to add
+these nodes and edges, so that the whole network is formalized within
+one library.
+
 \subsection{Further equivalence results}
 \label{subsec:further-equivalences}
 
@@ -68,21 +107,21 @@ nameless terms, nominal terms), each intended to slot into CSLib
 alongside the results of this paper and to be connected to them by
 explicit isomorphisms in the style of Section~\ref{sec:de-bruijn}.
 
-\subsection{A formalized Barendregt}
-\label{subsec:formalized-barendregt}
+\subsection{Teaching}
+\label{subsec:teaching}
 
-Barendregt's \emph{The Lambda Calculus: Its Syntax and
-Semantics}~\cite{barendregt1985a} remains the standard reference
-for the untyped lambda calculus, and a substantial fraction of its
-content (confluence, standardization, the theory of reduction,
-combinatory completeness, and the associated notions of models)
-has never been formalized in a single, coherent development. We see
-CSLib's binding infrastructure as a natural basis for such an effort,
-which we tentatively refer to as a \emph{formalized Barendregt}. Beyond
-its intrinsic value as a reusable library, a sufficiently complete
-formalized Barendregt would put open or only recently resolved
-conjectures discussed in Barendregt's later survey work within reach
-of machine-checked treatment.
+Several educators have expressed interest in using the named
+representation of Section~\ref{subsec:named-terms} to teach the
+lambda calculus and to base assignments on it. It suits this purpose
+because it stays close to the textbook presentations: terms with
+named variables, capture-avoiding substitution, and, through
+Theorem~\ref{thm:crole-equivalence}, the definitions of alpha
+equivalence found in the
+literature~\cite{barendregt1985a,hindley2008a}, all available side by
+side and proved equivalent. Supporting such use, with documentation
+and examples aimed at students, is part of our plans for the
+library.
+%% TODO: name the courses or educators if they agree to be mentioned.
 
 \subsection{Maintenance and reuse}
 \label{subsec:maintenance}

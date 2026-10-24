@@ -92,7 +92,9 @@
       named terms with $\alphaeq$ (\#458~\cite{cslib458}) and de Bruijn terms with $\beta$
       and Church--Rosser (\#475, open~\cite{cslib475}).
     \item Status: Crole's Theorem~4.1 in review (\#741~\cite{cslib741}); everything else on
-      branches, no \texttt{sorry} except one direct proof (Thm.~4.6).
+      branches; no \texttt{sorry} in what is presented here.
+    \item Blueprint with a dependency graph of both formalizations and their connections:
+      \href{https://chris-anto-froeschl.github.io/untyped-lambda-calculus/}{\footnotesize\texttt{chris-anto-froeschl.github.io/untyped-lambda-calculus}}
     \item Today: how the proofs go, in particular the parts we have not discussed yet.
   \end{itemize}
 \end{frame}
@@ -267,21 +269,45 @@
   \begin{block}{Departure}
     Crole proves the $\alpha$ case by induction on $M$, which fails for $\alpha\#$
     ($\subst{M}{a}{a'}$ may rename a binder), and repairs it with Lemma~6.5 for $n$ swaps.
-    We prove $n = 1$ under $a' \fresh M$ instead of $a' \nocc M$: one lemma serves both
-    $\simr$ and $\simrf$.
+    We prove only $n = 1$, with $z \fresh M$ where Crole assumes $z \nocc M$: one lemma
+    serves both $\simr$ and $\simrf$.
   \end{block}
-  Open: Crole's direct proof of ${\simr} = {\simrf}$ (Thm.~4.6, needs Lemma~6.7).
 \end{frame}
 
 \begin{frame}{What the formalization had to add to \cite{crole2012a}}
   \begin{itemize}
-    \item Existence of substitution (deferred in the paper): Curry-style, renaming a binder
-      only when needed; well defined by induction on size~\cite[Def.~5.13]{gabbay2011a}.
+    \item Existence of substitution (deferred in the paper): Gabbay's definition~\cite[Def.~5.13]{gabbay2011a};
+      well defined by induction on size~\cite[L.~5.14]{gabbay2011a}.
     \item Lemma~6.1: all 27 cases, not representatives.
     \item Lemma~6.2(1): omitted in the paper.
     \item Lemmas~6.5 and~6.6: details omitted or ``well known''.
     \item A small change of hypotheses (Lemma~6.5, previous slide). No errors found in the
       paper.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Where Crole's Section 6.1 lemmas come from}
+  \small
+  Crole names a source only for 6.3; the others are what we found.
+  \medskip
+
+  \begin{tabular}{@{}lll@{}}
+    Lemma & Proof in~\cite{crole2012a} & Earlier source \\
+    \hline
+    6.1 & representative cases & \cite[pf.~of Prop.~2.2]{gabbay2002a}, \cite[(9)]{urban2004a} \\
+    6.2(1) & omitted & \cite[Ex.~3.5(ii)]{gabbay2002a} \\
+    6.2(2) & given & \cite[L.~2.8]{urban2004a}, \cite[L.~3.8]{gabbay2008a} \\
+    6.3, 6.4 & given & \cite[L.~5.16]{gabbay2011a}, \cite[L.~3.6(2)]{gabbay2008a} \\
+    6.5 & details omitted & $n{=}1$: \cite[pf.~of Prop.~2.2]{gabbay2002a} + \cite[A1.7--8]{hindley2008a} \\
+    6.6 & ``well known'' & \cite[L.~A1.5(g)]{hindley2008a} \\
+  \end{tabular}
+  \medskip
+
+  \begin{itemize}
+    \item Gabbay and Pitts call 6.1 and the $\simp$-form of 6.3 ``easily verified'' when
+      proving that $\simp$ is $\alpha$; Crole (p.~5) notes their sketch also needs 6.3 for
+      $\simr$.
+    \item 6.5 for general $n$: our own induction; Crole's earlier Hybrid paper has no swapping.
   \end{itemize}
 \end{frame}
 
@@ -357,6 +383,11 @@
   relationships, redrawn from \cite[Figure~1]{norrish2007a}. Double lines are isomorphisms,
   arrows are $\alpha$-quotients. The dashed lines are the results of~\cite{norrish2007a},
   formalized here in Lean.\par}
+  \medskip
+  {\footnotesize Our $\LamA$ is the quotient by $\simp$, the relation HOL4 also uses for
+  $\lambda^N_\alpha$; by Crole's theorem it is also the quotient by $\simr$ (Barendregt) and
+  $\simrf$ (Hindley--Seldin). Substitution is lifted from raw terms, as in
+  $\lambda^{Ho}_\alpha$.\par}
 \end{frame}
 
 \begin{frame}{Reading de Bruijn terms}
@@ -657,7 +688,11 @@
         \item more representations (locally nameless, nominal), connected by explicit
           isomorphisms;
         \item Crole-style equivalences elsewhere, e.g.\ SK combinators;
-        \item a \emph{formalized Barendregt}~\cite{barendregt1985a}.
+        \item the remaining nodes and edges of Figure~1 of~\cite{norrish2007a}
+          (slide ``Where the result sits''): $\mathrm{dB}_2$, $\lambda^V$, $\lambda^C$ and
+          their $\alpha$-quotients;
+        \item teaching: several educators are interested in using the named representation
+          for lectures and assignments on the $\lambda$-calculus.
       \end{itemize}
   \end{itemize}
 \end{frame}
