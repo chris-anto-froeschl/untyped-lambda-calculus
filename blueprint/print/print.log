@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2025/dev/Debian) (preloaded format=xelatex 2026.6.26)  21 SEP 2026 14:58
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2025/dev/Debian) (preloaded format=xelatex 2026.6.26)  13 OCT 2026 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1096,6 +1096,36 @@ Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaQuotient.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Unscoped/Untyped/DeBruijnSyntax.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Unscoped/Untyped/BetaReduction.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Nominal/Atom.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Nominal/FinPerm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Logics/Nominal/Nominal.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/LiftingPermutation.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Eta.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Unscoped/Untyped/ParallelReduction.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Unscoped/Untyped/ChurchRosser.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Transfer.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/Mech/Choreography/Basic.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/Mech/LocalComputation.tex)
@@ -1181,29 +1211,17 @@ Overfull \hbox (8.65927pt too wide) detected at line 14
 )
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p1.te
-x
-
-LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 7.
-
-)
+x)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p2.te
 x
-
-LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
-
-
 
 [1
 
 ])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p3.te
-x
-
-LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
-
-)
+x)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-r.tex
 )
@@ -1211,44 +1229,65 @@ Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-r.tex
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-r-fre
 sh.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:6-1.tex)
+Languages/LambdaCalculus/Named/Untyped/Basic.artifacts/def:rename.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:6-7.tex)
+Languages/LambdaCalculus/Named/Untyped/Basic.artifacts/def:alpha-p.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-1.tex
-
+Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:alpha-p-symm.te
+x)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:6-1.tex
 
 [2])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:alpha-p-refl.te
+x)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:alpha-p-bcg.tex
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:alpha-p-trans.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:6-7.tex
+Overfull \hbox (2.71982pt too wide) in paragraph at lines 2--8
+[]\TU/lmr/bx/n/10 Lemma 18 \TU/lmr/m/n/10 (Lemma 6.7: substitution preserves $[
+]$-equivalence)\TU/lmr/bx/n/10 . [][][][][]  \TU/lmr/m/it/10 For any expression
+s $[][] [][][] [][] [][]$
+ []
+
+)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-1.tex
+)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-1-swa
 p.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-2.tex
-)
+
+
+[3])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-2-swa
 p.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3-renam
-e.tex
-
-LaTeX Warning: Reference `def:rename' on page 1 undefined on input line 10.
-
-)
+e.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-4-renam
 e.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-4.tex
-
-[3])
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-4.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-6.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-6-p.tex
-)
+
+
+[4])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3-p.tex
 )
@@ -1262,14 +1301,12 @@ swap.tex)
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:swap-chai
 n.tex
 Overfull \hbox (33.39565pt too wide) in paragraph at lines 2--9
-[]\TU/lmr/bx/n/10 Definition 26 \TU/lmr/m/n/10 (Chain of transpositions)\TU/lmr
+[]\TU/lmr/bx/n/10 Definition 32 \TU/lmr/m/n/10 (Chain of transpositions)\TU/lmr
 /bx/n/10 . [][][][]  \TU/lmr/m/n/10 Given a finite list of triples of atoms $[]
 [][][] [][][] [][][][] [] [] [][][][] [][][] [][][]$
  []
 
-
-
-[4])
+)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:subst-swa
 p-chain.tex)
@@ -1277,7 +1314,9 @@ p-chain.tex)
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:chain-ato
 ms.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5.tex
+
+[5])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5-one.t
 ex)
@@ -1288,13 +1327,7 @@ ex)
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-1-hard.t
 ex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-1.tex
-
-LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
-
-
-
-[5])
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-1.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-easy.t
 ex)
@@ -1303,85 +1336,202 @@ Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-wlog.t
 ex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-hard.t
-ex)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-2.tex
-
-LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
-
-)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/prop:4-3.tex
-
-LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 7.
-
-)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-4-r-to-p
-.tex
-
-LaTeX Warning: Reference `lem:alpha-p-refl' on page 1 undefined on input line 9
-.
-
-
-LaTeX Warning: Reference `lem:alpha-p-symm' on page 1 undefined on input line 1
-0.
-
-
-LaTeX Warning: Reference `lem:alpha-p-trans' on page 1 undefined on input line 
-10.
-
-
-LaTeX Warning: Reference `lem:alpha-p-bcg' on page 1 undefined on input line 10
-.
-
-)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-4-p-to-r
-.tex
+ex
 
 [6])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-4.tex
-
-LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
-
-)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-2.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/prop:4-3.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-4-r-to-p
+.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-4-p-to-r
+.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-4.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-5-rfresh
 -to-p.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-5-p-to-r
-fresh.tex)
+fresh.tex
+
+[7])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-5.tex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-5.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-6.tex)
 
-LaTeX Warning: Reference `def:alpha-p' on page 1 undefined on input line 8.
+[8]
+Chapter 2.
 
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaQuotient.artifacts/def:nv-lambda-al
+pha.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaQuotient.artifacts/def:nv-lambda-al
+pha-subst.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaQuotient.artifacts/def:nv-beta-alph
+a.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/def:nv-db.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/def:nv-lift.tex
+
+[9
+
+])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/def:nv-nsub.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/def:nv-1.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/def:nv-4.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/def:nv-dfv.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/def:nv-5.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/lem:nv-6-aux.tex)
+
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/lem:nv-6.tex
+
+[10])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/def:nv-7.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/def:nv-8-inc.tex)
+
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/def:nv-8.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/lem:nv-supp.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/lem:nv-9.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/thm:nv-10-sub.tex
 )
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-6.tex))
+Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/thm:nv-10-dlam.te
+x
+Overfull \hbox (0.84662pt too wide) in paragraph at lines 2--10
+[]\TU/lmr/bx/n/10 Lemma 70 \TU/lmr/m/n/10 (Theorem 10, second part: $[]$ has em
+pty support)\TU/lmr/bx/n/10 . [][][][][][][]  $[] [] [][] [] [][] [] [] [] [][]
+ []
+ []
 
-[7] (/home/chr95877/src/untyped-lambda-calculus/blueprint/print/print.aux)
+
+
+[11])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/thm:nv-10.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/lem:nv-dfv-dlam.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/PureDeBruijn.artifacts/lem:nv-sub-dlam.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.artifacts/def:nv-f-raw.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.artifacts/lem:nv-f-respects-alp
+ha.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.artifacts/def:nv-f.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.artifacts/lem:nv-f-injective.te
+x)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.artifacts/lem:nv-f-surjective.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.artifacts/thm:nv-11.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.artifacts/lem:nv-12-subst.tex
+
+[12])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/FromTerm.artifacts/thm:nv-12.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/LiftingPermutation.artifacts/lem:nv-13.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/LiftingPermutation.artifacts/def:nv-lift
+ing-pm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/LiftingPermutation.artifacts/lem:nv-14.t
+ex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/LiftingPermutation.artifacts/lem:nv-sub-
+fresh-perm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/LiftingPermutation.artifacts/lem:nv-dlam
+-inj.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/LiftingPermutation.artifacts/thm:nv-15.t
+ex
+
+[13])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.artifacts/lem:nv-16.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.artifacts/lem:nv-17.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.artifacts/lem:nv-beta-equiva
+riant.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.artifacts/lem:nv-18.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.artifacts/thm:nv-19.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.artifacts/thm:nv-20-hom.tex)
+
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.artifacts/thm:nv-20.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaQuotient.artifacts/def:nv-eta-alpha
+.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Eta.artifacts/def:nv-neta.tex
+
+[14])
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Eta.artifacts/def:nv-eta.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Eta.artifacts/lem:nv-nsub-lift.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Eta.artifacts/lem:nv-lift-nsub.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Eta.artifacts/thm:nv-eta-coincide.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Eta.artifacts/thm:nv-eta-iso.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Transfer.artifacts/cor:nv-church-rosser.
+tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Transfer.artifacts/cor:nv-normal-form-un
+ique.tex))
+
+[15] (/home/chr95877/src/untyped-lambda-calculus/blueprint/print/print.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `print.out' has not changed.
-(rerunfilecheck)             Checksum: 67C5CCDAA3C8AB455C6BB386E46FA8EC;575.
+(rerunfilecheck)             Checksum: 7B14C29E71B14642FE2EB5EFDD1504A8;2573.
  ) 
 Here is how much of TeX's memory you used:
- 20440 strings out of 475852
- 563905 string characters out of 5775423
- 932182 words of memory out of 5000000
- 42332 multiletter control sequences out of 15000+600000
- 564224 words of font info for 87 fonts, out of 8000000 for 9000
+ 21207 strings out of 475852
+ 646632 string characters out of 5775423
+ 936182 words of memory out of 5000000
+ 42862 multiletter control sequences out of 15000+600000
+ 564256 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,8n,107p,464b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,10n,107p,471b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on /home/chr95877/src/untyped-lambda-calculus/blueprint/print/pr
-int.pdf (8 pages).
+int.pdf (16 pages).
