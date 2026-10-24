@@ -1,0 +1,60 @@
+\begin{thebibliography}{1}
+
+\bibitem{barendregt1985a}
+Hendrik~Pieter Barendregt.
+\newblock {\em The lambda calculus - its syntax and semantics}, volume 103 of
+  {\em Studies in logic and the foundations of mathematics}.
+\newblock North-Holland, 1985.
+
+\bibitem{crole2012a}
+Roy~L. Crole.
+\newblock Alpha equivalence equalities.
+\newblock {\em Theoretical Computer Science}, 433:1--19, 2012.
+
+\bibitem{cslib}
+{CSLib}: The {Lean} computer science library.
+\newblock \url{https://github.com/leanprover/cslib}.
+\newblock GitHub repository.
+
+\bibitem{cslib741}
+Chris~Anto Fr{\"o}schl.
+\newblock Alpha equivalence equalities.
+\newblock CSLib pull request \#741,
+  \url{https://github.com/leanprover/cslib/pull/741}, 2026.
+\newblock Under review.
+
+\bibitem{gabbay2011a}
+Murdoch~J. Gabbay.
+\newblock Foundations of nominal techniques: logic and semantics of variables
+  in abstract syntax.
+\newblock {\em Bulletin of Symbolic Logic}, 17(2):161--229, 2011.
+
+\bibitem{nipkow2001a}
+Tobias Nipkow.
+\newblock More {Church-Rosser} proofs (in {Isabelle/HOL}).
+\newblock {\em Journal of Automated Reasoning}, 26:51--66, 2001.
+
+\bibitem{norrish2007a}
+Michael Norrish and Ren{\'e} Vestergaard.
+\newblock Proof pearl: De bruijn terms really do work.
+\newblock In Klaus Schneider and Jens Brandt, editors, {\em Theorem Proving in
+  Higher Order Logics}, pages 207--222, Berlin, Heidelberg, 2007. Springer
+  Berlin Heidelberg.
+
+\bibitem{cslib475}
+Zayn Wang and Maksym Radziwill.
+\newblock de {Bruijn} syntax for untyped lambda calculus and a proof of
+  {Church-Rosser} with parallel reduction.
+\newblock CSLib pull request \#475,
+  \url{https://github.com/leanprover/cslib/pull/475}, 2026.
+\newblock Open.
+
+\bibitem{cslib458}
+Haoxuan Yin and Fabrizio Montesi.
+\newblock Basics of named representation (alpha equivalence and
+  capture-avoiding substitution).
+\newblock CSLib pull request \#458,
+  \url{https://github.com/leanprover/cslib/pull/458}, 2026.
+\newblock Merged.
+
+\end{thebibliography}
