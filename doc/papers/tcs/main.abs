@@ -1,6 +1,17 @@
-TODO Intro CSLib, Crole 5 equivs, dB ~= QAEQUIV and what it builds on
-Derived results from it, "Formalized Barendregt"
-Perhaps even benchmark like lambda n ways?
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Alpha equivalence of lambda terms with named variables is defined in
+the literature in several ways: by an axiom for renaming a bound
+variable, under one of two side conditions on the new variable, or by
+rules that swap the two bound variables with a third one. Crole proved
+in detail that five such definitions give the same relation, and
+observed that published proof sketches of this folklore fact are
+sometimes incorrect. We present a formalization of Crole's theorem in
+the Lean~4 proof assistant, developed for the library CSLib. To our
+knowledge the theorem had not been mechanized before. The
+formalization supplies the proofs that Crole omits or only sketches.
+As a second result we formalize, following Norrish and Vestergaard,
+an isomorphism between named terms modulo alpha equivalence and pure
+de Bruijn terms, with their respective notions of beta-reduction. It
+connects the two representations of lambda terms within one library:
+through it, the Church--Rosser theorem for de Bruijn terms becomes a
+theorem about named terms. The statements in this paper are linked to
+their Lean sources.

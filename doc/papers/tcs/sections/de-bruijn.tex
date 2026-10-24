@@ -3,7 +3,7 @@
 
 %% Statements and links were checked on 2026-10-13 against the branch debruijn-alpha-quotient at
 %% the commit in \DBRev (builds, no sorry; Theorem 20 depends only on propext, Classical.choice
-%% and Quot.sound). TODO(Chris): re-pin \DBRev once the code is upstream.
+%% and Quot.sound). TODO: re-pin \DBRev once the code is upstream.
 
 De Bruijn indices remove the need for alpha equivalence altogether by
 replacing bound variable names with numerals counting binder depth.
@@ -29,7 +29,7 @@ proof of the Church--Rosser theorem used in
 Section~\ref{subsec:transfer} are not ours: they are due to Wang, the
 syntax and substitution jointly with
 Radziwill\footnote{\url{https://github.com/leanprover/cslib/pull/475}}.
-%% TODO(Chris): PR 475 is open at the time of writing (checked 2026-10-13). The names are the
+%% TODO: PR 475 is open at the time of writing (checked 2026-10-13). The names are the
 %% author lines of its files (DeBruijnSyntax.lean: Zayn Wang, Maksym Radziwill; the other three
 %% files: Zayn Wang); confirm them and how to cite.
 
@@ -339,7 +339,7 @@ $t$~\cite[Section~4.4]{norrish2007a}.
 For all $M, N \in \LamA$: $M \to_{\eta} N$ if and only if
 $f(M) \to_{\mathrm{ne}} f(N)$.
 \end{theorem}
-%% TODO(Chris): decide whether the eta result stays; it is proved on the branch but is not
+%% TODO: decide whether the eta result stays; it is proved on the branch but is not
 %% needed for anything else in the paper.
 
 \subsection{Using the isomorphism}
@@ -368,7 +368,7 @@ If $M \tobetastar N_1$ and $M \tobetastar N_2$ and both $N_1$ and
 $N_2$ are $\beta$-normal, then $N_1 = N_2$.
 \end{corollary}
 
-%% TODO(Chris): the same file also derives BVC-style induction for the quotient from the
+%% TODO: the same file also derives BVC-style induction for the quotient from the
 %% de Bruijn side (TermAlpha.bvc_induction, NamedDeBruijn/Transfer.lean#L215). Worth a statement?
 
 \subsection{Formalization notes}
@@ -381,7 +381,7 @@ $N_2$ are $\beta$-normal, then $N_1 = N_2$.
     numbers wrapped in a structure, for which the two hat maps are the
     projection and the constructor
     \lean{\LeanRepo/blob/\DBRev/Cslib/Logics/Nominal/Atom.lean\#L43}.
-    %% TODO(Chris): the types of atoms and of finitely supported permutations (Atom, FinPerm)
+    %% TODO: the types of atoms and of finitely supported permutations (Atom, FinPerm)
     %% are ported from the repository spitters/nominal-lean (Bas Spitters), which in turn ports
     %% the nominal layer of SSProve. Decide how to credit and cite this.
   \item \emph{Permutations.} Norrish and Vestergaard represent a

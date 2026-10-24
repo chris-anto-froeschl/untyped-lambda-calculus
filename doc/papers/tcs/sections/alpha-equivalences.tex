@@ -15,35 +15,6 @@ rules and the side conditions; each statement names its counterpart
 in~\cite{crole2012a}, and a raised \leanicon{} links to its Lean
 source.
 
-\subsection{Swapping}
-\label{subsec:swapping}
-
-\begin{definition}[Permutation action {\cite[Section~2]{crole2012a}}]
-\label{def:perm-action}
-\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L68}
-For a permutation $\pi$ of $\Atoms$, the term $\pi \act M$ is defined by
-\[
-  \pi \act a = \pi(a)
-  \qquad
-  \pi \act (M_1\, M_2) = (\pi \act M_1)\,(\pi \act M_2)
-  \qquad
-  \pi \act (\lam{a}{M}) = \lam{\pi(a)}{\pi \act M}.
-\]
-For the transposition $\sw{a}{b}$ we call $\sw{a}{b} \act M$ the
-\emph{swap}
-\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L80}
-of $a$ and $b$ in $M$. The \emph{agreement set}
-\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L60}
-of two permutations is
-$\AS(\pi, \pi') = \{\, a \in \Atoms \mid \pi(a) = \pi'(a) \,\}$.
-\end{definition}
-
-Unlike renaming (Definition~\ref{def:rename}), a swap is a bijection
-on terms and never identifies two atoms. The two operations agree
-when the new atom is unused: if $z \nocc M$ then
-$\sw{z}{a} \act M = \ren{M}{a}{z}$
-\lean{\CroleSrc/Named/Untyped/Properties.lean\#L159}.
-
 \subsection{The five relations}
 \label{subsec:five-definitions}
 
@@ -227,7 +198,7 @@ and~\cite[Lemma~A1.10]{hindley2008a}.
 If $M \simr M'$ then $\subst{M}{b}{a} \simr \subst{M'}{b}{a}$, for
 all atoms $a, b$.
 \end{lemma}
-%% TODO(Chris): no Lean declaration for this lemma (for \simr) exists at the pinned commit.
+%% TODO: no Lean declaration for this lemma (for \simr) exists at the pinned commit.
 
 \subsection{The characterization theorem}
 \label{subsec:equivalence-theorem}
@@ -308,7 +279,7 @@ statement about renaming alone, and Crole also proves it without
 recourse to
 swapping~\cite[Theorem~4.6]{crole2012a}
 \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L337}.
-%% TODO(Chris): this declaration (alphaEquivR_iff_alphaEquivRFresh_direct) is still `sorry`
+%% TODO: this declaration (alphaEquivR_iff_alphaEquivRFresh_direct) is still `sorry`
 %% at the pinned commit. Finish it and re-pin before submission.
 Since non-occurrence implies freshness, $\alpha$ is an instance of
 $\alpha\#$. Conversely, let $a' \fresh a, M$. By
@@ -354,7 +325,7 @@ errors in it. To our knowledge the result had not been mechanized
 before; Crole mentions an Isabelle/HOL development in
 progress~\cite[Section~7]{crole2012a}, of which we could find no
 published account.
-%% TODO(Chris): confirm the novelty claim against the literature before submission. Related
+%% TODO: confirm the novelty claim against the literature before submission. Related
 %% but different: Apinis and Ahman, "A simple formalization of alpha-equivalence"
 %% (arXiv:2507.10181, Rocq), relate one inductive definition to the literature's.
 Our contribution is the four relations other than $\simp$,
@@ -394,7 +365,7 @@ Lemma~6.7 & deferred as well known
 \bottomrule
 \end{tabular}
 \end{table}
-%% TODO(Chris): the Curry--Feys pages are quoted from the proof of Hindley--Seldin's
+%% TODO: the Curry--Feys pages are quoted from the proof of Hindley--Seldin's
 %% Lemma A1.10(a) ("[CF58, Theorem 2(a) p. 95, proof on pp. 96-103]"), not read first-hand.
 %% gabbay2011a numbers follow the 54-page author version, which is also what Crole cites.
 

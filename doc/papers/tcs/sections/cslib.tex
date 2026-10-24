@@ -59,8 +59,9 @@ atoms to atoms such that $\freshatom(S) \notin S$; in particular
 $\Atoms$ is infinite, and an atom avoiding any given finite set can be
 computed.
 
-Two operations replace atoms by atoms. The first is purely textual
-and is the one CSLib's baseline alpha equivalence is phrased with.
+Three operations act on the atoms of a term. The first is purely
+textual and is the one CSLib's baseline alpha equivalence is phrased
+with.
 
 \begin{definition}[Renaming]
 \label{def:rename}
@@ -69,7 +70,36 @@ $\ren{M}{a}{b}$ is $M$ with every occurrence of $a$, free, bound or
 binding, replaced by $b$.
 \end{definition}
 
-The second is capture-avoiding substitution, which Crole writes
+The second applies a bijection on atoms to every atom of a term,
+binding occurrences included.
+
+\begin{definition}[Permutation action {\cite[Section~2]{crole2012a}}]
+\label{def:perm-action}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L68}
+For a permutation $\pi$ of $\Atoms$, the term $\pi \act M$ is defined by
+\[
+  \pi \act a = \pi(a)
+  \qquad
+  \pi \act (M_1\, M_2) = (\pi \act M_1)\,(\pi \act M_2)
+  \qquad
+  \pi \act (\lam{a}{M}) = \lam{\pi(a)}{\pi \act M}.
+\]
+For the transposition $\sw{a}{b}$ we call $\sw{a}{b} \act M$ the
+\emph{swap}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L80}
+of $a$ and $b$ in $M$. The \emph{agreement set}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L60}
+of two permutations is
+$\AS(\pi, \pi') = \{\, a \in \Atoms \mid \pi(a) = \pi'(a) \,\}$.
+\end{definition}
+
+Unlike renaming (Definition~\ref{def:rename}), a swap is a bijection
+on terms and never identifies two atoms. The two operations agree
+when the new atom is unused: if $z \nocc M$ then
+$\sw{z}{a} \act M = \ren{M}{a}{z}$
+\lean{\CroleSrc/Named/Untyped/Properties.lean\#L159}.
+
+The third is capture-avoiding substitution, which Crole writes
 $E\{a'/a\}$ for the substitution of an atom and which we write
 $\subst{M}{a}{N}$ for the substitution of an arbitrary term.
 
@@ -90,12 +120,19 @@ $\subst{M}{a}{N}$ for the substitution of an arbitrary term.
 \end{align*}
 \end{definition}
 
-This is substitution in the style of Curry, which renames a binder
+For $M = \lam{a}{a\,b}$ with distinct atoms $a$ and $b$ the three
+operations differ: $\ren{M}{a}{b} = \lam{b}{b\,b}$ identifies the two
+atoms, so that the free $b$ is captured; $\sw{a}{b} \act M =
+\lam{b}{b\,a}$ exchanges them; and $\subst{M}{b}{a} = \lam{c}{c\,a}$
+for a fresh atom $c$, since substitution replaces only the free
+occurrence of $b$ and renames the binder to avoid capturing $a$.
+
+Definition~\ref{def:subst} is substitution in the style of Curry, which renames a binder
 only when it has to and is defined on all
 terms~\cite[Definition~C.1]{barendregt1985a}. The formulation with a
 function choosing the new atom, and the proof that it is well defined
 by induction on the size of the term,
-are~\cite[Definition~5.13 and Lemma~5.14]{gabbay2011a}. These definitions, a notion of alpha
+are~\cite[Definition~5.13 and Lemma~5.14]{gabbay2011a}. Renaming and substitution, a notion of alpha
 equivalence (Definition~\ref{def:simp} below) and its basic theory,
 including the substitution
 lemma~\cite[2.1.16]{barendregt1985a}

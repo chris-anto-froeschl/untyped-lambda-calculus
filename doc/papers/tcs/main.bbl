@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{14}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -11,6 +11,12 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Misc
+\bibitem[{Apinis and Ahman(2025)}]{apinis2025a}
+\bibinfo{author}{Apinis, K.}, \bibinfo{author}{Ahman, D.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{A simple formalization of alpha-equivalence}.
+\newblock \href{http://arxiv.org/abs/2507.10181}{\tt arXiv:2507.10181}.
 %Type = Inproceedings
 \bibitem[{Aydemir et~al.(2008)Aydemir, Chargu\'{e}raud, Pierce, Pollack and
   Weirich}]{aydemir2008a}
