@@ -147,6 +147,44 @@ If $M \simp M'$ then $\sw{u}{v} \act M \simp \sw{u}{v} \act M'$, for
 all atoms $u, v$.
 \end{lemma}
 
+In the case of rule \textsc{pi}, with $\lam{a}{M} \simp \lam{b}{M'}$
+by a witness $z$ and $u \neq v$, Crole distinguishes whether each of
+$a$, $b$, $z$ equals $u$, equals $v$, or neither. Of these 27 cases
+10 are impossible, since $z \neq a, b$; Crole argues four of the
+remaining 17 in detail~\cite[pp.~14--15]{crole2012a}. The
+formalization proves all 17, by these four arguments and two
+symmetries (Table~\ref{tab:lemma61}).
+
+\begin{table}[pos=tb]
+\caption{The cases of the rule \textsc{pi} in the proof of
+Lemma~\ref{lem:swap-preserve}, by the values of $a$, $b$, $z$ ($o$:
+neither $u$ nor $v$). Entries 1--4 are Crole's representative
+cases~\cite[pp.~14--15]{crole2012a}, with new witness $z$, $v$, $u$,
+$u$ respectively: 1 is $(o, o, o)$, 2 is $(o, o, u)$, 3 is
+$(o, u, v)$, 4 is $(u, u, v)$. A superscript $\sigma$ means that the
+case follows by exchanging $u$ and $v$, and $\tau$ by exchanging the
+two sides of $\simp$ (symmetry); $\times$ marks the cases excluded by
+$z \neq a, b$. The assignment is the one of the Lean proof.}
+\label{tab:lemma61}
+\small
+\begin{tabular}{@{}c@{\quad}ccc@{\quad}ccc@{\quad}ccc@{}}
+\toprule
+ & \multicolumn{3}{c}{$z = u$} & \multicolumn{3}{c}{$z = v$}
+ & \multicolumn{3}{c}{$z = o$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(l){8-10}
+ & $b = u$ & $b = v$ & $b = o$ & $b = u$ & $b = v$ & $b = o$
+ & $b = u$ & $b = v$ & $b = o$ \\
+\midrule
+$a = u$ & $\times$ & $\times$ & $\times$
+        & 4 & $\times$ & $3^{\tau}$ & 1 & 1 & 1 \\
+$a = v$ & $\times$ & $4^{\sigma}$ & $3^{\sigma\tau}$
+        & $\times$ & $\times$ & $\times$ & 1 & 1 & 1 \\
+$a = o$ & $\times$ & $3^{\sigma}$ & 2
+        & 3 & $\times$ & $2^{\sigma}$ & 1 & 1 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{lemma}[{\cite[Lemma~6.2]{crole2012a}}]
 \label{lem:agreement}
 Let $\pi, \pi'$ be permutations of $\Atoms$ and $M$ a term.
