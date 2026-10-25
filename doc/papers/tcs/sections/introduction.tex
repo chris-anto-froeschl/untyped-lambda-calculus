@@ -16,6 +16,21 @@ Crole~\cite{crole2012a} points out that the proofs sketched in the
 literature are sometimes incorrect, and proves in detail that five
 such relations coincide.
 
+The details are easy to get wrong. In the 1988 edition of their
+textbook, Hindley and Seldin warned that ``the above technicalities
+are rather dull. But their very dullness has made them a trap for even
+the most careful authors'' (quoted in~\cite[p.~2]{crole2012a}). The
+current edition sketches the proofs about alpha equivalence only, ``as
+they are straightforward and boring''~\cite[p.~277]{hindley2008a}, and
+leaves as an exercise that an alpha-contraction cannot always be
+reversed by a single one, contrary to a claim
+in~\cite[p.~91]{curry1958a} (see~\cite[Exercise~A1.9]{hindley2008a}).
+Crole finds the short proof sketch of Gabbay and
+Pitts~\cite[Proposition~2.2]{gabbay2002a} ``not quite right'', since
+it lacks a connection between swapping and
+substitution~\cite[p.~5]{crole2012a}. A formalization that checks every
+step and stays close to the sources removes this kind of doubt.
+
 Another way to deal with the names of bound variables is to do without
 them. In de Bruijn's representation a bound variable is a numeral that
 counts the binders between its occurrence and the binder it refers to.
