@@ -89,7 +89,8 @@ to that of Hindley and Seldin~\cite[Definition~1.17]{hindley2008a}.
 
 For distinct atoms $a, b, c$, the terms $\lam{a}{a\,b}$ and
 $\lam{c}{c\,b}$ are related by all five relations, each time by a
-single application of the abstraction rule. For \textsc{pi},
+single application of the abstraction rule
+\lean{\DemoSrc\#L125}. For \textsc{pi},
 \textsc{pi\#} and \textsc{pi1} any witness $d$ distinct from $a, b, c$
 will do: $\sw{d}{a} \act (a\,b) = d\,b = \sw{d}{c} \act (c\,b)$, and
 $d$ meets all three side conditions. For $\alpha$ and $\alpha\#$ it is

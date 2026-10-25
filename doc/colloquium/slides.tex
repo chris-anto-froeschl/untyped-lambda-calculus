@@ -69,6 +69,8 @@
 \newcommand{\PRSrc}{\LeanRepo/blob/\PRRev/\LeanPath}
 \newcommand{\CroleSrc}{\LeanRepo/blob/\CroleRev/\LeanPath}
 \newcommand{\DBSrc}{\LeanRepo/blob/\DBRev/\LeanPath}
+%% The worked example (CSLib's test file), pinned to the pushed head that contains it.
+\newcommand{\DemoSrc}{\LeanRepo/blob/aaba16d7d4186b9947b2b7c1b35720260d253604/CslibTests/LambdaCalculus.lean}
 %% TODO: re-pin the three revisions before the talk if the branches move.
 
 \title{A Formalized Foundation for Research in Untyped Lambda Calculus}
@@ -107,7 +109,8 @@
 
 \begin{frame}{Live: a worked example in CSLib}
   An example file that uses the formalization, stepped through in the editor
-  (\texttt{CslibTests/LambdaCalculus.lean}). Every step is checked by Lean.
+  (\texttt{CslibTests/LambdaCalculus.lean} \lean{\DemoSrc\#L64}). Every step is checked by
+  Lean.
   \begin{enumerate}
     \item[(a)] The three operations on $M = \lam{a}{a\,b}$: renaming, swap, substitution.
     \item[(b)] The five relations on $\lam{a}{a\,b}$ and $\lam{c}{c\,b}$, from $\alphaeq$ through
