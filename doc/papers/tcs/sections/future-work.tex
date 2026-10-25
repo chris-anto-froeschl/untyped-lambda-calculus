@@ -11,7 +11,8 @@ lambda calculus, reproduced in Figure~\ref{fig:equivalence-net}.
     x=1.55cm, y=1.45cm,
     sys/.style={draw, thick, circle, inner sep=1pt, minimum size=8mm},
     iso/.style={semithick, double, double distance=1.5pt, draw=black!50, shorten <=1pt, shorten >=1pt},
-    new/.style={double, double distance=1.5pt, thick, dashed, shorten <=1pt, shorten >=1pt},
+    new/.style={double, double distance=1.5pt, thick, dashed, draw=cslib, shorten <=1pt, shorten >=1pt},
+    cs/.style={draw=cslib, text=cslib},
     quo/.style={semithick, draw=black!50, {Bar[width=5pt]}-{Straight Barb[length=3pt]}, shorten <=1pt, shorten >=1pt},
     lab/.style={font=\small, inner sep=2pt}]
   \node[anchor=center] at (-3.6, 2) {Nameless abstractions (with indices)};
@@ -19,11 +20,11 @@ lambda calculus, reproduced in Figure~\ref{fig:equivalence-net}.
   \node[anchor=center] at (-3.6,-1.1) {Named ``raw'' abstractions};
 
   \node[sys] (dB2) at (0, 2) {$\mathrm{dB}_2$};
-  \node[sys] (dB)  at (1.15, 2) {$\mathrm{dB}$};
-  \node[sys, ellipse, minimum size=0pt, minimum width=10mm, minimum height=6mm]
+  \node[sys, cs] (dB)  at (1.15, 2) {$\mathrm{dB}$};
+  \node[sys, cs, ellipse, minimum size=0pt, minimum width=10mm, minimum height=6mm]
             (dBp) at (1.15, 1) {$\mathrm{dB}'$};
   \node[sys] (lG)  at (0, 0) {$\lambda^{G}_{\alpha}$};
-  \node[sys] (lN)  at (1.15, 0) {$\lambda^{N}_{\alpha}$};
+  \node[sys, cs] (lN)  at (1.15, 0) {$\lambda^{N}_{\alpha}$};
   \node[sys] (lVa) at (2.25, 0) {$\lambda^{V}_{\alpha}$};
   \node[sys] (lHi) at (3.3, 0) {$\lambda^{Hi}_{\alpha}$};
   \node[sys] (lHo) at (4.4, 0) {$\lambda^{Ho}_{\alpha}$};
@@ -47,7 +48,8 @@ lambda calculus, reproduced in Figure~\ref{fig:equivalence-net}.
   proved relationships, redrawn from~\cite[Figure~1]{norrish2007a}.
   Double lines are isomorphisms and arrows are $\alpha$-quotients. The
   dashed lines are the results of~\cite{norrish2007a}, which
-  Section~\ref{sec:de-bruijn} formalizes.}
+  Section~\ref{sec:de-bruijn} formalizes; \textcolor{cslib}{blue} marks what is
+  formalized in CSLib.}
 \label{fig:equivalence-net}
 \end{figure}
 

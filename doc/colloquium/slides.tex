@@ -10,6 +10,8 @@
 \usepackage{amssymb}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+%% The one accent colour: marks what is formalized in CSLib (dark blue, dark grey in print).
+\definecolor{cslib}{RGB}{0,63,135}
 
 %% Notation, copied from ../papers/tcs/preamble.tex (without its amsthm setup, which clashes
 %% with beamer's theorem environments).
@@ -365,7 +367,8 @@
       x=1.55cm, y=1.45cm,
       sys/.style={draw, thick, circle, inner sep=1pt, minimum size=8mm},
       iso/.style={semithick, double, double distance=1.5pt, draw=black!50, shorten <=1pt, shorten >=1pt},
-      new/.style={double, double distance=1.5pt, thick, dashed, shorten <=1pt, shorten >=1pt},
+      new/.style={double, double distance=1.5pt, thick, dashed, draw=cslib, shorten <=1pt, shorten >=1pt},
+      cs/.style={draw=cslib, text=cslib},
       quo/.style={semithick, draw=black!50, {Bar[width=5pt]}-{Straight Barb[length=3pt]}, shorten <=1pt, shorten >=1pt},
       lab/.style={font=\small, inner sep=2pt}]
     \node[anchor=east, align=right] at (-0.5, 2) {Nameless abstractions\\(with indices)};
@@ -373,11 +376,11 @@
     \node[anchor=east, align=right] at (-0.5,-1.1) {Named ``raw''\\abstractions};
 
     \node[sys] (dB2) at (0, 2) {$\mathrm{dB}_2$};
-    \node[sys] (dB)  at (1.15, 2) {$\mathrm{dB}$};
-    \node[sys, ellipse, minimum size=0pt, minimum width=10mm, minimum height=6mm]
+    \node[sys, cs] (dB)  at (1.15, 2) {$\mathrm{dB}$};
+    \node[sys, cs, ellipse, minimum size=0pt, minimum width=10mm, minimum height=6mm]
               (dBp) at (1.15, 1) {$\mathrm{dB}'$};
     \node[sys] (lG)  at (0, 0) {$\lambda^{G}_{\alpha}$};
-    \node[sys] (lN)  at (1.15, 0) {$\lambda^{N}_{\alpha}$};
+    \node[sys, cs] (lN)  at (1.15, 0) {$\lambda^{N}_{\alpha}$};
     \node[sys] (lVa) at (2.25, 0) {$\lambda^{V}_{\alpha}$};
     \node[sys] (lHi) at (3.3, 0) {$\lambda^{Hi}_{\alpha}$};
     \node[sys] (lHo) at (4.4, 0) {$\lambda^{Ho}_{\alpha}$};
@@ -402,7 +405,7 @@
   {\footnotesize Formalizations of the $\lambda$-calculus and their directly proved
   relationships, redrawn from \cite[Figure~1]{norrish2007a}. Double lines are isomorphisms,
   arrows are $\alpha$-quotients. The dashed lines are the results of~\cite{norrish2007a},
-  formalized here in Lean.\par}
+  \textcolor{cslib}{formalized here in Lean}.\par}
   \medskip
   {\footnotesize Our $\LamA$ is the quotient by $\simp$, the relation HOL4 also uses for
   $\lambda^N_\alpha$; by Crole's theorem it is also the quotient by $\simr$ (Barendregt) and
