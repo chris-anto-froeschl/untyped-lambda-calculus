@@ -276,7 +276,13 @@ every occurrence of $a$ at once, and Lemma~\ref{lem:swap-subst}
 relates the result to $\subst{M}{a}{z}$, so that no induction on the
 size of the term is needed. Crole calls the lemma well known;
 Hindley and Seldin show that any finitely many atoms can be made
-non-bound by renaming~\cite[Lemma~A1.5(g)]{hindley2008a}.
+non-bound by renaming~\cite[Lemma~A1.5(g)]{hindley2008a}. Crole states
+the lemma for $\simr$ only and uses it only in his direct proof of
+Theorem~4.6~\cite[p.~8]{crole2012a}. The proof of
+Lemma~\ref{lem:swap-chain} needs the $\simp$ form instead, which
+cannot be derived from the $\simr$ form through
+Theorem~\ref{thm:crole-equivalence}, since the proof of that theorem
+uses Lemma~\ref{lem:swap-chain}.
 
 \subsection{The characterization theorem}
 \label{subsec:equivalence-theorem}
@@ -394,7 +400,12 @@ representation that this work builds on
 (Section~\ref{subsec:named-terms}). The first part of the development
 is under review for inclusion in
 CSLib\footnote{\url{https://github.com/leanprover/cslib/pull/741}};
-the remainder is to follow in the same way.
+the remainder is to follow in the same way. This split is possible
+because Lemma~\ref{lem:equivalence} is proved directly: Crole obtains
+reflexivity, symmetry and transitivity of $\simp$ inside the proof of
+his Theorem~4.4~\cite[p.~6]{crole2012a} and cites that theorem for
+them in the proof of Theorem~4.1~\cite[p.~5]{crole2012a}, whereas in
+the formalization Theorem~4.1 does not depend on Theorem~4.4.
 
 What a formalization has to add to~\cite{crole2012a} are the proofs
 that the paper leaves to the reader or to the literature.
