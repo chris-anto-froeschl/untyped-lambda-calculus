@@ -101,6 +101,19 @@
 
 %% ---------------------------------------------------------------- Crole
 
+\begin{frame}{Live: a worked example in CSLib}
+  An example file that uses the formalization, stepped through in the editor
+  (\texttt{CslibTests/LambdaCalculus.lean}). Every step is checked by Lean.
+  \begin{enumerate}
+    \item[(a)] The three operations on $M = \lam{a}{a\,b}$: renaming, swap, substitution.
+    \item[(b)] The five relations on $\lam{a}{a\,b}$ and $\lam{c}{c\,b}$, from $\alphaeq$ through
+      Crole's theorems and directly by each relation's own rule.
+    \item[(c)] The counterexamples of Proposition~4.3.
+    \item[(d)] De Bruijn: $f$ on the running example, the bijection, one $\beta$-step on both
+      sides (Theorem~20), Church--Rosser for $\LamA$.
+  \end{enumerate}
+\end{frame}
+
 \begin{frame}{Operations on atoms}
   \small
   \begin{itemize}
