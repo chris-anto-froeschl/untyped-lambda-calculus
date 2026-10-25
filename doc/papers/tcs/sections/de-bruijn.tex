@@ -192,6 +192,16 @@ There is a bijection $f \colon \LamA \to \LamDB$ with
 \end{equation}
 \end{theorem}
 
+For instance, for distinct atoms $a$ and $b$,
+\[
+  f(\lam{a}{a\,b})
+  = \dLAM\, \hat{a}\, (\dAPP\, (\dV\, \hat{a})\, (\dV\, \hat{b}))
+  = \dABS\, (\dAPP\, (\dV\, 0)\, (\dV\, (\hat{b} + 1))):
+\]
+the bound atom becomes the index $0$, and the free atom $b$ is
+shifted past the binder. For every atom $c \neq b$, the
+alpha-equivalent term $\lam{c}{c\,b}$ has the same image.
+
 Since $\LamA$ is not a free algebra, the equations~\eqref{eq:f} do not
 define a function by themselves. Norrish and Vestergaard obtain $f$
 from Pitts' recursion principle for
