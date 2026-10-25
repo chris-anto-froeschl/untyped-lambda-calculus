@@ -63,6 +63,9 @@
 \newcommand{\CroleRev}{d1883216c714d69b88282de195ab9e9250b23a05}
 %% Norrish and Vestergaard: branch debruijn-alpha-quotient, pinned to the pushed head.
 \newcommand{\DBRev}{8bdc761d35eb25e254d577a05da8b818e3af5d7d}
+%% Number of the CSLib pull request with the de Bruijn isomorphism, as in the paper.
+%% TODO: set it once the pull request is open.
+\newcommand{\DBPR}{TODO}
 \newcommand{\PRSrc}{\LeanRepo/blob/\PRRev/\LeanPath}
 \newcommand{\CroleSrc}{\LeanRepo/blob/\CroleRev/\LeanPath}
 \newcommand{\DBSrc}{\LeanRepo/blob/\DBRev/\LeanPath}
@@ -91,8 +94,9 @@
     \item Both formalized in Lean~4 on CSLib's two untyped $\lambda$-calculi:
       named terms with $\alphaeq$ (\#458~\cite{cslib458}) and de Bruijn terms with $\beta$
       and Church--Rosser (\#475, open~\cite{cslib475}).
-    \item Status: Crole's Theorem~4.1 in review (\#741~\cite{cslib741}); everything else on
-      branches; no \texttt{sorry} in what is presented here.
+    \item Status: Crole's Theorem~4.1 in review (\#741~\cite{cslib741}), the isomorphism in
+      review (\#\DBPR); Crole's other theorems on a branch; no \texttt{sorry} in what is
+      presented here.
     \item Blueprint with a dependency graph of both formalizations and their connections:
       \href{https://chris-anto-froeschl.github.io/untyped-lambda-calculus/}{\footnotesize\texttt{chris-anto-froeschl.github.io/untyped-lambda-calculus}}
     \item Today: how the proofs go, in particular the parts we have not discussed yet.
@@ -691,7 +695,7 @@
 \begin{frame}{Status and future work}
   \begin{itemize}
     \item Crole: follow-up PRs after \#741 (Thms.~4.2, 4.4--4.6, Prop.~4.3).
-    \item Norrish and Vestergaard: cleanup under way; upstream after \#475 and \#741.
+    \item Norrish and Vestergaard: in review (\#\DBPR), on top of \#475 and \#741.
       % TODO: size of the de Bruijn files (2,310 lines, 135 theorems on 2026-10-13)?
     \item The $\eta$ version of Thm.~20 is also proved
       \lean{\DBSrc/NamedDeBruijn/Eta.lean\#L302}.
