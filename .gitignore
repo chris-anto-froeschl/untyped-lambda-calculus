@@ -16,3 +16,22 @@
 .DS_Store
 .claude
 .venv
+
+# LaTeX build intermediates of the paper and the slides (doc/)
+/doc/**/*.abs
+/doc/**/*.aux
+/doc/**/*.bbl
+/doc/**/*.blg
+/doc/**/*.fdb_latexmk
+/doc/**/*.fls
+/doc/**/*.log
+/doc/**/*.nav
+/doc/**/*.out
+/doc/**/*.snm
+/doc/**/*.synctex.gz
+/doc/**/*.toc
+/doc/**/*.vrb
+
+# Copyrighted papers, local only
+/papers/
+/doc/papers/tcs/papers/
