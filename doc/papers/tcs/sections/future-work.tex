@@ -3,7 +3,7 @@
 
 Norrish and Vestergaard place their isomorphism in a web of
 directly proved relationships between ten formalizations of the
-lambda calculus, reproduced in Figure~\ref{fig:equivalence-net}.
+untyped lambda calculus, reproduced in Figure~\ref{fig:equivalence-net}.
 
 \begin{figure}
 \centering
@@ -44,7 +44,7 @@ lambda calculus, reproduced in Figure~\ref{fig:equivalence-net}.
   \draw[quo] (lC) -- node[lab, right] {$\alpha$} (lHi);
   \draw[quo] (lC) -- node[lab, below right] {$\alpha$} (lHo);
 \end{tikzpicture}
-\caption{Formalizations of the lambda calculus and their directly
+\caption{Formalizations of the untyped lambda calculus and their directly
   proved relationships, redrawn from~\cite[Figure~1]{norrish2007a}.
   Double lines are isomorphisms and arrows are $\alpha$-quotients. The
   dashed lines are the results of~\cite{norrish2007a}, which
@@ -117,9 +117,9 @@ Rademaker (Getulio Vargas Foundation, Rio de Janeiro), both CSLib
 maintainers, have expressed interest in using the named
 representation of Section~\ref{subsec:named-terms} to teach the
 lambda calculus and to base assignments on it. It suits this purpose
-because it stays close to the textbook presentations: terms with
+because it stays close to textbook presentations: terms with
 named variables, capture-avoiding substitution, and, through
-Theorem~\ref{thm:crole-equivalence}, the definitions of alpha
+Theorem~\ref{thm:crole-equivalence}, definitions of alpha
 equivalence found in the
 literature~\cite{barendregt1985a,hindley2008a}, all available side by
 side and proved equivalent. Supporting such use, with documentation
