@@ -91,8 +91,8 @@
 
 \begin{frame}{Context}
   \begin{itemize}
-    \item Crole~\cite{crole2012a}: five textbook definitions of $\alphaeq$ define the same
-      relation (widely accepted; published proof sketches are sometimes wrong).
+    \item Crole~\cite{crole2012a}: five definitions of $\alphaeq$ from the literature define
+      the same relation (widely accepted; published proof sketches are sometimes wrong).
     \item Norrish and Vestergaard~\cite{norrish2007a}: named terms modulo $\alphaeq$ and pure
       de Bruijn terms are isomorphic as reduction systems (mechanized in HOL4).
     \item Both formalized in Lean~4 on CSLib's two untyped $\lambda$-calculi:
@@ -298,8 +298,6 @@
 
 \begin{frame}{What the formalization had to add to \cite{crole2012a}}
   \begin{itemize}
-    \item Existence of substitution (deferred in the paper): Gabbay's definition~\cite[Def.~5.13]{gabbay2011a};
-      well defined by induction on size~\cite[L.~5.14]{gabbay2011a}.
     \item Lemma~6.1: all 27 cases, not representatives.
     \item Lemma~6.2(1): omitted in the paper.
     \item Lemmas~6.5 and~6.6: details omitted or ``well known''.
