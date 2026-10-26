@@ -1,39 +1,15 @@
 \section{Related work}
 \label{sec:related-work}
 
-Formalizing variable binding has a long history across proof
-assistants, and several general-purpose approaches exist alongside
-the direct, elementary style used in CSLib. Nominal
-techniques~\cite{pitts2013a}, as implemented in Nominal
-Isabelle~\cite{urban2005a}, provide binder-generic reasoning
-principles via permutations and freshness, at the cost of adopting a
-dedicated meta-theory. Locally nameless
-representations~\cite{aydemir2008a} aim to make binder-heavy
-formalizations more tractable. Higher-order abstract syntax sidesteps binder
-representation issues by delegating them to the proof assistant's
-own binding mechanism, again at the cost of restricting which proof
-techniques remain available (e.g.\ induction principles).
-
-CSLib's current approach is deliberately more elementary: named terms
-and de Bruijn terms are both represented directly as first-order
-inductive types, with the relationships between representations
-(such as the isomorphism of Section~\ref{sec:de-bruijn}) proved
-explicitly rather than assumed via a shared meta-level binding
-mechanism. This trades some proof automation for representations
-that are simple to state, and results that transfer cleanly between
-representations by construction, which fits CSLib's goal of a
-reusable foundation rather than a self-contained framework.
-
 Mechanized treatments of alpha equivalence as a subject in its own
-right are fewer. The isomorphism of Section~\ref{sec:de-bruijn} was
-first mechanized by Norrish and Vestergaard in
-HOL4~\cite{norrish2007a}. Crole mentions an Isabelle/HOL development
-of the results of~\cite{crole2012a} as work in
+right are few. Crole mentions an Isabelle/HOL development of the
+results of~\cite{crole2012a} as work in
 progress~\cite[Section~7]{crole2012a}; we could find no published
 account of it.
 %% TODO: confirm the novelty claim against the literature before submission. Related
 %% but different: Apinis and Ahman, "A simple formalization of alpha-equivalence"
-%% (arXiv:2507.10181, Rocq), relate one inductive definition to the literature's. Apinis and Ahman~\cite{apinis2025a} define alpha
+%% (arXiv:2507.10181, Rocq), relate one inductive definition to the literature's.
+Apinis and Ahman~\cite{apinis2025a} define alpha
 equivalence of untyped lambda terms as an inductive relation in the
 Rocq Prover and show that it conforms to the specification given in
 the literature. Their subject is one definition and its adequacy,
@@ -41,3 +17,23 @@ whereas Theorem~\ref{thm:crole-equivalence} compares definitions
 that the literature itself uses.
 %% TODO: the description of Apinis and Ahman is taken from their abstract
 %% (arXiv:2507.10181, checked 2026-10-13); read the paper before relying on the last sentence.
+
+The isomorphism of Section~\ref{sec:de-bruijn} was first mechanized
+by Norrish and Vestergaard in HOL4~\cite{norrish2007a}, and
+Figure~\ref{fig:equivalence-net} shows the further relationships
+between formalizations of the lambda calculus that they list.
+%% TODO: other mechanized correspondences between named and nameless terms?
+
+More broadly, several general-purpose approaches to variable binding
+exist. Nominal techniques~\cite{pitts2013a}, as implemented in Nominal
+Isabelle~\cite{urban2005a}, provide binder-generic reasoning
+principles via permutations and freshness. Locally nameless
+representations~\cite{aydemir2008a} aim to make binder-heavy
+formalizations more tractable. Higher-order abstract syntax delegates
+binding to the proof assistant's own binding mechanism, at the cost of
+restricting which proof techniques remain available, such as
+induction principles.
+%% TODO: cite a reference for higher-order abstract syntax.
+CSLib instead represents named and de Bruijn terms directly as
+inductive types and proves the relationships between them explicitly,
+as in Section~\ref{sec:de-bruijn}.
