@@ -194,6 +194,63 @@ are \emph{isomorphic} if there is a bijection $f \colon X \to Y$ with
 $x_1 \to_X x_2 \iff f(x_1) \to_Y f(x_2)$ for all
 $x_1, x_2$~\cite[Section~2.3]{norrish2007a}.
 
+\subsection{The isomorphism theorem}
+\label{subsec:isomorphism}
+
+\begin{theorem}[{\cite[Theorem~20]{norrish2007a}}]
+\label{thm:db-isomorphism}
+\lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L162}
+The systems $\langle \LamA, \tobeta \rangle$ and
+$\langle \LamDB, \tod \rangle$ are isomorphic, as witnessed by the
+bijection $f$ of Theorem~\ref{thm:db-bijection} below: for all
+$M, N \in \LamA$,
+\[
+  M \tobeta N \iff f(M) \tod f(N).
+\]
+\end{theorem}
+
+\begin{proof}
+From Theorems~\ref{thm:beta-dbeta-prime}
+and~\ref{thm:dbeta-coincide} below.
+\end{proof}
+
+The notion of isomorphic reduction systems used here is exactly
+Mathlib's relation isomorphism, and the formalization also states
+Theorem~\ref{thm:db-isomorphism} in that form,
+$\langle \LamA, \tobeta \rangle \simeq_r \langle \LamDB, \tod \rangle$
+\lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L151}.
+
+The proof of Norrish and Vestergaard goes through an intermediate
+formalism (Figure~\ref{fig:route}).
+Section~\ref{subsec:db-prime} gives a second set of rules on the de
+Bruijn terms that is built to resemble $\LamA$.
+Section~\ref{subsec:bijection} constructs $f$ and shows that it turns
+$\tobeta$ into these rules, and Section~\ref{subsec:dbeta} shows that
+they define the same relation as $\tod$.
+
+\begin{figure}[pos=tb]
+\centering
+\begin{tikzpicture}[
+    sys/.style={draw, rounded corners, inner sep=5pt, minimum width=2.3cm},
+    lab/.style={font=\footnotesize, align=center},
+    >={Straight Barb[length=4pt]}]
+  \node[sys] (la) {$\langle \LamA, \tobeta \rangle$};
+  \node[sys, right=1.3cm of la] (dbp) {$\langle \LamDB, \todp \rangle$};
+  \node[sys, right=1.3cm of dbp] (db) {$\langle \LamDB, \tod \rangle$};
+  \draw[->, thick] (la) -- node[above] {$f$} (dbp);
+  \draw[double, thick, double distance=2pt] (dbp) -- node[above] {$=$} (db);
+  \node[lab, above=0.5cm of la.north east, xshift=0.65cm]
+    {Theorems~\ref{thm:db-bijection}, \ref{thm:beta-dbeta-prime}};
+  \node[lab, above=0.5cm of dbp.north east, xshift=0.65cm]
+    {Theorem~\ref{thm:dbeta-coincide}};
+  \node[lab, below=0.2cm of la] {named,\\ up to $\alpha$};
+  \node[lab, below=0.2cm of dbp] {de Bruijn terms,\\ named-style rules};
+  \node[lab, below=0.2cm of db] {de Bruijn terms,\\ Nipkow's rules};
+\end{tikzpicture}
+\caption{The route of the proof of Theorem~\ref{thm:db-isomorphism}.}
+\label{fig:route}
+\end{figure}
+
 \subsection{An intermediate formalism}
 \label{subsec:db-prime}
 
@@ -309,15 +366,6 @@ is proved, as in~\cite{norrish2007a}, by complete induction on the size
 of the de Bruijn term, using Lemma~6 of~\cite{norrish2007a} for
 $\dABS$ terms.
 
-The bijection turns substitution on $\LamA$ into the index-preserving
-substitution $\dbsub$, and with it $\beta$-reduction into $\todp$.
-
-\begin{lemma}[{\cite[proof of Theorem~12]{norrish2007a}}]
-\label{lem:f-subst}
-\lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L274}
-$f(\subst{M}{a}{N}) = \dbsub\, (f\, N)\, \hat{a}\, (f\, M)$.
-\end{lemma}
-
 \begin{theorem}[{\cite[Theorem~12]{norrish2007a}}]
 \label{thm:beta-dbeta-prime}
 \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L505}
@@ -325,8 +373,19 @@ For all $M, N \in \LamA$: $M \tobeta N$ if and only if
 $f(M) \todp f(N)$.
 \end{theorem}
 
-\subsection{The isomorphism}
-\label{subsec:isomorphism}
+\begin{proof}[Proof idea]
+The bijection turns substitution on $\LamA$ into the index-preserving
+substitution $\dbsub$,
+$f(\subst{M}{a}{N}) = \dbsub\, (f\, N)\, \hat{a}\, (f\, M)$
+\lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L274}, and abstraction
+into $\dLAM$, so that each rule of $\tobeta$ becomes the
+corresponding rule of $\todp$~\cite[proof of
+Theorem~12]{norrish2007a}.
+\end{proof}
+
+
+\subsection{From $\todp$ to $\tod$}
+\label{subsec:dbeta}
 
 It remains to show that $\tod$ and $\todp$ are the same relation on
 $\LamDB$. Their rules for redexes are related by an identity between
@@ -365,20 +424,13 @@ instead would give $\dABS\, (\dV\, 0)$, which is $\lam{x}{x}$
 A relation $R$ on $\LamDB$ is \emph{equivariant} if
 $R\,(\pi \act t)\,(\pi \act u) \iff R\, t\, u$ for all $\pi$.
 
-\begin{theorem}[{\cite[Theorem~10]{norrish2007a}}]
-\label{thm:db-equivariance}
-For every permutation $\pi$ of finite support:
-\begin{align*}
-  \pi \act (\dbsub\, t\, j\, u) &=
-    \dbsub\, (\pi \act t)\, \widehat{\pi(\hat{\jmath})}\, (\pi \act u)
-    && \text{\lean{\DBSrc/NamedDeBruijn/DeBruijnPerm.lean\#L310}}\\
-  \pi \act (\dLAM\, i\, t) &=
-    \dLAM\, \widehat{\pi(\hat{\imath})}\, (\pi \act t)
-    && \text{\lean{\DBSrc/NamedDeBruijn/DeBruijnPerm.lean\#L329}}\\
-  \pi \act t \todp \pi \act u &\iff t \todp u
-    && \text{\lean{\DBSrc/NamedDeBruijn/DeBruijnPerm.lean\#L348}}
-\end{align*}
-\end{theorem}
+By~\cite[Theorem~10]{norrish2007a}, $\dbsub$ and $\dLAM$ commute
+with permutations, which act on their index arguments $j$ as
+$\widehat{\pi(\hat{\jmath})}$
+\lean{\DBSrc/NamedDeBruijn/DeBruijnPerm.lean\#L310}%
+\lean{\DBSrc/NamedDeBruijn/DeBruijnPerm.lean\#L329}, and hence
+$\todp$ is equivariant
+\lean{\DBSrc/NamedDeBruijn/DeBruijnPerm.lean\#L348}.
 
 The key observation of~\cite{norrish2007a} is that lifting is itself
 the action of a permutation
@@ -402,8 +454,7 @@ Let $R$ be an equivariant relation on $\LamDB$. Then
 \]
 \end{theorem}
 
-Theorem~\ref{thm:abs-congr} applies to $\todp$ by
-Theorem~\ref{thm:db-equivariance}. To apply it to $\tod$ one needs
+Theorem~\ref{thm:abs-congr} applies to $\todp$, which is equivariant. To apply it to $\tod$ one needs
 equivariance of $\tod$, and hence the behaviour of $\nsub$ under a
 permutation
 \lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L69}
@@ -414,23 +465,6 @@ permutation
 \lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L138}
 For all $t, u \in \LamDB$: $t \todp u$ if and only if $t \tod u$.
 \end{theorem}
-
-\begin{theorem}[{\cite[Theorem~20]{norrish2007a}}]
-\label{thm:db-isomorphism}
-\lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L162}
-The systems $\langle \LamA, \tobeta \rangle$ and
-$\langle \LamDB, \tod \rangle$ are isomorphic, as witnessed by the
-bijection $f$ of Theorem~\ref{thm:db-bijection}: for all
-$M, N \in \LamA$,
-\[
-  M \tobeta N \iff f(M) \tod f(N).
-\]
-\end{theorem}
-
-\begin{proof}
-From Theorems~\ref{thm:beta-dbeta-prime}
-and~\ref{thm:dbeta-coincide}.
-\end{proof}
 
 \begin{example}[Running example, continued]
 \label{ex:beta}
@@ -447,32 +481,6 @@ $(\lam{a}{\cls{a\,b}})\,\cls{c} \tobeta \cls{c\,b}$
 $\dV\, \hat{c}$ and decrements the index of $b$, whose binder has
 disappeared.
 \end{example}
-
-The notion of isomorphic reduction systems used here is exactly
-Mathlib's relation isomorphism, and the formalization also states
-Theorem~\ref{thm:db-isomorphism} in that form,
-$\langle \LamA, \tobeta \rangle \simeq_r \langle \LamDB, \tod \rangle$
-\lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L151}.
-
-The same method applies to $\eta$-reduction. Let $\to_{\eta}$ be the
-relation on $\LamA$ generated by the congruence rules of
-Definition~\ref{def:beta-alpha} and the contraction of
-$\lam{a}{M\, a}$ to $M$ for $a \fresh M$
-\lean{\DBSrc/Named/Untyped/AlphaQuotient.lean\#L135},
-and let $\to_{\mathrm{ne}}$ be Nipkow's $\eta$-reduction on $\LamDB$
-\lean{\DBSrc/NamedDeBruijn/Eta.lean\#L53},
-which contracts $\dABS\, (\dAPP\, t\, (\dV\, 0))$ to
-$\nsub\, u\, 0\, t$ when $0$ is not free in
-$t$~\cite[Section~4.4]{norrish2007a}.
-
-\begin{theorem}[{\cite[Section~4.4]{norrish2007a}}]
-\label{thm:db-eta}
-\lean{\DBSrc/NamedDeBruijn/Eta.lean\#L302}
-For all $M, N \in \LamA$: $M \to_{\eta} N$ if and only if
-$f(M) \to_{\mathrm{ne}} f(N)$.
-\end{theorem}
-%% TODO: decide whether the eta result stays; it is proved on the branch but is not
-%% needed for anything else in the paper.
 
 \subsection{Using the isomorphism}
 \label{subsec:transfer}
@@ -502,6 +510,11 @@ $N_2$ are $\beta$-normal, then $N_1 = N_2$.
 
 %% TODO: the same file also derives BVC-style induction for the quotient from the
 %% de Bruijn side (TermAlpha.bvc_induction, NamedDeBruijn/Transfer.lean#L215). Worth a statement?
+
+The same method applies to $\eta$-reduction: $f$ is also an
+isomorphism between $\eta$-reduction on $\LamA$ and Nipkow's
+$\eta$-reduction on $\LamDB$~\cite[Section~4.4]{norrish2007a}
+\lean{\DBSrc/NamedDeBruijn/Eta.lean\#L302}.
 
 \subsection{Notes on the formalization}
 \label{subsec:db-formalization-notes}
