@@ -3,13 +3,10 @@
 
 The two results of this paper are intended as the first pieces of a
 larger, ongoing effort within CSLib to build a formalized foundation
-for research on untyped lambda calculus. We outline the planned
-directions below.
+for research on the untyped lambda calculus. We plan work in three
+directions.
 
-\subsection{The network of Figure~\ref{fig:equivalence-net}}
-\label{subsec:network}
-
-The alpha equivalence by which $\LamA$ is formed is $\simp$,
+\emph{The network of Figure~\ref{fig:equivalence-net}.} The alpha equivalence by which $\LamA$ is formed is $\simp$,
 the same relation by which the HOL4 development underlying
 \cite{norrish2007a} quotients its raw terms.\footnote{Rule
 \texttt{aeq\_lam} in \texttt{examples/lambda/basics/generic\_termsScript.sml}
@@ -43,21 +40,15 @@ mechanized in Coq~\cite[Section~2.3]{norrish2007a}. We plan to add
 these nodes and edges, so that the whole network is formalized within
 one library.
 
-\subsection{Further equivalence results}
-\label{subsec:further-equivalences}
-
-Crole-style results, showing several natural but superficially
+\emph{Further equivalence results.} Crole-style results, showing several natural but superficially
 different definitions of the same notion to coincide, are not unique
-to alpha equivalence. We plan analogous formalizations for SK
+to alpha equivalence. We plan analogous formalizations for the SK
 combinator calculus and other binding representations (locally
 nameless terms, nominal terms), each intended to slot into CSLib
 alongside the results of this paper and to be connected to them by
 explicit isomorphisms in the style of Section~\ref{sec:de-bruijn}.
 
-\subsection{Teaching}
-\label{subsec:teaching}
-
-Fabrizio Montesi (University of Southern Denmark) and Alexandre
+\emph{Teaching.} Fabrizio Montesi (University of Southern Denmark) and Alexandre
 Rademaker (Getulio Vargas Foundation, Rio de Janeiro), both CSLib
 maintainers, have expressed interest in using the named
 representation of Section~\ref{sec:cslib} to teach the
@@ -70,11 +61,3 @@ literature~\cite{barendregt1985a,hindley2008a}, all available side by
 side and proved equivalent. Supporting such use, with documentation
 and examples aimed at students, is part of our plans for the
 library.
-
-\subsection{Maintenance and reuse}
-\label{subsec:maintenance}
-
-Throughout, the intent is for this work to be maintained as part of
-CSLib rather than as a standalone, one-off development: subject to
-code review, kept up to date with CSLib and Mathlib, and structured
-so that later projects can depend on it directly.
