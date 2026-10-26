@@ -1,58 +1,6 @@
 \section{Future work}
 \label{sec:future-work}
 
-Norrish and Vestergaard place their isomorphism in a web of
-directly proved relationships between ten formalizations of the
-untyped lambda calculus, reproduced in Figure~\ref{fig:equivalence-net}.
-
-\begin{figure}
-\centering
-\begin{tikzpicture}[
-    x=1.55cm, y=1.45cm,
-    sys/.style={draw, thick, circle, inner sep=1pt, minimum size=8mm},
-    iso/.style={semithick, double, double distance=1.5pt, draw=black!50, shorten <=1pt, shorten >=1pt},
-    new/.style={double, double distance=1.5pt, thick, dashed, draw=cslib, shorten <=1pt, shorten >=1pt},
-    cs/.style={draw=cslib, text=cslib},
-    quo/.style={semithick, draw=black!50, {Bar[width=5pt]}-{Straight Barb[length=3pt]}, shorten <=1pt, shorten >=1pt},
-    lab/.style={font=\small, inner sep=2pt}]
-  \node[anchor=center] at (-3.6, 2) {Nameless abstractions (with indices)};
-  \node[anchor=center] at (-3.6, 0) {Named $\alpha$-equivalent abstractions};
-  \node[anchor=center] at (-3.6,-1.1) {Named ``raw'' abstractions};
-
-  \node[sys] (dB2) at (0, 2) {$\mathrm{dB}_2$};
-  \node[sys, cs] (dB)  at (1.15, 2) {$\mathrm{dB}$};
-  \node[sys, cs, ellipse, minimum size=0pt, minimum width=10mm, minimum height=6mm]
-            (dBp) at (1.15, 1) {$\mathrm{dB}'$};
-  \node[sys] (lG)  at (0, 0) {$\lambda^{G}_{\alpha}$};
-  \node[sys, cs] (lN)  at (1.15, 0) {$\lambda^{N}_{\alpha}$};
-  \node[sys] (lVa) at (2.25, 0) {$\lambda^{V}_{\alpha}$};
-  \node[sys] (lHi) at (3.3, 0) {$\lambda^{Hi}_{\alpha}$};
-  \node[sys] (lHo) at (4.4, 0) {$\lambda^{Ho}_{\alpha}$};
-  \node[sys] (lV)  at (1.15,-1.1) {$\lambda^{V}$};
-  \node[sys] (lC)  at (3.3,-1.1) {$\lambda^{C}$};
-
-  \draw[iso] (dB2) -- (lG);
-  \draw[iso] (lG) -- (lN);
-  \draw[iso] (lV) -- (lC);
-  \draw[new] (dB) -- (dBp);
-  \draw[new] (dBp) -- (lN);
-
-  \draw[quo] (lV) -- node[lab, below left] {$\alpha$} (lG);
-  \draw[quo] (lV) -- node[lab, left] {$\alpha$} (lN);
-  \draw[quo] (lV) -- node[lab, below right] {$\alpha$} (lVa);
-  \draw[quo] (lV) to[bend right=38] node[lab, right, pos=0.55] {$\alpha$} (dB);
-  \draw[quo] (lC) -- node[lab, right] {$\alpha$} (lHi);
-  \draw[quo] (lC) -- node[lab, below right] {$\alpha$} (lHo);
-\end{tikzpicture}
-\caption{Formalizations of the untyped lambda calculus and their directly
-  proved relationships, redrawn from~\cite[Figure~1]{norrish2007a}.
-  Double lines are isomorphisms and arrows are $\alpha$-quotients. The
-  dashed lines are the results of~\cite{norrish2007a}, which
-  Section~\ref{sec:de-bruijn} formalizes; \textcolor{cslib}{blue} marks what is
-  formalized in CSLib.}
-\label{fig:equivalence-net}
-\end{figure}
-
 The two results of this paper are intended as the first pieces of a
 larger, ongoing effort within CSLib to build a formalized foundation
 for research on untyped lambda calculus. We outline the planned
@@ -61,10 +9,7 @@ directions below.
 \subsection{The network of Figure~\ref{fig:equivalence-net}}
 \label{subsec:network}
 
-With Section~\ref{sec:de-bruijn}, CSLib contains the nodes
-$\LamDB$, $\LamDB'$ and $\lambda^{N}_{\alpha}$ of
-Figure~\ref{fig:equivalence-net} and the two dashed edges between
-them. The alpha equivalence by which $\LamA$ is formed is $\simp$,
+The alpha equivalence by which $\LamA$ is formed is $\simp$,
 the same relation by which the HOL4 development underlying
 \cite{norrish2007a} quotients its raw terms.\footnote{Rule
 \texttt{aeq\_lam} in \texttt{examples/lambda/basics/generic\_termsScript.sml}
