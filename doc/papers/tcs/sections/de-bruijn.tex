@@ -1,8 +1,7 @@
 \section{An isomorphism with de Bruijn terms}
 \label{sec:de-bruijn}
 
-%% Links re-pinned on 2026-10-26 to the commit in \DBRev, each checked to point at the
-%% declaration it names. TODO: re-pin \DBRev once the code is upstream.
+%% The commit of all Lean links is set in leanrev.tex. TODO: re-pin it once the code is upstream.
 
 De Bruijn indices remove the need for alpha equivalence altogether by
 replacing bound variable names with numerals counting binder depth.
@@ -525,14 +524,14 @@ $\eta$-reduction on $\LamDB$~\cite[Section~4.4]{norrish2007a}
     isomorphism is stated for one concrete type of atoms, the natural
     numbers wrapped in a structure, for which the two hat maps are the
     projection and the constructor
-    \lean{\LeanRepo/blob/\DBRev/Cslib/Logics/Nominal/Atom.lean\#L44}.
+    \lean{\LeanRepo/blob/\LeanRev/Cslib/Logics/Nominal/Atom.lean\#L44}.
     %% TODO: the types of atoms and of finitely supported permutations (Atom, FinPerm)
     %% are ported from the repository spitters/nominal-lean (Bas Spitters), which in turn ports
     %% the nominal layer of SSProve. Decide how to credit and cite this.
   \item \emph{Permutations.} Norrish and Vestergaard represent a
     permutation as a list of pairs of strings. The formalization uses
     finitely supported bijections on atoms
-    \lean{\LeanRepo/blob/\DBRev/Cslib/Logics/Nominal/FinPerm.lean\#L56}.
+    \lean{\LeanRepo/blob/\LeanRev/Cslib/Logics/Nominal/FinPerm.lean\#L56}.
     Accordingly $\inc$ is not defined by recursion over a list but as
     the permutation that fixes the atom with number $0$ and otherwise
     acts as $\pi$ with all numbers shifted by one

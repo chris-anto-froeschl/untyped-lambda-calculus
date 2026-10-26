@@ -4,7 +4,7 @@ MAIN := slides
 
 all: $(MAIN).pdf
 
-$(MAIN).pdf: $(MAIN).tex colloquium.bib ../papers/tcs/refs.bib ../papers/tcs/leanlink.tex
+$(MAIN).pdf: $(MAIN).tex colloquium.bib ../papers/tcs/refs.bib ../papers/tcs/leanlink.tex ../papers/tcs/leanrev.tex
 	latexmk -pdf -interaction=nonstopmode -halt-on-error $(MAIN).tex
 
 watch:

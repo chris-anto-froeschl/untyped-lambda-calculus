@@ -58,15 +58,11 @@
 \newcommand{\tobeta}{\to_{\beta}}
 \newcommand{\tobetastar}{\twoheadrightarrow_{\beta}}
 
-%% Sources for the Lean links. Every \lean{...} link is built from the macros below.
-%% To point the paper at upstream, set \LeanRepo to https://github.com/leanprover/cslib and the
-%% two revisions to the merged commit (a branch name such as main also works).
-\newcommand{\LeanRepo}{https://github.com/chris-anto-froeschl/cslib}
-\newcommand{\LeanPath}{Cslib/Languages/LambdaCalculus}
-%% Sections 3 and 4: one commit of the branch debruijn-alpha-quotient, which holds all of
-%% Crole and all of Norrish and Vestergaard (pushed head on 2026-10-26).
-\newcommand{\DBRev}{6b1f5735b03805d711058e48e75e20f71c0597cd}
-\newcommand{\CroleRev}{\DBRev}
+%% Sources for the Lean links. Every \lean{...} link is built from the macros below, and the
+%% repository and commit come from leanrev.tex.
+\input{leanrev}
+\newcommand{\DBRev}{\LeanRev}
+\newcommand{\CroleRev}{\LeanRev}
 %% Number of the CSLib pull request with the de Bruijn isomorphism (Section 4).
 %% TODO: set it once the pull request is open.
 \newcommand{\DBPR}{TODO}

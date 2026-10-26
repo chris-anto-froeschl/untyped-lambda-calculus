@@ -4,7 +4,7 @@ MAIN := main
 
 all: $(MAIN).pdf
 
-$(MAIN).pdf: $(MAIN).tex preamble.tex sections/*.tex refs.bib cas-sc.cls cas-common.sty cas-model2-names.bst
+$(MAIN).pdf: $(MAIN).tex preamble.tex leanrev.tex sections/*.tex refs.bib cas-sc.cls cas-common.sty cas-model2-names.bst
 	latexmk -pdf -interaction=nonstopmode -halt-on-error $(MAIN).tex
 
 watch:

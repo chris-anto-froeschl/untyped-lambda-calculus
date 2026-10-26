@@ -1,0 +1,9 @@
+%% The one place that fixes which version of the formalization the Lean links point to. Read by
+%% the paper (preamble.tex) and the colloquium slides (../colloquium/slides.tex).
+%% \LeanRev is a commit of the branch debruijn-alpha-quotient, which holds all of Crole and all
+%% of Norrish and Vestergaard (pushed head on 2026-10-26). After moving it, check every
+%% \lean{...#L<line>} link against the new commit. To point at upstream, set \LeanRepo to
+%% https://github.com/leanprover/cslib and \LeanRev to the merged commit.
+\newcommand{\LeanRepo}{https://github.com/chris-anto-froeschl/cslib}
+\newcommand{\LeanRev}{6b1f5735b03805d711058e48e75e20f71c0597cd}
+\newcommand{\LeanPath}{Cslib/Languages/LambdaCalculus}

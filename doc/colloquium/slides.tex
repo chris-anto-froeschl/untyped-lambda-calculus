@@ -57,23 +57,14 @@
   \IfFileExists{../papers/tcs/figures/lean-logo.pdf}%
     {\includegraphics[height=0.85ex]{../papers/tcs/figures/lean-logo.pdf}}%
     {\ensuremath{\scriptstyle\vdash}}}
-\newcommand{\LeanRepo}{https://github.com/chris-anto-froeschl/cslib}
-\newcommand{\LeanPath}{Cslib/Languages/LambdaCalculus}
-%% Crole, Theorem 4.1 and its prerequisites: the PR branch alpha-equivalence-equalities (#741).
-\newcommand{\PRRev}{b69754c2fd59c7b9310439553495261524d1643d}
-%% Crole, everything else: branch alpha-equivalence-equalities-rest (same pin as the paper).
-\newcommand{\CroleRev}{d1883216c714d69b88282de195ab9e9250b23a05}
-%% Norrish and Vestergaard: branch debruijn-alpha-quotient, pinned to the pushed head.
-\newcommand{\DBRev}{8bdc761d35eb25e254d577a05da8b818e3af5d7d}
+%% Repository and commit of all Lean links, shared with the paper.
+\input{../papers/tcs/leanrev}
 %% Number of the CSLib pull request with the de Bruijn isomorphism, as in the paper.
 %% TODO: set it once the pull request is open.
 \newcommand{\DBPR}{TODO}
-\newcommand{\PRSrc}{\LeanRepo/blob/\PRRev/\LeanPath}
-\newcommand{\CroleSrc}{\LeanRepo/blob/\CroleRev/\LeanPath}
-\newcommand{\DBSrc}{\LeanRepo/blob/\DBRev/\LeanPath}
-%% The worked example (CSLib's test file), pinned to the pushed head that contains it.
-\newcommand{\DemoSrc}{\LeanRepo/blob/aaba16d7d4186b9947b2b7c1b35720260d253604/CslibTests/LambdaCalculus.lean}
-%% TODO: re-pin the three revisions before the talk if the branches move.
+\newcommand{\LeanSrc}{\LeanRepo/blob/\LeanRev/\LeanPath}
+%% The worked example (CSLib's test file), at the same commit.
+\newcommand{\DemoSrc}{\LeanRepo/blob/\LeanRev/CslibTests/LambdaCalculus.lean}
 
 \title{A Formalized Foundation for Research in Untyped Lambda Calculus}
 \subtitle{Alpha equivalence and de Bruijn terms in Lean~4}
@@ -127,18 +118,18 @@
   \small
   \begin{itemize}
     \item Renaming $\ren{M}{a}{b}$
-      \lean{\PRSrc/Named/Untyped/Basic.lean\#L70}:
+      \lean{\LeanSrc/Named/Untyped/Basic.lean\#L70}:
       every occurrence of $a$ (free, bound or binding) replaced by $b$. Purely textual.
     \item Permutation action $\pi \act M$
-      \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L71}:
+      \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L74}:
       a bijection $\pi$ on atoms applied to every atom, binders included:
       \[ \pi \act a = \pi(a) \quad \pi \act (M_1\,M_2) = (\pi \act M_1)\,(\pi \act M_2)
          \quad \pi \act \lam{a}{M} = \lam{\pi(a)}{\pi \act M} \]
       The \emph{swap} $\sw{a}{b} \act M$
-      \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L82}
+      \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L85}
       is the case of a transposition.
     \item Capture-avoiding substitution $\subst{M}{a}{N}$
-      \lean{\PRSrc/Named/Untyped/Basic.lean\#L116}:
+      \lean{\LeanSrc/Named/Untyped/Basic.lean\#L116}:
       replaces the free occurrences of $a$ by $N$, and renames a binder to a fresh atom
       when it would capture a free atom of $N$ (Curry style).
   \end{itemize}
@@ -158,9 +149,9 @@
   \begin{center}
   \begin{tabular}{lll}
     $\simp$ & $z \nocc a, b, M, M'$ & CSLib's $\alphaeq$
-      \lean{\PRSrc/Named/Untyped/Basic.lean\#L82}\\
-    $\simpf$ & $z \fresh a, b, M, M'$ & \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L89}\\
-    $\simpi{1}$ & $z \nocc M, M'$ & \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L107}
+      \lean{\LeanSrc/Named/Untyped/Basic.lean\#L82}\\
+    $\simpf$ & $z \fresh a, b, M, M'$ & \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L92}\\
+    $\simpi{1}$ & $z \nocc M, M'$ & \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L110}
   \end{tabular}
   \end{center}
   Renaming relations: equivalence, congruence, plus
@@ -170,9 +161,9 @@
   \begin{center}
   \begin{tabular}{lll}
     $\simr$ & $a' \nocc a, M$ & Barendregt
-      \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L122}\\
+      \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L153}\\
     $\simrf$ & $a' \fresh a, M$ & Hindley--Seldin
-      \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L142}
+      \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L173}
   \end{tabular}
   \end{center}
   {\footnotesize $a \nocc M$: $a$ does not occur in $M$ at all.
@@ -185,20 +176,20 @@
   \end{theorem}
   \begin{center}
   \begin{tabular}{llll}
-    4.1 & ${\simp} = {\simpf}$ & \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L94}
+    4.1 & ${\simp} = {\simpf}$ & \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L99}
       & in CSLib PR \#741\\
-    4.2 & ${\simp} = {\simpi{1}}$ & \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L151}
+    4.2 & ${\simp} = {\simpi{1}}$ & \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L140}
       & follow-up branch\\
-    4.4 & ${\simp} = {\simr}$ & \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L261}
+    4.4 & ${\simp} = {\simr}$ & \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L212}
       & follow-up branch\\
-    4.5 & ${\simp} = {\simrf}$ & \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L324}
+    4.5 & ${\simp} = {\simrf}$ & \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L251}
       & follow-up branch\\
     4.6 & ${\simr} = {\simrf}$ & & via 4.4 and 4.5
   \end{tabular}
   \end{center}
   \bigskip
   The side condition cannot be weakened much further
-  (Prop.~4.3 \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L157}):
+  (Prop.~4.3 \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L146}):
   \begin{itemize}
     \item only $z \nocc a, b$: \quad $\lam{a}{a\,z} \sim \lam{b}{b\,a}$
     \item no condition: \quad $\lam{a}{b\,a} \sim \lam{b}{a\,b}$
@@ -214,7 +205,7 @@
       and it commutes with every operation that mentions no particular atom.
     \item With an unused atom swap and renaming agree: $z \nocc M$ implies
       $\sw{z}{a} \act M = \ren{M}{a}{z}$
-      \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L138}.
+      \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L138}.
       CSLib's $\alphaeq$ writes \textsc{pi} with this one-way renaming; under
       $z \nocc M$ it is Crole's rule. $\simpf$ must keep the swap: with only $z \fresh M$
       the two differ.
@@ -222,7 +213,7 @@
 \end{frame}
 
 \begin{frame}{Two lemmas on permutations \cite[Lemmas~6.1, 6.2]{crole2012a}}
-  \begin{block}{Lemma 6.1 \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L285}}
+  \begin{block}{Lemma 6.1 \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L285}}
     $M \simp M'$ implies $\sw{u}{v} \act M \simp \sw{u}{v} \act M'$.
   \end{block}
   \begin{itemize}
@@ -235,9 +226,9 @@
     Let $\pi, \pi'$ agree on a set of atoms.
     \begin{enumerate}
       \item on $\occ(M)$: \ $\pi \act M = \pi' \act M$
-        \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L91}
+        \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L91}
       \item on $\free(M)$: \ $\pi \act M \simp \pi' \act M$
-        \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L379}
+        \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L379}
     \end{enumerate}
   \end{block}
   \begin{itemize}
@@ -249,7 +240,7 @@
 
 \begin{frame}{Proof of Theorem 4.1: ${\simp} = {\simpf}$}
   Lean: \texttt{alphaEquiv\_iff\_alphaEquivPFresh}
-  \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L94}.
+  \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L99}.
   Each relation is closed under the rules of the other; only \textsc{pi} needs work.
   \begin{itemize}
     \item ${\simp} \subseteq {\simpf}$: $z \nocc M$ implies $z \fresh M$, so \textsc{pi} is an
@@ -262,7 +253,7 @@
         \item $\sw{z}{u} \circ \sw{u}{a}$ and $\sw{z}{a}$ agree on $\free(M)$, since
           $u, z \notin \free(M)$. Lemma~6.2(2):
           $\sw{z}{u}\sw{u}{a} \act M \simp \sw{z}{a} \act M$
-          \lean{\PRSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L413}.
+          \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L413}.
         \item Same on the right; symmetry and transitivity give
           $\sw{z}{a} \act M \simp \sw{z}{b} \act M'$, the premise of \textsc{pi}.
       \end{enumerate}
@@ -276,9 +267,9 @@
   \cite[Lemmas~6.3, 6.4]{crole2012a}:
   \[
     z \nocc M \implies \sw{z}{a} \act M \simr \subst{M}{a}{z}
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L167}
+    \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L60}
     \quad (\text{and } \simrf
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L203})
+    \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L85})
   \]
   \begin{itemize}
     \item \textsc{pi} $\Rightarrow$ $\simr$: \
@@ -286,7 +277,7 @@
       \simr \lam{b}{M'}$ \ by $\alpha$, \textsc{bcg}, $\alpha$.
     \item $\alpha$ $\Rightarrow$ $\simp$: for $a' \fresh M$ and fresh $z$,
       $\sw{z}{a} \act M \simp \sw{z}{a'} \act \subst{M}{a}{a'}$ \
-      (Lemma~6.5, $n = 1$ \lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L476}).
+      (Lemma~6.5, $n = 1$ \lean{\LeanSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L289}).
   \end{itemize}
   \begin{block}{Departure}
     Crole proves the $\alpha$ case by induction on $M$, which fails for $\alpha\#$
@@ -337,9 +328,9 @@
   Two reduction systems:
   \begin{itemize}
     \item $\langle \LamA, \tobeta \rangle$: named terms modulo $\alphaeq$, ordinary $\beta$
-      \lean{\DBSrc/Named/Untyped/AlphaQuotient.lean\#L115}
+      \lean{\LeanSrc/Named/Untyped/AlphaQuotient.lean\#L122}
     \item $\langle \LamDB, \tod \rangle$: pure de Bruijn terms, Nipkow's $\beta$
-      \lean{\DBSrc/Unscoped/Untyped/BetaReduction.lean\#L41}
+      \lean{\LeanSrc/Unscoped/Untyped/BetaReduction.lean\#L41}
   \end{itemize}
   \begin{block}{Theorem 20}
     There is a bijection $f \colon \LamA \to \LamDB$ with
@@ -433,7 +424,7 @@
 \begin{frame}{$\lift$ and $\nsub$ \cite{nipkow2001a}}
   \begin{itemize}
     \item $\lift\, t\, k$ adds $1$ to the free indices $\geq k$
-      \lean{\DBSrc/NamedDeBruijn/PureDeBruijn.lean\#L68}:
+      \lean{\LeanSrc/NamedDeBruijn/PureDeBruijn.lean\#L69}:
       keeps them pointing at the right name under a new binder.
       \begin{itemize}
         \item $\lift\,(\dV\,3)\,0 = \dV\,4$, \quad $\lift\,(\dV\,3)\,5 = \dV\,3$
@@ -442,7 +433,7 @@
           \hfill ($\lam{x}{x\,b}$: $x$ stays, $b$ moves)
       \end{itemize}
     \item $\nsub\, s\, k\, t$ substitutes $s$ for $k$ and closes the gap above $k$
-      \lean{\DBSrc/NamedDeBruijn/PureDeBruijn.lean\#L81}:
+      \lean{\LeanSrc/NamedDeBruijn/PureDeBruijn.lean\#L85}:
       \begin{itemize}
         \item at $k = 1$: \ $\dV\,0 \mapsto \dV\,0$, \ $\dV\,1 \mapsto s$,
           \ $\dV\,2 \mapsto \dV\,1$
@@ -489,10 +480,10 @@
 \begin{frame}{$\LamDB'$: a named-style binder on de Bruijn terms}
   \begin{itemize}
     \item $\dbsub\, s\, k\, (\dV\, i) = \text{if } i = k \text{ then } s \text{ else } \dV\, i$
-      \lean{\DBSrc/NamedDeBruijn/PureDeBruijn.lean\#L99}
+      \lean{\LeanSrc/NamedDeBruijn/PureDeBruijn.lean\#L106}
       \hfill (no gap closing)
     \item $\dLAM\, i\, t = \dABS\, (\dbsub\, (\dV\, 0)\, (i + 1)\, (\lift\, t\, 0))$
-      \lean{\DBSrc/NamedDeBruijn/PureDeBruijn.lean\#L217}
+      \lean{\LeanSrc/NamedDeBruijn/PureDeBruijn.lean\#L215}
       \\ \hfill (bind the free $i$)
   \end{itemize}
   $\dLAM$ forgets which name it bound, like $\lambda$ on $\LamA$:
@@ -504,10 +495,10 @@
       \quad ($\lam{a}{a\,b}$, $\lam{c}{c\,b}$)
   \end{itemize}
   Every $\dABS$ term is a $\dLAM$ term over any index not free in it
-  (Lemma~6 \lean{\DBSrc/NamedDeBruijn/PureDeBruijn.lean\#L280}).
+  (Lemma~6 \lean{\LeanSrc/NamedDeBruijn/PureDeBruijn.lean\#L264}).
   \medskip
 
-  $\todp$ \lean{\DBSrc/NamedDeBruijn/PureDeBruijn.lean\#L369}:
+  $\todp$ \lean{\LeanSrc/NamedDeBruijn/PureDeBruijn.lean\#L319}:
   $\dAPP\,(\dLAM\, i\, t)\, u \todp \dbsub\, u\, i\, t$, and congruences with
   $\dLAM\, i$ in place of $\dABS$.
 \end{frame}
@@ -554,9 +545,9 @@
       $f \colon \LamA \to \LamDB$ is fine; a direct $\LamDB \to \LamA$ would have to
       invent names.
     \item Permutations act on de Bruijn terms through the free indices
-      (Def.~8 \lean{\DBSrc/NamedDeBruijn/DeBruijnPerm.lean\#L169});
+      (Def.~8 \lean{\LeanSrc/NamedDeBruijn/DeBruijnPerm.lean\#L169});
       $\dbsub$, $\dLAM$ and $\todp$ are equivariant
-      (Thm.~10 \lean{\DBSrc/NamedDeBruijn/DeBruijnPerm.lean\#L336}).
+      (Thm.~10 \lean{\LeanSrc/NamedDeBruijn/DeBruijnPerm.lean\#L328}).
   \end{itemize}
 \end{frame}
 
@@ -573,38 +564,38 @@
     \item The paper: Pitts' recursion principle for $\LamA$, which needs $\LamDB$ as a
       nominal set.
     \item Lean: structural recursion on raw terms
-      \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L113},
+      \lean{\LeanSrc/NamedDeBruijn/FromTerm.lean\#L106},
       shown to respect $\alphaeq$
-      \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L203},
+      \lean{\LeanSrc/NamedDeBruijn/FromTerm.lean\#L181},
       then lifted to the quotient
-      \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L390}.
+      \lean{\LeanSrc/NamedDeBruijn/FromTerm.lean\#L363}.
       Possible because $\dLAM$ forgets the name.
     \item Injective: $\dLAM$ is injective up to a swap
-      \lean{\DBSrc/NamedDeBruijn/LiftingPermutation.lean\#L332}.
+      \lean{\LeanSrc/NamedDeBruijn/LiftingPermutation.lean\#L332}.
       Surjective: by size, using Lemma~6.
     \item Substitution: $f(\subst{M}{a}{N}) = \dbsub\, (f\, N)\, \hat{a}\, (f\, M)$
-      \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L256}
+      \lean{\LeanSrc/NamedDeBruijn/FromTerm.lean\#L231}
     \item Thm.~12: $M \tobeta N \iff f(M) \todp f(N)$
-      \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L476}
+      \lean{\LeanSrc/NamedDeBruijn/FromTerm.lean\#L444}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{The key observation: $\lift$ is a permutation}
-  \begin{block}{Lemma 14 \lean{\DBSrc/NamedDeBruijn/LiftingPermutation.lean\#L144}}
+  \begin{block}{Lemma 14 \lean{\LeanSrc/NamedDeBruijn/LiftingPermutation.lean\#L144}}
     If all free indices of $t$ are $\leq n$, then $\lift\, t\, m = \pi_{m,n} \act t$
     for the cycle $\pi_{m,n} \colon m \mapsto m{+}1 \mapsto \dots \mapsto n{+}1 \mapsto m$.
   \end{block}
   Example: $\lift\,(\dAPP\,(\dV\,0)\,(\dV\,2))\,0 = \dAPP\,(\dV\,1)\,(\dV\,3)$ is the cycle
   $0 \to 1 \to 2 \to 3 \to 0$; index $3$ is unused in $t$, so it can wrap around.
   \medskip
-  \begin{block}{Theorem 15 \lean{\DBSrc/NamedDeBruijn/LiftingPermutation.lean\#L358}}
+  \begin{block}{Theorem 15 \lean{\LeanSrc/NamedDeBruijn/LiftingPermutation.lean\#L358}}
     For an equivariant $R$: \ $R$ is closed under $\dABS$ $\iff$
     $R$ is closed under every $\dLAM\, i$.
   \end{block}
   \begin{itemize}
     \item $\dABS\,t$ and its presentation as a $\dLAM$ term differ by a permutation, and an
       equivariant relation cannot see permutations.
-    \item Lemma~13 \lean{\DBSrc/NamedDeBruijn/LiftingPermutation.lean\#L54} matches the
+    \item Lemma~13 \lean{\LeanSrc/NamedDeBruijn/LiftingPermutation.lean\#L54} matches the
       contraction rules:
       $\dbsub\, u\, i\, t = \nsub\, u\, n\, (\dbsub\, (\dV\, n)\, (i{+}1)\, (\lift\, t\, n))$
       for $n \leq i$.
@@ -621,7 +612,7 @@
         \nsub\,(\pi \act \dV\,5)\,0\,(\pi \act \dV\,1) &= \nsub\,(\dV\,5)\,0\,(\dV\,0) = \dV\,5
       \end{align*}
   \end{itemize}
-  \begin{block}{Lemma 17 \lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L61}}
+  \begin{block}{Lemma 17 \lean{\LeanSrc/NamedDeBruijn/Isomorphism.lean\#L61}}
     $\pi \act (\nsub\, t\, i\, u) = \nsub\, (\pi \act t)\, i\, (\inc_i(\pi) \act u)$
   \end{block}
   \begin{itemize}
@@ -636,13 +627,13 @@
 \begin{frame}{Theorems 19 and 20 in Lean}
   \begin{itemize}
     \item Thm.~19: $t \todp u \iff t \tod u$
-      \lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L126}
+      \lean{\LeanSrc/NamedDeBruijn/Isomorphism.lean\#L126}
     \item Thm.~20 = Thm.~12 + Thm.~19
-      \lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L146}
+      \lean{\LeanSrc/NamedDeBruijn/Isomorphism.lean\#L146}
   \end{itemize}
   \medskip
   As a Mathlib relation isomorphism
-  \lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L151}:
+  \lean{\LeanSrc/NamedDeBruijn/Isomorphism.lean\#L151}:
   \begin{block}{}
     \small
     \texttt{noncomputable def dbRelIso :}\\
@@ -661,19 +652,19 @@
 \begin{frame}{Payoff: Church--Rosser for free}
   \begin{itemize}
     \item \#475 proves Church--Rosser for $\tod$
-      \lean{\DBSrc/Unscoped/Untyped/ChurchRosser.lean\#L45}.
+      \lean{\LeanSrc/Unscoped/Untyped/ChurchRosser.lean\#L45}.
     \item An isomorphism of reduction systems transports everything stated in terms of
       the relation: $\twoheadrightarrow$, confluence, normal forms.
   \end{itemize}
   \begin{block}{Corollary}
     $\tobeta$ on $\LamA$ is confluent
-    \lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L147}:
+    \lean{\LeanSrc/NamedDeBruijn/Transfer.lean\#L147}:
     if $M \tobetastar N_1$ and $M \tobetastar N_2$, there is $P$ with
     $N_1 \tobetastar P$ and $N_2 \tobetastar P$.
   \end{block}
   \begin{block}{Corollary}
     $\beta$-normal forms on $\LamA$ are unique
-    \lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L220}.
+    \lean{\LeanSrc/NamedDeBruijn/Transfer.lean\#L220}.
   \end{block}
   \begin{itemize}
     \item No further work on the named side; not in~\cite{norrish2007a}.
@@ -702,7 +693,7 @@
     \item Norrish and Vestergaard: in review (\#\DBPR), on top of \#475 and \#741.
       % TODO: size of the de Bruijn files (2,310 lines, 135 theorems on 2026-10-13)?
     \item The $\eta$ version of Thm.~20 is also proved
-      \lean{\DBSrc/NamedDeBruijn/Eta.lean\#L302}.
+      \lean{\LeanSrc/NamedDeBruijn/Eta.lean\#L302}.
       % TODO: keep or drop eta, as in the paper.
     \item Next:
       \begin{itemize}
