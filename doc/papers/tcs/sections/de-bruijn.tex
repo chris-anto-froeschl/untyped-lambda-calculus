@@ -104,8 +104,17 @@ are lifted from $\Lam$ to $\LamA$:
 These operations are well defined because $\simp$ is a congruence and
 is preserved by substitution
 \lean{\CroleSrc/Named/Untyped/Properties.lean\#L902}.
-Abstraction on $\LamA$ is not injective, so $\LamA$ is not a free
-algebra.
+Abstraction on $\LamA$ is not injective
+(Example~\ref{ex:lam-alpha}), so $\LamA$ is not a free algebra.
+
+\begin{example}
+\label{ex:lam-alpha}
+\lean{\DemoSrc\#L110}
+For distinct atoms $a, b, c$,
+$\lam{a}{\cls{a\,b}} = \lam{c}{\cls{c\,b}}$
+(Example~\ref{ex:five-relations}), although
+$\cls{a\,b} \neq \cls{c\,b}$.
+\end{example}
 
 \begin{definition}[$\beta$-reduction on $\LamA$]
 \label{def:beta-alpha}
@@ -151,10 +160,23 @@ an abstraction over a chosen index.
 \end{align*}
 \end{definition}
 
-Like abstraction on $\LamA$, $\dLAM$ is not injective. Every $\dABS$
+Like abstraction on $\LamA$, $\dLAM$ is not injective
+(Example~\ref{ex:dlam}). Every $\dABS$
 term is a $\dLAM$ term over any index that is not free in it
 \lean{\DBSrc/NamedDeBruijn/PureDeBruijn.lean\#L298}
 \cite[Lemma~6]{norrish2007a}.
+
+\begin{example}
+\label{ex:dlam}
+\lean{\DemoSrc\#L272}
+For every index $i$,
+\[
+  \dLAM\, i\, (\dV\, i)
+  = \dABS\, (\dbsub\, (\dV\, 0)\, (i + 1)\, (\dV\, (i + 1)))
+  = \dABS\, (\dV\, 0),
+\]
+the de Bruijn form of $\lam{a}{a}$ for every atom $a$.
+\end{example}
 
 \begin{definition}[{\cite[Definition~7]{norrish2007a}}]
 \label{def:dbeta-prime}
@@ -192,8 +214,10 @@ There is a bijection $f \colon \LamA \to \LamDB$ with
 \end{equation}
 \end{theorem}
 
-For instance, for distinct atoms $a$ and $b$
-\lean{\DemoSrc\#L209},
+\begin{example}[Running example, continued]
+\label{ex:f}
+\lean{\DemoSrc\#L224}
+For distinct atoms $a$ and $b$,
 \[
   f(\lam{a}{a\,b})
   = \dLAM\, \hat{a}\, (\dAPP\, (\dV\, \hat{a})\, (\dV\, \hat{b}))
@@ -201,7 +225,9 @@ For instance, for distinct atoms $a$ and $b$
 \]
 the bound atom becomes the index $0$, and the free atom $b$ is
 shifted past the binder. For every atom $c \neq b$, the
-alpha-equivalent term $\lam{c}{c\,b}$ has the same image.
+alpha-equivalent term $\lam{c}{c\,b}$ has the same image
+\lean{\DemoSrc\#L236}.
+\end{example}
 
 Since $\LamA$ is not a free algebra, the equations~\eqref{eq:f} do not
 define a function by themselves. Norrish and Vestergaard obtain $f$
@@ -265,8 +291,24 @@ $\pi$ of atoms acts on a de Bruijn term through the free indices
   \pi \act (\dABS\, t) = \dABS\, (\inc(\pi) \act t),
 \]
 where $\inc(\pi)$ is $\pi$ shifted by one index, so that it fixes the
-index bound by the abstraction~\cite[Definition~8]{norrish2007a}. A
-relation $R$ on $\LamDB$ is \emph{equivariant} if
+index bound by the abstraction~\cite[Definition~8]{norrish2007a}.
+
+\begin{example}
+\label{ex:dpm}
+\lean{\DemoSrc\#L277}
+Let $\hat{a} = 0$ and $\hat{b} = 1$. The term $\dABS\, (\dV\, 1)$ is
+$\lam{x}{a}$, since index $1$ under one binder is the free index $0$.
+Under the binder, $\inc\sw{a}{b}$ exchanges the indices $1$ and $2$,
+so
+\[
+  \sw{a}{b} \act \dABS\, (\dV\, 1) = \dABS\, (\dV\, 2),
+\]
+which is $\lam{x}{b}$. Exchanging $0$ and $1$ under the binder
+instead would give $\dABS\, (\dV\, 0)$, which is $\lam{x}{x}$
+\lean{\DemoSrc\#L280}.
+\end{example}
+
+A relation $R$ on $\LamDB$ is \emph{equivariant} if
 $R\,(\pi \act t)\,(\pi \act u) \iff R\, t\, u$ for all $\pi$.
 
 \begin{theorem}[{\cite[Theorem~10]{norrish2007a}}]
@@ -335,6 +377,22 @@ $M, N \in \LamA$,
 From Theorems~\ref{thm:beta-dbeta-prime}
 and~\ref{thm:dbeta-coincide}.
 \end{proof}
+
+\begin{example}[Running example, continued]
+\label{ex:beta}
+For distinct atoms $a, b, c$, the step
+$(\lam{a}{\cls{a\,b}})\,\cls{c} \tobeta \cls{c\,b}$
+\lean{\DemoSrc\#L254} becomes
+\[
+  \dAPP\, (\dABS\, (\dAPP\, (\dV\, 0)\, (\dV\, (\hat{b} + 1))))\,
+    (\dV\, \hat{c})
+  \;\tod\;
+  \dAPP\, (\dV\, \hat{c})\, (\dV\, \hat{b})
+\]
+\lean{\DemoSrc\#L264}: $\nsub$ replaces the bound index $0$ by
+$\dV\, \hat{c}$ and decrements the index of $b$, whose binder has
+disappeared.
+\end{example}
 
 The notion of isomorphic reduction systems used here is exactly
 Mathlib's relation isomorphism, and the formalization also states

@@ -120,12 +120,20 @@ $\subst{M}{a}{N}$ for the substitution of an arbitrary term.
 \end{align*}
 \end{definition}
 
-For $M = \lam{a}{a\,b}$ with distinct atoms $a$ and $b$ the three
-operations differ: $\ren{M}{a}{b} = \lam{b}{b\,b}$ identifies the two
-atoms, so that the free $b$ is captured; $\sw{a}{b} \act M =
-\lam{b}{b\,a}$ exchanges them; and $\subst{M}{b}{a} = \lam{c}{c\,a}$
-for a fresh atom $c$, since substitution replaces only the free
-occurrence of $b$ and renames the binder to avoid capturing $a$.
+\begin{example}[The three operations]
+\label{ex:operations}
+Let $M = \lam{a}{a\,b}$ for distinct atoms $a$ and $b$.
+\begin{itemize}
+  \item $\ren{M}{a}{b} = \lam{b}{b\,b}$
+    \lean{\DemoSrc\#L84}: renaming identifies the two atoms, so that
+    the free $b$ is captured.
+  \item $\sw{a}{b} \act M = \lam{b}{b\,a}$
+    \lean{\DemoSrc\#L91}: the swap exchanges them.
+  \item $\subst{M}{b}{a} = \lam{c}{c\,a}$ for a fresh atom $c$
+    \lean{\DemoSrc\#L97}: substitution replaces only the free
+    occurrence of $b$, and renames the binder to avoid capturing $a$.
+\end{itemize}
+\end{example}
 
 Definition~\ref{def:subst} is, case for case,
 Gabbay's~\cite[Definition~5.13]{gabbay2011a}: a function chooses the

@@ -87,15 +87,27 @@ The relation $\simr$ corresponds to the congruence $\equiv_\alpha$
 of Barendregt~\cite[Definition~2.1.11]{barendregt1985a}, and $\simrf$
 to that of Hindley and Seldin~\cite[Definition~1.17]{hindley2008a}.
 
+\begin{example}[Running example]
+\label{ex:five-relations}
 For distinct atoms $a, b, c$, the terms $\lam{a}{a\,b}$ and
 $\lam{c}{c\,b}$ are related by all five relations, each time by a
-single application of the abstraction rule
-\lean{\DemoSrc\#L125}. For \textsc{pi},
-\textsc{pi\#} and \textsc{pi1} any witness $d$ distinct from $a, b, c$
-will do: $\sw{d}{a} \act (a\,b) = d\,b = \sw{d}{c} \act (c\,b)$, and
-$d$ meets all three side conditions. For $\alpha$ and $\alpha\#$ it is
-the renaming of $a$ to $c$: $\subst{(a\,b)}{a}{c} = c\,b$, and $c$
-does not occur in $a\,b$.
+single application of the abstraction rule.
+\begin{itemize}
+  \item \textsc{pi}
+    \lean{\DemoSrc\#L110},
+    \textsc{pi\#}
+    \lean{\DemoSrc\#L127}
+    and \textsc{pi1}
+    \lean{\DemoSrc\#L135}: any witness $d$ distinct from $a, b, c$
+    meets all three side conditions, and
+    $\sw{d}{a} \act (a\,b) = d\,b = \sw{d}{c} \act (c\,b)$.
+  \item $\alpha$
+    \lean{\DemoSrc\#L149}
+    and $\alpha\#$
+    \lean{\DemoSrc\#L155}: rename $a$ to $c$, which does not occur in
+    $a\,b$; then $\subst{(a\,b)}{a}{c} = c\,b$.
+\end{itemize}
+\end{example}
 
 \subsection{Properties of $\simp$}
 \label{subsec:key-lemmas}
@@ -222,6 +234,21 @@ and
 $\sw{z}{a} \act M \simrf \subst{M}{a}{z}$
 \lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L203}.
 \end{lemma}
+
+\begin{example}
+\label{ex:swap-subst}
+The two sides of Lemma~\ref{lem:swap-subst} differ on bound
+occurrences of $a$, which the swap replaces and the substitution does
+not. Let $M = a\,(\lam{a}{a})$ and $z \neq a$. Then
+\[
+  \sw{z}{a} \act M = z\,(\lam{z}{z})
+  \qquad\text{and}\qquad
+  \subst{M}{a}{z} = z\,(\lam{a}{a})
+\]
+\lean{\DemoSrc\#L196}\lean{\DemoSrc\#L200},
+and the two are related by \textsc{pcg}, $\alpha$ and \textsc{sym}
+\lean{\DemoSrc\#L205}.
+\end{example}
 
 For $\simp$ the corresponding statement compares two swaps.
 
@@ -374,10 +401,14 @@ ${\simpi{2}} \neq {\simp}$ and ${\simpi{3}} \neq {\simp}$.
 
 \begin{proof}
 For distinct atoms $a, b, z$ we have
-$\lam{a}{a\, z} \simpi{2} \lam{b}{b\, a}$ and
-$\lam{a}{b\, a} \simpi{3} \lam{b}{a\, b}$, but in both cases the two
+$\lam{a}{a\, z} \simpi{2} \lam{b}{b\, a}$
+\lean{\DemoSrc\#L161}, with witness $z$, and
+$\lam{a}{b\, a} \simpi{3} \lam{b}{a\, b}$
+\lean{\DemoSrc\#L179}, with witness $b$, but in both cases the two
 terms have different free atoms, so they are not related by $\simp$
-(Lemma~\ref{lem:equivalence}).
+(Lemma~\ref{lem:equivalence})
+\lean{\DemoSrc\#L170}
+\lean{\DemoSrc\#L186}.
 \end{proof}
 
 \subsection{The formalization}
