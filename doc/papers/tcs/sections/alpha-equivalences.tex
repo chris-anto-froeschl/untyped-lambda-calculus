@@ -100,40 +100,73 @@ single application of the abstraction rule.
 \end{itemize}
 \end{example}
 
-\subsection{Properties of $\simp$}
+\subsection{The characterization theorem}
+\label{subsec:equivalence-theorem}
+
+\begin{theorem}[Crole {\cite[Theorems~4.1, 4.2, 4.4--4.6]{crole2012a}}]
+\label{thm:crole-equivalence}
+For all terms $M, N \in \Lam$ the following are equivalent:
+\begin{enumerate}
+  \item[(i)] $M \simp N$;
+  \item[(ii)] $M \simpf N$
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L102};
+  \item[(iii)] $M \simpi{1} N$
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L151};
+  \item[(iv)] $M \simr N$
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L261};
+  \item[(v)] $M \simrf N$
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L324}.
+\end{enumerate}
+\end{theorem}
+
+The proof is outlined in Section~\ref{subsec:key-lemmas}. The side
+condition of \textsc{pi} cannot be weakened much further.
+
+\begin{proposition}[{\cite[Proposition~4.3]{crole2012a}}]
+\label{prop:variants}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L157}
+Let $\simpi{2}$
+\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L118}
+and $\simpi{3}$
+\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L129}
+be defined as $\simp$, with the side condition of \textsc{pi} replaced
+by $[z \nocc a, b]$ and by no condition, respectively. Then
+${\simpi{2}} \neq {\simp}$ and ${\simpi{3}} \neq {\simp}$.
+\end{proposition}
+
+\begin{proof}
+For distinct atoms $a, b, z$ we have
+$\lam{a}{a\, z} \simpi{2} \lam{b}{b\, a}$
+\lean{\DemoSrc\#L161}, with witness $z$, and
+$\lam{a}{b\, a} \simpi{3} \lam{b}{a\, b}$
+\lean{\DemoSrc\#L179}, with witness $b$, but in both cases the two
+terms have different free atoms, so they are not related by $\simp$,
+which preserves free atoms
+\lean{\CroleSrc/Named/Untyped/Properties.lean\#L122}
+\lean{\DemoSrc\#L170}
+\lean{\DemoSrc\#L186}.
+\end{proof}
+
+\subsection{The proof}
 \label{subsec:key-lemmas}
 
 Since $\simp$ has no rules for reflexivity, symmetry and
-transitivity, these have to be proved. They were already available in
-CSLib, together with the two other basic facts below; the
+transitivity, these have to be proved. CSLib already provides
+them~\lean{\CroleSrc/Named/Untyped/Properties.lean\#L493}%
+\lean{\CroleSrc/Named/Untyped/Properties.lean\#L373}%
+\lean{\CroleSrc/Named/Untyped/Properties.lean\#L566},
+together with two facts used below: related terms have the same free
+atoms~\lean{\CroleSrc/Named/Untyped/Properties.lean\#L122}, and
+substitution respects $\simp$: if $M \simp M'$ and $N \simp N'$ then
+$\subst{M}{a}{N} \simp \subst{M'}{a}{N'}$
+\lean{\CroleSrc/Named/Untyped/Properties.lean\#L902}. The
 corresponding statements for $\equiv_\alpha$
 are~\cite[Lemmas~1.19 and~1.21]{hindley2008a}, proved
-in~\cite[Appendix~A1]{hindley2008a}.
-
-\begin{lemma}
-\label{lem:equivalence}
-The relation $\simp$ is
-reflexive~\lean{\CroleSrc/Named/Untyped/Properties.lean\#L493},
-symmetric~\lean{\CroleSrc/Named/Untyped/Properties.lean\#L373}
-and
-transitive~\lean{\CroleSrc/Named/Untyped/Properties.lean\#L566}.
-Moreover, if $M \simp M'$ and $N \simp N'$ then
-$\free(M) = \free(M')$
-\lean{\CroleSrc/Named/Untyped/Properties.lean\#L122}
-and $\subst{M}{a}{N} \simp \subst{M'}{a}{N'}$
-\lean{\CroleSrc/Named/Untyped/Properties.lean\#L902}.
-\end{lemma}
-
-The next two lemmas say that $\simp$ is invariant under swapping,
-an instance of the equivariance principle of nominal
-techniques~\cite[Theorem~4.4]{gabbay2011a}, and that the action of a
-permutation on a term depends, up to $\simp$, only on its values on
-the free atoms. Crole gives no source for either; Table~\ref{tab:gaps}
-lists earlier ones. That swapping preserves $\simp$ is one of the two
-facts that Gabbay and Pitts call easily verified in their proof that
-$\simp$ is alpha equivalence~\cite[proof of
-Proposition~2.2]{gabbay2002a}; the other is the $\simp$-form of
-Lemma~\ref{lem:swap-subst} below.
+in~\cite[Appendix~A1]{hindley2008a}. Beyond these, the proof of
+Theorem~\ref{thm:crole-equivalence} rests on three facts: $\simp$ is
+preserved by swapping, a permutation acts up to $\simp$ only through
+the free atoms, and swapping with an unused atom is, up to alpha
+equivalence, substitution.
 
 \begin{lemma}[{\cite[Lemma~6.1]{crole2012a}}]
 \label{lem:swap-preserve}
@@ -142,13 +175,12 @@ If $M \simp M'$ then $\sw{u}{v} \act M \simp \sw{u}{v} \act M'$, for
 all atoms $u, v$.
 \end{lemma}
 
-In the case of rule \textsc{pi}, with $\lam{a}{M} \simp \lam{b}{M'}$
-by a witness $z$ and $u \neq v$, Crole distinguishes whether each of
-$a$, $b$, $z$ equals $u$, equals $v$, or neither. Of these 27 cases
-10 are impossible, since $z \neq a, b$; Crole argues four of the
-remaining 17 in detail~\cite[pp.~14--15]{crole2012a}. The
-formalization proves all 17, by these four arguments and two
-symmetries (Table~\ref{tab:lemma61}).
+This is an instance of the equivariance principle of nominal
+techniques~\cite[Theorem~4.4]{gabbay2011a}. For the rule \textsc{pi},
+Crole argues four representative cases in
+detail~\cite[pp.~14--15]{crole2012a}; the formalization proves all
+17 possible cases, by these four arguments and two symmetries
+(Table~\ref{tab:lemma61}).
 
 \begin{table}[pos=tb]
 \caption{The cases of the rule \textsc{pi} in the proof of
@@ -193,14 +225,11 @@ Let $\pi, \pi'$ be permutations of $\Atoms$ and $M$ a term.
 \end{enumerate}
 \end{lemma}
 
-The bridge between the two families of relations is that swapping
-with an unused atom is, up to alpha equivalence, substitution. For
-the renaming relations this
-is~\cite[Lemmas~6.3 and~6.4]{crole2012a}. Earlier versions are a
-syntactic identity when $a$ is not bound in
-$M$~\cite[Lemma~5.16]{gabbay2011a} and a version for ground terms with
-$z$ only fresh~\cite[Lemma~3.6(2)]{gabbay2008a}. Crole observes that
-Gabbay and Pitts need the lemma for their proof as well, and that it is
+The third fact links the two families of relations. For the renaming
+relations it is~\cite[Lemmas~6.3 and~6.4]{crole2012a}. Crole observes
+that Gabbay and Pitts need it for their proof as well, where they call
+it and Lemma~\ref{lem:swap-preserve} easily
+verified~\cite[proof of Proposition~2.2]{gabbay2002a}, and that it is
 missing from their sketch~\cite[p.~5]{crole2012a}.
 
 \begin{lemma}
@@ -228,78 +257,33 @@ and the two are related by \textsc{pcg}, $\alpha$ and \textsc{sym}
 \lean{\DemoSrc\#L205}.
 \end{example}
 
-For $\simp$ the corresponding statement compares two swaps.
+For $\simp$ the corresponding statement compares two swaps. We need
+only the case $n = 1$ of Crole's lemma.
 
-\begin{lemma}[{\cite[Lemma~6.5]{crole2012a}}]
+\begin{lemma}[{\cite[Lemma~6.5]{crole2012a}, case $n = 1$}]
 \label{lem:swap-chain}
 \lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L402}
-Let $z_1, a_1, a_1', \dots, z_n, a_n, a_n'$ be pairwise distinct atoms
-and let $M$ be a term with $z_i \fresh M$ and $a_i' \fresh M$ for all
-$i$. Then
-\[
-  \sw{z_1}{a_1} \act \dots \act \sw{z_n}{a_n} \act M
-  \;\simp\;
-  \sw{z_1}{a_1'} \act \dots \act \sw{z_n}{a_n'} \act
-    \subst{\subst{M}{a_1}{a_1'} \dots}{a_n}{a_n'}.
-\]
+Let $z, a, a'$ be distinct atoms and $M$ a term with $z \fresh M$ and
+$a' \fresh M$. Then
+$\sw{z}{a} \act M \simp \sw{z}{a'} \act \subst{M}{a}{a'}$.
 \end{lemma}
 
 \begin{proof}[Proof idea]
-Crole omits the proof. For $n = 1$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L476},
-the only case used below, first
+Crole omits the proof. First
 $\subst{M}{a}{a'} \simp \sw{a}{a'} \act M$: rename the bound
-occurrences of $a'$ away (Lemma~\ref{lem:avoid}), use that
+occurrences of $a'$ away~\cite[Lemma~6.6]{crole2012a}, use that
 substitution respects $\simp$, and apply the $\simp$-form of
 Lemma~\ref{lem:swap-subst}. Then $\sw{z}{a}$ and
 $\sw{z}{a'} \circ \sw{a}{a'}$ agree on $\free(M)$, and
-Lemma~\ref{lem:agreement} applies. For general $n$, an induction on
-$n$ commutes the remaining swaps past the first.
+Lemma~\ref{lem:agreement} applies.
 \end{proof}
 
-Crole assumes $z_i \nocc M$; freshness suffices, because a bound
-occurrence of $z_i$ can be renamed away first:
+Crole states the lemma for $n$ swaps applied one after the other.
+The formalization proves this general form, of which
+Lemma~\ref{lem:swap-chain} is the case $n = 1$, by an induction on $n$
+that commutes the remaining swaps past the first.
 
-\begin{lemma}[{\cite[Lemma~6.6]{crole2012a}}]
-\label{lem:avoid}
-If $a \fresh M$ then there is a term $\hat{M}$ with $a \nocc \hat{M}$
-and $\hat{M} \simr M$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L210},
-and likewise with $\simp$ in place of $\simr$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L243}.
-\end{lemma}
-
-This lemma justifies Barendregt's variable
-convention~\cite[2.1.13]{barendregt1985a}. The proof follows Crole's
-sketch~\cite[p.~16]{crole2012a}, except where the binder is $a$
-itself: renaming $a$ to an unused atom throughout the body removes
-every occurrence of $a$ at once, so that no induction on the size of
-the term is needed. Crole states the lemma for $\simr$ only. The proof
-of Lemma~\ref{lem:swap-chain} needs the $\simp$ form, which cannot be
-derived from the $\simr$ form through
-Theorem~\ref{thm:crole-equivalence}, since the proof of that theorem
-uses Lemma~\ref{lem:swap-chain}.
-
-\subsection{The characterization theorem}
-\label{subsec:equivalence-theorem}
-
-\begin{theorem}[Crole {\cite[Theorems~4.1, 4.2, 4.4--4.6]{crole2012a}}]
-\label{thm:crole-equivalence}
-For all terms $M, N \in \Lam$ the following are equivalent:
-\begin{enumerate}
-  \item[(i)] $M \simp N$;
-  \item[(ii)] $M \simpf N$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L102};
-  \item[(iii)] $M \simpi{1} N$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L151};
-  \item[(iv)] $M \simr N$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L261};
-  \item[(v)] $M \simrf N$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L324}.
-\end{enumerate}
-\end{theorem}
-
-\begin{proof}[Proof idea]
+\begin{proof}[Proof idea of Theorem~\ref{thm:crole-equivalence}]
 Each of (ii)--(v) is shown equivalent to (i), by showing that each of
 the two relations is closed under the rules of the other. Only the
 rules for abstractions need an argument, and except for the rules
@@ -312,45 +296,13 @@ which turns the two swaps of its premise into substitutions, and two
 instances of $\alpha$ or $\alpha\#$.
 
 For the converse, reflexivity, symmetry and transitivity of $\simp$
-are Lemma~\ref{lem:equivalence}, and \textsc{bcg} follows from
+are already in CSLib, and \textsc{bcg} follows from
 Lemma~\ref{lem:swap-preserve} and \textsc{pi}. For $\alpha$ and
 $\alpha\#$, let $a' \fresh M$ and choose
 $z \nocc a, a', M, \subst{M}{a}{a'}$. Then
-$\sw{z}{a} \act M \simp \sw{z}{a'} \act \subst{M}{a}{a'}$ by the case
-$n = 1$ of Lemma~\ref{lem:swap-chain}, which is the premise of
+$\sw{z}{a} \act M \simp \sw{z}{a'} \act \subst{M}{a}{a'}$ by
+Lemma~\ref{lem:swap-chain}, which is the premise of
 \textsc{pi} for $\lam{a}{M} \simp \lam{a'}{\subst{M}{a}{a'}}$.
-\end{proof}
-
-Here our argument differs from Crole's. He proves the rule $\alpha$ by
-an induction on $M$~\cite[pp.~6--7]{crole2012a} that fails for
-$\alpha\#$, where the substitution $\subst{M}{a}{a'}$ may have to
-rename a binder, and introduces Lemma~\ref{lem:swap-chain} for
-general $n$ to repair it~\cite[p.~8]{crole2012a}.
-
-The side condition of \textsc{pi} cannot be weakened much further.
-
-\begin{proposition}[{\cite[Proposition~4.3]{crole2012a}}]
-\label{prop:variants}
-\lean{\CroleSrc/Named/Untyped/AlphaEquivEquiv.lean\#L157}
-Let $\simpi{2}$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L118}
-and $\simpi{3}$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivDefs.lean\#L129}
-be defined as $\simp$, with the side condition of \textsc{pi} replaced
-by $[z \nocc a, b]$ and by no condition, respectively. Then
-${\simpi{2}} \neq {\simp}$ and ${\simpi{3}} \neq {\simp}$.
-\end{proposition}
-
-\begin{proof}
-For distinct atoms $a, b, z$ we have
-$\lam{a}{a\, z} \simpi{2} \lam{b}{b\, a}$
-\lean{\DemoSrc\#L161}, with witness $z$, and
-$\lam{a}{b\, a} \simpi{3} \lam{b}{a\, b}$
-\lean{\DemoSrc\#L179}, with witness $b$, but in both cases the two
-terms have different free atoms, so they are not related by $\simp$
-(Lemma~\ref{lem:equivalence})
-\lean{\DemoSrc\#L170}
-\lean{\DemoSrc\#L186}.
 \end{proof}
 
 \subsection{Notes on the formalization}
@@ -360,8 +312,9 @@ The formalization follows~\cite{crole2012a} closely, and we found no
 errors in it.
 Our contribution is the four relations other than $\simp$,
 Theorem~\ref{thm:crole-equivalence},
-Proposition~\ref{prop:variants}, and
-Lemmas~\ref{lem:swap-preserve}--\ref{lem:avoid}. The rest belongs to
+Proposition~\ref{prop:variants},
+Lemmas~\ref{lem:swap-preserve}--\ref{lem:swap-chain} and Crole's
+Lemma~6.6. The rest belongs to
 the named representation of Section~\ref{sec:cslib}. The first part of the development
 is under review for inclusion in
 CSLib\footnote{\url{https://github.com/leanprover/cslib/pull/741}};
@@ -370,8 +323,8 @@ the remainder is to follow in the same way.
 Where the formalization departs from~\cite{crole2012a} beyond the
 proofs discussed above:
 \begin{itemize}
-  \item \emph{Order of the results.} Lemma~\ref{lem:equivalence} is
-    proved directly. Crole obtains reflexivity, symmetry and
+  \item \emph{Order of the results.} Reflexivity, symmetry and
+    transitivity of $\simp$ are proved directly. Crole obtains reflexivity, symmetry and
     transitivity of $\simp$ inside the proof of his
     Theorem~4.4~\cite[p.~6]{crole2012a} and cites that theorem for
     them in the proof of Theorem~4.1~\cite[p.~5]{crole2012a}. In the
@@ -381,6 +334,30 @@ proofs discussed above:
     \textsc{pi1} are stated in CSLib with renaming
     (Definition~\ref{def:rename}) in place of the swap, which is the
     same under their side conditions.
+  \item \emph{The rules $\alpha$ and $\alpha\#$.} Crole proves
+    $\alpha$ by an induction on $M$~\cite[pp.~6--7]{crole2012a} that
+    fails for $\alpha\#$, where $\subst{M}{a}{a'}$ may have to rename
+    a binder, and introduces Lemma~6.5 for general $n$ to repair
+    it~\cite[p.~8]{crole2012a}. The formalization derives both rules
+    from the case $n = 1$ (Lemma~\ref{lem:swap-chain}).
+  \item \emph{Freshness in Lemma~6.5.} Crole assumes $z \nocc M$;
+    freshness suffices, because a bound occurrence of $z$ can be
+    renamed away first by Crole's Lemma~6.6: if $a \fresh M$ then
+    there is a term $\hat{M}$ with $a \nocc \hat{M}$ and
+    $\hat{M} \simr M$
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L210}.
+    This lemma justifies Barendregt's variable
+    convention~\cite[2.1.13]{barendregt1985a}.
+  \item \emph{Lemma~6.6 for $\simp$.} Crole states Lemma~6.6 for
+    $\simr$ only. Lemma~\ref{lem:swap-chain} needs it for $\simp$
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L243}, and
+    this form cannot be derived through
+    Theorem~\ref{thm:crole-equivalence}, whose proof uses
+    Lemma~\ref{lem:swap-chain}. The proof follows Crole's
+    sketch~\cite[p.~16]{crole2012a}, except where the binder is $a$
+    itself: renaming $a$ to an unused atom throughout the body removes
+    every occurrence of $a$ at once, so that no induction on the size
+    of the term is needed.
   \item \emph{Permutations.} Lemma~\ref{lem:agreement} is proved for
     arbitrary bijections on $\Atoms$, where Crole assumes finite
     support; the difference is immaterial for
