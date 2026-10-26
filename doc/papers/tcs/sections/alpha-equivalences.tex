@@ -137,20 +137,12 @@ The next two lemmas say that $\simp$ is invariant under swapping,
 an instance of the equivariance principle of nominal
 techniques~\cite[Theorem~4.4]{gabbay2011a}, and that the action of a
 permutation on a term depends, up to $\simp$, only on its values on
-the free atoms. Crole gives no source for either. That swapping
-preserves $\simp$ is one of the two facts that Gabbay and Pitts call
-easily verified in their proof that $\simp$ is alpha
-equivalence~\cite[proof of Proposition~2.2]{gabbay2002a}; for the
-relation of nominal unification, Urban, Pitts and Gabbay prove it
-together with transitivity~\cite[(9) in the proof of
-Theorem~2.11]{urban2004a}. The second part of Lemma~\ref{lem:agreement}
-is their~\cite[Lemma~2.8]{urban2004a}, stated with the disagreement
-set, the complement of the agreement set, and with the same induction
-on the term. For a single swap it is also~\cite[Lemma~3.8]{gabbay2008a}.
-%% TODO: gabbay2008a numbers are from the author version capasn-jv.pdf on gabbay.org.uk
-%% ("under consideration for publication"); check them against the FAC 20(4-5) version.
-The first part says that the atoms occurring in a term support
-it~\cite[Example~3.5(ii)]{gabbay2002a}.
+the free atoms. Crole gives no source for either; Table~\ref{tab:gaps}
+lists earlier ones. That swapping preserves $\simp$ is one of the two
+facts that Gabbay and Pitts call easily verified in their proof that
+$\simp$ is alpha equivalence~\cite[proof of
+Proposition~2.2]{gabbay2002a}; the other is the $\simp$-form of
+Lemma~\ref{lem:swap-subst} below.
 
 \begin{lemma}[{\cite[Lemma~6.1]{crole2012a}}]
 \label{lem:swap-preserve}
@@ -213,16 +205,11 @@ Let $\pi, \pi'$ be permutations of $\Atoms$ and $M$ a term.
 The bridge between the two families of relations is that swapping
 with an unused atom is, up to alpha equivalence, substitution. For
 the renaming relations this
-is~\cite[Lemmas~6.3 and~6.4]{crole2012a}. Crole calls Lemma~6.3
-very similar to~\cite[Lemma~5.16]{gabbay2011a} and points
-to~\cite{gabbay2008a} for a similar result. Gabbay proves it as a
-syntactic identity under the additional hypothesis that $a$ is not
-bound in $M$~\cite[Lemma~5.16]{gabbay2011a}; Gabbay and Mathijssen
-prove it for their alpha equivalence of ground terms, with $z$ only
-fresh~\cite[Lemma~3.6(2)]{gabbay2008a}. The version with $\simp$ in
-place of $\simr$ is the second fact used by Gabbay and
-Pitts~\cite[proof of Proposition~2.2]{gabbay2002a}. Crole observes that
-their other direction needs Lemma~6.3 as well, and that this is
+is~\cite[Lemmas~6.3 and~6.4]{crole2012a}. Earlier versions are a
+syntactic identity when $a$ is not bound in
+$M$~\cite[Lemma~5.16]{gabbay2011a} and a version for ground terms with
+$z$ only fresh~\cite[Lemma~3.6(2)]{gabbay2008a}. Crole observes that
+Gabbay and Pitts need the lemma for their proof as well, and that it is
 missing from their sketch~\cite[p.~5]{crole2012a}.
 
 \begin{lemma}
@@ -266,25 +253,21 @@ $i$. Then
 \]
 \end{lemma}
 
-Only the case $n = 1$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L476}
-is used below. Crole omits the proof; ours does not follow the
-induction by which he handles the rule $\alpha$ in the proof of
-Theorem~4.4~\cite[pp.~6--7]{crole2012a}. For a single triple, $a' \fresh M$
-gives $\subst{M}{a}{a'} \simp \sw{a}{a'} \act M$: rename the bound
-occurrences of $a'$ away (Lemma~\ref{lem:avoid} below), use that
+\begin{proof}[Proof idea]
+Crole omits the proof. For $n = 1$
+\lean{\CroleSrc/Named/Untyped/AlphaEquivLemmas.lean\#L476},
+the only case used below, first
+$\subst{M}{a}{a'} \simp \sw{a}{a'} \act M$: rename the bound
+occurrences of $a'$ away (Lemma~\ref{lem:avoid}), use that
 substitution respects $\simp$, and apply the $\simp$-form of
-Lemma~\ref{lem:swap-subst}, which is the second fact of Gabbay and
-Pitts~\cite[proof of Proposition~2.2]{gabbay2002a}. Then
-$\sw{z}{a}$ and $\sw{z}{a'} \circ \sw{a}{a'}$ agree on $\free(M)$,
-and Lemma~\ref{lem:agreement} applies. Renaming away first and
-transporting the result back along substitution is also how Hindley and
-Seldin reduce $\equiv_\alpha$ to its restricted
-steps~\cite[Lemmas~A1.7 and~A1.8]{hindley2008a}, and how Crole proves
-Theorem~4.6 directly~\cite[p.~8]{crole2012a}. The case of general $n$
-is an induction on $n$ that commutes the remaining swaps past the
-first. Crole assumes $z_i \nocc M$; freshness suffices,
-because a bound occurrence of $z_i$ can be renamed away first:
+Lemma~\ref{lem:swap-subst}. Then $\sw{z}{a}$ and
+$\sw{z}{a'} \circ \sw{a}{a'}$ agree on $\free(M)$, and
+Lemma~\ref{lem:agreement} applies. For general $n$, an induction on
+$n$ commutes the remaining swaps past the first.
+\end{proof}
+
+Crole assumes $z_i \nocc M$; freshness suffices, because a bound
+occurrence of $z_i$ can be renamed away first:
 
 \begin{lemma}[{\cite[Lemma~6.6]{crole2012a}}]
 \label{lem:avoid}
@@ -296,18 +279,13 @@ and likewise with $\simp$ in place of $\simr$
 \end{lemma}
 
 This lemma justifies Barendregt's variable
-convention~\cite[2.1.13]{barendregt1985a}. Our proof follows Crole's
-sketch~\cite[p.~16]{crole2012a} except where the binder is $a$
-itself: renaming $a$ to an unused $z$ throughout the body removes
-every occurrence of $a$ at once, and Lemma~\ref{lem:swap-subst}
-relates the result to $\subst{M}{a}{z}$, so that no induction on the
-size of the term is needed. Crole calls the lemma well known;
-Hindley and Seldin show that any finitely many atoms can be made
-non-bound by renaming~\cite[Lemma~A1.5(g)]{hindley2008a}. Crole states
-the lemma for $\simr$ only and uses it only in his direct proof of
-Theorem~4.6~\cite[p.~8]{crole2012a}. The proof of
-Lemma~\ref{lem:swap-chain} needs the $\simp$ form instead, which
-cannot be derived from the $\simr$ form through
+convention~\cite[2.1.13]{barendregt1985a}. The proof follows Crole's
+sketch~\cite[p.~16]{crole2012a}, except where the binder is $a$
+itself: renaming $a$ to an unused atom throughout the body removes
+every occurrence of $a$ at once, so that no induction on the size of
+the term is needed. Crole states the lemma for $\simr$ only. The proof
+of Lemma~\ref{lem:swap-chain} needs the $\simp$ form, which cannot be
+derived from the $\simr$ form through
 Theorem~\ref{thm:crole-equivalence}, since the proof of that theorem
 uses Lemma~\ref{lem:swap-chain}.
 
@@ -330,60 +308,33 @@ For all terms $M, N \in \Lam$ the following are equivalent:
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
+\begin{proof}[Proof idea]
 Each of (ii)--(v) is shown equivalent to (i), by showing that each of
 the two relations is closed under the rules of the other. Only the
-rules for abstractions need an argument.
+rules for abstractions need an argument, and except for the rules
+$\alpha$ and $\alpha\#$ it is Crole's~\cite[pp.~5--8]{crole2012a}.
+A witness that is only fresh (\textsc{pi\#}) or may equal a bound atom
+(\textsc{pi1}) is exchanged for an unused one by
+Lemmas~\ref{lem:swap-preserve} and~\ref{lem:agreement}. The renaming
+relations are closed under \textsc{pi} by Lemma~\ref{lem:swap-subst},
+which turns the two swaps of its premise into substitutions, and two
+instances of $\alpha$ or $\alpha\#$.
 
-\emph{(i)\,$\Leftrightarrow$\,(ii).} Non-occurrence implies
-freshness, so \textsc{pi} is an instance of \textsc{pi\#}.
-Conversely, let $\sw{u}{a} \act M \simp \sw{u}{b} \act M'$ with
-$u \fresh a, b, M, M'$, and choose $z \nocc u, a, b, M, M'$. By
-Lemma~\ref{lem:swap-preserve},
-$\sw{z}{u} \act \sw{u}{a} \act M \simp \sw{z}{u} \act \sw{u}{b} \act M'$.
-The permutations $\sw{z}{u} \circ \sw{u}{a}$ and $\sw{z}{a}$ agree on
-$\free(M)$, so the left-hand side is $\simp$-related to
-$\sw{z}{a} \act M$ by Lemma~\ref{lem:agreement}, and likewise for the
-right-hand side. Hence $\sw{z}{a} \act M \simp \sw{z}{b} \act M'$, and
-\textsc{pi} applies.
-
-\emph{(i)\,$\Leftrightarrow$\,(iii).} The rule \textsc{pi1} is more
-general than \textsc{pi} only in allowing $z \in \{a, b\}$. If
-$z = a$, its premise reads $M \simp \sw{a}{b} \act M'$ with
-$a \nocc M'$. For $z' \nocc a, b, M, M'$,
-Lemma~\ref{lem:swap-preserve} and the first part of
-Lemma~\ref{lem:agreement} give
-$\sw{z'}{a} \act M \simp \sw{z'}{b} \act M'$. The case $z = b$ is
-symmetric.
-
-\emph{(i)\,$\Leftrightarrow$\,(iv).} For \textsc{pi}, let
-$\sw{z}{a} \act M \simr \sw{z}{b} \act M'$ with
-$z \nocc a, b, M, M'$. Lemma~\ref{lem:swap-subst} gives
-$\subst{M}{a}{z} \simr \subst{M'}{b}{z}$, and then
-\[
-  \lam{a}{M} \;\simr\; \lam{z}{\subst{M}{a}{z}}
-  \;\simr\; \lam{z}{\subst{M'}{b}{z}} \;\simr\; \lam{b}{M'}
-\]
-by $\alpha$, \textsc{bcg} and $\alpha$. Conversely, \textsc{ref},
-\textsc{sym} and \textsc{trs} hold for $\simp$ by
-Lemma~\ref{lem:equivalence}, and \textsc{bcg} by
-Lemma~\ref{lem:swap-preserve} and \textsc{pi}. For $\alpha$, let
-$a' \nocc a, M$ and choose $z \nocc a, a', M, \subst{M}{a}{a'}$. Then
-$\sw{z}{a} \act M \simp \sw{z}{a'} \act \subst{M}{a}{a'}$ by
-Lemma~\ref{lem:swap-chain}, which is the premise of \textsc{pi} for
-$\lam{a}{M} \simp \lam{a'}{\subst{M}{a}{a'}}$.
-
-\emph{(i)\,$\Leftrightarrow$\,(v).} As in the previous case:
-Lemma~\ref{lem:swap-subst} covers $\simrf$, and
-Lemma~\ref{lem:swap-chain} only requires $a' \fresh M$.
+For the converse, reflexivity, symmetry and transitivity of $\simp$
+are Lemma~\ref{lem:equivalence}, and \textsc{bcg} follows from
+Lemma~\ref{lem:swap-preserve} and \textsc{pi}. For $\alpha$ and
+$\alpha\#$, let $a' \fresh M$ and choose
+$z \nocc a, a', M, \subst{M}{a}{a'}$. Then
+$\sw{z}{a} \act M \simp \sw{z}{a'} \act \subst{M}{a}{a'}$ by the case
+$n = 1$ of Lemma~\ref{lem:swap-chain}, which is the premise of
+\textsc{pi} for $\lam{a}{M} \simp \lam{a'}{\subst{M}{a}{a'}}$.
 \end{proof}
 
-In the last case Crole's argument differs from ours. He proves the
-rule $\alpha$ by an induction on $M$ that fails for $\alpha\#$, where
-the substitution $\subst{M}{a}{a'}$ may have to rename a binder, and
-introduces Lemma~\ref{lem:swap-chain} for general $n$ to repair it.
-Proving the case $n = 1$ under the freshness hypothesis serves both
-rules.
+Here our argument differs from Crole's. He proves the rule $\alpha$ by
+an induction on $M$~\cite[pp.~6--7]{crole2012a} that fails for
+$\alpha\#$, where the substitution $\subst{M}{a}{a'}$ may have to
+rename a binder, and introduces Lemma~\ref{lem:swap-chain} for
+general $n$ to repair it~\cite[p.~8]{crole2012a}.
 
 The side condition of \textsc{pi} cannot be weakened much further.
 
@@ -431,12 +382,29 @@ representation that this work builds on
 (Section~\ref{subsec:named-terms}). The first part of the development
 is under review for inclusion in
 CSLib\footnote{\url{https://github.com/leanprover/cslib/pull/741}};
-the remainder is to follow in the same way. This split is possible
-because Lemma~\ref{lem:equivalence} is proved directly: Crole obtains
-reflexivity, symmetry and transitivity of $\simp$ inside the proof of
-his Theorem~4.4~\cite[p.~6]{crole2012a} and cites that theorem for
-them in the proof of Theorem~4.1~\cite[p.~5]{crole2012a}, whereas in
-the formalization Theorem~4.1 does not depend on Theorem~4.4.
+the remainder is to follow in the same way.
+
+Where the formalization departs from~\cite{crole2012a} beyond the
+proofs discussed above:
+\begin{itemize}
+  \item \emph{Order of the results.} Lemma~\ref{lem:equivalence} is
+    proved directly. Crole obtains reflexivity, symmetry and
+    transitivity of $\simp$ inside the proof of his
+    Theorem~4.4~\cite[p.~6]{crole2012a} and cites that theorem for
+    them in the proof of Theorem~4.1~\cite[p.~5]{crole2012a}. In the
+    formalization Theorem~4.1 does not depend on Theorem~4.4, which is
+    what allows the split into pull requests.
+  \item \emph{Renaming in \textsc{pi}.} The rules \textsc{pi} and
+    \textsc{pi1} are stated in CSLib with renaming
+    (Definition~\ref{def:rename}) in place of the swap, which is the
+    same under their side conditions.
+  \item \emph{Permutations.} Lemma~\ref{lem:agreement} is proved for
+    arbitrary bijections on $\Atoms$, where Crole assumes finite
+    support; the difference is immaterial for
+    terms~\cite[Remark~2.25]{gabbay2011a}.
+  \item \emph{Scope.} Crole's second contribution, alpha equivalence of
+    program contexts~\cite[Section~5]{crole2012a}, is not covered.
+\end{itemize}
 
 What a formalization has to add to~\cite{crole2012a} are the proofs
 that the paper leaves to the reader or to the literature.
@@ -480,14 +448,5 @@ Lemma~6.6 & sketched, well known
 \end{table}
 %% gabbay2011a numbers follow the 54-page author version; Crole cites the BSL version but
 %% his page numbers ("Section 5, page 21") match the author version.
-
-Three statements differ from their counterparts
-in~\cite{crole2012a}. The rules \textsc{pi} and \textsc{pi1} are
-stated in CSLib with renaming (Definition~\ref{def:rename}) in place
-of the swap, which is the same under their side conditions.
-Lemma~\ref{lem:agreement} is proved for arbitrary bijections on
-$\Atoms$, where Crole assumes finite support; the difference is
-immaterial for terms~\cite[Remark~2.25]{gabbay2011a}. And
-Lemma~\ref{lem:swap-chain} has the weaker hypothesis discussed above.
-Crole's second contribution, alpha equivalence of program
-contexts~\cite[Section~5]{crole2012a}, is not covered.
+%% TODO: gabbay2008a numbers are from the author version capasn-jv.pdf on gabbay.org.uk
+%% ("under consideration for publication"); check them against the FAC 20(4-5) version.
