@@ -1,4 +1,4 @@
-# A Formalized Foundation for Research in Untyped Lambda Calculus
+# Formalizing Alpha Equivalence for Named and Nameless Lambda Terms
 ## (cas-sc build)
 
 Same paper as the `elsarticle` build, typeset with Elsevier's newer
