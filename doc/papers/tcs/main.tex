@@ -82,25 +82,31 @@ Lean
 \input{sections/conclusion}
 
 \section*{Data availability}
-The Lean~4 formalization discussed in this paper is developed for
-CSLib (\url{https://github.com/leanprover/cslib}). The parts that are
-not yet merged there are under review in the pull requests cited in
-the text, and available at \url{\LeanRepo}, at the revisions that the
-links in this paper point to. A blueprint of both
-formalizations, with a dependency graph showing their connections, is
-at \url{https://chris-anto-froeschl.github.io/untyped-lambda-calculus/}.
-%% TODO: update once the code is upstream; consider archiving a snapshot on Zenodo and
-%% stating the Lean and Mathlib versions here.
+The Lean~4 formalization discussed in this paper is part of CSLib
+(\url{https://github.com/leanprover/cslib}), released under the
+Apache~2.0 license. The links in this paper point to a fixed revision
+at \url{\LeanRepo}, built with Lean~\texttt{v4.36.0-rc1} and Mathlib
+commit \texttt{625d891}. A blueprint of both formalizations, with a
+dependency graph showing their connections, is at
+\url{https://chris-anto-froeschl.github.io/untyped-lambda-calculus/}.
+%% TODO: re-pin to the merged upstream commit (leanrev.tex) and update the versions; Option C
+%% of the journal's data policy asks for a deposit in a repository, e.g. a Zenodo snapshot with a
+%% DOI cited here.
 
 \section*{CRediT authorship contribution statement}
 \textbf{Chris Anto Fröschl:} Conceptualization, Methodology, Software,
 Formal analysis, Investigation, Writing -- original draft,
 Visualization. \textbf{Matthias Güdemann:} Conceptualization,
-Supervision, Writing -- review and editing.
+Supervision, Writing -- review \& editing.
 
 \section*{Funding}
 This research did not receive any specific grant from funding agencies
 in the public, commercial, or not-for-profit sectors.
+
+\section*{Declaration of competing interest}
+The authors declare that they have no known competing financial
+interests or personal relationships that could have appeared to
+influence the work reported in this paper.
 
 %% Heading as in Elsevier's generative AI policy for journals (checked 2026-10-25,
 %% https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals).
@@ -116,6 +122,18 @@ proof pearl~\cite{norrish2007a}, and earlier sources for the lemmas of
 Section~6 of~\cite{crole2012a}. All of them were checked by the
 authors against the original texts. The authors take full
 responsibility for the content of the published article.
+
+\section*{Acknowledgements}
+This work builds on developments that became available in CSLib at
+the right time. We thank Haoxuan Yin and Fabrizio Montesi for the named
+representation of the $\lambda$-calculus on which
+Sections~\ref{sec:cslib} and~\ref{sec:alpha-equivalences} build,
+Zayn Wang and Maksym Radziwill for the de Bruijn terms and their
+Church--Rosser proof, and Bas Spitters for the atoms and finite
+permutations of nominal techniques, both used in
+Section~\ref{sec:de-bruijn}. We also thank Thomas Krishna Waring and
+Haoxuan Yin for their rigorous reviews of the pull requests, which
+greatly improved the quality of the code.
 
 \bibliographystyle{cas-model2-names}
 \bibliography{refs}
