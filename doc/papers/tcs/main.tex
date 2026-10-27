@@ -35,7 +35,7 @@ either by renaming bound variables or by swapping the bound variables
 of two abstractions with the same fresh variable, and each style comes
 in several variants. That these definitions agree is widely
 accepted, but Crole observed that published proof sketches of this
-fact are sometimes incorrect, and proved in detail that five such
+fact are sometimes incorrect, and proved in detail that several such
 definitions give the same relation. We formalize Crole's theorem in
 the Lean~4 proof assistant, as part of the library CSLib. To our
 knowledge the theorem had not been mechanized before. The
@@ -43,8 +43,8 @@ formalization supplies the proofs that Crole omits or only sketches,
 and we list earlier sources for the lemmas it needs. As a second
 result we formalize, following Norrish and Vestergaard, an isomorphism
 between named terms modulo alpha equivalence and pure de Bruijn terms,
-with their respective notions of beta-reduction; by Crole's theorem it
-does not matter which of the five definitions the quotient is taken
+with their respective notions of beta-reduction; by the first result it
+does not matter which of these definitions the quotient is taken
 by. Through the isomorphism, the Church--Rosser theorem for de Bruijn
 terms becomes a theorem about named terms, and the two representations
 of lambda terms are connected within one library. Both results are
@@ -54,8 +54,8 @@ Lean sources.
 \end{abstract}
 
 \begin{highlights}
-\item Machine-checked proof that Crole's five definitions of alpha
-  equivalence coincide.
+\item Machine-checked proof that common definitions of alpha equivalence
+  coincide.
 \item Formalized isomorphism of de Bruijn terms and named terms modulo
   alpha equivalence.
 \item Connects the named and de Bruijn APIs of CSLib, so results transfer between them.

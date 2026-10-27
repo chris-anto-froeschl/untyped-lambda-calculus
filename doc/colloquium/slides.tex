@@ -82,7 +82,7 @@
 
 \begin{frame}{Context}
   \begin{itemize}
-    \item Crole~\cite{crole2012a}: five definitions of $\alphaeq$ from the literature define
+    \item Crole~\cite{crole2012a}: several definitions of $\alphaeq$ from the literature define
       the same relation (widely accepted; published proof sketches are sometimes wrong).
     \item Norrish and Vestergaard~\cite{norrish2007a}: named terms modulo $\alphaeq$ and pure
       de Bruijn terms are isomorphic as reduction systems (mechanized in HOL4).
@@ -106,7 +106,7 @@
   Lean.
   \begin{enumerate}
     \item[(a)] The three operations on $M = \lam{a}{a\,b}$: renaming, swap, substitution.
-    \item[(b)] The five relations on $\lam{a}{a\,b}$ and $\lam{c}{c\,b}$, from $\alphaeq$ through
+    \item[(b)] All relations on $\lam{a}{a\,b}$ and $\lam{c}{c\,b}$, from $\alphaeq$ through
       Crole's theorems and directly by each relation's own rule.
     \item[(c)] The counterexamples of Proposition~4.3.
     \item[(d)] De Bruijn: $f$ on the running example, the bijection, one $\beta$-step on both
@@ -141,7 +141,7 @@
   \end{align*}
 \end{frame}
 
-\begin{frame}{Five alpha equivalences \cite[Defs.~3.1--3.5]{crole2012a}}
+\begin{frame}{Alpha equivalences \cite[Defs.~3.1--3.5]{crole2012a}}
   Swapping relations: congruence for atoms and applications, plus
   \[
     \infrule{pi}{\sw{z}{a} \act M \sim \sw{z}{b} \act M'}{\lam{a}{M} \sim \lam{b}{M'}}

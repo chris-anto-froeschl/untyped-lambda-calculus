@@ -12,7 +12,7 @@ free in it~\cite[Definition~1.17]{hindley2008a}. Gabbay and
 Pitts~\cite{gabbay2002a} instead give syntax-directed rules in which
 the two bound variables are swapped with a third. That these
 definitions describe the same relation is widely accepted.
-Crole~\cite{crole2012a} proves in detail that five such relations
+Crole~\cite{crole2012a} proves in detail that several such relations
 coincide.
 
 The details are easy to get wrong. In the 1988 edition of their
@@ -50,8 +50,8 @@ calculus, which Section~\ref{sec:cslib} recalls.
 
 \begin{enumerate}
   \item Section~\ref{sec:alpha-equivalences} formalizes Crole's
-    theorem. Five relations on named terms, three defined by swapping
-    and two by a renaming axiom, are equal
+    theorem. Relations on named terms defined by swapping and by a
+    renaming axiom are equal
     (Theorem~\ref{thm:crole-equivalence}), whereas two further
     variants of the side condition define different relations
     (Proposition~\ref{prop:variants}). To our knowledge the theorem
@@ -63,7 +63,7 @@ calculus, which Section~\ref{sec:cslib} recalls.
     equivalence and de Bruijn terms, with their respective notions of
     $\beta$-reduction (Theorem~\ref{thm:db-isomorphism}). The quotient
     is taken by the alpha equivalence of CSLib, which is the first of
-    Crole's five relations. As an application, the Church--Rosser
+    Crole's relations. As an application, the Church--Rosser
     theorem for de Bruijn terms yields the Church--Rosser theorem for
     named terms modulo alpha equivalence
     (Corollary~\ref{cor:church-rosser}). This result is not new as a
