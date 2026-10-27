@@ -6,10 +6,10 @@
 
 \begin{document}
 
-\shorttitle{Formalizing Alpha Equivalence for Named and Nameless Lambda Terms}
+\shorttitle{Formalizing Alpha-Equivalence for Named and Nameless Lambda Terms}
 \shortauthors{C.A. Fröschl and M. Güdemann}
 
-\title[mode=title]{Formalizing Alpha Equivalence for Named and Nameless Lambda Terms}
+\title[mode=title]{Formalizing Alpha-Equivalence for Named and Nameless Lambda Terms}
 
 \author[1]{Chris Anto Fröschl}[orcid=0009-0006-3562-5395]
 \cormark[1]
@@ -30,33 +30,33 @@
 \cortext[1]{Corresponding author}
 
 \begin{abstract}
-Alpha equivalence of lambda terms with named variables is defined
+Alpha-equivalence of $\lambda$ terms with named variables is defined
 either by renaming bound variables or by swapping the bound variables
 of two abstractions with the same fresh variable, and each style comes
 in several variants. That these definitions agree is widely
 accepted, but Crole observed that published proof sketches of this
-fact are sometimes incorrect, and proved in detail that several such
+fact are sometimes incorrect. He provided a pen-and-paper proof that several such
 definitions give the same relation. We formalize Crole's theorem in
 the Lean~4 proof assistant, as part of the library CSLib. To our
 knowledge the theorem had not been mechanized before. The
-formalization supplies the proofs that Crole omits or only sketches,
-and we list earlier sources for the lemmas it needs. As a second
+formalization supplies the proofs that Crole omits or only sketches.
+The paper references earlier sources for the now formalized lemmas in question. As a second
 result we formalize, following Norrish and Vestergaard, an isomorphism
-between named terms modulo alpha equivalence and pure de Bruijn terms,
-with their respective notions of beta-reduction; by the first result it
-does not matter which of these definitions the quotient is taken
-by. Through the isomorphism, the Church--Rosser theorem for de Bruijn
-terms becomes a theorem about named terms, and the two representations
-of lambda terms are connected within one library. Both results are
-part of CSLib, where further work on the untyped lambda calculus can
+between named terms modulo $\alpha$-equivalence and pure de Bruijn terms,
+with their respective notions of $\beta$-reduction. By the first result it
+does not matter which of these definitions the quotient is taken by.
+Through the isomorphism, the Church--Rosser theorem for de Bruijn
+terms becomes a theorem about named terms, and the two separately developed representations
+of $\lambda$ terms are connected within one library. Both results are
+part of CSLib, where further work on the untyped $\lambda$-calculus can
 build on them. The statements in this paper are linked to their
 Lean sources.
 \end{abstract}
 
 \begin{highlights}
-\item Formalizes the proof that common definitions of alpha equivalence
+\item Formalizes the proof that common definitions of $\alpha$-equivalence
   coincide.
-\item Formalizes the isomorphism of de Bruijn terms and alpha-quotiented
+\item Formalizes the isomorphism of de Bruijn terms and $\alpha$-quotiented
   named terms.
 \item Connects the named and de Bruijn APIs of CSLib, so results transfer between them.
 \end{highlights}

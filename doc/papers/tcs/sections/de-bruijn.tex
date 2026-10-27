@@ -3,23 +3,23 @@
 
 %% The commit of all Lean links is set in leanrev.tex. TODO: re-pin it once the code is upstream.
 
-De Bruijn indices remove the need for alpha equivalence altogether by
+De Bruijn indices remove the need for $\alpha$-equivalence altogether by
 replacing bound variable names with numerals counting binder depth.
 Norrish and Vestergaard~\cite{norrish2007a} give a direct,
 mechanized proof that the pure de Bruijn calculus is isomorphic to
-the alpha-quotiented named calculus, so that a result proved on de
-Bruijn terms is a result about lambda terms in the ordinary sense. We
+the $\alpha$-quotiented named calculus, so that a result proved on de
+Bruijn terms is a result about $\lambda$ terms in the ordinary sense. We
 formalize this isomorphism for the named terms and the de Bruijn
 terms of CSLib; the formalization is under review for inclusion in
 CSLib\footnote{\href{https://github.com/leanprover/cslib/pull/\DBPR}{\texttt{https://github.com/leanprover/cslib/pull/\DBPR}}},
 on top of the pull requests for the de Bruijn terms (below) and for
 Theorem~4.1 of Section~\ref{sec:alpha-equivalences}. By Theorem~\ref{thm:crole-equivalence} it does not
-matter which of these alpha equivalences is quotiented by; the
+matter which of these $\alpha$-equivalences is quotiented by; the
 formalization uses $\simp$.
 
 Norrish and Vestergaard place their isomorphism in a web of directly
-proved relationships between ten formalizations of the untyped lambda
-calculus, reproduced in Figure~\ref{fig:equivalence-net}. With this
+proved relationships between ten formalizations of the untyped
+$\lambda$-calculus, reproduced in Figure~\ref{fig:equivalence-net}. With this
 section, CSLib contains the nodes $\LamDB$, $\LamDB'$ and
 $\lambda^{N}_{\alpha}$ and the two dashed edges between them.
 
@@ -62,7 +62,7 @@ $\lambda^{N}_{\alpha}$ and the two dashed edges between them.
   \draw[quo] (lC) -- node[lab, right] {$\alpha$} (lHi);
   \draw[quo] (lC) -- node[lab, below right] {$\alpha$} (lHo);
 \end{tikzpicture}
-\caption{Formalizations of the untyped lambda calculus and their directly
+\caption{Formalizations of the untyped $\lambda$-calculus and their directly
   proved relationships, redrawn from~\cite[Figure~1]{norrish2007a} with
   the help of Claude (Anthropic) and checked against the original.
   Double lines are isomorphisms and arrows are $\alpha$-quotients. The
@@ -75,7 +75,7 @@ $\lambda^{N}_{\alpha}$ and the two dashed edges between them.
 We keep the notation of~\cite{norrish2007a} on the de Bruijn side,
 where $t, u, s$ range over de Bruijn terms and $i, j, k, n$ over
 indices. As in~\cite{norrish2007a}, $M$ and $N$ range over
-alpha-equivalence classes in this section.
+$\alpha$-equivalence classes in this section.
 
 \subsection{De Bruijn terms}
 \label{subsec:db-terms}
@@ -335,7 +335,7 @@ For distinct atoms $a$ and $b$,
 \]
 the bound atom becomes the index $0$, and the free atom $b$ is
 shifted past the binder. For every atom $c \neq b$, the
-alpha-equivalent term $\lam{c}{c\,b}$ has the same image
+$\alpha$-equivalent term $\lam{c}{c\,b}$ has the same image
 \lean{\DemoSrc\#L236}.
 \end{example}
 
@@ -489,7 +489,7 @@ stated in terms of the reduction relation. The de Bruijn development
 we build on proves the Church--Rosser theorem for $\tod$
 \lean{\DBSrc/Unscoped/Untyped/ChurchRosser.lean\#L45}.
 With Theorem~\ref{thm:db-isomorphism} it becomes a theorem about
-named terms up to alpha equivalence, with no further work on the
+named terms up to $\alpha$-equivalence, with no further work on the
 named side.
 
 \begin{corollary}[Church--Rosser for $\LamA$]
