@@ -16,6 +16,11 @@
 \newtheorem{example}[theorem]{Example}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+%% Keep each definition on one page: no page break between its lines or around its displays.
+\usepackage{etoolbox}
+\AtBeginEnvironment{definition}{%
+  \interlinepenalty=10000 \predisplaypenalty=10000
+  \postdisplaypenalty=10000 \interdisplaylinepenalty=10000}
 
 %% Named terms (notation of Crole, with lambda-syntax)
 \newcommand{\Atoms}{\mathbb{A}}
@@ -63,9 +68,6 @@
 \input{leanrev}
 \newcommand{\DBRev}{\LeanRev}
 \newcommand{\CroleRev}{\LeanRev}
-%% Number of the CSLib pull request with the de Bruijn isomorphism (Section 4).
-%% TODO: set it once the pull request is open.
-\newcommand{\DBPR}{TODO}
 \newcommand{\CroleSrc}{\LeanRepo/blob/\CroleRev/\LeanPath}
 \newcommand{\DBSrc}{\LeanRepo/blob/\DBRev/\LeanPath}
 %% The worked example of Sections 3 and 4 (CSLib's test file), at the same commit.

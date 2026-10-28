@@ -10,18 +10,19 @@ mechanized proof that the pure de Bruijn calculus is isomorphic to
 the $\alpha$-quotiented named calculus, so that a result proved on de
 Bruijn terms is a result about $\lambda$-terms in the ordinary sense. We
 formalize this isomorphism for the named terms and the de Bruijn
-terms of CSLib; the formalization is under review for inclusion in
-CSLib\footnote{\href{https://github.com/leanprover/cslib/pull/\DBPR}{\texttt{https://github.com/leanprover/cslib/pull/\DBPR}}},
-on top of the pull requests for the de Bruijn terms (below) and for
-Theorem~4.1 of Section~\ref{sec:alpha-equivalences}. By Theorem~\ref{thm:crole-equivalence} it does not
-matter which of these $\alpha$-equivalences is quotiented by; the
-formalization uses $\simp$.
+terms of CSLib.
+By Theorem~\ref{thm:crole-equivalence} it does not matter which of
+the $\alpha$-equivalences of Section~\ref{sec:alpha-equivalences} is
+quotiented by. The formalization uses $\simp$.
 
 Norrish and Vestergaard place their isomorphism in a web of directly
 proved relationships between ten formalizations of the untyped
 $\lambda$-calculus, reproduced in Figure~\ref{fig:equivalence-net}. With this
 section, CSLib contains the nodes $\LamDB$, $\LamDB'$ and
-$\lambda^{N}_{\alpha}$ and the two dashed edges between them.
+$\lambda^{N}_{\alpha}$ and the two dashed edges between them. CSLib
+constructs the substitution of $\lambda^{N}_{\alpha}$ differently from
+Norrish and Vestergaard, but obtains the same function
+(Section~\ref{subsec:lam-alpha}).
 
 \begin{figure}[pos=b]
 \centering
@@ -63,8 +64,7 @@ $\lambda^{N}_{\alpha}$ and the two dashed edges between them.
   \draw[quo] (lC) -- node[lab, below right] {$\alpha$} (lHo);
 \end{tikzpicture}
 \caption{Formalizations of the untyped $\lambda$-calculus and their directly
-  proved relationships, redrawn from~\cite[Figure~1]{norrish2007a} with
-  the help of Claude (Anthropic) and checked against the original.
+  proved relationships, redrawn from~\cite[Figure~1]{norrish2007a}.
   Double lines are isomorphisms and arrows are $\alpha$-quotients. The
   dashed lines are the results of~\cite{norrish2007a}, which
   this section formalizes; thick \textcolor{cslib}{blue} outlines mark what is
@@ -74,20 +74,19 @@ $\lambda^{N}_{\alpha}$ and the two dashed edges between them.
 
 We keep the notation of~\cite{norrish2007a} on the de Bruijn side,
 where $t, u, s$ range over de Bruijn terms and $i, j, k, n$ over
-indices. As in~\cite{norrish2007a}, $M$ and $N$ range over
-$\alpha$-equivalence classes in this section.
+indices. As in~\cite{norrish2007a}, after Definition~\ref{def:lam-alpha},
+$M$ and $N$ range over $\alpha$-equivalence classes.
 
 \subsection{De Bruijn terms}
 \label{subsec:db-terms}
 
 The de Bruijn terms, their substitution and $\beta$-reduction, and the
 proof of the Church--Rosser theorem used in
-Section~\ref{subsec:transfer} are not ours: they are due to Wang, the
-syntax and substitution jointly with
-Radziwill\footnote{\url{https://github.com/leanprover/cslib/pull/475}}.
-%% TODO: PR 475 is open at the time of writing (checked 2026-10-13). The names are the
-%% author lines of its files (DeBruijnSyntax.lean: Zayn Wang, Maksym Radziwill; the other three
-%% files: Zayn Wang); confirm them and how to cite.
+Section~\ref{subsec:transfer} are due to Zayn
+Wang\footnote{\url{https://github.com/leanprover/cslib/pull/475}}.
+%% All commits of PR 475 are by Zayn Wang (zayn7lie). DeBruijnSyntax.lean also lists Maksym
+%% Radziwill as author, credited in the file for one idea (incre_same_bound_elim); the user chose
+%% on 2026-10-28 to credit only Zayn Wang.
 
 \begin{definition}[De Bruijn terms {\cite[Section~2.2]{norrish2007a}}]
 \label{def:db-terms}
@@ -139,11 +138,11 @@ The relation $\tod$ on $\LamDB$ is the least relation satisfying
 
 \begin{definition}[{\cite[Section~2.1]{norrish2007a}}]
 \label{def:lam-alpha}
-\lean{\DBSrc/Named/Untyped/AlphaQuotient.lean\#L71}
+\lean{\DBSrc/Named/Untyped/AlphaQuotient.lean\#L73}
 $\LamA$ is the quotient of $\Lam$ by $\simp$. We write $\cls{M}$ for
 the class of a term $M \in \Lam$. Application, abstraction and
 substitution
-\lean{\DBSrc/Named/Untyped/AlphaQuotient.lean\#L99}
+\lean{\DBSrc/Named/Untyped/AlphaQuotient.lean\#L101}
 are lifted from $\Lam$ to $\LamA$:
 \[
   \cls{M}\, \cls{N} = \cls{M\, N}
@@ -171,7 +170,7 @@ $\cls{a\,b} \neq \cls{c\,b}$.
 
 \begin{definition}[$\beta$-reduction on $\LamA$]
 \label{def:beta-alpha}
-\lean{\DBSrc/Named/Untyped/AlphaQuotient.lean\#L122}
+\lean{\DBSrc/Named/Untyped/AlphaQuotient.lean\#L124}
 The relation $\tobeta$ on $\LamA$ is the least relation satisfying
 \begin{gather*}
   \infrule{}{}{(\lam{a}{M})\, N \tobeta \subst{M}{a}{N}}
@@ -184,12 +183,16 @@ The relation $\tobeta$ on $\LamA$ is the least relation satisfying
 \end{gather*}
 \end{definition}
 
-This is the system $\lambda^{\mathrm{N}}_{\alpha}$
-of~\cite{norrish2007a} up to the definition of substitution. There,
-substitution is defined directly on the quotient by a recursion
-principle~\cite[Section~2.1]{norrish2006a}. Here, it is lifted from
-raw terms, which is how Norrish and Vestergaard describe the
-construction of $\lambda^{Ho}_{\alpha}$~\cite[Section~2.1]{norrish2007a}.
+Substitution on $\LamA$ is lifted from raw terms, as Homeier does for
+$\lambda^{Ho}_{\alpha}$~\cite[Section~2.1]{norrish2007a}. In
+$\lambda^{N}_{\alpha}$ it is instead defined directly on the
+quotient by a recursion principle~\cite[Section~2.1]{norrish2006a}.
+Both satisfy the equations by which Norrish characterizes substitution
+on the quotient~\cite[(6)]{norrish2006a}, and these equations determine
+it uniquely
+\lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L213}.
+Hence $\langle \LamA, \tobeta \rangle$ is the system
+$\lambda^{N}_{\alpha}$ of~\cite{norrish2007a}.
 
 Two systems $\langle X, \to_X \rangle$ and $\langle Y, \to_Y \rangle$
 are \emph{isomorphic} if there is a bijection $f \colon X \to Y$ with
@@ -217,7 +220,7 @@ and~\ref{thm:dbeta-coincide} below.
 \end{proof}
 
 The notion of isomorphic reduction systems used here is exactly
-Mathlib's relation isomorphism, and the formalization also states
+Mathlib's relation isomorphism. The formalization also states
 Theorem~\ref{thm:db-isomorphism} in that form,
 $\langle \LamA, \tobeta \rangle \simeq_r \langle \LamDB, \tod \rangle$
 \lean{\DBSrc/NamedDeBruijn/Isomorphism.lean\#L151}.
@@ -346,21 +349,21 @@ Since $\LamA$ is not a free algebra, the equations~\eqref{eq:f} do not
 define a function by themselves. Norrish and Vestergaard obtain $f$
 from Pitts' recursion principle for
 $\LamA$~\cite{pitts2006a}, for which $\LamDB$ has to be shown to be
-a nominal set. The formalization takes a more elementary route: the
+a nominal set. The formalization takes a more elementary route. The
 equations~\eqref{eq:f} define a function on raw terms by structural
 recursion
-\lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L106},
-this function is shown to respect $\simp$
+\lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L106}.
+This function respects $\simp$
 \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L181},
 and $f$ is its lift to the quotient
 \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L339}.
 Injectivity
 \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L192}
 is proved by structural induction on raw terms. Its abstraction case
-rests on the fact that $\dLAM$ is injective up to a transposition:
-$\dLAM\, i\, t = \dLAM\, j\, u$ holds exactly if $i = j$ and $t = u$,
-or $i \neq j$, the index $i$ is not free in $u$, and $t$ is $u$ with
-$i$ and $j$ exchanged
+rests on the fact that $\dLAM$ is injective up to a transposition.
+Namely, $\dLAM\, i\, t = \dLAM\, j\, u$ holds exactly if $i = j$ and
+$t = u$, or if $i \neq j$, the index $i$ is not free in $u$, and $t$
+is $u$ with $i$ and $j$ exchanged
 \lean{\DBSrc/NamedDeBruijn/LiftingPermutation.lean\#L332}.
 Surjectivity
 \lean{\DBSrc/NamedDeBruijn/FromTerm.lean\#L263}
@@ -393,7 +396,7 @@ It remains to show that $\tod$ and $\todp$ are the same relation on
 $\LamDB$. Their rules for redexes are related by an identity between
 $\dbsub$ and $\nsub$
 \lean{\DBSrc/NamedDeBruijn/LiftingPermutation.lean\#L54}
-\cite[Lemma~13]{norrish2007a}; the difficulty is
+\cite[Lemma~13]{norrish2007a}. The difficulty is
 to match the congruence rule for $\dABS$ with the one for $\dLAM$.
 This is where permutations enter on the de Bruijn side. A permutation
 $\pi$ of atoms acts on a de Bruijn term through the free indices
@@ -477,11 +480,10 @@ $(\lam{a}{\cls{a\,b}})\,\cls{c} \tobeta \cls{c\,b}$
   \dAPP\, (\dABS\, (\dAPP\, (\dV\, 0)\, (\dV\, (\hat{b} + 1))))\,
     (\dV\, \hat{c})
   \;\tod\;
-  \dAPP\, (\dV\, \hat{c})\, (\dV\, \hat{b})
+  \dAPP\, (\dV\, \hat{c})\, (\dV\, \hat{b})\text{\lean{\DemoSrc\#L264}}.
 \]
-\lean{\DemoSrc\#L264}: $\nsub$ replaces the bound index $0$ by
-$\dV\, \hat{c}$ and decrements the index of $b$, whose binder has
-disappeared.
+Here $\nsub$ replaces the bound index $0$ by $\dV\, \hat{c}$ and
+decrements the index of $b$, whose binder has disappeared.
 \end{example}
 
 \subsection{Using the isomorphism}
@@ -497,7 +499,7 @@ named side.
 
 \begin{corollary}[Church--Rosser for $\LamA$]
 \label{cor:church-rosser}
-\lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L147}
+\lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L149}
 The relation $\tobeta$ on $\LamA$ is confluent: if $M \tobetastar N_1$
 and $M \tobetastar N_2$ then there is $P$ with $N_1 \tobetastar P$ and
 $N_2 \tobetastar P$.
@@ -505,13 +507,13 @@ $N_2 \tobetastar P$.
 
 \begin{corollary}
 \label{cor:normal-form-unique}
-\lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L220}
+\lean{\DBSrc/NamedDeBruijn/Transfer.lean\#L258}
 If $M \tobetastar N_1$ and $M \tobetastar N_2$ and both $N_1$ and
 $N_2$ are $\beta$-normal, then $N_1 = N_2$.
 \end{corollary}
 
 %% TODO: the same file also derives BVC-style induction for the quotient from the
-%% de Bruijn side (TermAlpha.bvc_induction, NamedDeBruijn/Transfer.lean#L215). Worth a statement?
+%% de Bruijn side (TermAlpha.bvc_induction, NamedDeBruijn/Transfer.lean#L170). Worth a statement?
 
 The same method applies to $\eta$-reduction: $f$ is also an
 isomorphism between $\eta$-reduction on $\LamA$ and Nipkow's
@@ -528,9 +530,8 @@ $\eta$-reduction on $\LamDB$~\cite[Section~4.4]{norrish2007a}
     numbers wrapped in a structure, for which the two hat maps are the
     projection and the constructor
     \lean{\LeanRepo/blob/\LeanRev/Cslib/Logics/Nominal/Atom.lean\#L44}.
-    %% TODO: the types of atoms and of finitely supported permutations (Atom, FinPerm)
-    %% are ported from the repository spitters/nominal-lean (Bas Spitters), which in turn ports
-    %% the nominal layer of SSProve. Decide how to credit and cite this.
+    %% Atom and FinPerm are ported from spitters/nominal-lean (Bas Spitters), which ports the
+    %% nominal layer of SSProve; credited in the Acknowledgements.
   \item \emph{Permutations.} Norrish and Vestergaard represent a
     permutation as a list of pairs of strings. The formalization uses
     finitely supported bijections on atoms
@@ -548,7 +549,7 @@ $\eta$-reduction on $\LamDB$~\cite[Section~4.4]{norrish2007a}
     explicit pair of mutually inverse functions. Its inverse is
     obtained from surjectivity by choice and is not computable.
   \item \emph{Equivariance.} There is no general notion of an
-    equivariant relation in the library used. In
+    equivariant relation in CSLib. In
     Theorem~\ref{thm:abs-congr} equivariance is a hypothesis on $R$,
     and it is proved separately for each of the relations to which the
     theorem is applied.
