@@ -13,7 +13,7 @@ public import Mathlib.GroupTheory.Perm.Basic
 # Finite Permutations
 
 This file defines finite permutations of atoms - permutations that only move
-finitely many atoms. This is the key structure for nominal set theory.
+finitely many atoms.
 
 ## Main definitions
 
@@ -26,9 +26,6 @@ Since `Atom` is infinite (not `Fintype`), we cannot use Mathlib's `Perm.support`
 directly (which requires `Fintype`). Instead, we define a predicate
 `IsFinitelySupported` that states a permutation has finite support, and define
 `FinPerm` as the subtype of permutations satisfying this predicate.
-
-Key insight: in nominal set theory, we only work with *finitely-supported*
-permutations, even though the set of atoms is infinite.
 
 This file is ported from the `spitters/nominal-lean` repository.
 
@@ -65,7 +62,6 @@ def apply (π : FinPerm) (a : Atom) : Atom := π.val a
 
 instance : CoeFun FinPerm (fun _ => Atom → Atom) := ⟨apply⟩
 
-@[simp]
 theorem apply_def (π : FinPerm) (a : Atom) : π a = π.val a := rfl
 
 theorem val_injective : Function.Injective (Subtype.val : FinPerm → Perm Atom) :=
@@ -88,11 +84,7 @@ def one : FinPerm :=
 
 instance : One FinPerm := ⟨one⟩
 
-@[simp]
 theorem one_apply (a : Atom) : (1 : FinPerm) a = a := rfl
-
-@[simp]
-theorem one_val : (1 : FinPerm).val = 1 := rfl
 
 /-- Composition of finite permutations -/
 def mul (π₁ π₂ : FinPerm) : FinPerm :=
@@ -108,11 +100,7 @@ def mul (π₁ π₂ : FinPerm) : FinPerm :=
 
 instance : Mul FinPerm := ⟨mul⟩
 
-@[simp]
 theorem mul_apply (π₁ π₂ : FinPerm) (a : Atom) : (π₁ * π₂) a = π₁ (π₂ a) := rfl
-
-@[simp]
-theorem mul_val (π₁ π₂ : FinPerm) : (π₁ * π₂).val = π₁.val * π₂.val := rfl
 
 /-- Inverse of a finite permutation -/
 def inv (π : FinPerm) : FinPerm :=
@@ -125,21 +113,15 @@ def inv (π : FinPerm) : FinPerm :=
 
 instance : Inv FinPerm := ⟨inv⟩
 
-@[simp]
-theorem inv_apply (π : FinPerm) (a : Atom) : π⁻¹ a = π.val.symm a := rfl
-
-@[simp]
-theorem inv_val (π : FinPerm) : π⁻¹.val = π.val⁻¹ := rfl
-
 /-- Finite permutations form a group -/
 instance : Group FinPerm where
   mul := (· * ·)
   one := 1
   inv := (·⁻¹)
-  mul_assoc π₁ π₂ π₃ := by ext a; simp [mul_assoc]
-  one_mul π := by ext a; simp
-  mul_one π := by ext a; simp
-  inv_mul_cancel π := by ext a; simp
+  mul_assoc _ _ _ := rfl
+  one_mul _ := rfl
+  mul_one _ := rfl
+  inv_mul_cancel π := FinPerm.ext fun a => π.val.symm_apply_apply a
 
 /-- Transposition: swap two atoms -/
 noncomputable def swap (a b : Atom) : FinPerm :=
@@ -157,20 +139,17 @@ theorem swap_apply_right (a b : Atom) : swap a b b = a := Equiv.swap_apply_right
 theorem swap_apply_of_ne_of_ne {a b c : Atom} (hca : c ≠ a) (hcb : c ≠ b) :
     swap a b c = c := Equiv.swap_apply_of_ne_of_ne hca hcb
 
-@[simp]
 theorem swap_val (a b : Atom) : (swap a b).val = Equiv.swap a b := rfl
 
-@[simp]
-theorem swap_self (a : Atom) : swap a a = 1 := by
-  ext c; simp [Equiv.swap_self]
+theorem swap_self (a : Atom) : swap a a = 1 :=
+  FinPerm.ext fun c => by rw [apply_def, swap_val, Equiv.swap_self]; rfl
 
-theorem swap_comm (a b : Atom) : swap a b = swap b a := by
-  ext c; simp [Equiv.swap_comm]
+theorem swap_comm (a b : Atom) : swap a b = swap b a :=
+  FinPerm.ext fun c => congrArg (· c) (Equiv.swap_comm a b)
 
-theorem swap_swap (a b : Atom) : swap a b * swap a b = 1 := by
-  ext c; simp
+theorem swap_swap (a b : Atom) : swap a b * swap a b = 1 :=
+  FinPerm.ext fun c => Equiv.swap_apply_self a b c
 
-@[simp]
 theorem swap_inv (a b : Atom) : (swap a b)⁻¹ = swap a b :=
   inv_eq_of_mul_eq_one_right (swap_swap a b)
 

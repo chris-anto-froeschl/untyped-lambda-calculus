@@ -6,48 +6,25 @@ Authors: Chris Anto Fröschl
 
 module
 
-public import Cslib.Languages.LambdaCalculus.Named.Untyped.Properties
+public import Cslib.Languages.LambdaCalculus.Named.Untyped.AlphaEquivProperties
 
-/-! # The α-quotiented λ-calculus `Λα` and the reduction system `λNα`
+/-! # Named λ-terms up to α-equivalence
 
-This file provides the *named* side of the isomorphism of
-
-* Michael Norrish and René Vestergaard, *Proof Pearl: de Bruijn Terms Really Do Work*,
-  TPHOLs 2007,
-
-namely the type `Λα` of the paper's Section 2.1 and the reduction system `λNα` of its Table 1:
-the quotient of the raw syntax `Λvar` by α-equivalence, with substitution and β-reduction
-defined *directly on the quotient* (as in Norrish [12] and Pitts [14]).
-
-Cslib already provides the raw syntax `Λvar` (`Named.Untyped.Term`), capture-avoiding
-substitution on it, α-equivalence (`Term.AlphaEquiv`, Definition 3.1 of Crole) and the proofs
-that α-equivalence is an equivalence relation and is respected by substitution.  What is added
-here is only the quotient packaging:
-
-| Paper                | Cslib                    |
-|----------------------|--------------------------|
-| `Λvar`               | `Term Var`               |
-| `=α`                 | `Term.AlphaEquiv`        |
-| `Λα`                 | `TermAlpha Var`          |
-| `VAR v`              | `TermAlpha.var v`        |
-| `APP M N`            | `TermAlpha.app M N`      |
-| `LAM v M`            | `TermAlpha.abs v M`      |
-| `M[v := N]`          | `TermAlpha.subst M v N`  |
-| `→β` of `λNα`        | `BetaAlpha`              |
+The type `TermAlpha Var` (written `Λα`) of named λ-terms quotiented by α-equivalence, so that
+terms differing only in the names of bound variables are equal. Variables, application,
+abstraction and capture-avoiding substitution are lifted from raw terms, and β- and η-reduction
+are defined directly on the quotient. Defining substitution on the quotient by recursion instead,
+as in [Norrish2006], gives the same function (`TermAlpha.subst_unique` in
+`AlphaQuotientProperties.lean`).
 
 ## Main definitions
 
-* `Term.alphaSetoid`, `TermAlpha` : the type `Λα`.
-* `TermAlpha.var`, `TermAlpha.app`, `TermAlpha.abs`, `TermAlpha.subst` : the operations of `Λα`,
-  obtained by lifting the corresponding operations of `Λvar` through the quotient.  Note that
-  `TermAlpha.abs` is *not* injective, which is precisely the reason the paper needs
-  Pitts-style recursion (or, here, a lifting argument) to define the map into `dB`.
-* `BetaAlpha` : β-reduction of `λNα`, defined directly at the quotient level.
+* `TermAlpha` : the type `Λα`, with `⟦m⟧α` the class of `m` and `TermAlpha.var`, `app`, `abs`,
+  `subst` lifted from raw terms.
+* `BetaAlpha`, `EtaAlpha` : β- and η-reduction on `Λα`.
 
 ## References
 
-* [Michael Norrish and René Vestergaard, *Proof Pearl: de Bruijn Terms Really Do
-  Work*][Norrish2007a]
 * [Michael Norrish, *Mechanising λ-calculus using a classical first order theory of terms with
   permutations*][Norrish2006]
 -/
@@ -62,14 +39,13 @@ variable {Var : Type u} [DecidableEq Var] [HasFresh Var]
 
 namespace LambdaCalculus.Named.Untyped
 
-/-- α-equivalence, packaged as a `Setoid` (the underlying equivalence relation is
-`Term.AlphaEquiv`, i.e. Definition 3.1 of Crole; the three components are `AlphaEquiv.refl`,
-`AlphaEquiv.symm` and `AlphaEquiv.trans`). -/
+/-- α-equivalence as a `Setoid`: two raw terms are identified when they differ only in the names
+of their bound variables. -/
 def Term.alphaSetoid (Var : Type u) [DecidableEq Var] [HasFresh Var] : Setoid (Term Var) where
   r := Term.AlphaEquiv
   iseqv := ⟨Term.AlphaEquiv.refl, Term.AlphaEquiv.symm, Term.AlphaEquiv.trans⟩
 
-/-- `Λα`: the α-quotient of the raw syntax `Λvar` (paper, Section 2.1). -/
+/-- `Λα`: raw terms up to α-equivalence. -/
 @[blueprint "def:nv-lambda-alpha"
   (title := "The type $\\Lambda_\\alpha$")
   (statement := /-- $\Lambda_\alpha$ is the quotient of the raw syntax $\Lambda^{\mathrm{var}}$ of
@@ -89,22 +65,23 @@ def mk (m : Term Var) : TermAlpha Var := Quotient.mk (Term.alphaSetoid Var) m
 
 @[inherit_doc] scoped notation "⟦" m "⟧α" => TermAlpha.mk m
 
-theorem mk_eq_mk {m n : Term Var} : (⟦m⟧α : TermAlpha Var) = ⟦n⟧α ↔ m =α n :=
-  ⟨fun h => Quotient.exact h, fun h => Quotient.sound h⟩
+/-- Two raw terms have the same class iff they are α-equivalent. -/
+lemma mk_eq_mk {m n : Term Var} : (⟦m⟧α : TermAlpha Var) = ⟦n⟧α ↔ m =α n :=
+  Quotient.eq
 
 /-- Variables of `Λα`. -/
 def var (x : Var) : TermAlpha Var := ⟦Term.var x⟧α
 
-/-- Application in `Λα`, lifted from `Λvar`. -/
+/-- Application in `Λα`, lifted from raw terms. -/
 def app : TermAlpha Var → TermAlpha Var → TermAlpha Var :=
   Quotient.map₂ Term.app (fun _ _ h₁ _ _ h₂ => Term.AlphaEquiv.app h₁ h₂)
 
-/-- Abstraction in `Λα`, lifted from `Λvar`.  This operation is *not* injective. -/
+/-- Abstraction in `Λα`, lifted from raw terms. This operation is *not* injective. -/
 def abs (x : Var) : TermAlpha Var → TermAlpha Var :=
   Quotient.map (Term.abs x) (fun _ _ h => Term.AlphaEquiv.abs_congr h)
 
-/-- Capture-avoiding substitution on `Λα` (Table 1: for `λNα`, substitution has type
-`Λα × V × Λα → Λα`).  Well defined by `Term.subst.preserve_AlphaEquiv`. -/
+/-- Capture-avoiding substitution on `Λα`, well defined because substitution respects
+α-equivalence (`Term.subst.preserve_AlphaEquiv`). -/
 @[blueprint "def:nv-lambda-alpha-subst"
   (title := "Substitution on $\\Lambda_\\alpha$")
   (statement := /-- Substitution $M[v := N]$ on $\Lambda_\alpha$ is induced by capture-avoiding
@@ -116,21 +93,23 @@ def subst (M : TermAlpha Var) (x : Var) (N : TermAlpha Var) : TermAlpha Var :=
   Quotient.map₂ (fun m n => m[x := n])
     (fun _ _ h₁ _ _ h₂ => Term.subst.preserve_AlphaEquiv h₁ h₂) M N
 
-@[simp] theorem app_mk (m n : Term Var) : app ⟦m⟧α ⟦n⟧α = ⟦Term.app m n⟧α := rfl
+/-- Application on classes is application on representatives. -/
+lemma app_mk (m n : Term Var) : app ⟦m⟧α ⟦n⟧α = ⟦Term.app m n⟧α := rfl
 
-@[simp] theorem abs_mk (x : Var) (m : Term Var) : abs x ⟦m⟧α = ⟦Term.abs x m⟧α := rfl
+/-- Abstraction on classes is abstraction on representatives. -/
+lemma abs_mk (x : Var) (m : Term Var) : abs x ⟦m⟧α = ⟦Term.abs x m⟧α := rfl
 
-@[simp] theorem subst_mk (m n : Term Var) (x : Var) :
+/-- Substitution on classes is substitution on representatives. -/
+lemma subst_mk (m n : Term Var) (x : Var) :
     subst ⟦m⟧α x ⟦n⟧α = ⟦m[x := n]⟧α := rfl
 
 /-- Induction principle for `Λα`: every element is the class of a raw term. -/
-@[elab_as_elim] theorem ind {motive : TermAlpha Var → Prop} (h : ∀ m, motive ⟦m⟧α) (M) :
+@[elab_as_elim] lemma ind {motive : TermAlpha Var → Prop} (h : ∀ m, motive ⟦m⟧α) (M) :
     motive M := Quotient.ind h M
 
 end TermAlpha
 
-/-- β-reduction of `λNα` (paper, Table 1): defined directly on the α-quotiented type, with the
-contraction rule using the quotient-level substitution. -/
+/-- β-reduction on `Λα`, with the usual rules. -/
 @[blueprint "def:nv-beta-alpha"
   (title := "$\\beta$-reduction of $\\lambda^N_\\alpha$")
   (statement := /-- The relation $\to_\beta$ on $\Lambda_\alpha$ is the least relation satisfying
@@ -159,7 +138,7 @@ inductive BetaAlpha : TermAlpha Var → TermAlpha Var → Prop where
 
 @[inherit_doc] scoped infix:39 " →βα " => BetaAlpha
 
-/-- η-reduction of `λNα`, used in Section 4.4 of the paper. -/
+/-- η-reduction on `Λα`. -/
 @[blueprint "def:nv-eta-alpha"
   (title := "$\\eta$-reduction on $\\Lambda_\\alpha$")
   (statement := /-- The relation $\to_\eta$ on $\Lambda_\alpha$ is the least relation closed under
@@ -169,7 +148,7 @@ inductive BetaAlpha : TermAlpha Var → TermAlpha Var → Prop where
             {\mathsf{LAM}\,v\,(\mathsf{APP}\,M\,(\mathsf{VAR}\,v)) \to_\eta M} \]
     ([Norrish2007a], Section 4.4.) -/)]
 inductive EtaAlpha : TermAlpha Var → TermAlpha Var → Prop where
-  /-- Contraction of an η-redex `LAM x (APP M (VAR x))` with `x` not free in `M`. -/
+  /-- Contraction of an η-redex `λx. M x` with `x` not free in `M`. -/
   | red (x : Var) (m : Term Var) : x ∉ m.fv →
       EtaAlpha (TermAlpha.abs x (TermAlpha.app (TermAlpha.mk m) (TermAlpha.var x)))
         (TermAlpha.mk m)
