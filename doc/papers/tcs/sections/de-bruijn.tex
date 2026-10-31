@@ -1,8 +1,6 @@
 \section{An isomorphism with de Bruijn terms}
 \label{sec:de-bruijn}
 
-%% The commit of all Lean links is set in leanrev.tex. TODO: re-pin it once the code is upstream.
-
 De Bruijn indices remove the need for $\alpha$-equivalence altogether by
 replacing bound variable names with numerals counting binder depth.
 Norrish and Vestergaard~\cite{norrish2007a} give a direct,
@@ -511,9 +509,6 @@ $N_2 \tobetastar P$.
 If $M \tobetastar N_1$ and $M \tobetastar N_2$ and both $N_1$ and
 $N_2$ are $\beta$-normal, then $N_1 = N_2$.
 \end{corollary}
-
-%% TODO: the same file also derives BVC-style induction for the quotient from the
-%% de Bruijn side (TermAlpha.bvc_induction, Named/Untyped/AlphaQuotientProperties.lean#L45). Worth a statement?
 
 The same method applies to $\eta$-reduction: $f$ is also an
 isomorphism between $\eta$-reduction on $\LamA$ and Nipkow's
