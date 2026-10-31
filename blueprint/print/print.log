@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2025/dev/Debian) (preloaded format=xelatex 2026.6.26)  13 OCT 2026 21:04
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2025/dev/Debian) (preloaded format=xelatex 2026.6.26)  31 OCT 2026 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1086,15 +1086,17 @@ Languages/LambdaCalculus/LocallyNameless/Untyped/LeftmostReduction.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/Basic.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.tex)
+Languages/LambdaCalculus/Named/Untyped/RenameProperties.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivProperties.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/SwapProperties.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Swap.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/AlphaQuotient.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
@@ -1118,13 +1120,13 @@ Languages/LambdaCalculus/NamedDeBruijn/FromTerm.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/NamedDeBruijn/Isomorphism.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/NamedDeBruijn/Eta.tex)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Unscoped/Untyped/ParallelReduction.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Unscoped/Untyped/ChurchRosser.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/NamedDeBruijn/Transfer.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaQuotientProperties.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/NamedDeBruijn/Eta.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/Mech/Choreography/Basic.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
@@ -1178,8 +1180,8 @@ tex))
 Chapter 1.
 
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:agreement-s
-et.tex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.artifacts/def:pe
+rmutation-action.tex
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 10.00107pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
@@ -1194,175 +1196,182 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 6.
 )
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:disagreemen
-t-set.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.artifacts/def:sw
+ap.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:permutation
--action.tex)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:swap.tex)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p-fre
-sh.tex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.artifacts/def:al
+pha-p-fresh.tex
 Overfull \hbox (8.65927pt too wide) detected at line 14
 [] [] [] [] [] [][] [] [] [] [][] [][] [][] [][] []
  []
 
 )
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p1.te
-x)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.artifacts/def:al
+pha-p1.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p2.te
-x
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.artifacts/def:al
+pha-p2.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.artifacts/def:al
+pha-p3.tex
 
 [1
 
 ])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-p3.te
-x)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.artifacts/def:al
+pha-r.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-r.tex
-)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivDefs.artifacts/def:alpha-r-fre
-sh.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Defs.artifacts/def:al
+pha-r-fresh.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/Basic.artifacts/def:rename.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/Named/Untyped/Basic.artifacts/def:alpha-p.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:alpha-p-symm.te
-x)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivProperties.artifacts/lem:alpha
+-p-refl.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:6-1.tex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivProperties.artifacts/lem:alpha
+-p-symm.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivProperties.artifacts/lem:alpha
+-p-bcg.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivProperties.artifacts/lem:alpha
+-p-trans.tex
 
 [2])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:alpha-p-refl.te
-x)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:alpha-p-bcg.tex
-)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:alpha-p-trans.t
-ex)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/Properties.artifacts/lem:6-7.tex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivProperties.artifacts/lem:6-7.t
+ex
 Overfull \hbox (2.71982pt too wide) in paragraph at lines 2--8
-[]\TU/lmr/bx/n/10 Lemma 18 \TU/lmr/m/n/10 (Lemma 6.7: substitution preserves $[
+[]\TU/lmr/bx/n/10 Lemma 15 \TU/lmr/m/n/10 (Lemma 6.7: substitution preserves $[
 ]$-equivalence)\TU/lmr/bx/n/10 . [][][][][]  \TU/lmr/m/it/10 For any expression
 s $[][] [][][] [][] [][]$
  []
 
 )
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-1.tex
-)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Swap.artifacts/lem:6-
+2-1.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-1-swa
-p.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Swap.artifacts/lem:6-
+2-1-swap.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-2.tex
-
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Swap.artifacts/lem:6-
+1.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Swap.artifacts/lem:6-
+2-2.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Swap.artifacts/lem:6-
+2-2-swap.tex
 
 [3])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-2-2-swa
-p.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-3-rename.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3-renam
-e.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-3.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-4-rename.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-4-renam
-e.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-4.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-4.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-6.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-6.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-6-p.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-6-p.tex
-
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-3-p.tex
 
 [4])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-3-p.tex
-)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-5-subst-swap.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5-subst
--swap.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-5-swap-swap.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5-swap-
-swap.tex)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:swap-chai
-n.tex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/d
+ef:swap-chain.tex
 Overfull \hbox (33.39565pt too wide) in paragraph at lines 2--9
-[]\TU/lmr/bx/n/10 Definition 32 \TU/lmr/m/n/10 (Chain of transpositions)\TU/lmr
+[]\TU/lmr/bx/n/10 Definition 30 \TU/lmr/m/n/10 (Chain of transpositions)\TU/lmr
 /bx/n/10 . [][][][]  \TU/lmr/m/n/10 Given a finite list of triples of atoms $[]
 [][][] [][][] [][][][] [] [] [][][][] [][][] [][][]$
  []
 
 )
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:subst-swa
-p-chain.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/d
+ef:subst-swap-chain.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/def:chain-ato
-ms.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/d
+ef:chain-atoms.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5.tex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-5.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/SwapSubst.artifacts/l
+em:6-5-one.tex
 
 [5])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivLemmas.artifacts/lem:6-5-one.t
-ex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-1-hard.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-1-easy.t
-ex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-1-easy.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-1-hard.t
-ex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+thm:4-1.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-1.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-2-easy.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-easy.t
-ex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-2-wlog.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-wlog.t
-ex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-2-hard.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-2-hard.t
-ex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+thm:4-2.tex)
+(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+prop:4-3.tex
 
 [6])
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-2.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-4-r-to-p.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/prop:4-3.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-4-p-to-r.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-4-r-to-p
-.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+thm:4-4.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-4-p-to-r
-.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-5-rfresh-to-p.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-4.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+lem:4-5-p-to-rfresh.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-5-rfresh
--to-p.tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+thm:4-5.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/lem:4-5-p-to-r
-fresh.tex
+Languages/LambdaCalculus/Named/Untyped/AlphaEquivVariants/Equalities.artifacts/
+thm:4-6.tex
 
 [7])
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-5.tex)
-(/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/Named/Untyped/AlphaEquivEquiv.artifacts/thm:4-6.tex)
 
 [8]
 Chapter 2.
@@ -1419,7 +1428,7 @@ Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/thm:nv-10-sub.tex
 Languages/LambdaCalculus/NamedDeBruijn/DeBruijnPerm.artifacts/thm:nv-10-dlam.te
 x
 Overfull \hbox (0.84662pt too wide) in paragraph at lines 2--10
-[]\TU/lmr/bx/n/10 Lemma 70 \TU/lmr/m/n/10 (Theorem 10, second part: $[]$ has em
+[]\TU/lmr/bx/n/10 Lemma 68 \TU/lmr/m/n/10 (Theorem 10, second part: $[]$ has em
 pty support)\TU/lmr/bx/n/10 . [][][][][][][]  $[] [] [][] [] [][] [] [] [] [][]
  []
  []
@@ -1510,11 +1519,11 @@ Languages/LambdaCalculus/NamedDeBruijn/Eta.artifacts/thm:nv-eta-coincide.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
 Languages/LambdaCalculus/NamedDeBruijn/Eta.artifacts/thm:nv-eta-iso.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/NamedDeBruijn/Transfer.artifacts/cor:nv-church-rosser.
-tex)
+Languages/LambdaCalculus/Named/Untyped/AlphaQuotientProperties.artifacts/cor:nv
+-church-rosser.tex)
 (/home/chr95877/src/untyped-lambda-calculus/.lake/build/blueprint/module/Cslib/
-Languages/LambdaCalculus/NamedDeBruijn/Transfer.artifacts/cor:nv-normal-form-un
-ique.tex))
+Languages/LambdaCalculus/Named/Untyped/AlphaQuotientProperties.artifacts/cor:nv
+-normal-form-unique.tex))
 
 [15] (/home/chr95877/src/untyped-lambda-calculus/blueprint/print/print.aux)
  ***********
@@ -1525,13 +1534,13 @@ Package rerunfilecheck Info: File `print.out' has not changed.
 (rerunfilecheck)             Checksum: 7B14C29E71B14642FE2EB5EFDD1504A8;2573.
  ) 
 Here is how much of TeX's memory you used:
- 21207 strings out of 475852
- 646632 string characters out of 5775423
- 936182 words of memory out of 5000000
- 42862 multiletter control sequences out of 15000+600000
+ 21194 strings out of 475852
+ 649616 string characters out of 5775423
+ 935182 words of memory out of 5000000
+ 42850 multiletter control sequences out of 15000+600000
  564256 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,10n,107p,471b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,10n,107p,491b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on /home/chr95877/src/untyped-lambda-calculus/blueprint/print/pr
 int.pdf (16 pages).
