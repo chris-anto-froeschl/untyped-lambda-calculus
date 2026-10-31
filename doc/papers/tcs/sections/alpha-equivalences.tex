@@ -15,7 +15,7 @@ side condition on the atom $z$ that replaces the two bound atoms.
 \begin{definition}[{\cite[Definitions~3.1--3.3]{crole2012a}}]
 \label{def:simp}
 The relation $\simp$
-\lean{\CroleSrc/Named/Untyped/Basic.lean\#L82}
+\lean{\CroleSrc/Named/Untyped/Basic.lean\#L103}
 on $\Lam$ is inductively defined by
 \begin{gather*}
   \infrule{atom}{}{a \simp a}
@@ -28,9 +28,9 @@ on $\Lam$ is inductively defined by
   \; [z \nocc a, b, M, M'].
 \end{gather*}
 The relations $\simpf$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L92}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L120}
 and $\simpi{1}$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L110}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L146}
 are defined by the same rules, with the side condition of \textsc{pi}
 replaced by
 \[
@@ -54,7 +54,7 @@ definition.
 \begin{definition}[{\cite[Definitions~3.4 and~3.5]{crole2012a}}]
 \label{def:simr}
 The relation $\simr$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L153}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L220}
 on $\Lam$ is inductively defined by
 \begin{gather*}
   \infrule{ref}{}{M \simr M}
@@ -72,7 +72,7 @@ on $\Lam$ is inductively defined by
   \; [a' \nocc a, M].
 \end{gather*}
 The relation $\simrf$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L173}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L249}
 is defined by the same rules, with the side condition of $\alpha$
 replaced by $[a' \fresh a, M]$. The resulting rule is called $\alpha\#$.
 \end{definition}
@@ -112,13 +112,13 @@ For all terms $M, N \in \Lam$ the following are equivalent:
 \begin{enumerate}
   \item[(i)] $M \simp N$,
   \item[(ii)] $M \simpf N$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L99},
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L122},
   \item[(iii)] $M \simpi{1} N$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L140},
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L189},
   \item[(iv)] $M \simr N$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L212},
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L301},
   \item[(v)] $M \simrf N$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L251}.
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L363}.
 \end{enumerate}
 \end{theorem}
 
@@ -127,11 +127,11 @@ condition of \textsc{pi} cannot be weakened much further.
 
 \begin{proposition}[{\cite[Proposition~4.3]{crole2012a}}]
 \label{prop:variants}
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L146}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Equalities.lean\#L212}
 Let $\simpi{2}$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L127}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L171}
 and $\simpi{3}$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L139}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Defs.lean\#L191}
 be defined as $\simp$, with the side condition of \textsc{pi} replaced
 by $[z \nocc a, b]$ and by no condition, respectively. Then
 ${\simpi{2}} \neq {\simp}$ and ${\simpi{3}} \neq {\simp}$.
@@ -155,14 +155,14 @@ they are not related by $\simp$
 
 Since $\simp$ has no rules for reflexivity, symmetry and
 transitivity, these have to be proved. CSLib already provides
-them~\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L70}%
-\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L82}%
-\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L140},
+them~\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L75}%
+\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L92}%
+\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L162},
 together with two facts used below: related terms have the same free
 atoms~\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L56}, and
 substitution respects $\simp$: if $M \simp M'$ and $N \simp N'$ then
 $\subst{M}{a}{N} \simp \subst{M'}{a}{N'}$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L378}.
+\lean{\CroleSrc/Named/Untyped/AlphaEquivProperties.lean\#L409}.
 Beyond these, the proof of
 Theorem~\ref{thm:crole-equivalence} rests on three facts: $\simp$ is
 preserved by swapping, a permutation acts up to $\simp$ only through
@@ -171,7 +171,7 @@ $\alpha$-equivalence, the same as substitution.
 
 \begin{lemma}[{\cite[Lemma~6.1]{crole2012a}}]
 \label{lem:swap-preserve}
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L285}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L310}
 If $M \simp M'$ then $\sw{u}{v} \act M \simp \sw{u}{v} \act M'$, for
 all atoms $u, v$.
 \end{lemma}
@@ -194,19 +194,19 @@ Lemma~\ref{lem:swap-preserve}, by the values of $a$, $b$, $z$ ($o$:
 neither $u$ nor $v$). Entries 1--4 are the cases Crole works
 out~\cite[pp.~14--15]{crole2012a}, each with the new witness for
 \textsc{pi}: 1 is $(o, o, o)$ with witness $z$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L215},
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L234},
 2 is $(o, o, u)$ with witness $v$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L227},
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L246},
 3 is $(o, u, v)$ with witness $u$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L245},
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L264},
 and 4 is $(u, u, v)$ with witness $u$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L261}.
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L280}.
 A superscript $\sigma$
 means that the case follows by exchanging $u$ and $v$, and $\tau$ by
 exchanging the two sides of $\simp$ (symmetry). The symbol $\times$
 marks the cases excluded by $z \neq a, b$. The assignment is the one
 of the Lean proof
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L297}.}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L322}.}
 \label{tab:lemma61}
 \small
 \begin{tabular}{@{}c@{\quad}ccc@{\quad}ccc@{\quad}ccc@{}}
@@ -231,10 +231,10 @@ $a = o$ & $\times$ & $3^{\sigma}$ & 2
 \label{lem:agreement}
 Let $\pi, \pi'$ be permutations of $\Atoms$ and $M$ a term.
 \begin{enumerate}
-  \item \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L91}
+  \item \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L102}
     If $\occ(M) \subseteq \AS(\pi, \pi')$ then
     $\pi \act M = \pi' \act M$.
-  \item \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L379}
+  \item \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/Swap.lean\#L410}
     If $\free(M) \subseteq \AS(\pi, \pi')$ then
     $\pi \act M \simp \pi' \act M$.
 \end{enumerate}
@@ -265,10 +265,10 @@ swapping and substitution~\cite[p.~5]{crole2012a}.
 \label{lem:swap-subst}
 If $z \nocc M$ then
 $\sw{z}{a} \act M \simr \subst{M}{a}{z}$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L60}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L74}
 and
 $\sw{z}{a} \act M \simrf \subst{M}{a}{z}$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L85}.
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L112}.
 \end{lemma}
 
 \begin{example}
@@ -290,7 +290,7 @@ only the case $n = 1$ of Crole's lemma.
 
 \begin{lemma}[{\cite[Lemma~6.5]{crole2012a}, case $n = 1$}]
 \label{lem:swap-chain}
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L246}
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L342}
 Let $z, a, a'$ be distinct atoms and $M$ a term with $z \fresh M$ and
 $a' \fresh M$. Then
 $\sw{z}{a} \act M \simp \sw{z}{a'} \act \subst{M}{a}{a'}$.
@@ -299,16 +299,16 @@ $\sw{z}{a} \act M \simp \sw{z}{a'} \act \subst{M}{a}{a'}$.
 \begin{proof}[Proof idea]
 Crole omits the proof. First
 $\subst{M}{a}{a'} \simp \sw{a}{a'} \act M$
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L154}:
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L213}:
 rename the bound
 occurrences of $a'$ away~\cite[Lemma~6.6]{crole2012a}, use that
 substitution respects $\simp$, and apply the $\simp$-form of
 Lemma~\ref{lem:swap-subst}
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L135}.
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L186}.
 Then $\sw{z}{a}$ and
 $\sw{z}{a'} \circ \sw{a}{a'}$ agree on $\free(M)$, and
 Lemma~\ref{lem:agreement} applies
-\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L168}.
+\lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L235}.
 \end{proof}
 
 The formalization also proves Crole's general form, for $n$ swaps
@@ -373,12 +373,12 @@ proofs discussed above:
     renamed away by Crole's Lemma~6.6: if $a \fresh M$ then
     there is a term $\hat{M}$ with $a \nocc \hat{M}$ and
     $\hat{M} \simr M$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L92}.
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L128}.
     Crole regards this lemma as a form of Barendregt's variable
     convention~\cite[Convention~2.1.13]{barendregt1985a}, \cite[p.~8]{crole2012a}.
   \item \emph{Lemma~6.6 for $\simp$.} Crole states Lemma~6.6 for
     $\simr$ only. Lemma~\ref{lem:swap-chain} needs it for $\simp$
-    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L116}.
+    \lean{\CroleSrc/Named/Untyped/AlphaEquivVariants/SwapSubst.lean\#L160}.
     This form cannot be derived from
     Theorem~\ref{thm:crole-equivalence}, because that theorem's proof
     uses Lemma~\ref{lem:swap-chain}. The proof follows Crole's
