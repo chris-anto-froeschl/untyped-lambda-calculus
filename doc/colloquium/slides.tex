@@ -1,0 +1,324 @@
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+%% Black and white: the default theme colours structure blue.
+\setbeamercolor{structure}{fg=black}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+%% The one accent colour: marks what is formalized in CSLib.
+\definecolor{cslib}{RGB}{0,63,135}
+
+%% Crole's notation (Crole 2012, Sections 2 and 3).
+\newcommand{\vars}{\mathrm{vars}}
+\newcommand{\fv}{\mathrm{fv}}
+\newcommand{\occ}{\mathit{occ}}
+\newcommand{\free}{\mathit{free}}
+\newcommand{\occin}{\mathrel{\triangleleft}}
+\newcommand{\nocc}{\mathrel{\ntriangleleft}}
+\newcommand{\freein}{\mathrel{\triangleleft_{\mathrm{fr}}}}
+\newcommand{\fresh}{\mathrel{\#}}
+\newcommand{\sw}[2]{(#1\;#2)}
+\newcommand{\act}{\cdot}
+\newcommand{\Pp}{\mathsf{P}}
+\newcommand{\Bb}{\mathsf{B}}
+\newcommand{\abst}[2]{\Bb([#1]#2)}
+\newcommand{\sub}[3]{#1\{#2/#3\}}
+\newcommand{\simp}{\sim_{p}}
+\newcommand{\simpf}{\sim_{p\#}}
+\newcommand{\simpi}{\sim^{1}_{p}}
+\newcommand{\simr}{\sim_{r}}
+\newcommand{\simrf}{\sim_{r\#}}
+%% Rule names in small capitals, as in Crole (the sans font has none, so upper case).
+\newcommand{\rn}[1]{\text{\scriptsize\MakeUppercase{#1}}}
+\newcommand{\infrule}[3]{\dfrac{#2}{#3}\;\rn{#1}}
+
+\title{Alpha Equivalence for Named and Nameless Lambda Terms}
+\subtitle{A formalization in Lean}
+\author{Chris Anto Fr\"oschl}
+\institute{Munich University of Applied Sciences}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Same thing, different names}
+  \centering
+  \IfFileExists{star.png}%
+    {\includegraphics[width=0.8\textwidth,height=0.75\textheight,keepaspectratio]{star.png}}%
+    {\fbox{\parbox[c][0.45\textheight][c]{0.5\textwidth}{\centering picture}}}
+
+  \bigskip
+  \begin{tabular}{@{}r@{\quad}c@{\quad}c@{\quad}c@{\quad}l@{}}
+    Morning star & $\mapsto$ & Venus & \reflectbox{$\mapsto$} & Evening star \\[1ex]
+    $\lambda a.\, a\, b$ & $\mapsto$ & $[\lambda a.\, a\, b]_\alpha$ & \reflectbox{$\mapsto$}
+      & $\lambda c.\, c\, b$
+  \end{tabular}
+
+  \bigskip
+  {\footnotesize Frege, \emph{\"Uber Sinn und Bedeutung} (1892)\par}
+\end{frame}
+
+\begin{frame}{Why binders?}
+  \begin{itemize}
+    \item Standard canon:
+      \begin{itemize}
+        \item Church, \emph{The Calculi of Lambda-Conversion} (1941)
+        \item Curry and Feys, \emph{Combinatory Logic} (1958)
+        \item de Bruijn, \emph{Lambda calculus notation with nameless dummies} (1972)
+        \item Barendregt, \emph{The Lambda Calculus} (1984)
+        \item Pierce, \emph{Types and Programming Languages} (2002)
+        \item the POPLmark challenge (2005)
+        \item \dots
+      \end{itemize}
+    \item Proof assistants have to pick a representation for terms:
+      \begin{itemize}
+        \item de Bruijn indices: Rocq, Agda
+        \item locally nameless: Isabelle, Lean
+        \item named: HOL Light
+        \item nominal techniques: Nominal Isabelle
+      \end{itemize}
+    \item Compilers: global names and linking.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Binders in practice: CompCert linking}
+\begin{Verbatim}[fontsize=\scriptsize]
+From: Xavier Leroy <xavier.leroy@college-de-france.fr>
+To: compcert-users@inria.fr
+Subject: Re: [compcert-users] Pass-introduced runtime helpers and
+         separate compilation (TransfLink)
+Date:  Wed, 21 Oct 2026 18:54:20 +0200
+\end{Verbatim}
+  \vspace{-1ex}\rule{\textwidth}{0.4pt}
+\begin{Verbatim}[fontsize=\scriptsize]
+> So a shared name must be public in both units. The code-comment above
+> it says that same-name statics would need a renaming of globals that
+> CompCert does not have.
+
+Indeed.  That's perhaps the greatest limitation of CompCert's model of
+linking.  However, renaming static globals requires a whole lot of code
+(to perform the renaming uniformly in abstract syntax trees) and of
+proofs (to show invariance of operational semantics w.r.t. renamings).
+So much code and so much proof that a completely different approach,
+based on nominal logics for example, might be warranted...
+\end{Verbatim}
+\end{frame}
+
+\begin{frame}{The two papers}
+  \textbf{Crole (2012)}, \emph{Alpha equivalence equalities}
+  \[ {\simp} = {\simpf} = {\simpi} = {\simr} = {\simrf} \]
+  Five definitions of $\alpha$ from the literature are the same relation.
+
+  \vspace{2em}
+  \textbf{Norrish and Vestergaard (2007)}, \emph{de Bruijn terms really do work}
+  \[ \langle \Lambda_\alpha, \to_\beta \rangle \;\cong\; \langle \mathrm{dB}, \to_{\mathrm{d}} \rangle \]
+  Named terms up to $\alpha$ and de Bruijn terms are isomorphic reduction systems.
+
+  \vspace{2em}
+  {\small $\Lambda_\alpha$ may quotient by any of the 5; CSLib uses $\simp$.\par}
+\end{frame}
+
+\begin{frame}{Plan}
+  \centering
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    Section in the Lean file & Topic \\
+    \midrule
+    \texttt{S1\_NamedTerms} & terms, rename, swap, subst \\
+    \texttt{S2\_Crole} & 5 relations, 1 theorem \\
+    \texttt{S3\_Isomorphism} & $\Lambda_\alpha \cong \mathrm{dB}$ in use, Church--Rosser \\
+    \midrule
+    \multicolumn{2}{@{}l}{\emph{if time permits: how it was proved}} \\
+    \texttt{S4\_Route} & via $\mathrm{dB}'$ \\
+    \texttt{S5\_Permutations} & lifting is a permutation \\
+    \texttt{S5a\_Nominal} & what nominal sets were good for \\
+    \midrule
+    \texttt{B1}--\texttt{B3} & backup: departures from the papers \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Permutation-based $\alpha$ (Crole 2012, Defs.~3.1--3.3)}
+  \[
+    \infrule{atom}{}{a \sim a}
+    \qquad
+    \infrule{pcg}{M_1 \sim M_1' \quad M_2 \sim M_2'}{M_1\, M_2 \sim M_1'\, M_2'}
+  \]
+  \[
+    \infrule{pi}{\sw{z}{a} \act M \sim \sw{z}{b} \act M'}{\lambda a.\, M \sim \lambda b.\, M'}
+  \]
+  \bigskip
+  \centering
+  \small
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    Relation & rule & side condition & Lean \\
+    \midrule
+    $\simp$ & $\rn{pi}$ & $z \notin \{a, b\} \cup \vars(M) \cup \vars(M')$
+      & \texttt{AlphaEquiv}, \texttt{=$\alpha$} \\
+    $\simpf$ & $\rn{pi}_\#$ & $z \notin \{a, b\} \cup \fv(M) \cup \fv(M')$
+      & \texttt{AlphaEquivPFresh} \\
+    $\simpi$ & $\rn{pi}_1$ & $z \notin \vars(M) \cup \vars(M')$ & \texttt{AlphaEquivP1} \\
+    \bottomrule
+  \end{tabular}
+
+  \bigskip
+  {\footnotesize $\vars$: all atoms, binders included. \ $\fv$: free atoms.
+  \ $\sw{z}{a} \act M$: swap $z$ and $a$ everywhere.\par}
+\end{frame}
+
+\begin{frame}{Renaming-based $\alpha$ (Crole 2012, Defs.~3.4, 3.5)}
+  \[
+    \infrule{ref}{}{M \sim M}
+    \qquad
+    \infrule{sym}{M_1 \sim M_2}{M_2 \sim M_1}
+    \qquad
+    \infrule{trs}{M_1 \sim M_2 \quad M_2 \sim M_3}{M_1 \sim M_3}
+  \]
+  \[
+    \infrule{pcg}{M_1 \sim M_1' \quad M_2 \sim M_2'}{M_1\, M_2 \sim M_1'\, M_2'}
+    \qquad
+    \infrule{bcg}{M \sim M'}{\lambda a.\, M \sim \lambda a.\, M'}
+  \]
+  \[
+    \dfrac{}{\lambda a.\, M \sim \lambda a'.\, M[a := a']}\;\alpha
+  \]
+  \bigskip
+  \centering
+  \small
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    Relation & rule & side condition & Lean \\
+    \midrule
+    $\simr$ & $\alpha$ & $a' \notin \{a\} \cup \vars(M)$ & \texttt{AlphaEquivR} \\
+    $\simrf$ & $\alpha_\#$ & $a' \notin \{a\} \cup \fv(M)$ & \texttt{AlphaEquivRFresh} \\
+    \bottomrule
+  \end{tabular}
+
+  \bigskip
+  {\footnotesize $M[a := a']$: capture-avoiding substitution.\par}
+\end{frame}
+
+\begin{frame}{The network (Norrish and Vestergaard 2007, Fig.~1)}
+  \centering
+  \begin{tikzpicture}[
+      x=1.55cm, y=1.45cm,
+      sys/.style={draw, thick, circle, inner sep=1pt, minimum size=8mm},
+      iso/.style={semithick, double, double distance=1.5pt, draw=black!50,
+        shorten <=1pt, shorten >=1pt},
+      new/.style={double, double distance=1.5pt, thick, dashed, draw=cslib,
+        shorten <=1pt, shorten >=1pt},
+      cs/.style={draw=cslib, text=cslib, very thick},
+      quo/.style={semithick, draw=black!50, {Bar[width=5pt]}-{Straight Barb[length=3pt]},
+        shorten <=1pt, shorten >=1pt},
+      lab/.style={font=\small, inner sep=2pt},
+      row/.style={font=\footnotesize, align=right, anchor=east}]
+    \node[row] at (-0.5, 2) {Nameless\\ (indices)};
+    \node[row] at (-0.5, 0) {Named,\\ up to $\alpha$};
+    \node[row] at (-0.5,-1.1) {Named,\\ raw};
+
+    \node[sys] (dB2) at (0, 2) {$\mathrm{dB}_2$};
+    \node[sys, cs] (dB)  at (1.15, 2) {$\mathrm{dB}$};
+    \node[sys, cs, ellipse, minimum size=0pt, minimum width=10mm, minimum height=6mm]
+              (dBp) at (1.15, 1) {$\mathrm{dB}'$};
+    \node[sys] (lG)  at (0, 0) {$\lambda^{G}_{\alpha}$};
+    \node[sys, cs] (lN)  at (1.15, 0) {$\lambda^{N}_{\alpha}$};
+    \node[sys] (lVa) at (2.25, 0) {$\lambda^{V}_{\alpha}$};
+    \node[sys] (lHi) at (3.3, 0) {$\lambda^{Hi}_{\alpha}$};
+    \node[sys] (lHo) at (4.4, 0) {$\lambda^{Ho}_{\alpha}$};
+    \node[sys] (lV)  at (1.15,-1.1) {$\lambda^{V}$};
+    \node[sys] (lC)  at (3.3,-1.1) {$\lambda^{C}$};
+
+    \draw[iso] (dB2) -- (lG);
+    \draw[iso] (lG) -- (lN);
+    \draw[iso] (lV) -- (lC);
+    \draw[new] (dB) -- (dBp);
+    \draw[new] (dBp) -- (lN);
+
+    \draw[quo] (lV) -- node[lab, below left] {$\alpha$} (lG);
+    \draw[quo] (lV) -- node[lab, left] {$\alpha$} (lN);
+    \draw[quo] (lV) -- node[lab, below right] {$\alpha$} (lVa);
+    \draw[quo] (lV) to[bend right=38] node[lab, right, pos=0.55] {$\alpha$} (dB);
+    \draw[quo] (lC) -- node[lab, right] {$\alpha$} (lHi);
+    \draw[quo] (lC) -- node[lab, below right] {$\alpha$} (lHo);
+  \end{tikzpicture}
+
+  \bigskip
+  {\footnotesize Double lines: isomorphisms. Arrows: $\alpha$-quotients. Dashed: the paper's
+  results. \textcolor{cslib}{Blue}: in CSLib.\par}
+\end{frame}
+
+\begin{frame}{$\beta$-reduction on named terms up to $\alpha$}
+  $\Lambda_\alpha = \Lambda/{=_\alpha}$, with the operations lifted from representatives:
+  \[
+    [M]_\alpha\, [N]_\alpha = [M\, N]_\alpha
+    \qquad
+    \lambda a.\, [M]_\alpha = [\lambda a.\, M]_\alpha
+  \]
+  \[
+    [M]_\alpha[a := [N]_\alpha] = [M[a := N]]_\alpha
+  \]
+  \medskip
+  \[
+    \dfrac{}{(\lambda a.\, M)\, N \to_\beta M[a := N]}
+    \qquad
+    \dfrac{M \to_\beta N}{\lambda a.\, M \to_\beta \lambda a.\, N}
+  \]
+  \[
+    \dfrac{M \to_\beta N}{M\, Z \to_\beta N\, Z}
+    \qquad
+    \dfrac{M \to_\beta N}{Z\, M \to_\beta Z\, N}
+  \]
+
+  \bigskip
+  Lean: \texttt{BetaAlpha}, notation $\to_{\beta\alpha}$.
+\end{frame}
+
+\begin{frame}{$\beta$-reduction on de Bruijn terms (Nipkow)}
+  De Bruijn terms \ $t ::= i \mid t\, t \mid \lambda.\, t$
+  \[
+    \dfrac{}{(\lambda.\, t)\, u \to_{\mathrm{d}} \mathsf{nsub}\, u\, 0\, t}
+    \quad
+    \dfrac{t \to_{\mathrm{d}} u}{\lambda.\, t \to_{\mathrm{d}} \lambda.\, u}
+    \quad
+    \dfrac{t \to_{\mathrm{d}} u}{t\, s \to_{\mathrm{d}} u\, s}
+    \quad
+    \dfrac{t \to_{\mathrm{d}} u}{s\, t \to_{\mathrm{d}} s\, u}
+  \]
+  {\footnotesize $\mathsf{nsub}\, u\, k\, t$: replace index $k$ by $u$, decrement the
+  free indices above $k$.\par}
+
+  \bigskip
+  Lean: \texttt{Beta}, notation $\to_\beta$.
+\end{frame}
+
+\begin{frame}{The route (Norrish and Vestergaard 2007)}
+  \centering
+  \begin{tikzpicture}[
+      sys/.style={draw, rounded corners, inner sep=5pt, minimum width=2.3cm},
+      lab/.style={font=\footnotesize, align=center},
+      >={Straight Barb[length=4pt]}]
+    \node[sys] (la) {$\langle \Lambda_\alpha, \to_\beta \rangle$};
+    \node[sys, right=1.3cm of la] (dbp) {$\langle \mathrm{dB}, \to_{\mathrm{d}'} \rangle$};
+    \node[sys, right=1.3cm of dbp] (db) {$\langle \mathrm{dB}, \to_{\mathrm{d}} \rangle$};
+    \draw[->, thick] (la) -- node[above] {$f$} (dbp);
+    \draw[double, thick, double distance=2pt] (dbp) -- node[above] {$=$} (db);
+    \node[lab, above=0.5cm of la.north east, xshift=0.65cm] {Thms.~11, 12};
+    \node[lab, above=0.5cm of dbp.north east, xshift=0.65cm] {Thm.~19};
+    \node[lab, below=0.2cm of la] {named,\\ up to $\alpha$};
+    \node[lab, below=0.2cm of dbp] {de Bruijn terms,\\ named-style rules};
+    \node[lab, below=0.2cm of db] {de Bruijn terms,\\ Nipkow's rules};
+  \end{tikzpicture}
+
+  \bigskip
+  Theorem 20: \ $M \to_\beta N \iff f(M) \to_{\mathrm{d}} f(N)$
+\end{frame}
+
+\end{document}
